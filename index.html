@@ -1,1279 +1,302 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GETH — AI-Powered OS for OTC Commodity Trade | Pre-seed</title>
-    <meta name="description" content="GETH digitises $4.6T OTC commodity trade with AI, blockchain, and IoT. Idea stage. UAE-based. Seeking pre-seed.">
-    <meta name="keywords" content="commodity trading, blockchain, AI, UAE, VARA, pre-seed, OTC, energy">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 15 L85 35 L85 75 L50 95 L15 75 L15 35 Z' stroke='%2300C4B4' stroke-width='8' fill='none'/><circle cx='50' cy='40' r='6' fill='%2300C4B4'/><circle cx='32' cy='50' r='6' fill='%2300C4B4'/><circle cx='68' cy='50' r='6' fill='%2300C4B4'/><circle cx='32' cy='70' r='6' fill='%2300C4B4'/><circle cx='68' cy='70' r='6' fill='%2300C4B4'/><line x1='50' y1='40' x2='32' y2='50' stroke='%2300C4B4' stroke-width='4'/><line x1='50' y1='40' x2='68' y2='50' stroke='%2300C4B4' stroke-width='4'/><line x1='50' y1='40' x2='50' y2='60' stroke='%2300C4B4' stroke-width='4'/><line x1='32' y1='50' x2='32' y2='70' stroke='%2300C4B4' stroke-width='4'/><line x1='68' y1='50' x2='68' y2='70' stroke='%2300C4B4' stroke-width='4'/><path d='M50 65 L58 88 L50 95 L42 88 Z' fill='%2300C4B4'/><path d='M50 73 L53 82 L50 88 L47 82 Z' fill='white'/></svg>">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>RawTrade AI — платформа для OTC-торговли сырьём с ИИ</title>
+    <meta name="description" content="RawTrade AI решает проблемы внебиржевой торговли сырьём: автоматизация, проверка сертификатов, быстрое разрешение споров. Инвестиции от 1 млн $.">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        :root {
-            --black: #000000;
-            --white: #FFFFFF;
-            --teal: #00C4B4;
-            --teal-light: #00D4C4;
-            --gray-light: #F5F5F5;
-            --gray-dark: #1a1a1a;
-            --gray-text: #666666;
-        }
-        
+
         body {
-            font-family: 'Inter', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--black);
-            overflow-x: hidden;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            background: #f9fafb;
+            color: #111827;
+            scroll-behavior: smooth;
         }
-        
-        /* Navigation - ENHANCED SPACING */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1.5rem 5%;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-        }
-        
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-weight: 700;
-            font-size: 1.6rem;
-            color: var(--black);
-            text-decoration: none;
-        }
-        
-        .logo svg {
-            width: 50px;
-            height: 50px;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            color: var(--black);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            font-size: 1rem;
-        }
-        
-        .nav-links a:hover {
-            color: var(--teal);
-        }
-        
-        .btn {
-            padding: 0.875rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-            border: 2px solid transparent;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        
-        .btn-primary {
-            background: var(--teal);
-            color: var(--white);
-        }
-        
-        .btn-primary:hover {
-            background: var(--teal-light);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 196, 180, 0.3);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--teal);
-            border: 2px solid var(--teal);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--teal);
-            color: var(--white);
-        }
-        
-        /* Hero Section - MORE SPACING */
-        .hero {
-            margin-top: 100px;
-            padding: 8rem 5%;
-            background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300C4B4' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(0, 196, 180, 0.15);
-            border: 2px solid var(--teal);
-            color: var(--teal);
-            padding: 0.75rem 1.5rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2.5rem;
-        }
-        
-        .hero h1 {
-            font-size: 3.75rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.15;
-            animation: fadeInUp 0.8s ease;
-        }
-        
-        .hero-subtitle {
-            font-size: 2rem;
-            color: var(--teal);
-            margin-bottom: 2rem;
-            font-weight: 500;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
-        }
-        
-        .hero-description {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.95;
-            line-height: 1.8;
-            max-width: 900px;
-            animation: fadeInUp 0.8s ease 0.4s backwards;
-        }
-        
-        .hero-tagline {
-            font-size: 1.1rem;
-            opacity: 0.85;
-            margin-bottom: 3rem;
-            font-style: italic;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.6s backwards;
-        }
-        
-        /* About Section - FULL WIDTH */
-        .about {
-            padding: 7rem 5%;
-            background: var(--white);
-        }
-        
-        .about-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .about-content h2 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            color: var(--black);
-            text-align: center;
-        }
-        
-        .about-content > p {
-            font-size: 1.25rem;
-            line-height: 1.9;
-            margin-bottom: 2rem;
-            color: var(--gray-text);
-            text-align: center;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            background: var(--gray-light);
-            border-radius: 12px;
-            border-left: 5px solid var(--teal);
-            transition: transform 0.3s;
-        }
-        
-        .stat-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--teal);
-            display: block;
-            margin-bottom: 0.75rem;
-        }
-        
-        .stat-label {
-            font-size: 1rem;
-            color: var(--gray-text);
-            line-height: 1.4;
-        }
-        
-        /* Section Styles */
-        section {
-            padding: 6rem 5%;
-        }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 24px;
         }
-        
-        .section-title {
-            font-size: 2.75rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-            position: relative;
+
+        /* Header & Nav */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
-        
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray-text);
-            margin-bottom: 4rem;
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--teal);
-            margin: 1.5rem auto 0;
-            border-radius: 2px;
-        }
-        
-        /* Problem Section */
-        .problem {
-            background: var(--gray-light);
-        }
-        
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-        
-        .problem-card {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: var(--white);
-            border-radius: 12px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-        }
-        
-        .problem-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
-        }
-        
-        .problem-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.25rem;
-        }
-        
-        .problem-card h3 {
-            color: var(--teal);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        /* Solution Section */
-        .solution {
-            background: var(--white);
-        }
-        
-        .solution-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-        
-        .solution-card {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 12px;
-            border: 2px solid var(--gray-light);
-            border-top: 5px solid var(--teal);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-        
-        .solution-card:hover {
-            transform: translateY(-8px);
-        }
-        
-        .solution-card h3 {
-            font-size: 1.9rem;
-            margin-bottom: 1.25rem;
-            color: var(--black);
-        }
-        
-        .solution-card .status {
-            display: inline-block;
-            background: var(--teal);
-            color: var(--white);
-            padding: 0.4rem 1.25rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-        
-        .solution-card ul {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-        
-        .solution-card li {
-            padding: 0.85rem 0;
-            padding-left: 2rem;
-            position: relative;
-            border-bottom: 1px solid var(--gray-light);
-        }
-        
-        .solution-card li:last-child {
-            border-bottom: none;
-        }
-        
-        .solution-card li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--teal);
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
-        
-        /* Use Case Section */
-        .use-case {
-            background: var(--gray-light);
-        }
-        
-        .deal-overview {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 12px;
-            margin-bottom: 4rem;
-            border-left: 5px solid var(--teal);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-        }
-        
-        .deal-meta {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .deal-meta-item {
-            padding: 1.5rem;
-            background: var(--gray-light);
-            border-radius: 8px;
-        }
-        
-        .deal-meta-label {
-            font-size: 0.9rem;
-            color: var(--gray-text);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .deal-meta-value {
-            font-weight: 700;
-            color: var(--teal);
-            font-size: 1.2rem;
-        }
-        
-        .participants {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .participant-card {
-            background: var(--gray-light);
-            padding: 2rem;
-            border-radius: 8px;
-            border-top: 4px solid var(--teal);
-        }
-        
-        .participant-role {
-            font-weight: 700;
-            color: var(--teal);
-            margin-bottom: 0.75rem;
-            font-size: 1.2rem;
-        }
-        
-        .use-case-timeline {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-        
-        .use-case-step {
-            background: var(--white);
-            padding: 3rem 2.5rem;
-            border-radius: 12px;
-            position: relative;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-        
-        .use-case-step:hover {
-            transform: translateY(-8px);
-        }
-        
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--teal);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1.75rem;
-        }
-        
-        .use-case-step h3 {
-            margin-bottom: 1.25rem;
-            color: var(--black);
-            font-size: 1.4rem;
-        }
-        
-        .step-benefit {
-            margin-top: 1.5rem;
-            padding-top: 1.25rem;
-            border-top: 2px solid var(--gray-light);
-            font-size: 0.95rem;
-            color: var(--teal);
-            font-weight: 600;
-        }
-        
-        /* Tokens Section */
-        .tokens {
-            background: var(--black);
-            color: var(--white);
-        }
-        
-        .tokens .section-title {
-            color: var(--white);
-        }
-        
-        .tokens-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-        
-        .token-card {
-            background: var(--gray-dark);
-            padding: 3rem;
-            border-radius: 12px;
-            border: 3px solid var(--teal);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .token-card:hover {
-            transform: translateY(-8px);
-        }
-        
-        .token-card h3 {
-            font-size: 2.5rem;
-            color: var(--teal);
-            margin-bottom: 0.75rem;
-        }
-        
-        /* UAE Section */
-        .uae {
-            background: var(--white);
-        }
-        
-        .uae-list {
-            max-width: 1000px;
-            margin: 4rem auto 0;
-        }
-        
-        .uae-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 2rem;
-            padding: 2.5rem;
-            background: var(--gray-light);
-            margin-bottom: 1.5rem;
-            border-radius: 12px;
-            border-left: 5px solid var(--teal);
-            transition: transform 0.3s;
-        }
-        
-        .uae-item:hover {
-            transform: translateX(8px);
-        }
-        
-        /* Team Section */
-        .team {
-            background: var(--gray-light);
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 3.5rem;
-            margin-top: 4rem;
-        }
-        
-        .team-card {
-            background: var(--white);
-            text-align: center;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-        
-        .team-card:hover {
-            transform: translateY(-8px);
-        }
-        
-        /* Roadmap Section */
-        .roadmap {
-            background: var(--black);
-            color: var(--white);
-        }
-        
-        .roadmap .section-title {
-            color: var(--white);
-        }
-        
-        .roadmap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem;
-            margin: 4rem 0;
-        }
-        
-        .roadmap-item {
-            background: var(--gray-dark);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border-top: 5px solid var(--teal);
-            transition: transform 0.3s;
-        }
-        
-        .roadmap-item:hover {
-            transform: translateY(-8px);
-        }
-        
-        .funds-chart {
-            margin-top: 4rem;
-            background: var(--gray-dark);
-            padding: 3rem;
-            border-radius: 12px;
-        }
-        
-        .fund-item {
+        .nav-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid #333;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
-        
-        /* Ask Section */
-        .ask {
-            background: var(--white);
-            text-align: center;
-        }
-        
-        .ask-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .ask-amount {
-            font-size: 4rem;
+        .logo {
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--teal);
-            margin: 2rem 0;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #1e3c72, #2b4c7c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
-        
-        .contact-info {
-            margin: 3rem 0;
-            padding: 3rem;
-            background: var(--gray-light);
-            border-radius: 12px;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
-        
-        .contact-email {
-            font-size: 1.75rem;
-            color: var(--teal);
+        .nav-links a {
             text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            margin: 1.5rem 0;
+            color: #1f2937;
+            font-weight: 500;
+            transition: color 0.2s;
         }
-        
-        /* Footer */
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+        }
+        .hero-sub {
+            font-size: 1.25rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #eef2ff;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1e3a8a;
+        }
+        .roadmap {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .roadmap-item {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.25rem 1.5rem;
+            border-left: 6px solid #2563eb;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            max-width: 600px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-top: 0.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-family: inherit;
+        }
+        .contact-form button {
+            background: #111827;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
         footer {
-            background: var(--black);
-            color: var(--white);
-            padding: 4rem 5%;
+            background: #111827;
+            color: #9ca3af;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            margin: 0 1rem 0 0;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        .disclaimer {
+            font-size: 0.8rem;
+            background: #1f2937;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
             text-align: center;
         }
-        
-        .footer-logo svg {
-            width: 70px;
-            height: 70px;
-            margin-bottom: 1.5rem;
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s, transform 0.6s;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem 5%;
-            }
-            
-            .hero {
-                margin-top: 80px;
-                padding: 5rem 5%;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.5rem;
-            }
-            
-            .section-title {
-                font-size: 2.25rem;
-            }
-            
-            .about-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-            }
-            
-            .btn {
-                width: 100%;
-            }
+        @media (max-width: 640px) {
+            h1 { font-size: 2rem; }
+            .nav-bar { flex-direction: column; }
+            .nav-links { gap: 1rem; justify-content: center; }
+            section { padding: 2rem 0; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M50 8 L88 28 L88 68 L50 92 L12 68 L12 28 Z" stroke="currentColor" stroke-width="6" fill="none"/>
-                    <circle cx="50" cy="38" r="6" fill="currentColor"/>
-                    <circle cx="30" cy="48" r="6" fill="currentColor"/>
-                    <circle cx="70" cy="48" r="6" fill="currentColor"/>
-                    <circle cx="30" cy="68" r="6" fill="currentColor"/>
-                    <circle cx="70" cy="68" r="6" fill="currentColor"/>
-                    <line x1="50" y1="38" x2="30" y2="48" stroke="currentColor" stroke-width="4"/>
-                    <line x1="50" y1="38" x2="70" y2="48" stroke="currentColor" stroke-width="4"/>
-                    <line x1="50" y1="38" x2="50" y2="58" stroke="currentColor" stroke-width="4"/>
-                    <line x1="30" y1="48" x2="30" y2="68" stroke="currentColor" stroke-width="4"/>
-                    <line x1="70" y1="48" x2="70" y2="68" stroke="currentColor" stroke-width="4"/>
-                    <path d="M50 62 C50 62 62 82 62 88 C62 94 57 98 50 98 C43 98 38 94 38 88 C38 82 50 62 50 62 Z" fill="currentColor"/>
-                    <path d="M50 72 L53 81 L50 87 L47 81 Z" fill="white"/>
-                </svg>
-                GETH
-            </a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#problem">Problem</a>
-                <a href="#solution">Solution</a>
-                <a href="#use-case">Deal Flow</a>
-                <a href="#tokens">Tokens</a>
-                <a href="#team">Team</a>
-                <a href="#ask" class="btn btn-primary">Contact</a>
-            </div>
+<header>
+    <div class="container nav-bar">
+        <div class="logo">RawTrade AI</div>
+        <div class="nav-links">
+            <a href="#what">О проекте</a>
+            <a href="#problem">Проблема</a>
+            <a href="#roadmap">Дорожная карта</a>
+            <a href="#contact">Контакты</a>
         </div>
-    </nav>
+    </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span>🚀</span>
-                <span>Idea Stage • Pre-seed • UAE (VARA/DMCC)</span>
+<main>
+    <div class="container">
+        <!-- Hero / What is GETH? (теперь RawTrade AI) -->
+        <section id="what">
+            <h1>RawTrade AI — интеллектуальная OTC-платформа для сырьевых рынков</h1>
+            <div class="hero-sub">
+                Мы устраняем критические проблемы рынка объёмом $4.6 трлн: 63% ручных процессов, 
+                повсеместный подлог сертификатов с ущербом более $50 млрд в год и затяжные споры до 18 месяцев.
             </div>
-            <h1>AI-Powered Operating System for OTC Commodity Trade</h1>
-            <p class="hero-subtitle">Global Energy & Commodity Trust Hub</p>
-            <p class="hero-description">
-                GETH revolutionises the $4.6 trillion OTC commodity market by combining artificial intelligence, 
-                blockchain technology, and IoT tracking to eliminate manual processes, prevent fraud, and 
-                accelerate settlement times from months to hours.
+            <a href="#contact" class="cta-button">Обсудить партнёрство</a>
+        </section>
+
+        <!-- Problem -->
+        <section id="problem">
+            <h2>Рыночная проблема</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">63%</div>
+                    <div>ручного документооборота замедляет сделки</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$50B+</div>
+                    <div>ежегодных потерь из-за фальшивых сертификатов</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">>18 мес</div>
+                    <div>средняя длительность разрешения споров</div>
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem; background: #eef2ff; padding: 1rem; border-radius: 0.75rem;">
+                📌 <strong>Пример:</strong> реальная сделка по мазуту на $19 млн была заблокирована из-за поддельного сертификата происхождения. 
+                RawTrade AI выявляет такие случаи автоматически.
             </p>
-            <p class="hero-tagline">Starting with a concierge MVP, scaling to full automation with tokenised incentives</p>
-            <div class="hero-buttons">
-                <a href="#use-case" class="btn btn-primary">See How It Works</a>
-                <a href="#ask" class="btn btn-secondary">Contact Founder</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section - FULL WIDTH -->
-    <section id="about" class="about">
-        <div class="about-content fade-in">
-            <h2>What is GETH?</h2>
-            <p>
-                GETH (Global Energy & Commodity Trust Hub) is a next-generation platform designed to digitise 
-                and streamline over-the-counter (OTC) commodity trading. We address critical pain points in the 
-                $4.6 trillion market: 63% manual processes, widespread certificate fraud costing $50B+ annually, 
-                and dispute resolution delays exceeding 18 months.
-            </p>
-            <p>
-                Our phased approach starts with a <strong>concierge MVP</strong> — manually orchestrating deals 
-                with AI-assisted counterparty scoring and stablecoin payments — then evolves into a fully 
-                automated ecosystem with smart contracts, NFT-based quality certificates, IoT cargo tracking, 
-                and a dual-token economy ($GETH + $vGETH).
-            </p>
-            <div class="about-stats">
-                <div class="stat-item">
-                    <span class="stat-number">$4.6T</span>
-                    <div class="stat-label">Total Addressable Market</div>
+        <!-- Roadmap -->
+        <section id="roadmap">
+            <h2>Дорожная карта</h2>
+            <div class="roadmap">
+                <div class="roadmap-item">
+                    <strong>✅ Phase 1 (6–12 мес)</strong><br>
+                    Запуск MVP: верификация сертификатов на блокчейне, базовый AI-анализ.
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">63%</span>
-                    <div class="stat-label">Manual Processes Eliminated</div>
+                <div class="roadmap-item">
+                    <strong>⚙️ Phase 2 (12–24 мес)</strong><br>
+                    Полноценная торговая платформа с эскроу-сервисом и арбитражем на основе ИИ.
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">&lt;10 min</span>
-                    <div class="stat-label">KYB Verification Time</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">Hours</span>
-                    <div class="stat-label">vs 18 Months Settlement</div>
+                <div class="roadmap-item">
+                    <strong>🚀 Phase 3 (24–36 мес)</strong><br>
+                    Децентрализованная сеть доверия для OTC-рынков сырья (energy, metals, agri).
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Problem Section -->
-    <section id="problem" class="problem">
-        <div class="container">
-            <h2 class="section-title">The Problem</h2>
-            <p class="section-subtitle">$4.6T OTC Commodity Market is Broken</p>
-            <div class="problem-grid">
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">📄</div>
-                    <h3>63% Manual Processes</h3>
-                    <p>Excel spreadsheets, email chains, and fax machines still dominate commodity trading workflows</p>
-                </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">⚠️</div>
-                    <h3>Fake Certificates</h3>
-                    <p>Fraudulent quality certificates cost buyers over $50 billion annually</p>
-                </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">⏳</div>
-                    <h3>18+ Month Disputes</h3>
-                    <p>Court delays and arbitration bottlenecks kill deals and tie up capital</p>
-                </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">🚫</div>
-                    <h3>SMEs Locked Out</h3>
-                    <p>Small and medium enterprises have no access to trade finance or verified networks</p>
-                </div>
+        <!-- Contact -->
+        <section id="contact">
+            <h2>Готовы обсудить возможность?</h2>
+            <div class="contact-form">
+                <form action="#" method="post">
+                    <label>Ваше имя</label>
+                    <input type="text" placeholder="Алексей Смирнов" required>
+                    <label>Email или Telegram</label>
+                    <input type="email" placeholder="hello@rawtrade.ai" required>
+                    <label>Сообщение</label>
+                    <textarea rows="4" placeholder="Расскажите о вашем интересе..."></textarea>
+                    <button type="submit">Отправить запрос</button>
+                </form>
+                <p style="margin-top: 1rem; font-size: 0.875rem; color: #4b5563;">Мы ответим в течение 48 часов.</p>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div>© 2026 RawTrade AI — все права защищены</div>
+            <div class="footer-links">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Условия использования</a>
             </div>
         </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section id="solution" class="solution">
-        <div class="container">
-            <h2 class="section-title">Our Solution</h2>
-            <p class="section-subtitle">Phased Approach — Validate First, Automate Later</p>
-            <div class="solution-grid">
-                <div class="solution-card fade-in">
-                    <span class="status">Phase 1 (Now)</span>
-                    <h3>Concierge MVP</h3>
-                    <p>Manual validation before automation. Prove demand with real deals using founder's industry network.</p>
-                    <ul>
-                        <li>Manual deal matching with AI-assisted counterparty scoring</li>
-                        <li>Stablecoin (USDC/USDT) or fiat payments via regulated escrow</li>
-                        <li>API-based KYB/KYC verification (Sumsub, ComplyAdvantage)</li>
-                        <li>5–10 pilot deals with trusted traders</li>
-                        <li>Partnership with existing IoT providers (no in-house hardware)</li>
-                        <li>No tokens yet — focus on product-market fit</li>
-                    </ul>
-                </div>
-                <div class="solution-card fade-in">
-                    <span class="status">Phase 2 (12–24 mo)</span>
-                    <h3>Full Automation</h3>
-                    <p>Scale with technology after validating demand and unit economics.</p>
-                    <ul>
-                        <li>Smart contracts for automated escrow and settlement</li>
-                        <li>NFT-based quality certificates (SGS/Bureau Veritas integration)</li>
-                        <li>$GETH token launch (exchange token with buyback mechanics)</li>
-                        <li>Real-time IoT cargo tracking (temperature, GPS, tamper-proof)</li>
-                        <li>$vGETH governance token (burn for certificates, DAO voting)</li>
-                        <li>Automated arbitration based on DIFC-LCIA rules (14-day target)</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="disclaimer">
+            ⚠️ Дисклеймер: RawTrade AI не имеет никакого отношения к проекту Go-Ethereum (Geth) и не является криптовалютной платформой. 
+            Название, бренд и технология разработаны независимо.
         </div>
-    </section>
-
-    <!-- Use Case Section -->
-    <section id="use-case" class="use-case">
-        <div class="container">
-            <h2 class="section-title">Deal Flow in Action</h2>
-            <p class="section-subtitle">A Complete $19M Fuel Oil Transaction</p>
-            
-            <div class="deal-overview fade-in">
-                <h3 style="margin-bottom: 2rem; color: var(--teal); font-size: 1.75rem;">Transaction Overview</h3>
-                <div class="deal-meta">
-                    <div class="deal-meta-item">
-                        <div class="deal-meta-label">Commodity</div>
-                        <div class="deal-meta-value">Fuel Oil (50,000 MT)</div>
-                    </div>
-                    <div class="deal-meta-item">
-                        <div class="deal-meta-label">Deal Value</div>
-                        <div class="deal-meta-value">$19,000,000</div>
-                    </div>
-                    <div class="deal-meta-item">
-                        <div class="deal-meta-label">Route</div>
-                        <div class="deal-meta-value">Mina-Said (UAE) → Mumbai (India)</div>
-                    </div>
-                    <div class="deal-meta-item">
-                        <div class="deal-meta-label">Timeline</div>
-                        <div class="deal-meta-value">45 days</div>
-                    </div>
-                </div>
-                
-                <h4 style="margin: 2.5rem 0 1.5rem; color: var(--black); font-size: 1.4rem;">Transaction Participants</h4>
-                <div class="participants">
-                    <div class="participant-card">
-                        <div class="participant-role">🏭 Seller</div>
-                        <div class="participant-desc">UAE-based oil refining company exporting 50,000 MT fuel oil</div>
-                    </div>
-                    <div class="participant-card">
-                        <div class="participant-role">🏢 Buyer</div>
-                        <div class="participant-desc">Indian energy company requiring fuel oil for power generation</div>
-                    </div>
-                    <div class="participant-card">
-                        <div class="participant-role">🤝 Intermediary</div>
-                        <div class="participant-desc">Swiss trading firm facilitating the transaction for commission</div>
-                    </div>
-                </div>
-            </div>
-
-            <h3 style="text-align: center; margin: 4rem 0 3rem; font-size: 2.25rem;">Step-by-Step Process</h3>
-            
-            <div class="use-case-timeline">
-                <div class="use-case-step fade-in">
-                    <div class="step-number">1</div>
-                    <h3>📤 Lot Creation & Verification</h3>
-                    <p>Seller uploads 50,000 MT fuel oil specification to GETH platform, attaches SGS quality certificate. AI system instantly verifies seller's credentials, financial standing, and trading history.</p>
-                    <div class="step-benefit">✓ Counterparty risk scored in &lt;10 minutes</div>
-                </div>
-                
-                <div class="use-case-step fade-in">
-                    <div class="step-number">2</div>
-                    <h3>🔍 AI Matching & Discovery</h3>
-                    <p>GETH's AI engine analyses buyer requirements and automatically matches with available lots. Intermediary receives notification about potential deal with pre-calculated commission structure.</p>
-                    <div class="step-benefit">✓ Automated deal discovery — no cold calls</div>
-                </div>
-                
-                <div class="use-case-step fade-in">
-                    <div class="step-number">3</div>
-                    <h3>🔒 Escrow & Contract Lock</h3>
-                    <p>Buyer books the lot and deposits $19M into regulated escrow account. Smart contract or legal agreement locks all terms: price, quality specs, delivery timeline, intermediary commission.</p>
-                    <div class="step-benefit">✓ 0.5% platform fee + 0.1% escrow fee applied</div>
-                </div>
-                
-                <div class="use-case-step fade-in">
-                    <div class="step-number">4</div>
-                    <h3>🚢 Logistics Coordination</h3>
-                    <p>Seller confirms cargo readiness. Buyer selects preferred shipping route. Intermediary coordinates with carrier for vessel booking. IoT sensors activated for real-time tracking.</p>
-                    <div class="step-benefit">✓ Transparent logistics — all parties see same data</div>
-                </div>
-                
-                <div class="use-case-step fade-in">
-                    <div class="step-number">5</div>
-                    <h3>📡 Real-Time Cargo Tracking</h3>
-                    <p>IoT devices monitor cargo temperature, humidity, and location throughout voyage. Satellite data streamed to GETH platform. Automated notifications at key milestones.</p>
-                    <div class="step-benefit">✓ Tamper-proof tracking data — no disputes</div>
-                </div>
-                
-                <div class="use-case-step fade-in">
-                    <div class="step-number">6</div>
-                    <h3>✅ Quality Verification</h3>
-                    <p>Upon arrival, independent inspector verifies cargo quality. Buyer digitally signs acceptance. IoT data confirms no temperature excursions during transit.</p>
-                    <div class="step-benefit">✓ Instant quality confirmation — no 18-month disputes</div>
-                </div>
-                
-                <div class="use-case-step fade-in">
-                    <div class="step-number">7</div>
-                    <h3>💰 Automated Settlement</h3>
-                    <p>Smart contract releases $18.96M to seller (minus fees), $38k to intermediary. Settlement completes in &lt;2 hours instead of weeks.</p>
-                    <div class="step-benefit">✓ Total GETH revenue: $28,500 (0.15% of deal)</div>
-                </div>
-                
-                <div class="use-case-step fade-in">
-                    <div class="step-number">8</div>
-                    <h3>📊 Reporting & Analytics</h3>
-                    <p>All participants access deal history via dashboard. Buyer receives comprehensive digital passport with ESG data. Complete audit trail for compliance.</p>
-                    <div class="step-benefit">✓ Complete audit trail — ready for compliance</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tokens Section -->
-    <section id="tokens" class="tokens">
-        <div class="container">
-            <h2 class="section-title">Dual-Token Economy</h2>
-            <p class="section-subtitle">Phased & Defensible Token Model</p>
-            <div class="tokens-grid">
-                <div class="token-card fade-in">
-                    <h3>$GETH</h3>
-                    <p style="color: var(--white); opacity: 0.9; margin-bottom: 1.5rem;">Exchange & Value Accrual Token</p>
-                    <ul style="list-style: none; text-align: left; margin: 2rem 0;">
-                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1);">Buyback & burn from platform fees</li>
-                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1);">Staking rewards for liquidity providers</li>
-                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1);">CEX/DEX listing post-PMF</li>
-                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative;">Max supply: 100M tokens</li>
-                    </ul>
-                    <p style="margin-top: 2rem; font-weight: 600; color: var(--teal);">📅 Launch: Phase 2 (12+ months)</p>
-                </div>
-                <div class="token-card fade-in">
-                    <h3>$vGETH</h3>
-                    <p style="color: var(--white); opacity: 0.9; margin-bottom: 1.5rem;">Utility & Governance Token</p>
-                    <ul style="list-style: none; text-align: left; margin: 2rem 0;">
-                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1);">Burn to mint NFT certificates</li>
-                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1);">Priority AI matching access</li>
-                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1);">DAO voting rights</li>
-                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative;">Deflationary via burns</li>
-                    </ul>
-                    <p style="margin-top: 2rem; font-weight: 600; color: var(--teal);">📅 Launch: Phase 2 (18+ months)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- UAE Section -->
-    <section class="uae">
-        <div class="container">
-            <h2 class="section-title">Why UAE?</h2>
-            <p class="section-subtitle">Strategic Jurisdiction for Commodity Digitization</p>
-            <div class="uae-list">
-                <div class="uae-item fade-in">
-                    <span class="uae-check" style="color: var(--teal); font-size: 2rem;">✅</span>
-                    <div>
-                        <h3 style="margin-bottom: 0.75rem; color: var(--black);">VARA (Virtual Assets Regulatory Authority)</h3>
-                        <p style="color: var(--gray-text);">Clearest regulatory framework for commodity-backed digital assets in MENA region.</p>
-                    </div>
-                </div>
-                <div class="uae-item fade-in">
-                    <span class="uae-check" style="color: var(--teal); font-size: 2rem;">✅</span>
-                    <div>
-                        <h3 style="margin-bottom: 0.75rem; color: var(--black);">DMCC (Dubai Multi Commodities Centre)</h3>
-                        <p style="color: var(--gray-text);">50,000+ commodity trading firms as natural early adopters.</p>
-                    </div>
-                </div>
-                <div class="uae-item fade-in">
-                    <span class="uae-check" style="color: var(--teal); font-size: 2rem;">✅</span>
-                    <div>
-                        <h3 style="margin-bottom: 0.75rem; color: var(--black);">0% Corporate Tax Until 2031</h3>
-                        <p style="color: var(--gray-text);">Optimal tax environment for early-stage growth.</p>
-                    </div>
-                </div>
-                <div class="uae-item fade-in">
-                    <span class="uae-check" style="color: var(--teal); font-size: 2rem;">✅</span>
-                    <div>
-                        <h3 style="margin-bottom: 0.75rem; color: var(--black);">Regulatory Contingency Plan</h3>
-                        <p style="color: var(--gray-text);">If VARA reclassifies tokens: pivot to ADGM framework or structure as utility points.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <div class="container">
-            <h2 class="section-title">Team</h2>
-            <p class="section-subtitle">Industry Expertise + Technical Excellence</p>
-            <div class="team-grid">
-                <div class="team-card fade-in">
-                    <div class="team-avatar" style="width: 130px; height: 130px; background: linear-gradient(135deg, var(--teal), #00D4C4); border-radius: 50%; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; color: var(--white);">👤</div>
-                    <h3 style="font-size: 1.75rem; margin-bottom: 0.75rem;">[Your Name]</h3>
-                    <p style="color: var(--teal); font-weight: 600; margin-bottom: 1.5rem; font-size: 1.1rem;">Founder & CEO</p>
-                    <p style="color: var(--gray-text); line-height: 1.7;">12+ years executing physical oil trades at major houses (Vitol/Glencore/Mercuria). Closed $2B+ in OTC commodity deals. Direct network of pilot customers across UAE, India, and Singapore.</p>
-                </div>
-                <div class="team-card fade-in">
-                    <div class="team-avatar" style="width: 130px; height: 130px; background: linear-gradient(135deg, var(--teal), #00D4C4); border-radius: 50%; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; color: var(--white);">🔍</div>
-                    <h3 style="font-size: 1.75rem; margin-bottom: 0.75rem;">Technical Co-Founder</h3>
-                    <p style="color: var(--teal); font-weight: 600; margin-bottom: 1.5rem; font-size: 1.1rem;">Actively Recruiting</p>
-                    <p style="color: var(--gray-text); line-height: 1.7; margin-bottom: 1.5rem;"><strong style="color: var(--teal);">Equity Offer:</strong> 15–25% + dev budget<br><strong style="color: var(--teal);">Profile:</strong> Senior full-stack + blockchain engineer</p>
-                    <a href="#ask" class="btn btn-primary">Apply Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap Section -->
-    <section class="roadmap">
-        <div class="container">
-            <h2 class="section-title">Roadmap & Use of Funds</h2>
-            <p class="section-subtitle">8–12 Months to MVP + Licenses + First Pilots</p>
-            <div class="roadmap-grid">
-                <div class="roadmap-item fade-in">
-                    <h3 style="color: var(--teal); margin-bottom: 1.5rem; font-size: 1.6rem;">Q1 2026</h3>
-                    <ul style="list-style: none;">
-                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• DMCC license application</li>
-                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• VARA conditional approval</li>
-                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• Concierge MVP launch</li>
-                    </ul>
-                </div>
-                <div class="roadmap-item fade-in">
-                    <h3 style="color: var(--teal); margin-bottom: 1.5rem; font-size: 1.6rem;">Q2 2026</h3>
-                    <ul style="list-style: none;">
-                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• First 5 pilot deals</li>
-                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• Escrow partnership</li>
-                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• IoT provider partnership</li>
-                    </ul>
-                </div>
-                <div class="roadmap-item fade-in">
-                    <h3 style="color: var(--teal); margin-bottom: 1.5rem; font-size: 1.6rem;">Q3 2026</h3>
-                    <ul style="list-style: none;">
-                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• AI scoring prototype</li>
-                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• 10+ deals completed</li>
-                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• Technical co-founder</li>
-                    </ul>
-                </div>
-                <div class="roadmap-item fade-in">
-                    <h3 style="color: var(--teal); margin-bottom: 1.5rem; font-size: 1.6rem;">Q4 2026</h3>
-                    <ul style="list-style: none;">
-                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• Seed round preparation</li>
-                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• $GETH tokenomics design</li>
-                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• PMF validation</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="funds-chart fade-in">
-                <h3 style="color: var(--teal); margin-bottom: 2.5rem; text-align: center; font-size: 1.75rem;">Use of $800k Pre-Seed Round</h3>
-                <div class="fund-item">
-                    <div style="flex: 1;"><strong>Software + AI Development</strong></div>
-                    <div style="flex: 2; margin: 0 2rem;"><div style="height: 12px; background: var(--teal); border-radius: 6px; width: 45%;"></div></div>
-                    <span style="color: var(--teal); font-weight: 600;">45%</span>
-                </div>
-                <div class="fund-item">
-                    <div style="flex: 1;"><strong>Legal + Licensing (UAE)</strong></div>
-                    <div style="flex: 2; margin: 0 2rem;"><div style="height: 12px; background: var(--teal); border-radius: 6px; width: 25%;"></div></div>
-                    <span style="color: var(--teal); font-weight: 600;">25%</span>
-                </div>
-                <div class="fund-item">
-                    <div style="flex: 1;"><strong>Team</strong></div>
-                    <div style="flex: 2; margin: 0 2rem;"><div style="height: 12px; background: var(--teal); border-radius: 6px; width: 15%;"></div></div>
-                    <span style="color: var(--teal); font-weight: 600;">15%</span>
-                </div>
-                <div class="fund-item">
-                    <div style="flex: 1;"><strong>Partnerships + Pilots</strong></div>
-                    <div style="flex: 2; margin: 0 2rem;"><div style="height: 12px; background: var(--teal); border-radius: 6px; width: 10%;"></div></div>
-                    <span style="color: var(--teal); font-weight: 600;">10%</span>
-                </div>
-                <div class="fund-item">
-                    <div style="flex: 1;"><strong>IoT / Hardware R&D</strong></div>
-                    <div style="flex: 2; margin: 0 2rem;"><div style="height: 12px; background: var(--teal); border-radius: 6px; width: 5%;"></div></div>
-                    <span style="color: var(--teal); font-weight: 600;">5%</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ask Section -->
-    <section id="ask" class="ask">
-        <div class="container">
-            <div class="ask-content">
-                <h2 class="section-title">Investment Opportunity</h2>
-                <div class="ask-amount">$600k – $1.2M Pre-Seed</div>
-                <p style="font-size: 1.25rem; margin-bottom: 2.5rem; color: var(--gray-text);">
-                    MVP + UAE licenses in 8–12 months. First 5–10 pilot deals using founder's network.
-                </p>
-                
-                <div class="contact-info">
-                    <h3 style="color: var(--teal); margin-bottom: 1.5rem; font-size: 1.75rem;">Get in Touch</h3>
-                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">Ready to discuss the opportunity?</p>
-                    <a href="mailto:gethfounder@gmail.com" class="contact-email">gethfounder@gmail.com</a>
-                </div>
-
-                <div style="text-align: left; margin: 3rem 0; padding: 2.5rem; background: var(--gray-light); border-radius: 12px;">
-                    <h3 style="color: var(--teal); margin-bottom: 1.5rem; font-size: 1.5rem;">What Investors Receive:</h3>
-                    <ul style="list-style: none; line-height: 2.2; font-size: 1.05rem;">
-                        <li>✓ Equity stake via SAFE or convertible note</li>
-                        <li>✓ Early access to $GETH token allocation</li>
-                        <li>✓ Direct advisory role in strategy</li>
-                        <li>✓ Quarterly updates on progress</li>
-                        <li>✓ Pro-rata rights in seed round</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-logo">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--teal);">
-                <path d="M50 8 L88 28 L88 68 L50 92 L12 68 L12 28 Z" stroke="currentColor" stroke-width="6" fill="none"/>
-                <circle cx="50" cy="38" r="6" fill="currentColor"/>
-                <circle cx="30" cy="48" r="6" fill="currentColor"/>
-                <circle cx="70" cy="48" r="6" fill="currentColor"/>
-                <circle cx="30" cy="68" r="6" fill="currentColor"/>
-                <circle cx="70" cy="68" r="6" fill="currentColor"/>
-                <line x1="50" y1="38" x2="30" y2="48" stroke="currentColor" stroke-width="4"/>
-                <line x1="50" y1="38" x2="70" y2="48" stroke="currentColor" stroke-width="4"/>
-                <line x1="50" y1="38" x2="50" y2="58" stroke="currentColor" stroke-width="4"/>
-                <line x1="30" y1="48" x2="30" y2="68" stroke="currentColor" stroke-width="4"/>
-                <line x1="70" y1="48" x2="70" y2="68" stroke="currentColor" stroke-width="4"/>
-                <path d="M50 62 C50 62 62 82 62 88 C62 94 57 98 50 98 C43 98 38 94 38 88 C38 82 50 62 50 62 Z" fill="currentColor"/>
-            </svg>
-        </div>
-        <p style="font-size: 1.4rem; font-weight: 600; margin-bottom: 0.75rem;">GETH</p>
-        <p style="opacity: 0.9; margin-bottom: 0.75rem; font-size: 1.1rem;">Global Energy & Commodity Trust Hub</p>
-        <p style="opacity: 0.7; margin: 1.5rem 0;">Idea Stage • Pre-seed • UAE (DMCC + VARA)</p>
-        <div class="footer-links" style="display: flex; justify-content: center; gap: 2.5rem; margin: 2rem 0; flex-wrap: wrap;">
-            <a href="mailto:gethfounder@gmail.com" style="color: var(--teal); text-decoration: none; font-size: 1.1rem;">gethfounder@gmail.com</a>
-            <a href="#" onclick="alert('LinkedIn coming soon'); return false;" style="color: var(--teal); text-decoration: none; font-size: 1.1rem;">LinkedIn</a>
-            <a href="#" onclick="alert('Twitter coming soon'); return false;" style="color: var(--teal); text-decoration: none; font-size: 1.1rem;">Twitter/X</a>
-        </div>
-        <p style="opacity: 0.5; font-size: 0.9rem; margin-top: 2.5rem;">© 2026 GETH. All rights reserved.</p>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
+    </div>
+</footer>
 </body>
 </html>
