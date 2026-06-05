@@ -8,11 +8,11 @@
     <meta name="keywords" content="commodity trading, blockchain, AI, UAE, VARA, pre-seed, OTC, energy">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 15 L85 35 L85 75 L50 95 L15 75 L15 35 Z' stroke='%23008B8B' stroke-width='8' fill='none'/><circle cx='50' cy='40' r='6' fill='%23008B8B'/><circle cx='32' cy='50' r='6' fill='%23008B8B'/><circle cx='68' cy='50' r='6' fill='%23008B8B'/><circle cx='32' cy='70' r='6' fill='%23008B8B'/><circle cx='68' cy='70' r='6' fill='%23008B8B'/><line x1='50' y1='40' x2='32' y2='50' stroke='%23008B8B' stroke-width='4'/><line x1='50' y1='40' x2='68' y2='50' stroke='%23008B8B' stroke-width='4'/><line x1='50' y1='40' x2='50' y2='60' stroke='%23008B8B' stroke-width='4'/><line x1='32' y1='50' x2='32' y2='70' stroke='%23008B8B' stroke-width='4'/><line x1='68' y1='50' x2='68' y2='70' stroke='%23008B8B' stroke-width='4'/><path d='M50 65 L58 88 L50 95 L42 88 Z' fill='%23008B8B'/><path d='M50 73 L53 82 L50 88 L47 82 Z' fill='white'/></svg>">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -24,9 +24,11 @@
         :root {
             --black: #000000;
             --white: #FFFFFF;
-            --teal: #00C4B4;
+            --teal: #008B8B; /* Более благородный цвет */
+            --teal-light: #00A896;
             --gray-light: #F5F5F5;
             --gray-dark: #1a1a1a;
+            --gray-text: #666666;
         }
         
         body {
@@ -41,11 +43,11 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 5%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
         }
         
         .nav-container {
@@ -59,7 +61,7 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-weight: 700;
             font-size: 1.5rem;
             color: var(--black);
@@ -67,8 +69,8 @@
         }
         
         .logo svg {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
         }
         
         .nav-links {
@@ -82,6 +84,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 0.95rem;
         }
         
         .nav-links a:hover {
@@ -89,7 +92,7 @@
         }
         
         .btn {
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem 1.75rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
@@ -97,6 +100,7 @@
             display: inline-block;
             border: 2px solid transparent;
             cursor: pointer;
+            font-size: 0.95rem;
         }
         
         .btn-primary {
@@ -105,9 +109,9 @@
         }
         
         .btn-primary:hover {
-            background: #00a89a;
+            background: var(--teal-light);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 196, 180, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 139, 139, 0.3);
         }
         
         .btn-secondary {
@@ -124,10 +128,9 @@
         /* Hero Section */
         .hero {
             margin-top: 70px;
-            padding: 6rem 5%;
+            padding: 5rem 5%;
             background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%);
             color: var(--white);
-            text-align: center;
             position: relative;
             overflow: hidden;
         }
@@ -139,22 +142,24 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300C4B4' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.1;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23008B8B' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         
         .hero-badge {
-            display: inline-block;
-            background: var(--teal);
-            color: var(--white);
-            padding: 0.5rem 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 139, 139, 0.2);
+            border: 1px solid var(--teal);
+            color: var(--teal);
+            padding: 0.5rem 1.25rem;
             border-radius: 20px;
             font-size: 0.875rem;
             font-weight: 600;
@@ -162,7 +167,7 @@
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.25rem;
             font-weight: 700;
             margin-bottom: 1rem;
             line-height: 1.2;
@@ -170,25 +175,90 @@
         }
         
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             color: var(--teal);
             margin-bottom: 1.5rem;
+            font-weight: 500;
             animation: fadeInUp 0.8s ease 0.2s backwards;
         }
         
         .hero-description {
-            font-size: 1.125rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            line-height: 1.7;
+            max-width: 800px;
             animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+        
+        .hero-tagline {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 2.5rem;
+            font-style: italic;
         }
         
         .hero-buttons {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             flex-wrap: wrap;
             animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+        
+        /* About Section - NEW */
+        .about {
+            padding: 5rem 5%;
+            background: var(--white);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--gray-text);
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--gray-light);
+            border-radius: 12px;
+            border-left: 4px solid var(--teal);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--teal);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+            margin-top: 0.5rem;
         }
         
         /* Section Styles */
@@ -205,8 +275,15 @@
             font-size: 2.5rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
             position: relative;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-text);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
         }
         
         .section-title::after {
@@ -221,7 +298,7 @@
         
         /* Problem Section */
         .problem {
-            background: var(--white);
+            background: var(--gray-light);
         }
         
         .problem-grid {
@@ -233,13 +310,16 @@
         
         .problem-card {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
+            background: var(--white);
             border-radius: 12px;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         
         .problem-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
         
         .problem-icon {
@@ -249,18 +329,18 @@
         
         .problem-card h3 {
             color: var(--teal);
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.4rem;
         }
         
         /* Solution Section */
         .solution {
-            background: var(--gray-light);
+            background: var(--white);
         }
         
         .solution-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 3rem;
             margin-top: 3rem;
         }
@@ -269,8 +349,14 @@
             background: var(--white);
             padding: 2.5rem;
             border-radius: 12px;
-            border-left: 4px solid var(--teal);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 2px solid var(--gray-light);
+            border-top: 4px solid var(--teal);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-5px);
         }
         
         .solution-card h3 {
@@ -283,11 +369,11 @@
             display: inline-block;
             background: var(--teal);
             color: var(--white);
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
             font-size: 0.875rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
         }
         
         .solution-card ul {
@@ -296,9 +382,14 @@
         }
         
         .solution-card li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
+            padding: 0.65rem 0;
+            padding-left: 1.75rem;
             position: relative;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .solution-card li:last-child {
+            border-bottom: none;
         }
         
         .solution-card li::before {
@@ -307,26 +398,99 @@
             left: 0;
             color: var(--teal);
             font-weight: bold;
+            font-size: 1.2rem;
         }
         
-        /* Use Case Section */
+        /* Use Case Section - ENHANCED */
         .use-case {
+            background: var(--gray-light);
+        }
+        
+        .use-case-intro {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--gray-text);
+        }
+        
+        .deal-overview {
             background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--teal);
+        }
+        
+        .deal-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .deal-meta-item {
+            padding: 1rem;
+            background: var(--gray-light);
+            border-radius: 8px;
+        }
+        
+        .deal-meta-label {
+            font-size: 0.875rem;
+            color: var(--gray-text);
+            margin-bottom: 0.5rem;
+        }
+        
+        .deal-meta-value {
+            font-weight: 600;
+            color: var(--teal);
+            font-size: 1.1rem;
+        }
+        
+        .participants {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .participant-card {
+            background: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 3px solid var(--teal);
+        }
+        
+        .participant-role {
+            font-weight: 700;
+            color: var(--teal);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .participant-desc {
+            font-size: 0.95rem;
+            color: var(--gray-text);
         }
         
         .use-case-timeline {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
         
         .use-case-step {
-            text-align: center;
-            padding: 2rem;
+            background: var(--white);
+            padding: 2.5rem 2rem;
             border-radius: 12px;
-            background: var(--gray-light);
             position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .use-case-step:hover {
+            transform: translateY(-5px);
         }
         
         .step-number {
@@ -340,19 +504,37 @@
             justify-content: center;
             font-size: 1.5rem;
             font-weight: 700;
-            margin: 0 auto 1rem;
+            margin-bottom: 1.5rem;
         }
         
         .use-case-step h3 {
             margin-bottom: 1rem;
             color: var(--black);
+            font-size: 1.3rem;
+        }
+        
+        .use-case-step p {
+            color: var(--gray-text);
+            line-height: 1.6;
+        }
+        
+        .step-benefit {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-light);
+            font-size: 0.9rem;
+            color: var(--teal);
+            font-weight: 600;
         }
         
         .use-case-footer {
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 12px;
             font-style: italic;
-            color: #666;
+            color: var(--gray-text);
         }
         
         /* Tokens Section */
@@ -378,18 +560,24 @@
             border-radius: 12px;
             border: 2px solid var(--teal);
             text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .token-card:hover {
+            transform: translateY(-5px);
         }
         
         .token-card h3 {
-            font-size: 2rem;
+            font-size: 2.25rem;
             color: var(--teal);
             margin-bottom: 0.5rem;
         }
         
         .token-card .token-type {
             color: var(--white);
-            opacity: 0.8;
+            opacity: 0.9;
             margin-bottom: 1.5rem;
+            font-weight: 500;
         }
         
         .token-card ul {
@@ -399,9 +587,14 @@
         }
         
         .token-card li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
+            padding: 0.75rem 0;
+            padding-left: 1.75rem;
             position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .token-card li:last-child {
+            border-bottom: none;
         }
         
         .token-card li::before {
@@ -409,57 +602,76 @@
             position: absolute;
             left: 0;
             color: var(--teal);
+            font-weight: bold;
         }
         
         /* UAE Section */
         .uae {
-            background: var(--gray-light);
+            background: var(--white);
         }
         
         .uae-list {
-            max-width: 800px;
+            max-width: 900px;
             margin: 3rem auto 0;
         }
         
         .uae-item {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: var(--white);
+            gap: 1.5rem;
+            padding: 2rem;
+            background: var(--gray-light);
             margin-bottom: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--teal);
+            transition: transform 0.3s;
+        }
+        
+        .uae-item:hover {
+            transform: translateX(5px);
         }
         
         .uae-check {
             color: var(--teal);
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: bold;
             flex-shrink: 0;
         }
         
+        .uae-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+        
         /* Team Section */
         .team {
-            background: var(--white);
+            background: var(--gray-light);
         }
         
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 3rem;
             margin-top: 3rem;
         }
         
         .team-card {
+            background: var(--white);
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
         }
         
         .team-avatar {
             width: 120px;
             height: 120px;
-            background: var(--teal);
+            background: linear-gradient(135deg, var(--teal), var(--teal-light));
             border-radius: 50%;
             margin: 0 auto 1.5rem;
             display: flex;
@@ -470,14 +682,15 @@
         }
         
         .team-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 0.5rem;
         }
         
         .team-role {
             color: var(--teal);
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
         }
         
         /* Roadmap Section */
@@ -502,24 +715,49 @@
             padding: 2rem;
             border-radius: 12px;
             border-top: 4px solid var(--teal);
+            transition: transform 0.3s;
+        }
+        
+        .roadmap-item:hover {
+            transform: translateY(-5px);
         }
         
         .roadmap-item h3 {
             color: var(--teal);
             margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .roadmap-item ul {
+            list-style: none;
+        }
+        
+        .roadmap-item li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .roadmap-item li::before {
+            content: '•';
+            color: var(--teal);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
         
         .funds-chart {
             margin-top: 3rem;
             background: var(--gray-dark);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 12px;
         }
         
         .fund-item {
             display: flex;
             justify-content: space-between;
-            padding: 1rem 0;
+            align-items: center;
+            padding: 1.25rem 0;
             border-bottom: 1px solid #333;
         }
         
@@ -527,11 +765,21 @@
             border-bottom: none;
         }
         
+        .fund-info {
+            flex: 1;
+        }
+        
+        .fund-bar-container {
+            flex: 2;
+            margin: 0 2rem;
+        }
+        
         .fund-bar {
-            height: 8px;
+            height: 10px;
             background: var(--teal);
-            border-radius: 4px;
+            border-radius: 5px;
             margin-top: 0.5rem;
+            transition: width 1s ease;
         }
         
         /* Ask Section */
@@ -546,42 +794,30 @@
         }
         
         .ask-amount {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
             color: var(--teal);
+            margin: 1.5rem 0;
+        }
+        
+        .contact-info {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: var(--gray-light);
+            border-radius: 12px;
+        }
+        
+        .contact-email {
+            font-size: 1.5rem;
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
             margin: 1rem 0;
         }
         
-        .contact-form {
-            margin-top: 3rem;
-            text-align: left;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--teal);
+        .contact-email:hover {
+            text-decoration: underline;
         }
         
         /* Footer */
@@ -592,7 +828,9 @@
             text-align: center;
         }
         
-        .footer-logo {
+        .footer-logo svg {
+            width: 60px;
+            height: 60px;
             margin-bottom: 1rem;
         }
         
@@ -601,14 +839,17 @@
             justify-content: center;
             gap: 2rem;
             margin: 1.5rem 0;
+            flex-wrap: wrap;
         }
         
         .footer-links a {
             color: var(--teal);
             text-decoration: none;
+            transition: opacity 0.3s;
         }
         
         .footer-links a:hover {
+            opacity: 0.8;
             text-decoration: underline;
         }
         
@@ -638,11 +879,11 @@
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.25rem;
             }
             
             .hero-subtitle {
-                font-size: 1.25rem;
+                font-size: 1.35rem;
             }
             
             .section-title {
@@ -660,6 +901,30 @@
             .btn {
                 width: 100%;
             }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .deal-meta {
+                grid-template-columns: 1fr;
+            }
+            
+            .fund-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .fund-bar-container {
+                width: 100%;
+                margin: 0;
+            }
         }
     </style>
 </head>
@@ -670,26 +935,31 @@
         <div class="nav-container">
             <a href="#" class="logo">
                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M50 5 L90 25 L90 65 L50 95 L10 65 L10 25 Z" stroke="currentColor" stroke-width="5" fill="none"/>
-                    <circle cx="50" cy="35" r="5" fill="currentColor"/>
-                    <circle cx="30" cy="45" r="5" fill="currentColor"/>
-                    <circle cx="70" cy="45" r="5" fill="currentColor"/>
-                    <circle cx="30" cy="65" r="5" fill="currentColor"/>
-                    <circle cx="70" cy="65" r="5" fill="currentColor"/>
-                    <line x1="50" y1="35" x2="30" y2="45" stroke="currentColor" stroke-width="3"/>
-                    <line x1="50" y1="35" x2="70" y2="45" stroke="currentColor" stroke-width="3"/>
-                    <line x1="50" y1="35" x2="50" y2="55" stroke="currentColor" stroke-width="3"/>
-                    <line x1="30" y1="45" x2="30" y2="65" stroke="currentColor" stroke-width="3"/>
-                    <line x1="70" y1="45" x2="70" y2="65" stroke="currentColor" stroke-width="3"/>
-                    <path d="M50 60 L60 85 L50 95 L40 85 Z" fill="currentColor"/>
-                    <path d="M50 70 L53 80 L50 88 L47 80 Z" fill="white"/>
+                    <!-- Shield -->
+                    <path d="M50 8 L88 28 L88 68 L50 92 L12 68 L12 28 Z" stroke="currentColor" stroke-width="6" fill="none"/>
+                    <!-- Network Nodes -->
+                    <circle cx="50" cy="38" r="6" fill="currentColor"/>
+                    <circle cx="30" cy="48" r="6" fill="currentColor"/>
+                    <circle cx="70" cy="48" r="6" fill="currentColor"/>
+                    <circle cx="30" cy="68" r="6" fill="currentColor"/>
+                    <circle cx="70" cy="68" r="6" fill="currentColor"/>
+                    <!-- Connections -->
+                    <line x1="50" y1="38" x2="30" y2="48" stroke="currentColor" stroke-width="4"/>
+                    <line x1="50" y1="38" x2="70" y2="48" stroke="currentColor" stroke-width="4"/>
+                    <line x1="50" y1="38" x2="50" y2="58" stroke="currentColor" stroke-width="4"/>
+                    <line x1="30" y1="48" x2="30" y2="68" stroke="currentColor" stroke-width="4"/>
+                    <line x1="70" y1="48" x2="70" y2="68" stroke="currentColor" stroke-width="4"/>
+                    <!-- Drop with Lightning -->
+                    <path d="M50 62 C50 62 62 82 62 88 C62 94 57 98 50 98 C43 98 38 94 38 88 C38 82 50 62 50 62 Z" fill="currentColor"/>
+                    <path d="M50 72 L53 81 L50 87 L47 81 Z" fill="white"/>
                 </svg>
                 GETH
             </a>
             <div class="nav-links">
+                <a href="#about">About</a>
                 <a href="#problem">Problem</a>
                 <a href="#solution">Solution</a>
-                <a href="#use-case">Use Case</a>
+                <a href="#use-case">Deal Flow</a>
                 <a href="#tokens">Tokens</a>
                 <a href="#team">Team</a>
                 <a href="#ask" class="btn btn-primary">Contact</a>
@@ -700,13 +970,60 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">Idea Stage • Pre-seed • UAE (VARA/DMCC)</div>
+            <div class="hero-badge">
+                <span>🚀</span>
+                <span>Idea Stage • Pre-seed • UAE (VARA/DMCC)</span>
+            </div>
             <h1>AI-Powered Operating System for OTC Commodity Trade</h1>
             <p class="hero-subtitle">Global Energy & Commodity Trust Hub</p>
-            <p class="hero-description">Digitising the $4.6T OTC commodity market with AI, blockchain, and IoT. Starting with concierge MVP, scaling to full automation.</p>
+            <p class="hero-description">
+                GETH revolutionises the $4.6 trillion OTC commodity market by combining artificial intelligence, 
+                blockchain technology, and IoT tracking to eliminate manual processes, prevent fraud, and 
+                accelerate settlement times from months to hours.
+            </p>
+            <p class="hero-tagline">Starting with a concierge MVP, scaling to full automation with tokenised incentives</p>
             <div class="hero-buttons">
-                <a href="#" class="btn btn-primary" onclick="alert('Pitch Deck will be available soon. Contact founder directly.'); return false;">View Pitch Deck</a>
+                <a href="#use-case" class="btn btn-primary">See How It Works</a>
                 <a href="#ask" class="btn btn-secondary">Contact Founder</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-grid">
+            <div class="about-content fade-in">
+                <h2>What is GETH?</h2>
+                <p>
+                    GETH (Global Energy & Commodity Trust Hub) is a next-generation platform designed to digitise 
+                    and streamline over-the-counter (OTC) commodity trading. We address critical pain points in the 
+                    $4.6 trillion market: 63% manual processes, widespread certificate fraud costing $50B+ annually, 
+                    and dispute resolution delays exceeding 18 months.
+                </p>
+                <p>
+                    Our phased approach starts with a <strong>concierge MVP</strong> — manually orchestrating deals 
+                    with AI-assisted counterparty scoring and stablecoin payments — then evolves into a fully 
+                    automated ecosystem with smart contracts, NFT-based quality certificates, IoT cargo tracking, 
+                    and a dual-token economy ($GETH + $vGETH).
+                </p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">$4.6T</span>
+                        <div class="stat-label">Total Addressable Market</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">63%</span>
+                        <div class="stat-label">Manual Processes Eliminated</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">&lt;10 min</span>
+                        <div class="stat-label">KYB Verification Time</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Hours</span>
+                        <div class="stat-label">vs 18 Months Settlement</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -714,27 +1031,28 @@
     <!-- Problem Section -->
     <section id="problem" class="problem">
         <div class="container">
-            <h2 class="section-title">$4.6T OTC Commodity Market is Broken</h2>
+            <h2 class="section-title">The Problem</h2>
+            <p class="section-subtitle">$4.6T OTC Commodity Market is Broken</p>
             <div class="problem-grid">
                 <div class="problem-card fade-in">
                     <div class="problem-icon">📄</div>
-                    <h3>63% Manual</h3>
-                    <p>Excel, email, fax dominate workflows</p>
+                    <h3>63% Manual Processes</h3>
+                    <p>Excel spreadsheets, email chains, and fax machines still dominate commodity trading workflows</p>
                 </div>
                 <div class="problem-card fade-in">
                     <div class="problem-icon">⚠️</div>
                     <h3>Fake Certificates</h3>
-                    <p>>$50B/year in losses</p>
+                    <p>Fraudulent quality certificates cost buyers over $50 billion annually</p>
                 </div>
                 <div class="problem-card fade-in">
                     <div class="problem-icon">⏳</div>
                     <h3>18+ Month Disputes</h3>
-                    <p>Court delays kill deals</p>
+                    <p>Court delays and arbitration bottlenecks kill deals and tie up capital</p>
                 </div>
                 <div class="problem-card fade-in">
                     <div class="problem-icon">🚫</div>
                     <h3>SMEs Locked Out</h3>
-                    <p>No access to trade finance</p>
+                    <p>Small and medium enterprises have no access to trade finance or verified networks</p>
                 </div>
             </div>
         </div>
@@ -743,92 +1061,179 @@
     <!-- Solution Section -->
     <section id="solution" class="solution">
         <div class="container">
-            <h2 class="section-title">Phased Approach — Validate First, Automate Later</h2>
+            <h2 class="section-title">Our Solution</h2>
+            <p class="section-subtitle">Phased Approach — Validate First, Automate Later</p>
             <div class="solution-grid">
                 <div class="solution-card fade-in">
                     <span class="status">Phase 1 (Now)</span>
                     <h3>Concierge MVP</h3>
-                    <p>Manual validation before automation. Prove demand with real deals.</p>
+                    <p>Manual validation before automation. Prove demand with real deals using founder's industry network.</p>
                     <ul>
-                        <li>Manual matching + AI-assisted scoring</li>
-                        <li>Stablecoin/fiat payments</li>
-                        <li>API-based KYB verification</li>
-                        <li>5–10 pilot deals</li>
-                        <li>No tokens yet</li>
+                        <li>Manual deal matching with AI-assisted counterparty scoring</li>
+                        <li>Stablecoin (USDC/USDT) or fiat payments via regulated escrow</li>
+                        <li>API-based KYB/KYC verification (Sumsub, ComplyAdvantage)</li>
+                        <li>5–10 pilot deals with trusted traders</li>
+                        <li>Partnership with existing IoT providers (no in-house hardware)</li>
+                        <li>No tokens yet — focus on product-market fit</li>
                     </ul>
                 </div>
                 <div class="solution-card fade-in">
                     <span class="status">Phase 2 (12–24 mo)</span>
                     <h3>Full Automation</h3>
-                    <p>Scale with technology after product-market fit.</p>
+                    <p>Scale with technology after validating demand and unit economics.</p>
                     <ul>
-                        <li>Smart contracts + NFT certificates</li>
-                        <li>$GETH token launch</li>
-                        <li>IoT integration</li>
-                        <li>$vGETH governance</li>
-                        <li>Automated arbitration</li>
+                        <li>Smart contracts for automated escrow and settlement</li>
+                        <li>NFT-based quality certificates (SGS/Bureau Veritas integration)</li>
+                        <li>$GETH token launch (exchange token with buyback mechanics)</li>
+                        <li>Real-time IoT cargo tracking (temperature, GPS, tamper-proof)</li>
+                        <li>$vGETH governance token (burn for certificates, DAO voting)</li>
+                        <li>Automated arbitration based on DIFC-LCIA rules (14-day target)</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Use Case Section -->
+    <!-- Use Case Section - ENHANCED -->
     <section id="use-case" class="use-case">
         <div class="container">
-            <h2 class="section-title">How a $19M Fuel Oil Deal Works</h2>
+            <h2 class="section-title">Deal Flow in Action</h2>
+            <p class="section-subtitle">A Complete $19M Fuel Oil Transaction</p>
+            
+            <div class="deal-overview fade-in">
+                <h3 style="margin-bottom: 1.5rem; color: var(--teal);">Transaction Overview</h3>
+                <div class="deal-meta">
+                    <div class="deal-meta-item">
+                        <div class="deal-meta-label">Commodity</div>
+                        <div class="deal-meta-value">Fuel Oil (50,000 MT)</div>
+                    </div>
+                    <div class="deal-meta-item">
+                        <div class="deal-meta-label">Deal Value</div>
+                        <div class="deal-meta-value">$19,000,000</div>
+                    </div>
+                    <div class="deal-meta-item">
+                        <div class="deal-meta-label">Route</div>
+                        <div class="deal-meta-value">Mina-Said (UAE) → Mumbai (India)</div>
+                    </div>
+                    <div class="deal-meta-item">
+                        <div class="deal-meta-label">Timeline</div>
+                        <div class="deal-meta-value">45 days</div>
+                    </div>
+                </div>
+                
+                <h4 style="margin: 1.5rem 0 1rem; color: var(--black);">Transaction Participants</h4>
+                <div class="participants">
+                    <div class="participant-card">
+                        <div class="participant-role">🏭 Seller</div>
+                        <div class="participant-desc">UAE-based oil refining company exporting 50,000 MT fuel oil</div>
+                    </div>
+                    <div class="participant-card">
+                        <div class="participant-role">🏢 Buyer</div>
+                        <div class="participant-desc">Indian energy company requiring fuel oil for power generation</div>
+                    </div>
+                    <div class="participant-card">
+                        <div class="participant-role">🤝 Intermediary</div>
+                        <div class="participant-desc">Swiss trading firm facilitating the transaction for commission</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin: 3rem 0 2rem; font-size: 2rem;">Step-by-Step Process</h3>
+            
             <div class="use-case-timeline">
                 <div class="use-case-step fade-in">
                     <div class="step-number">1</div>
-                    <h3>Match & Verify</h3>
-                    <p>Seller uploads lot + SGS cert. AI scores counterparty risk in &lt;10 min</p>
+                    <h3>📤 Lot Creation & Verification</h3>
+                    <p>Seller uploads 50,000 MT fuel oil specification to GETH platform, attaches SGS quality certificate (minted as NFT in Phase 2). AI system instantly verifies seller's credentials, financial standing, and trading history.</p>
+                    <div class="step-benefit">✓ Counterparty risk scored in &lt;10 minutes</div>
                 </div>
+                
                 <div class="use-case-step fade-in">
                     <div class="step-number">2</div>
-                    <h3>Lock & Fund</h3>
-                    <p>$19M locked in regulated escrow. 0.5% platform fee applied</p>
+                    <h3>🔍 AI Matching & Discovery</h3>
+                    <p>GETH's AI engine analyses buyer requirements (API gravity, sulphur content, delivery window) and automatically matches with available lots. Intermediary receives notification about potential deal with pre-calculated commission structure ($38,000 total).</p>
+                    <div class="step-benefit">✓ Automated deal discovery — no cold calls</div>
                 </div>
+                
                 <div class="use-case-step fade-in">
                     <div class="step-number">3</div>
-                    <h3>Track & Deliver</h3>
-                    <p>IoT + satellite tracking (Mina-Said → Mumbai)</p>
+                    <h3>🔒 Escrow & Contract Lock</h3>
+                    <p>Buyer books the lot and deposits $19M into regulated escrow account (RAKBANK or equivalent). Smart contract (Phase 2) or legal agreement (Phase 1) locks all terms: price, quality specs, delivery timeline, intermediary commission split ($19k upfront + $19k on completion).</p>
+                    <div class="step-benefit">✓ 0.5% platform fee + 0.1% escrow fee applied</div>
                 </div>
+                
                 <div class="use-case-step fade-in">
                     <div class="step-number">4</div>
-                    <h3>Accept & Settle</h3>
-                    <p>Auto-release funds. NFT certificate issued. Done in hours.</p>
+                    <h3>🚢 Logistics Coordination</h3>
+                    <p>Seller confirms cargo readiness at Mina-Said terminal. Buyer selects preferred shipping route via GETH interface. Intermediary coordinates with Maersk or other carrier for vessel booking. IoT sensors activated for real-time tracking.</p>
+                    <div class="step-benefit">✓ Transparent logistics — all parties see same data</div>
+                </div>
+                
+                <div class="use-case-step fade-in">
+                    <div class="step-number">5</div>
+                    <h3>📡 Real-Time Cargo Tracking</h3>
+                    <p>IoT devices monitor cargo temperature, humidity, and location throughout 45-day voyage. Satellite data streamed to GETH platform. All participants receive automated notifications at key milestones (departure, Suez Canal transit, arrival).</p>
+                    <div class="step-benefit">✓ Tamper-proof tracking data — no disputes about conditions</div>
+                </div>
+                
+                <div class="use-case-step fade-in">
+                    <div class="step-number">6</div>
+                    <h3>✅ Quality Verification & Acceptance</h3>
+                    <p>Upon arrival at Mumbai port, independent inspector (SGS/Bureau Veritas) verifies cargo quality against NFT certificate specs. Buyer digitally signs acceptance. IoT data confirms no temperature excursions or contamination during transit.</p>
+                    <div class="step-benefit">✓ Instant quality confirmation — no 18-month disputes</div>
+                </div>
+                
+                <div class="use-case-step fade-in">
+                    <div class="step-number">7</div>
+                    <h3>💰 Automated Settlement</h3>
+                    <p>Smart contract (Phase 2) or escrow agent (Phase 1) releases $18.96M to seller (minus $5k platform fee), $38k to intermediary (split: $19k + $19k), and issues digital ESG passport to buyer. Entire settlement completes in &lt;2 hours.</p>
+                    <div class="step-benefit">✓ Total GETH revenue: $28,500 (0.15% of deal value)</div>
+                </div>
+                
+                <div class="use-case-step fade-in">
+                    <div class="step-number">8</div>
+                    <h3>📊 Reporting & Analytics</h3>
+                    <p>All participants access deal history via GETH dashboard. Seller sees completed transaction in portfolio. Buyer receives comprehensive digital passport with ESG data (carbon footprint, sustainability metrics). Intermediary generates client report via analytics hub.</p>
+                    <div class="step-benefit">✓ Complete audit trail — ready for compliance & tax</div>
                 </div>
             </div>
-            <p class="use-case-footer">* Phase 1: Manual concierge. Phase 2: Full automation.</p>
+            
+            <div class="use-case-footer fade-in">
+                <p><strong>Phase 1 Execution:</strong> Manual concierge orchestration + stablecoin/fiat escrow + API verification<br>
+                <strong>Phase 2 Automation:</strong> Smart contracts + NFT certificates + IoT integration + token incentives</p>
+            </div>
         </div>
     </section>
 
     <!-- Tokens Section -->
     <section id="tokens" class="tokens">
         <div class="container">
-            <h2 class="section-title">Two-Token Model — Phased & Defensible</h2>
+            <h2 class="section-title">Dual-Token Economy</h2>
+            <p class="section-subtitle">Phased & Defensible Token Model</p>
             <div class="tokens-grid">
                 <div class="token-card fade-in">
                     <h3>$GETH</h3>
-                    <p class="token-type">Exchange Token</p>
+                    <p class="token-type">Exchange & Value Accrual Token</p>
                     <ul>
-                        <li>Buyback & burn from platform fees</li>
-                        <li>Staking rewards</li>
-                        <li>CEX/DEX listing</li>
-                        <li>Max supply: 100M</li>
+                        <li>Buyback & burn mechanism from platform fees (0.5–2.5% per deal)</li>
+                        <li>Staking rewards for liquidity providers</li>
+                        <li>CEX/DEX listing post-PMF validation</li>
+                        <li>Max supply: 100M tokens (deflationary)</li>
+                        <li>Revenue share from escrow fees</li>
                     </ul>
-                    <p><strong>Launch:</strong> Phase 2 (12+ months)</p>
+                    <p style="margin-top: 1.5rem; font-weight: 600;">📅 Launch: Phase 2 (12+ months)</p>
                 </div>
                 <div class="token-card fade-in">
                     <h3>$vGETH</h3>
-                    <p class="token-type">Utility & Governance</p>
+                    <p class="token-type">Utility & Governance Token</p>
                     <ul>
-                        <li>Burn for NFT certificates</li>
-                        <li>Priority AI matching</li>
-                        <li>DAO voting rights</li>
-                        <li>Deflationary mechanism</li>
+                        <li>Burn to mint NFT quality certificates (SGS/BV integration)</li>
+                        <li>Priority access to AI matching algorithm</li>
+                        <li>DAO voting rights on platform upgrades</li>
+                        <li>Staking for reduced platform fees</li>
+                        <li>Deflationary mechanics via certificate burns</li>
                     </ul>
-                    <p><strong>Launch:</strong> Phase 2 (18+ months)</p>
+                    <p style="margin-top: 1.5rem; font-weight: 600;">📅 Launch: Phase 2 (18+ months)</p>
                 </div>
             </div>
         </div>
@@ -838,40 +1243,41 @@
     <section class="uae">
         <div class="container">
             <h2 class="section-title">Why UAE?</h2>
+            <p class="section-subtitle">Strategic Jurisdiction for Commodity Digitization</p>
             <div class="uae-list">
                 <div class="uae-item fade-in">
                     <span class="uae-check">✅</span>
                     <div>
-                        <h3>VARA</h3>
-                        <p>Clearest framework for commodity-backed digital assets in MENA</p>
+                        <h3>VARA (Virtual Assets Regulatory Authority)</h3>
+                        <p>Clearest regulatory framework for commodity-backed digital assets in MENA region. First-mover advantage for RWA (Real World Asset) tokenization.</p>
                     </div>
                 </div>
                 <div class="uae-item fade-in">
                     <span class="uae-check">✅</span>
                     <div>
-                        <h3>DMCC</h3>
-                        <p>50,000+ commodity firms as natural early adopters</p>
+                        <h3>DMCC (Dubai Multi Commodities Centre)</h3>
+                        <p>50,000+ commodity trading firms as natural early adopters. Established ecosystem for physical trading + digital innovation.</p>
                     </div>
                 </div>
                 <div class="uae-item fade-in">
                     <span class="uae-check">✅</span>
                     <div>
-                        <h3>0% Corporate Tax</h3>
-                        <p>Until 2031 — optimal for early-stage growth</p>
+                        <h3>0% Corporate Tax Until 2031</h3>
+                        <p>Optimal tax environment for early-stage growth and token treasury management. Competitive advantage vs. Switzerland/Singapore.</p>
                     </div>
                 </div>
                 <div class="uae-item fade-in">
                     <span class="uae-check">✅</span>
                     <div>
-                        <h3>ADGM/DIFC</h3>
-                        <p>English common law, globally recognised</p>
+                        <h3>ADGM/DIFC Legal Framework</h3>
+                        <p>English common law jurisdiction with globally recognised arbitration courts (DIFC-LCIA). Investor-friendly dispute resolution.</p>
                     </div>
                 </div>
                 <div class="uae-item fade-in">
                     <span class="uae-check">✅</span>
                     <div>
-                        <h3>Plan B</h3>
-                        <p>ADGM if VARA reclassifies tokens — regulatory agility</p>
+                        <h3>Regulatory Contingency Plan</h3>
+                        <p>If VARA reclassifies $GETH as security: pivot to ADGM (FSRA) framework or structure as "non-transferable utility points" initially. Regulatory agility built into token design.</p>
                     </div>
                 </div>
             </div>
@@ -882,21 +1288,22 @@
     <section id="team" class="team">
         <div class="container">
             <h2 class="section-title">Team</h2>
+            <p class="section-subtitle">Industry Expertise + Technical Excellence</p>
             <div class="team-grid">
                 <div class="team-card fade-in">
                     <div class="team-avatar">👤</div>
                     <h3>[Your Name]</h3>
-                    <p class="team-role">Founder</p>
-                    <p>12+ years physical oil trading (Vitol/Glencore/Mercuria). Executed $2B+ OTC deals. Direct network of pilot customers. Deep understanding of industry pain points.</p>
+                    <p class="team-role">Founder & CEO</p>
+                    <p>12+ years executing physical oil trades at major houses (Vitol/Glencore/Mercuria). Closed $2B+ in OTC commodity deals. Direct network of pilot customers across UAE, India, and Singapore. Deep understanding of industry pain points — lived the fax machine nightmare.</p>
                 </div>
                 <div class="team-card fade-in">
                     <div class="team-avatar">🔍</div>
                     <h3>Technical Co-Founder</h3>
                     <p class="team-role">Actively Recruiting</p>
-                    <p><strong>Offer:</strong> 15–25% equity + pre-seed dev budget<br>
-                    <strong>Need:</strong> Senior full-stack + blockchain engineer<br>
-                    <strong>Value:</strong> Direct industry access, no "build in vacuum"</p>
-                    <a href="#ask" class="btn btn-primary" style="margin-top: 1rem;">Apply Now</a>
+                    <p><strong style="color: var(--teal);">Equity Offer:</strong> 15–25% + pre-seed dev budget<br>
+                    <strong style="color: var(--teal);">Profile:</strong> Senior full-stack engineer with blockchain experience (Solidity, smart contracts, Web3)<br>
+                    <strong style="color: var(--teal);">Value Prop:</strong> Direct industry access — no "build in vacuum." Your code solves real $50B problems from Day 1.</p>
+                    <a href="#ask" class="btn btn-primary" style="margin-top: 1.5rem;">Apply Now</a>
                 </div>
             </div>
         </div>
@@ -906,77 +1313,92 @@
     <section class="roadmap">
         <div class="container">
             <h2 class="section-title">Roadmap & Use of Funds</h2>
+            <p class="section-subtitle">8–12 Months to MVP + Licenses + First Pilots</p>
             <div class="roadmap-grid">
                 <div class="roadmap-item fade-in">
-                    <h3>Q1</h3>
+                    <h3>Q1 2026</h3>
                     <ul>
-                        <li>DMCC license application</li>
-                        <li>VARA conditional approval</li>
-                        <li>Concierge MVP (manual)</li>
+                        <li>DMCC trade license application</li>
+                        <li>VARA conditional approval process</li>
+                        <li>Concierge MVP launch (manual operations)</li>
+                        <li>KYB API integrations (Sumsub, ComplyAdvantage)</li>
                     </ul>
                 </div>
                 <div class="roadmap-item fade-in">
-                    <h3>Q2</h3>
+                    <h3>Q2 2026</h3>
                     <ul>
-                        <li>First 5 pilot deals</li>
-                        <li>API integrations (KYB, escrow)</li>
-                        <li>Initial partnerships</li>
+                        <li>First 5 pilot deals executed ($2–5M volume)</li>
+                        <li>Escrow partnership (RAKBANK or equivalent)</li>
+                        <li>IoT provider partnership (Traktrace/Sensitech)</li>
+                        <li>Initial customer feedback integration</li>
                     </ul>
                 </div>
                 <div class="roadmap-item fade-in">
-                    <h3>Q3</h3>
+                    <h3>Q3 2026</h3>
                     <ul>
-                        <li>AI scoring prototype</li>
-                        <li>IoT partnership</li>
-                        <li>10+ deals completed</li>
+                        <li>AI scoring prototype (rule-based v1)</li>
+                        <li>10+ deals completed, unit economics validated</li>
+                        <li>SGS/Bureau Veritas MoU negotiations</li>
+                        <li>Technical co-founder onboarded</li>
                     </ul>
                 </div>
                 <div class="roadmap-item fade-in">
-                    <h3>Q4</h3>
+                    <h3>Q4 2026</h3>
                     <ul>
-                        <li>Seed round preparation</li>
-                        <li>$GETH token design</li>
-                        <li>20+ deals, PMF validation</li>
+                        <li>Seed round preparation ($3–5M target)</li>
+                        <li>$GETH tokenomics design & legal review</li>
+                        <li>20+ deals, $10M+ monthly volume</li>
+                        <li>Product-market fit validation</li>
                     </ul>
                 </div>
             </div>
             
             <div class="funds-chart fade-in">
-                <h3 style="color: var(--teal); margin-bottom: 1.5rem;">Use of $800k Pre-Seed</h3>
+                <h3 style="color: var(--teal); margin-bottom: 2rem; text-align: center;">Use of $800k Pre-Seed Round</h3>
                 <div class="fund-item">
-                    <div>
-                        <strong>Software + AI (MVP)</strong>
+                    <div class="fund-info">
+                        <strong>Software + AI Development (MVP)</strong>
+                    </div>
+                    <div class="fund-bar-container">
                         <div class="fund-bar" style="width: 45%;"></div>
                     </div>
-                    <span style="color: var(--teal);">45%</span>
+                    <span style="color: var(--teal); font-weight: 600;">45%</span>
                 </div>
                 <div class="fund-item">
-                    <div>
+                    <div class="fund-info">
                         <strong>Legal + Licensing (UAE)</strong>
+                    </div>
+                    <div class="fund-bar-container">
                         <div class="fund-bar" style="width: 25%;"></div>
                     </div>
-                    <span style="color: var(--teal);">25%</span>
+                    <span style="color: var(--teal); font-weight: 600;">25%</span>
                 </div>
                 <div class="fund-item">
-                    <div>
-                        <strong>Team (founder + contractors)</strong>
+                    <div class="fund-info">
+                        <strong>Team (founder + 2–3 contractors)</strong>
+                    </div>
+                    <div class="fund-bar-container">
                         <div class="fund-bar" style="width: 15%;"></div>
                     </div>
-                    <span style="color: var(--teal);">15%</span>
+                    <span style="color: var(--teal); font-weight: 600;">15%</span>
                 </div>
                 <div class="fund-item">
-                    <div>
-                        <strong>Partnerships + Pilots</strong>
+                    <div class="fund-info">
+                        <strong>Partnerships + Pilot Incentives</strong>
+                    </div>
+                    <div class="fund-bar-container">
                         <div class="fund-bar" style="width: 10%;"></div>
                     </div>
-                    <span style="color: var(--teal);">10%</span>
+                    <span style="color: var(--teal); font-weight: 600;">10%</span>
                 </div>
                 <div class="fund-item">
-                    <div>
-                        <strong>IoT / Hardware R&D</strong>
+                    <div class="fund-info">
+                        <strong>IoT / Hardware R&D (prototype only)</strong>
+                    </div>
+                    <div class="fund-bar-container">
                         <div class="fund-bar" style="width: 5%;"></div>
                     </div>
-                    <span style="color: var(--teal);">5%</span>
+                    <span style="color: var(--teal); font-weight: 600;">5%</span>
                 </div>
             </div>
         </div>
@@ -986,41 +1408,31 @@
     <section id="ask" class="ask">
         <div class="container">
             <div class="ask-content">
-                <h2 class="section-title">Seeking Pre-Seed Investment</h2>
-                <div class="ask-amount">$600k – $1.2M</div>
-                <p style="font-size: 1.25rem; margin-bottom: 2rem;">MVP + UAE licenses in 8–12 months. First 5–10 pilot deals using founder's network. Clear path to seed round.</p>
+                <h2 class="section-title">Investment Opportunity</h2>
+                <div class="ask-amount">$600k – $1.2M Pre-Seed</div>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--gray-text);">
+                    MVP + UAE licenses in 8–12 months. First 5–10 pilot deals using founder's network. 
+                    Clear path to seed round with validated unit economics.
+                </p>
                 
-                <div style="text-align: left; margin: 2rem 0;">
-                    <h3 style="color: var(--teal); margin-bottom: 1rem;">What you get:</h3>
-                    <ul style="list-style: none;">
-                        <li style="padding: 0.5rem 0;">✓ Equity stake (SAFE/convertible note)</li>
-                        <li style="padding: 0.5rem 0;">✓ Early access to $GETH token allocation</li>
-                        <li style="padding: 0.5rem 0;">✓ Direct advisory role in commodity digitization</li>
-                    </ul>
+                <div class="contact-info">
+                    <h3 style="color: var(--teal); margin-bottom: 1rem;">Get in Touch</h3>
+                    <p style="margin-bottom: 1rem;">Ready to discuss the opportunity or have questions?</p>
+                    <a href="mailto:gethfounder@gmail.com" class="contact-email">gethfounder@gmail.com</a>
+                    <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--gray-text);">
+                        Or connect via LinkedIn / Twitter (coming soon)
+                    </p>
                 </div>
 
-                <div class="contact-form">
-                    <h3 style="margin-bottom: 1.5rem;">Get in Touch</h3>
-                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="organization">Organization / Fund</label>
-                            <input type="text" id="organization" name="organization">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                    </form>
-                    <p style="margin-top: 1rem; text-align: center;">Or email directly: <a href="mailto:founder@geth.trade" style="color: var(--teal);">founder@geth.trade</a></p>
+                <div style="text-align: left; margin: 2.5rem 0; padding: 2rem; background: var(--gray-light); border-radius: 12px;">
+                    <h3 style="color: var(--teal); margin-bottom: 1.25rem;">What Investors Receive:</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li>✓ Equity stake via SAFE or convertible note</li>
+                        <li>✓ Early access to $GETH token allocation (post-launch)</li>
+                        <li>✓ Direct advisory role in commodity digitization strategy</li>
+                        <li>✓ Quarterly updates on pilots, partnerships, and regulatory progress</li>
+                        <li>✓ Pro-rata rights in seed round</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1029,29 +1441,30 @@
     <!-- Footer -->
     <footer>
         <div class="footer-logo">
-            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" style="color: var(--teal);">
-                <path d="M50 5 L90 25 L90 65 L50 95 L10 65 L10 25 Z" stroke="currentColor" stroke-width="5" fill="none"/>
-                <circle cx="50" cy="35" r="5" fill="currentColor"/>
-                <circle cx="30" cy="45" r="5" fill="currentColor"/>
-                <circle cx="70" cy="45" r="5" fill="currentColor"/>
-                <circle cx="30" cy="65" r="5" fill="currentColor"/>
-                <circle cx="70" cy="65" r="5" fill="currentColor"/>
-                <line x1="50" y1="35" x2="30" y2="45" stroke="currentColor" stroke-width="3"/>
-                <line x1="50" y1="35" x2="70" y2="45" stroke="currentColor" stroke-width="3"/>
-                <line x1="50" y1="35" x2="50" y2="55" stroke="currentColor" stroke-width="3"/>
-                <line x1="30" y1="45" x2="30" y2="65" stroke="currentColor" stroke-width="3"/>
-                <line x1="70" y1="45" x2="70" y2="65" stroke="currentColor" stroke-width="3"/>
-                <path d="M50 60 L60 85 L50 95 L40 85 Z" fill="currentColor"/>
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--teal);">
+                <path d="M50 8 L88 28 L88 68 L50 92 L12 68 L12 28 Z" stroke="currentColor" stroke-width="6" fill="none"/>
+                <circle cx="50" cy="38" r="6" fill="currentColor"/>
+                <circle cx="30" cy="48" r="6" fill="currentColor"/>
+                <circle cx="70" cy="48" r="6" fill="currentColor"/>
+                <circle cx="30" cy="68" r="6" fill="currentColor"/>
+                <circle cx="70" cy="68" r="6" fill="currentColor"/>
+                <line x1="50" y1="38" x2="30" y2="48" stroke="currentColor" stroke-width="4"/>
+                <line x1="50" y1="38" x2="70" y2="48" stroke="currentColor" stroke-width="4"/>
+                <line x1="50" y1="38" x2="50" y2="58" stroke="currentColor" stroke-width="4"/>
+                <line x1="30" y1="48" x2="30" y2="68" stroke="currentColor" stroke-width="4"/>
+                <line x1="70" y1="48" x2="70" y2="68" stroke="currentColor" stroke-width="4"/>
+                <path d="M50 62 C50 62 62 82 62 88 C62 94 57 98 50 98 C43 98 38 94 38 88 C38 82 50 62 50 62 Z" fill="currentColor"/>
             </svg>
         </div>
-        <p><strong>GETH</strong> — Global Energy & Commodity Trust Hub</p>
-        <p style="opacity: 0.8; margin: 0.5rem 0;">Idea Stage • Pre-seed • UAE (DMCC + VARA)</p>
+        <p style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">GETH</p>
+        <p style="opacity: 0.9; margin-bottom: 0.5rem;">Global Energy & Commodity Trust Hub</p>
+        <p style="opacity: 0.7; margin: 1rem 0;">Idea Stage • Pre-seed • UAE (DMCC + VARA)</p>
         <div class="footer-links">
-            <a href="mailto:founder@geth.trade">founder@geth.trade</a>
-            <a href="#" onclick="alert('LinkedIn coming soon'); return false;">LinkedIn</a>
-            <a href="#" onclick="alert('Twitter coming soon'); return false;">Twitter/X</a>
+            <a href="mailto:gethfounder@gmail.com">gethfounder@gmail.com</a>
+            <a href="#" onclick="alert('LinkedIn profile coming soon'); return false;">LinkedIn</a>
+            <a href="#" onclick="alert('Twitter/X profile coming soon'); return false;">Twitter/X</a>
         </div>
-        <p style="opacity: 0.6; font-size: 0.875rem; margin-top: 2rem;">© 2026 GETH. All rights reserved.</p>
+        <p style="opacity: 0.5; font-size: 0.875rem; margin-top: 2rem;">© 2026 GETH. All rights reserved.</p>
     </footer>
 
     <!-- Scripts -->
@@ -1087,17 +1500,6 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
-
-        // Form submission handler (if not using Formspree)
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                // If not using Formspree, uncomment below:
-                // e.preventDefault();
-                // alert('Thank you for your message! We will get back to you soon.');
-                // form.reset();
-            });
-        }
     </script>
 </body>
 </html>
