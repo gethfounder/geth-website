@@ -8,7 +8,7 @@
     <meta name="keywords" content="commodity trading, blockchain, AI, UAE, VARA, pre-seed, OTC, energy">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 15 L85 35 L85 75 L50 95 L15 75 L15 35 Z' stroke='%23008B8B' stroke-width='8' fill='none'/><circle cx='50' cy='40' r='6' fill='%23008B8B'/><circle cx='32' cy='50' r='6' fill='%23008B8B'/><circle cx='68' cy='50' r='6' fill='%23008B8B'/><circle cx='32' cy='70' r='6' fill='%23008B8B'/><circle cx='68' cy='70' r='6' fill='%23008B8B'/><line x1='50' y1='40' x2='32' y2='50' stroke='%23008B8B' stroke-width='4'/><line x1='50' y1='40' x2='68' y2='50' stroke='%23008B8B' stroke-width='4'/><line x1='50' y1='40' x2='50' y2='60' stroke='%23008B8B' stroke-width='4'/><line x1='32' y1='50' x2='32' y2='70' stroke='%23008B8B' stroke-width='4'/><line x1='68' y1='50' x2='68' y2='70' stroke='%23008B8B' stroke-width='4'/><path d='M50 65 L58 88 L50 95 L42 88 Z' fill='%23008B8B'/><path d='M50 73 L53 82 L50 88 L47 82 Z' fill='white'/></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 15 L85 35 L85 75 L50 95 L15 75 L15 35 Z' stroke='%2300C4B4' stroke-width='8' fill='none'/><circle cx='50' cy='40' r='6' fill='%2300C4B4'/><circle cx='32' cy='50' r='6' fill='%2300C4B4'/><circle cx='68' cy='50' r='6' fill='%2300C4B4'/><circle cx='32' cy='70' r='6' fill='%2300C4B4'/><circle cx='68' cy='70' r='6' fill='%2300C4B4'/><line x1='50' y1='40' x2='32' y2='50' stroke='%2300C4B4' stroke-width='4'/><line x1='50' y1='40' x2='68' y2='50' stroke='%2300C4B4' stroke-width='4'/><line x1='50' y1='40' x2='50' y2='60' stroke='%2300C4B4' stroke-width='4'/><line x1='32' y1='50' x2='32' y2='70' stroke='%2300C4B4' stroke-width='4'/><line x1='68' y1='50' x2='68' y2='70' stroke='%2300C4B4' stroke-width='4'/><path d='M50 65 L58 88 L50 95 L42 88 Z' fill='%2300C4B4'/><path d='M50 73 L53 82 L50 88 L47 82 Z' fill='white'/></svg>">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,8 +24,8 @@
         :root {
             --black: #000000;
             --white: #FFFFFF;
-            --teal: #008B8B; /* Более благородный цвет */
-            --teal-light: #00A896;
+            --teal: #00C4B4;
+            --teal-light: #00D4C4;
             --gray-light: #F5F5F5;
             --gray-dark: #1a1a1a;
             --gray-text: #666666;
@@ -38,7 +38,7 @@
             overflow-x: hidden;
         }
         
-        /* Navigation */
+        /* Navigation - ENHANCED SPACING */
         nav {
             position: fixed;
             top: 0;
@@ -46,12 +46,12 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 1rem 5%;
+            padding: 1.5rem 5%;
             box-shadow: 0 2px 20px rgba(0,0,0,0.08);
         }
         
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -61,21 +61,21 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--black);
             text-decoration: none;
         }
         
         .logo svg {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
         }
         
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             align-items: center;
         }
         
@@ -84,7 +84,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
         
         .nav-links a:hover {
@@ -92,7 +92,7 @@
         }
         
         .btn {
-            padding: 0.75rem 1.75rem;
+            padding: 0.875rem 2rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
@@ -100,7 +100,7 @@
             display: inline-block;
             border: 2px solid transparent;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
         
         .btn-primary {
@@ -111,7 +111,7 @@
         .btn-primary:hover {
             background: var(--teal-light);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 139, 139, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 196, 180, 0.3);
         }
         
         .btn-secondary {
@@ -125,10 +125,10 @@
             color: var(--white);
         }
         
-        /* Hero Section */
+        /* Hero Section - MORE SPACING */
         .hero {
-            margin-top: 70px;
-            padding: 5rem 5%;
+            margin-top: 100px;
+            padding: 8rem 5%;
             background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%);
             color: var(--white);
             position: relative;
@@ -142,13 +142,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23008B8B' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300C4B4' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
@@ -156,114 +156,121 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(0, 139, 139, 0.2);
-            border: 1px solid var(--teal);
+            background: rgba(0, 196, 180, 0.15);
+            border: 2px solid var(--teal);
             color: var(--teal);
-            padding: 0.5rem 1.25rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
         
         .hero h1 {
-            font-size: 3.25rem;
+            font-size: 3.75rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
             animation: fadeInUp 0.8s ease;
         }
         
         .hero-subtitle {
-            font-size: 1.75rem;
+            font-size: 2rem;
             color: var(--teal);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             font-weight: 500;
             animation: fadeInUp 0.8s ease 0.2s backwards;
         }
         
         .hero-description {
-            font-size: 1.15rem;
-            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
             opacity: 0.95;
-            line-height: 1.7;
-            max-width: 800px;
+            line-height: 1.8;
+            max-width: 900px;
             animation: fadeInUp 0.8s ease 0.4s backwards;
         }
         
         .hero-tagline {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            opacity: 0.85;
+            margin-bottom: 3rem;
             font-style: italic;
         }
         
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
             animation: fadeInUp 0.8s ease 0.6s backwards;
         }
         
-        /* About Section - NEW */
+        /* About Section - FULL WIDTH */
         .about {
-            padding: 5rem 5%;
+            padding: 7rem 5%;
             background: var(--white);
         }
         
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 1000px;
+        .about-content {
+            max-width: 1200px;
             margin: 0 auto;
         }
         
         .about-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            margin-bottom: 2rem;
             color: var(--black);
+            text-align: center;
         }
         
-        .about-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+        .about-content > p {
+            font-size: 1.25rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
             color: var(--gray-text);
+            text-align: center;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .about-stats {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
         }
         
         .stat-item {
             text-align: center;
-            padding: 1.5rem;
+            padding: 2.5rem 2rem;
             background: var(--gray-light);
             border-radius: 12px;
-            border-left: 4px solid var(--teal);
+            border-left: 5px solid var(--teal);
+            transition: transform 0.3s;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
         }
         
         .stat-number {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--teal);
             display: block;
+            margin-bottom: 0.75rem;
         }
         
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--gray-text);
-            margin-top: 0.5rem;
+            line-height: 1.4;
         }
         
         /* Section Styles */
         section {
-            padding: 5rem 5%;
+            padding: 6rem 5%;
         }
         
         .container {
@@ -272,7 +279,7 @@
         }
         
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             font-weight: 700;
             text-align: center;
             margin-bottom: 1rem;
@@ -282,17 +289,20 @@
         .section-subtitle {
             text-align: center;
             color: var(--gray-text);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
+            width: 80px;
             height: 4px;
             background: var(--teal);
-            margin: 1rem auto 0;
+            margin: 1.5rem auto 0;
             border-radius: 2px;
         }
         
@@ -303,34 +313,34 @@
         
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
             margin-top: 3rem;
         }
         
         .problem-card {
             text-align: center;
-            padding: 2.5rem 2rem;
+            padding: 3rem 2rem;
             background: var(--white);
             border-radius: 12px;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         }
         
         .problem-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
         }
         
         .problem-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.25rem;
         }
         
         .problem-card h3 {
             color: var(--teal);
-            margin-bottom: 0.75rem;
-            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
         
         /* Solution Section */
@@ -340,28 +350,28 @@
         
         .solution-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 3rem;
             margin-top: 3rem;
         }
         
         .solution-card {
             background: var(--white);
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: 12px;
             border: 2px solid var(--gray-light);
-            border-top: 4px solid var(--teal);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--teal);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s;
         }
         
         .solution-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
         }
         
         .solution-card h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
+            font-size: 1.9rem;
+            margin-bottom: 1.25rem;
             color: var(--black);
         }
         
@@ -369,21 +379,21 @@
             display: inline-block;
             background: var(--teal);
             color: var(--white);
-            padding: 0.35rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
+            padding: 0.4rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
         }
         
         .solution-card ul {
             list-style: none;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
         
         .solution-card li {
-            padding: 0.65rem 0;
-            padding-left: 1.75rem;
+            padding: 0.85rem 0;
+            padding-left: 2rem;
             position: relative;
             border-bottom: 1px solid var(--gray-light);
         }
@@ -398,143 +408,117 @@
             left: 0;
             color: var(--teal);
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
         
-        /* Use Case Section - ENHANCED */
+        /* Use Case Section */
         .use-case {
             background: var(--gray-light);
         }
         
-        .use-case-intro {
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--gray-text);
-        }
-        
         .deal-overview {
             background: var(--white);
-            padding: 2rem;
+            padding: 3rem;
             border-radius: 12px;
-            margin-bottom: 3rem;
-            border-left: 4px solid var(--teal);
+            margin-bottom: 4rem;
+            border-left: 5px solid var(--teal);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
         }
         
         .deal-meta {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
         }
         
         .deal-meta-item {
-            padding: 1rem;
+            padding: 1.5rem;
             background: var(--gray-light);
             border-radius: 8px;
         }
         
         .deal-meta-label {
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             color: var(--gray-text);
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
         
         .deal-meta-value {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--teal);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
         
         .participants {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
         }
         
         .participant-card {
             background: var(--gray-light);
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 8px;
-            border-top: 3px solid var(--teal);
+            border-top: 4px solid var(--teal);
         }
         
         .participant-role {
             font-weight: 700;
             color: var(--teal);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .participant-desc {
-            font-size: 0.95rem;
-            color: var(--gray-text);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
         }
         
         .use-case-timeline {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
         
         .use-case-step {
             background: var(--white);
-            padding: 2.5rem 2rem;
+            padding: 3rem 2.5rem;
             border-radius: 12px;
             position: relative;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s;
         }
         
         .use-case-step:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
         }
         
         .step-number {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: var(--teal);
             color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
         }
         
         .use-case-step h3 {
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             color: var(--black);
-            font-size: 1.3rem;
-        }
-        
-        .use-case-step p {
-            color: var(--gray-text);
-            line-height: 1.6;
+            font-size: 1.4rem;
         }
         
         .step-benefit {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--gray-light);
-            font-size: 0.9rem;
+            margin-top: 1.5rem;
+            padding-top: 1.25rem;
+            border-top: 2px solid var(--gray-light);
+            font-size: 0.95rem;
             color: var(--teal);
             font-weight: 600;
-        }
-        
-        .use-case-footer {
-            text-align: center;
-            margin-top: 3rem;
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 12px;
-            font-style: italic;
-            color: var(--gray-text);
         }
         
         /* Tokens Section */
@@ -549,60 +533,28 @@
         
         .tokens-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
             margin-top: 3rem;
         }
         
         .token-card {
             background: var(--gray-dark);
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: 12px;
-            border: 2px solid var(--teal);
+            border: 3px solid var(--teal);
             text-align: center;
             transition: transform 0.3s;
         }
         
         .token-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
         }
         
         .token-card h3 {
-            font-size: 2.25rem;
+            font-size: 2.5rem;
             color: var(--teal);
-            margin-bottom: 0.5rem;
-        }
-        
-        .token-card .token-type {
-            color: var(--white);
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-        
-        .token-card ul {
-            list-style: none;
-            text-align: left;
-            margin: 1.5rem 0;
-        }
-        
-        .token-card li {
-            padding: 0.75rem 0;
-            padding-left: 1.75rem;
-            position: relative;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .token-card li:last-child {
-            border-bottom: none;
-        }
-        
-        .token-card li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--teal);
-            font-weight: bold;
+            margin-bottom: 0.75rem;
         }
         
         /* UAE Section */
@@ -611,36 +563,24 @@
         }
         
         .uae-list {
-            max-width: 900px;
-            margin: 3rem auto 0;
+            max-width: 1000px;
+            margin: 4rem auto 0;
         }
         
         .uae-item {
             display: flex;
             align-items: flex-start;
-            gap: 1.5rem;
-            padding: 2rem;
+            gap: 2rem;
+            padding: 2.5rem;
             background: var(--gray-light);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             border-radius: 12px;
-            border-left: 4px solid var(--teal);
+            border-left: 5px solid var(--teal);
             transition: transform 0.3s;
         }
         
         .uae-item:hover {
-            transform: translateX(5px);
-        }
-        
-        .uae-check {
-            color: var(--teal);
-            font-size: 1.75rem;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-        
-        .uae-item h3 {
-            margin-bottom: 0.5rem;
-            color: var(--black);
+            transform: translateX(8px);
         }
         
         /* Team Section */
@@ -650,47 +590,22 @@
         
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 3.5rem;
+            margin-top: 4rem;
         }
         
         .team-card {
             background: var(--white);
             text-align: center;
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s;
         }
         
         .team-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .team-avatar {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, var(--teal), var(--teal-light));
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--white);
-        }
-        
-        .team-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .team-role {
-            color: var(--teal);
-            font-weight: 600;
-            margin-bottom: 1.25rem;
-            font-size: 1.05rem;
+            transform: translateY(-8px);
         }
         
         /* Roadmap Section */
@@ -705,51 +620,27 @@
         
         .roadmap-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
         }
         
         .roadmap-item {
             background: var(--gray-dark);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 12px;
-            border-top: 4px solid var(--teal);
+            border-top: 5px solid var(--teal);
             transition: transform 0.3s;
         }
         
         .roadmap-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .roadmap-item h3 {
-            color: var(--teal);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .roadmap-item ul {
-            list-style: none;
-        }
-        
-        .roadmap-item li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .roadmap-item li::before {
-            content: '•';
-            color: var(--teal);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
+            transform: translateY(-8px);
         }
         
         .funds-chart {
-            margin-top: 3rem;
+            margin-top: 4rem;
             background: var(--gray-dark);
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: 12px;
         }
         
@@ -757,29 +648,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.25rem 0;
+            padding: 1.5rem 0;
             border-bottom: 1px solid #333;
-        }
-        
-        .fund-item:last-child {
-            border-bottom: none;
-        }
-        
-        .fund-info {
-            flex: 1;
-        }
-        
-        .fund-bar-container {
-            flex: 2;
-            margin: 0 2rem;
-        }
-        
-        .fund-bar {
-            height: 10px;
-            background: var(--teal);
-            border-radius: 5px;
-            margin-top: 0.5rem;
-            transition: width 1s ease;
         }
         
         /* Ask Section */
@@ -789,68 +659,45 @@
         }
         
         .ask-content {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
         }
         
         .ask-amount {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 700;
             color: var(--teal);
-            margin: 1.5rem 0;
+            margin: 2rem 0;
         }
         
         .contact-info {
-            margin: 2rem 0;
-            padding: 2rem;
+            margin: 3rem 0;
+            padding: 3rem;
             background: var(--gray-light);
             border-radius: 12px;
         }
         
         .contact-email {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             color: var(--teal);
             text-decoration: none;
             font-weight: 600;
             display: inline-block;
-            margin: 1rem 0;
-        }
-        
-        .contact-email:hover {
-            text-decoration: underline;
+            margin: 1.5rem 0;
         }
         
         /* Footer */
         footer {
             background: var(--black);
             color: var(--white);
-            padding: 3rem 5%;
+            padding: 4rem 5%;
             text-align: center;
         }
         
         .footer-logo svg {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1.5rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links a {
-            color: var(--teal);
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-        
-        .footer-links a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
+            width: 70px;
+            height: 70px;
+            margin-bottom: 1.5rem;
         }
         
         /* Animations */
@@ -878,16 +725,29 @@
         
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+            
+            .hero {
+                margin-top: 80px;
+                padding: 5rem 5%;
+            }
+            
             .hero h1 {
-                font-size: 2.25rem;
+                font-size: 2.5rem;
             }
             
             .hero-subtitle {
-                font-size: 1.35rem;
+                font-size: 1.5rem;
             }
             
             .section-title {
-                font-size: 2rem;
+                font-size: 2.25rem;
+            }
+            
+            .about-stats {
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .nav-links {
@@ -901,30 +761,6 @@
             .btn {
                 width: 100%;
             }
-            
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .solution-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .deal-meta {
-                grid-template-columns: 1fr;
-            }
-            
-            .fund-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-            
-            .fund-bar-container {
-                width: 100%;
-                margin: 0;
-            }
         }
     </style>
 </head>
@@ -935,21 +771,17 @@
         <div class="nav-container">
             <a href="#" class="logo">
                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Shield -->
                     <path d="M50 8 L88 28 L88 68 L50 92 L12 68 L12 28 Z" stroke="currentColor" stroke-width="6" fill="none"/>
-                    <!-- Network Nodes -->
                     <circle cx="50" cy="38" r="6" fill="currentColor"/>
                     <circle cx="30" cy="48" r="6" fill="currentColor"/>
                     <circle cx="70" cy="48" r="6" fill="currentColor"/>
                     <circle cx="30" cy="68" r="6" fill="currentColor"/>
                     <circle cx="70" cy="68" r="6" fill="currentColor"/>
-                    <!-- Connections -->
                     <line x1="50" y1="38" x2="30" y2="48" stroke="currentColor" stroke-width="4"/>
                     <line x1="50" y1="38" x2="70" y2="48" stroke="currentColor" stroke-width="4"/>
                     <line x1="50" y1="38" x2="50" y2="58" stroke="currentColor" stroke-width="4"/>
                     <line x1="30" y1="48" x2="30" y2="68" stroke="currentColor" stroke-width="4"/>
                     <line x1="70" y1="48" x2="70" y2="68" stroke="currentColor" stroke-width="4"/>
-                    <!-- Drop with Lightning -->
                     <path d="M50 62 C50 62 62 82 62 88 C62 94 57 98 50 98 C43 98 38 94 38 88 C38 82 50 62 50 62 Z" fill="currentColor"/>
                     <path d="M50 72 L53 81 L50 87 L47 81 Z" fill="white"/>
                 </svg>
@@ -989,40 +821,38 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section - FULL WIDTH -->
     <section id="about" class="about">
-        <div class="about-grid">
-            <div class="about-content fade-in">
-                <h2>What is GETH?</h2>
-                <p>
-                    GETH (Global Energy & Commodity Trust Hub) is a next-generation platform designed to digitise 
-                    and streamline over-the-counter (OTC) commodity trading. We address critical pain points in the 
-                    $4.6 trillion market: 63% manual processes, widespread certificate fraud costing $50B+ annually, 
-                    and dispute resolution delays exceeding 18 months.
-                </p>
-                <p>
-                    Our phased approach starts with a <strong>concierge MVP</strong> — manually orchestrating deals 
-                    with AI-assisted counterparty scoring and stablecoin payments — then evolves into a fully 
-                    automated ecosystem with smart contracts, NFT-based quality certificates, IoT cargo tracking, 
-                    and a dual-token economy ($GETH + $vGETH).
-                </p>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">$4.6T</span>
-                        <div class="stat-label">Total Addressable Market</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">63%</span>
-                        <div class="stat-label">Manual Processes Eliminated</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">&lt;10 min</span>
-                        <div class="stat-label">KYB Verification Time</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">Hours</span>
-                        <div class="stat-label">vs 18 Months Settlement</div>
-                    </div>
+        <div class="about-content fade-in">
+            <h2>What is GETH?</h2>
+            <p>
+                GETH (Global Energy & Commodity Trust Hub) is a next-generation platform designed to digitise 
+                and streamline over-the-counter (OTC) commodity trading. We address critical pain points in the 
+                $4.6 trillion market: 63% manual processes, widespread certificate fraud costing $50B+ annually, 
+                and dispute resolution delays exceeding 18 months.
+            </p>
+            <p>
+                Our phased approach starts with a <strong>concierge MVP</strong> — manually orchestrating deals 
+                with AI-assisted counterparty scoring and stablecoin payments — then evolves into a fully 
+                automated ecosystem with smart contracts, NFT-based quality certificates, IoT cargo tracking, 
+                and a dual-token economy ($GETH + $vGETH).
+            </p>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <span class="stat-number">$4.6T</span>
+                    <div class="stat-label">Total Addressable Market</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">63%</span>
+                    <div class="stat-label">Manual Processes Eliminated</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">&lt;10 min</span>
+                    <div class="stat-label">KYB Verification Time</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Hours</span>
+                    <div class="stat-label">vs 18 Months Settlement</div>
                 </div>
             </div>
         </div>
@@ -1094,14 +924,14 @@
         </div>
     </section>
 
-    <!-- Use Case Section - ENHANCED -->
+    <!-- Use Case Section -->
     <section id="use-case" class="use-case">
         <div class="container">
             <h2 class="section-title">Deal Flow in Action</h2>
             <p class="section-subtitle">A Complete $19M Fuel Oil Transaction</p>
             
             <div class="deal-overview fade-in">
-                <h3 style="margin-bottom: 1.5rem; color: var(--teal);">Transaction Overview</h3>
+                <h3 style="margin-bottom: 2rem; color: var(--teal); font-size: 1.75rem;">Transaction Overview</h3>
                 <div class="deal-meta">
                     <div class="deal-meta-item">
                         <div class="deal-meta-label">Commodity</div>
@@ -1121,7 +951,7 @@
                     </div>
                 </div>
                 
-                <h4 style="margin: 1.5rem 0 1rem; color: var(--black);">Transaction Participants</h4>
+                <h4 style="margin: 2.5rem 0 1.5rem; color: var(--black); font-size: 1.4rem;">Transaction Participants</h4>
                 <div class="participants">
                     <div class="participant-card">
                         <div class="participant-role">🏭 Seller</div>
@@ -1138,69 +968,64 @@
                 </div>
             </div>
 
-            <h3 style="text-align: center; margin: 3rem 0 2rem; font-size: 2rem;">Step-by-Step Process</h3>
+            <h3 style="text-align: center; margin: 4rem 0 3rem; font-size: 2.25rem;">Step-by-Step Process</h3>
             
             <div class="use-case-timeline">
                 <div class="use-case-step fade-in">
                     <div class="step-number">1</div>
                     <h3>📤 Lot Creation & Verification</h3>
-                    <p>Seller uploads 50,000 MT fuel oil specification to GETH platform, attaches SGS quality certificate (minted as NFT in Phase 2). AI system instantly verifies seller's credentials, financial standing, and trading history.</p>
+                    <p>Seller uploads 50,000 MT fuel oil specification to GETH platform, attaches SGS quality certificate. AI system instantly verifies seller's credentials, financial standing, and trading history.</p>
                     <div class="step-benefit">✓ Counterparty risk scored in &lt;10 minutes</div>
                 </div>
                 
                 <div class="use-case-step fade-in">
                     <div class="step-number">2</div>
                     <h3>🔍 AI Matching & Discovery</h3>
-                    <p>GETH's AI engine analyses buyer requirements (API gravity, sulphur content, delivery window) and automatically matches with available lots. Intermediary receives notification about potential deal with pre-calculated commission structure ($38,000 total).</p>
+                    <p>GETH's AI engine analyses buyer requirements and automatically matches with available lots. Intermediary receives notification about potential deal with pre-calculated commission structure.</p>
                     <div class="step-benefit">✓ Automated deal discovery — no cold calls</div>
                 </div>
                 
                 <div class="use-case-step fade-in">
                     <div class="step-number">3</div>
                     <h3>🔒 Escrow & Contract Lock</h3>
-                    <p>Buyer books the lot and deposits $19M into regulated escrow account (RAKBANK or equivalent). Smart contract (Phase 2) or legal agreement (Phase 1) locks all terms: price, quality specs, delivery timeline, intermediary commission split ($19k upfront + $19k on completion).</p>
+                    <p>Buyer books the lot and deposits $19M into regulated escrow account. Smart contract or legal agreement locks all terms: price, quality specs, delivery timeline, intermediary commission.</p>
                     <div class="step-benefit">✓ 0.5% platform fee + 0.1% escrow fee applied</div>
                 </div>
                 
                 <div class="use-case-step fade-in">
                     <div class="step-number">4</div>
                     <h3>🚢 Logistics Coordination</h3>
-                    <p>Seller confirms cargo readiness at Mina-Said terminal. Buyer selects preferred shipping route via GETH interface. Intermediary coordinates with Maersk or other carrier for vessel booking. IoT sensors activated for real-time tracking.</p>
+                    <p>Seller confirms cargo readiness. Buyer selects preferred shipping route. Intermediary coordinates with carrier for vessel booking. IoT sensors activated for real-time tracking.</p>
                     <div class="step-benefit">✓ Transparent logistics — all parties see same data</div>
                 </div>
                 
                 <div class="use-case-step fade-in">
                     <div class="step-number">5</div>
                     <h3>📡 Real-Time Cargo Tracking</h3>
-                    <p>IoT devices monitor cargo temperature, humidity, and location throughout 45-day voyage. Satellite data streamed to GETH platform. All participants receive automated notifications at key milestones (departure, Suez Canal transit, arrival).</p>
-                    <div class="step-benefit">✓ Tamper-proof tracking data — no disputes about conditions</div>
+                    <p>IoT devices monitor cargo temperature, humidity, and location throughout voyage. Satellite data streamed to GETH platform. Automated notifications at key milestones.</p>
+                    <div class="step-benefit">✓ Tamper-proof tracking data — no disputes</div>
                 </div>
                 
                 <div class="use-case-step fade-in">
                     <div class="step-number">6</div>
-                    <h3>✅ Quality Verification & Acceptance</h3>
-                    <p>Upon arrival at Mumbai port, independent inspector (SGS/Bureau Veritas) verifies cargo quality against NFT certificate specs. Buyer digitally signs acceptance. IoT data confirms no temperature excursions or contamination during transit.</p>
+                    <h3>✅ Quality Verification</h3>
+                    <p>Upon arrival, independent inspector verifies cargo quality. Buyer digitally signs acceptance. IoT data confirms no temperature excursions during transit.</p>
                     <div class="step-benefit">✓ Instant quality confirmation — no 18-month disputes</div>
                 </div>
                 
                 <div class="use-case-step fade-in">
                     <div class="step-number">7</div>
                     <h3>💰 Automated Settlement</h3>
-                    <p>Smart contract (Phase 2) or escrow agent (Phase 1) releases $18.96M to seller (minus $5k platform fee), $38k to intermediary (split: $19k + $19k), and issues digital ESG passport to buyer. Entire settlement completes in &lt;2 hours.</p>
-                    <div class="step-benefit">✓ Total GETH revenue: $28,500 (0.15% of deal value)</div>
+                    <p>Smart contract releases $18.96M to seller (minus fees), $38k to intermediary. Settlement completes in &lt;2 hours instead of weeks.</p>
+                    <div class="step-benefit">✓ Total GETH revenue: $28,500 (0.15% of deal)</div>
                 </div>
                 
                 <div class="use-case-step fade-in">
                     <div class="step-number">8</div>
                     <h3>📊 Reporting & Analytics</h3>
-                    <p>All participants access deal history via GETH dashboard. Seller sees completed transaction in portfolio. Buyer receives comprehensive digital passport with ESG data (carbon footprint, sustainability metrics). Intermediary generates client report via analytics hub.</p>
-                    <div class="step-benefit">✓ Complete audit trail — ready for compliance & tax</div>
+                    <p>All participants access deal history via dashboard. Buyer receives comprehensive digital passport with ESG data. Complete audit trail for compliance.</p>
+                    <div class="step-benefit">✓ Complete audit trail — ready for compliance</div>
                 </div>
-            </div>
-            
-            <div class="use-case-footer fade-in">
-                <p><strong>Phase 1 Execution:</strong> Manual concierge orchestration + stablecoin/fiat escrow + API verification<br>
-                <strong>Phase 2 Automation:</strong> Smart contracts + NFT certificates + IoT integration + token incentives</p>
             </div>
         </div>
     </section>
@@ -1213,27 +1038,25 @@
             <div class="tokens-grid">
                 <div class="token-card fade-in">
                     <h3>$GETH</h3>
-                    <p class="token-type">Exchange & Value Accrual Token</p>
-                    <ul>
-                        <li>Buyback & burn mechanism from platform fees (0.5–2.5% per deal)</li>
-                        <li>Staking rewards for liquidity providers</li>
-                        <li>CEX/DEX listing post-PMF validation</li>
-                        <li>Max supply: 100M tokens (deflationary)</li>
-                        <li>Revenue share from escrow fees</li>
+                    <p style="color: var(--white); opacity: 0.9; margin-bottom: 1.5rem;">Exchange & Value Accrual Token</p>
+                    <ul style="list-style: none; text-align: left; margin: 2rem 0;">
+                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1);">Buyback & burn from platform fees</li>
+                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1);">Staking rewards for liquidity providers</li>
+                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1);">CEX/DEX listing post-PMF</li>
+                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative;">Max supply: 100M tokens</li>
                     </ul>
-                    <p style="margin-top: 1.5rem; font-weight: 600;">📅 Launch: Phase 2 (12+ months)</p>
+                    <p style="margin-top: 2rem; font-weight: 600; color: var(--teal);">📅 Launch: Phase 2 (12+ months)</p>
                 </div>
                 <div class="token-card fade-in">
                     <h3>$vGETH</h3>
-                    <p class="token-type">Utility & Governance Token</p>
-                    <ul>
-                        <li>Burn to mint NFT quality certificates (SGS/BV integration)</li>
-                        <li>Priority access to AI matching algorithm</li>
-                        <li>DAO voting rights on platform upgrades</li>
-                        <li>Staking for reduced platform fees</li>
-                        <li>Deflationary mechanics via certificate burns</li>
+                    <p style="color: var(--white); opacity: 0.9; margin-bottom: 1.5rem;">Utility & Governance Token</p>
+                    <ul style="list-style: none; text-align: left; margin: 2rem 0;">
+                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1);">Burn to mint NFT certificates</li>
+                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1);">Priority AI matching access</li>
+                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1);">DAO voting rights</li>
+                        <li style="padding: 0.9rem 0; padding-left: 2rem; position: relative;">Deflationary via burns</li>
                     </ul>
-                    <p style="margin-top: 1.5rem; font-weight: 600;">📅 Launch: Phase 2 (18+ months)</p>
+                    <p style="margin-top: 2rem; font-weight: 600; color: var(--teal);">📅 Launch: Phase 2 (18+ months)</p>
                 </div>
             </div>
         </div>
@@ -1246,38 +1069,31 @@
             <p class="section-subtitle">Strategic Jurisdiction for Commodity Digitization</p>
             <div class="uae-list">
                 <div class="uae-item fade-in">
-                    <span class="uae-check">✅</span>
+                    <span class="uae-check" style="color: var(--teal); font-size: 2rem;">✅</span>
                     <div>
-                        <h3>VARA (Virtual Assets Regulatory Authority)</h3>
-                        <p>Clearest regulatory framework for commodity-backed digital assets in MENA region. First-mover advantage for RWA (Real World Asset) tokenization.</p>
+                        <h3 style="margin-bottom: 0.75rem; color: var(--black);">VARA (Virtual Assets Regulatory Authority)</h3>
+                        <p style="color: var(--gray-text);">Clearest regulatory framework for commodity-backed digital assets in MENA region.</p>
                     </div>
                 </div>
                 <div class="uae-item fade-in">
-                    <span class="uae-check">✅</span>
+                    <span class="uae-check" style="color: var(--teal); font-size: 2rem;">✅</span>
                     <div>
-                        <h3>DMCC (Dubai Multi Commodities Centre)</h3>
-                        <p>50,000+ commodity trading firms as natural early adopters. Established ecosystem for physical trading + digital innovation.</p>
+                        <h3 style="margin-bottom: 0.75rem; color: var(--black);">DMCC (Dubai Multi Commodities Centre)</h3>
+                        <p style="color: var(--gray-text);">50,000+ commodity trading firms as natural early adopters.</p>
                     </div>
                 </div>
                 <div class="uae-item fade-in">
-                    <span class="uae-check">✅</span>
+                    <span class="uae-check" style="color: var(--teal); font-size: 2rem;">✅</span>
                     <div>
-                        <h3>0% Corporate Tax Until 2031</h3>
-                        <p>Optimal tax environment for early-stage growth and token treasury management. Competitive advantage vs. Switzerland/Singapore.</p>
+                        <h3 style="margin-bottom: 0.75rem; color: var(--black);">0% Corporate Tax Until 2031</h3>
+                        <p style="color: var(--gray-text);">Optimal tax environment for early-stage growth.</p>
                     </div>
                 </div>
                 <div class="uae-item fade-in">
-                    <span class="uae-check">✅</span>
+                    <span class="uae-check" style="color: var(--teal); font-size: 2rem;">✅</span>
                     <div>
-                        <h3>ADGM/DIFC Legal Framework</h3>
-                        <p>English common law jurisdiction with globally recognised arbitration courts (DIFC-LCIA). Investor-friendly dispute resolution.</p>
-                    </div>
-                </div>
-                <div class="uae-item fade-in">
-                    <span class="uae-check">✅</span>
-                    <div>
-                        <h3>Regulatory Contingency Plan</h3>
-                        <p>If VARA reclassifies $GETH as security: pivot to ADGM (FSRA) framework or structure as "non-transferable utility points" initially. Regulatory agility built into token design.</p>
+                        <h3 style="margin-bottom: 0.75rem; color: var(--black);">Regulatory Contingency Plan</h3>
+                        <p style="color: var(--gray-text);">If VARA reclassifies tokens: pivot to ADGM framework or structure as utility points.</p>
                     </div>
                 </div>
             </div>
@@ -1291,19 +1107,17 @@
             <p class="section-subtitle">Industry Expertise + Technical Excellence</p>
             <div class="team-grid">
                 <div class="team-card fade-in">
-                    <div class="team-avatar">👤</div>
-                    <h3>[Your Name]</h3>
-                    <p class="team-role">Founder & CEO</p>
-                    <p>12+ years executing physical oil trades at major houses (Vitol/Glencore/Mercuria). Closed $2B+ in OTC commodity deals. Direct network of pilot customers across UAE, India, and Singapore. Deep understanding of industry pain points — lived the fax machine nightmare.</p>
+                    <div class="team-avatar" style="width: 130px; height: 130px; background: linear-gradient(135deg, var(--teal), #00D4C4); border-radius: 50%; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; color: var(--white);">👤</div>
+                    <h3 style="font-size: 1.75rem; margin-bottom: 0.75rem;">[Your Name]</h3>
+                    <p style="color: var(--teal); font-weight: 600; margin-bottom: 1.5rem; font-size: 1.1rem;">Founder & CEO</p>
+                    <p style="color: var(--gray-text); line-height: 1.7;">12+ years executing physical oil trades at major houses (Vitol/Glencore/Mercuria). Closed $2B+ in OTC commodity deals. Direct network of pilot customers across UAE, India, and Singapore.</p>
                 </div>
                 <div class="team-card fade-in">
-                    <div class="team-avatar">🔍</div>
-                    <h3>Technical Co-Founder</h3>
-                    <p class="team-role">Actively Recruiting</p>
-                    <p><strong style="color: var(--teal);">Equity Offer:</strong> 15–25% + pre-seed dev budget<br>
-                    <strong style="color: var(--teal);">Profile:</strong> Senior full-stack engineer with blockchain experience (Solidity, smart contracts, Web3)<br>
-                    <strong style="color: var(--teal);">Value Prop:</strong> Direct industry access — no "build in vacuum." Your code solves real $50B problems from Day 1.</p>
-                    <a href="#ask" class="btn btn-primary" style="margin-top: 1.5rem;">Apply Now</a>
+                    <div class="team-avatar" style="width: 130px; height: 130px; background: linear-gradient(135deg, var(--teal), #00D4C4); border-radius: 50%; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; color: var(--white);">🔍</div>
+                    <h3 style="font-size: 1.75rem; margin-bottom: 0.75rem;">Technical Co-Founder</h3>
+                    <p style="color: var(--teal); font-weight: 600; margin-bottom: 1.5rem; font-size: 1.1rem;">Actively Recruiting</p>
+                    <p style="color: var(--gray-text); line-height: 1.7; margin-bottom: 1.5rem;"><strong style="color: var(--teal);">Equity Offer:</strong> 15–25% + dev budget<br><strong style="color: var(--teal);">Profile:</strong> Senior full-stack + blockchain engineer</p>
+                    <a href="#ask" class="btn btn-primary">Apply Now</a>
                 </div>
             </div>
         </div>
@@ -1316,88 +1130,64 @@
             <p class="section-subtitle">8–12 Months to MVP + Licenses + First Pilots</p>
             <div class="roadmap-grid">
                 <div class="roadmap-item fade-in">
-                    <h3>Q1 2026</h3>
-                    <ul>
-                        <li>DMCC trade license application</li>
-                        <li>VARA conditional approval process</li>
-                        <li>Concierge MVP launch (manual operations)</li>
-                        <li>KYB API integrations (Sumsub, ComplyAdvantage)</li>
+                    <h3 style="color: var(--teal); margin-bottom: 1.5rem; font-size: 1.6rem;">Q1 2026</h3>
+                    <ul style="list-style: none;">
+                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• DMCC license application</li>
+                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• VARA conditional approval</li>
+                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• Concierge MVP launch</li>
                     </ul>
                 </div>
                 <div class="roadmap-item fade-in">
-                    <h3>Q2 2026</h3>
-                    <ul>
-                        <li>First 5 pilot deals executed ($2–5M volume)</li>
-                        <li>Escrow partnership (RAKBANK or equivalent)</li>
-                        <li>IoT provider partnership (Traktrace/Sensitech)</li>
-                        <li>Initial customer feedback integration</li>
+                    <h3 style="color: var(--teal); margin-bottom: 1.5rem; font-size: 1.6rem;">Q2 2026</h3>
+                    <ul style="list-style: none;">
+                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• First 5 pilot deals</li>
+                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• Escrow partnership</li>
+                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• IoT provider partnership</li>
                     </ul>
                 </div>
                 <div class="roadmap-item fade-in">
-                    <h3>Q3 2026</h3>
-                    <ul>
-                        <li>AI scoring prototype (rule-based v1)</li>
-                        <li>10+ deals completed, unit economics validated</li>
-                        <li>SGS/Bureau Veritas MoU negotiations</li>
-                        <li>Technical co-founder onboarded</li>
+                    <h3 style="color: var(--teal); margin-bottom: 1.5rem; font-size: 1.6rem;">Q3 2026</h3>
+                    <ul style="list-style: none;">
+                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• AI scoring prototype</li>
+                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• 10+ deals completed</li>
+                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• Technical co-founder</li>
                     </ul>
                 </div>
                 <div class="roadmap-item fade-in">
-                    <h3>Q4 2026</h3>
-                    <ul>
-                        <li>Seed round preparation ($3–5M target)</li>
-                        <li>$GETH tokenomics design & legal review</li>
-                        <li>20+ deals, $10M+ monthly volume</li>
-                        <li>Product-market fit validation</li>
+                    <h3 style="color: var(--teal); margin-bottom: 1.5rem; font-size: 1.6rem;">Q4 2026</h3>
+                    <ul style="list-style: none;">
+                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• Seed round preparation</li>
+                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• $GETH tokenomics design</li>
+                        <li style="padding: 0.75rem 0; padding-left: 1.75rem; position: relative;">• PMF validation</li>
                     </ul>
                 </div>
             </div>
             
             <div class="funds-chart fade-in">
-                <h3 style="color: var(--teal); margin-bottom: 2rem; text-align: center;">Use of $800k Pre-Seed Round</h3>
+                <h3 style="color: var(--teal); margin-bottom: 2.5rem; text-align: center; font-size: 1.75rem;">Use of $800k Pre-Seed Round</h3>
                 <div class="fund-item">
-                    <div class="fund-info">
-                        <strong>Software + AI Development (MVP)</strong>
-                    </div>
-                    <div class="fund-bar-container">
-                        <div class="fund-bar" style="width: 45%;"></div>
-                    </div>
+                    <div style="flex: 1;"><strong>Software + AI Development</strong></div>
+                    <div style="flex: 2; margin: 0 2rem;"><div style="height: 12px; background: var(--teal); border-radius: 6px; width: 45%;"></div></div>
                     <span style="color: var(--teal); font-weight: 600;">45%</span>
                 </div>
                 <div class="fund-item">
-                    <div class="fund-info">
-                        <strong>Legal + Licensing (UAE)</strong>
-                    </div>
-                    <div class="fund-bar-container">
-                        <div class="fund-bar" style="width: 25%;"></div>
-                    </div>
+                    <div style="flex: 1;"><strong>Legal + Licensing (UAE)</strong></div>
+                    <div style="flex: 2; margin: 0 2rem;"><div style="height: 12px; background: var(--teal); border-radius: 6px; width: 25%;"></div></div>
                     <span style="color: var(--teal); font-weight: 600;">25%</span>
                 </div>
                 <div class="fund-item">
-                    <div class="fund-info">
-                        <strong>Team (founder + 2–3 contractors)</strong>
-                    </div>
-                    <div class="fund-bar-container">
-                        <div class="fund-bar" style="width: 15%;"></div>
-                    </div>
+                    <div style="flex: 1;"><strong>Team</strong></div>
+                    <div style="flex: 2; margin: 0 2rem;"><div style="height: 12px; background: var(--teal); border-radius: 6px; width: 15%;"></div></div>
                     <span style="color: var(--teal); font-weight: 600;">15%</span>
                 </div>
                 <div class="fund-item">
-                    <div class="fund-info">
-                        <strong>Partnerships + Pilot Incentives</strong>
-                    </div>
-                    <div class="fund-bar-container">
-                        <div class="fund-bar" style="width: 10%;"></div>
-                    </div>
+                    <div style="flex: 1;"><strong>Partnerships + Pilots</strong></div>
+                    <div style="flex: 2; margin: 0 2rem;"><div style="height: 12px; background: var(--teal); border-radius: 6px; width: 10%;"></div></div>
                     <span style="color: var(--teal); font-weight: 600;">10%</span>
                 </div>
                 <div class="fund-item">
-                    <div class="fund-info">
-                        <strong>IoT / Hardware R&D (prototype only)</strong>
-                    </div>
-                    <div class="fund-bar-container">
-                        <div class="fund-bar" style="width: 5%;"></div>
-                    </div>
+                    <div style="flex: 1;"><strong>IoT / Hardware R&D</strong></div>
+                    <div style="flex: 2; margin: 0 2rem;"><div style="height: 12px; background: var(--teal); border-radius: 6px; width: 5%;"></div></div>
                     <span style="color: var(--teal); font-weight: 600;">5%</span>
                 </div>
             </div>
@@ -1410,27 +1200,23 @@
             <div class="ask-content">
                 <h2 class="section-title">Investment Opportunity</h2>
                 <div class="ask-amount">$600k – $1.2M Pre-Seed</div>
-                <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--gray-text);">
-                    MVP + UAE licenses in 8–12 months. First 5–10 pilot deals using founder's network. 
-                    Clear path to seed round with validated unit economics.
+                <p style="font-size: 1.25rem; margin-bottom: 2.5rem; color: var(--gray-text);">
+                    MVP + UAE licenses in 8–12 months. First 5–10 pilot deals using founder's network.
                 </p>
                 
                 <div class="contact-info">
-                    <h3 style="color: var(--teal); margin-bottom: 1rem;">Get in Touch</h3>
-                    <p style="margin-bottom: 1rem;">Ready to discuss the opportunity or have questions?</p>
+                    <h3 style="color: var(--teal); margin-bottom: 1.5rem; font-size: 1.75rem;">Get in Touch</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">Ready to discuss the opportunity?</p>
                     <a href="mailto:gethfounder@gmail.com" class="contact-email">gethfounder@gmail.com</a>
-                    <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--gray-text);">
-                        Or connect via LinkedIn / Twitter (coming soon)
-                    </p>
                 </div>
 
-                <div style="text-align: left; margin: 2.5rem 0; padding: 2rem; background: var(--gray-light); border-radius: 12px;">
-                    <h3 style="color: var(--teal); margin-bottom: 1.25rem;">What Investors Receive:</h3>
-                    <ul style="list-style: none; line-height: 2;">
+                <div style="text-align: left; margin: 3rem 0; padding: 2.5rem; background: var(--gray-light); border-radius: 12px;">
+                    <h3 style="color: var(--teal); margin-bottom: 1.5rem; font-size: 1.5rem;">What Investors Receive:</h3>
+                    <ul style="list-style: none; line-height: 2.2; font-size: 1.05rem;">
                         <li>✓ Equity stake via SAFE or convertible note</li>
-                        <li>✓ Early access to $GETH token allocation (post-launch)</li>
-                        <li>✓ Direct advisory role in commodity digitization strategy</li>
-                        <li>✓ Quarterly updates on pilots, partnerships, and regulatory progress</li>
+                        <li>✓ Early access to $GETH token allocation</li>
+                        <li>✓ Direct advisory role in strategy</li>
+                        <li>✓ Quarterly updates on progress</li>
                         <li>✓ Pro-rata rights in seed round</li>
                     </ul>
                 </div>
@@ -1456,38 +1242,28 @@
                 <path d="M50 62 C50 62 62 82 62 88 C62 94 57 98 50 98 C43 98 38 94 38 88 C38 82 50 62 50 62 Z" fill="currentColor"/>
             </svg>
         </div>
-        <p style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">GETH</p>
-        <p style="opacity: 0.9; margin-bottom: 0.5rem;">Global Energy & Commodity Trust Hub</p>
-        <p style="opacity: 0.7; margin: 1rem 0;">Idea Stage • Pre-seed • UAE (DMCC + VARA)</p>
-        <div class="footer-links">
-            <a href="mailto:gethfounder@gmail.com">gethfounder@gmail.com</a>
-            <a href="#" onclick="alert('LinkedIn profile coming soon'); return false;">LinkedIn</a>
-            <a href="#" onclick="alert('Twitter/X profile coming soon'); return false;">Twitter/X</a>
+        <p style="font-size: 1.4rem; font-weight: 600; margin-bottom: 0.75rem;">GETH</p>
+        <p style="opacity: 0.9; margin-bottom: 0.75rem; font-size: 1.1rem;">Global Energy & Commodity Trust Hub</p>
+        <p style="opacity: 0.7; margin: 1.5rem 0;">Idea Stage • Pre-seed • UAE (DMCC + VARA)</p>
+        <div class="footer-links" style="display: flex; justify-content: center; gap: 2.5rem; margin: 2rem 0; flex-wrap: wrap;">
+            <a href="mailto:gethfounder@gmail.com" style="color: var(--teal); text-decoration: none; font-size: 1.1rem;">gethfounder@gmail.com</a>
+            <a href="#" onclick="alert('LinkedIn coming soon'); return false;" style="color: var(--teal); text-decoration: none; font-size: 1.1rem;">LinkedIn</a>
+            <a href="#" onclick="alert('Twitter coming soon'); return false;" style="color: var(--teal); text-decoration: none; font-size: 1.1rem;">Twitter/X</a>
         </div>
-        <p style="opacity: 0.5; font-size: 0.875rem; margin-top: 2rem;">© 2026 GETH. All rights reserved.</p>
+        <p style="opacity: 0.5; font-size: 0.9rem; margin-top: 2.5rem;">© 2026 GETH. All rights reserved.</p>
     </footer>
 
     <!-- Scripts -->
     <script>
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
-
-        // Fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1495,11 +1271,9 @@
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
