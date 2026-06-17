@@ -87,6 +87,7 @@
         .logo-img {
             height: 50px;
             width: auto;
+            object-fit: contain;
         }
         .nav-links { display: flex; gap: 2rem; align-items: center; }
         .nav-links a {
@@ -484,6 +485,8 @@
             height: 60px;
             width: auto;
             margin-bottom: 1rem;
+            object-fit: contain;
+            filter: brightness(0) invert(1); /* Делает логотип белым на чёрном фоне */
         }
         .footer-links {
             display: flex; justify-content: center;
@@ -539,8 +542,7 @@
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">
-                <!-- ЛОГОТИП ИЗ ФАЙЛА -->
-                <img src="logo.svg" alt="GETH" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
+                <img src="logo.png" alt="GETH" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
                 <span id="logo-fallback" style="display:none; width:45px; height:45px; background:var(--teal); border-radius:8px; align-items:center; justify-content:center; color:white; font-weight:700;">G</span>
                 GETH
             </a>
@@ -561,7 +563,7 @@
         <div class="hero-content">
             <div class="hero-badge">
                 <span>🚀</span>
-                <span>Idea Stage • Pre-seed • UAE (VARA/DMCC)</span>
+                <span>Pre-seed • Building Automated Platform • UAE (VARA/DMCC)</span>
             </div>
             <h1>AI-Powered Platform for OTC Commodity Trade</h1>
             <p class="hero-subtitle">Global Energy Trade Hub</p>
@@ -877,7 +879,7 @@
                     <div class="team-avatar">💻</div>
                     <h3>Vadim Ustinov</h3>
                     <p class="team-role">Technical Co-Founder — Software Engineer</p>
-                    <p>Программный инженер советской школы с многолетним опытом разработки сложных систем. Сочетает фундаментальную инженерную подготовку с практическим бизнес-опытом: понимает не только код, но и коммерческую логику продукта. Привержен качеству, надёжности и архитектуре, которая масштабируется.</p>
+                    <p>Classically trained software engineer with decades of experience building complex systems. Combines rigorous engineering foundations with practical business acumen — understands not just code, but the commercial logic behind every product. Committed to quality, reliability, and scalable architecture.</p>
                 </div>
             </div>
         </div>
@@ -923,7 +925,7 @@
                 </div>
             </div>
             
-            <!-- USE OF FUNDS — UPDATED -->
+            <!-- USE OF FUNDS -->
             <div class="funds-chart fade-in">
                 <h3>Use of $800k Pre-Seed Round</h3>
                 <p class="funds-subtitle">Three pillars of equal priority — Product, Legal, Team</p>
@@ -1014,12 +1016,11 @@
     <!-- Footer -->
     <footer>
         <div class="footer-logo">
-            <!-- ЛОГОТИП ИЗ ФАЙЛА (footer) -->
-            <img src="logo.svg" alt="GETH" class="footer-logo-img" onerror="this.style.display='none';">
+            <img src="logo.png" alt="GETH" class="footer-logo-img" onerror="this.style.display='none';">
         </div>
         <p style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">GETH</p>
         <p style="opacity: 0.9; margin-bottom: 0.5rem;">Global Energy Trade Hub</p>
-        <p style="opacity: 0.7; margin: 1rem 0;">Idea Stage • Pre-seed • UAE (DMCC + VARA)</p>
+        <p style="opacity: 0.7; margin: 1rem 0;">Pre-seed • Building Automated Platform • UAE (DMCC + VARA)</p>
         <div class="footer-links">
             <a href="mailto:gethfounder@gmail.com">gethfounder@gmail.com</a>
             <a href="#" onclick="alert('LinkedIn coming soon'); return false;">LinkedIn</a>
