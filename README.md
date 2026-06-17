@@ -1,2 +1,2 @@
 # geth-website
-GETH — AI-Powered OS for OTC Commodity Trade
+GETH — next-generation automated digital ecosystem for commodity trading
