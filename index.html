@@ -7,95 +7,63 @@
     <meta name="description" content="GETH (Global Energy Trade Hub) — idea-stage project digitising $4.6T OTC commodity trade. UAE-based (VARA/DMCC). Legal-first approach. 1.10% all-inclusive fee.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ✅ GOOGLE ANALYTICS 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSHL3R83PX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RSHL3R83PX');
+    </script>
+
+    <!-- ✅ YANDEX METRICA -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110179125', 'ym');
+
+        ym(110179125, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/110179125" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --black: #000000;
-            --white: #FFFFFF;
-            --teal: #00C4B4;
-            --teal-light: #00D4C4;
-            --gray-light: #F5F5F5;
-            --gray-dark: #1a1a1a;
-            --gray-text: #666666;
-        }
-        body {
-            font-family: 'Inter', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--black);
-            overflow-x: hidden;
-        }
-        .disclaimer-banner {
-            background: var(--gray-dark);
-            color: var(--white);
-            text-align: center;
-            padding: 0.75rem 1rem;
-            font-size: 0.85rem;
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 2000;
-            border-bottom: 2px solid var(--teal);
-        }
+        :root { --black: #000000; --white: #FFFFFF; --teal: #00C4B4; --teal-light: #00D4C4; --gray-light: #F5F5F5; --gray-dark: #1a1a1a; --gray-text: #666666; }
+        body { font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: var(--black); overflow-x: hidden; }
+        
+        /* Disclaimer Banner */
+        .disclaimer-banner { background: var(--gray-dark); color: var(--white); text-align: center; padding: 0.75rem 1rem; font-size: 0.85rem; position: fixed; top: 0; left: 0; right: 0; z-index: 2000; border-bottom: 2px solid var(--teal); }
         .disclaimer-banner a { color: var(--teal); text-decoration: none; font-weight: 600; }
-        nav {
-            position: fixed; top: 42px; width: 100%;
-            background: rgba(255,255,255,0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1.25rem 5%;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-        }
-        .nav-container {
-            max-width: 1400px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .logo {
-            display: flex; align-items: center; gap: 12px;
-            font-weight: 700; font-size: 1.5rem;
-            color: var(--black); text-decoration: none;
-        }
+        
+        /* Navigation */
+        nav { position: fixed; top: 42px; width: 100%; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); z-index: 1000; padding: 1.25rem 5%; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.5rem; color: var(--black); text-decoration: none; }
         .logo-img { height: 50px; width: auto; object-fit: contain; }
         .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a {
-            color: var(--black); text-decoration: none;
-            font-weight: 500; transition: color 0.3s; font-size: 0.95rem;
-        }
+        .nav-links a { color: var(--black); text-decoration: none; font-weight: 500; transition: color 0.3s; font-size: 0.95rem; }
         .nav-links a:hover { color: var(--teal); }
-        .btn {
-            padding: 0.75rem 1.75rem; border-radius: 8px;
-            text-decoration: none; font-weight: 600;
-            transition: all 0.3s; display: inline-block;
-            border: 2px solid transparent; cursor: pointer; font-size: 0.95rem;
-        }
+        .btn { padding: 0.75rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; display: inline-block; border: 2px solid transparent; cursor: pointer; font-size: 0.95rem; }
         .btn-primary { background: var(--teal); color: var(--white); }
-        .btn-primary:hover {
-            background: var(--teal-light);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,196,180,0.3);
-        }
-        .btn-secondary {
-            background: transparent; color: var(--teal);
-            border: 2px solid var(--teal);
-        }
+        .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,196,180,0.3); }
+        .btn-secondary { background: transparent; color: var(--teal); border: 2px solid var(--teal); }
         .btn-secondary:hover { background: var(--teal); color: var(--white); }
-        .hero {
-            margin-top: 140px; padding: 6rem 5%;
-            background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%);
-            color: var(--white); position: relative; overflow: hidden;
-        }
+        
+        /* Hero Section */
+        .hero { margin-top: 140px; padding: 6rem 5%; background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%); color: var(--white); position: relative; overflow: hidden; }
         .hero-content { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: rgba(0,196,180,0.15);
-            border: 2px solid var(--teal);
-            color: var(--teal); padding: 0.6rem 1.25rem;
-            border-radius: 25px; font-size: 0.85rem;
-            font-weight: 600; margin-bottom: 2rem;
-        }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0,196,180,0.15); border: 2px solid var(--teal); color: var(--teal); padding: 0.6rem 1.25rem; border-radius: 25px; font-size: 0.85rem; font-weight: 600; margin-bottom: 2rem; }
         .hero h1 { font-size: 3.25rem; font-weight: 700; margin-bottom: 1.25rem; line-height: 1.2; }
         .hero-subtitle { font-size: 1.75rem; color: var(--teal); margin-bottom: 1.5rem; font-weight: 500; }
         .hero-description { font-size: 1.15rem; margin-bottom: 1rem; opacity: 0.95; line-height: 1.7; max-width: 850px; }
         .hero-highlight { font-size: 1.15rem; margin-bottom: 2rem; font-weight: 500; color: var(--teal); max-width: 850px; }
         .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+        
+        /* About Section */
         .about { padding: 5rem 5%; background: var(--white); }
         .about-content { max-width: 1100px; margin: 0 auto; text-align: center; }
         .about-content h2 { font-size: 2.5rem; margin-bottom: 1.75rem; color: var(--black); }
@@ -104,31 +72,23 @@
         .stat-item { text-align: center; padding: 2rem 1.5rem; background: var(--gray-light); border-radius: 10px; border-left: 4px solid var(--teal); }
         .stat-number { font-size: 2.25rem; font-weight: 700; color: var(--teal); display: block; }
         .stat-label { font-size: 0.95rem; color: var(--gray-text); margin-top: 0.5rem; }
+        
+        /* Sections Common */
         section { padding: 5rem 5%; }
         .container { max-width: 1100px; margin: 0 auto; }
         .section-title { font-size: 2.25rem; font-weight: 700; text-align: center; margin-bottom: 1rem; }
         .section-subtitle { text-align: center; color: var(--gray-text); margin-bottom: 3rem; font-size: 1.1rem; max-width: 700px; margin-left: auto; margin-right: auto; }
         .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--teal); margin: 1rem auto 0; border-radius: 2px; }
+        
+        /* Problem Section */
         .problem { background: var(--gray-light); }
         .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
         .problem-card { text-align: center; padding: 2.25rem 1.75rem; background: var(--white); border-radius: 10px; transition: transform 0.3s; box-shadow: 0 3px 10px rgba(0,0,0,0.06); }
         .problem-card:hover { transform: translateY(-4px); }
         .problem-icon { font-size: 2.75rem; margin-bottom: 1rem; }
         .problem-card h3 { color: var(--teal); margin-bottom: 0.75rem; font-size: 1.35rem; }
-        .market-context { background: var(--white); }
-        .context-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-        .context-card { padding: 2rem; border-radius: 10px; background: var(--gray-light); border-left: 4px solid #999; }
-        .context-card.failed { border-left-color: #cc3333; }
-        .context-card.struggling { border-left-color: #ff9900; }
-        .context-card.geth { border-left-color: var(--teal); background: var(--white); box-shadow: 0 4px 14px rgba(0,196,180,0.15); }
-        .context-card h3 { margin-bottom: 0.75rem; font-size: 1.35rem; }
-        .context-status { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; }
-        .status-failed { background: #ffdddd; color: #cc3333; }
-        .status-struggling { background: #fff3dd; color: #cc7700; }
-        .status-active { background: #ddfff5; color: #00876e; }
-        .context-card ul { list-style: none; margin-top: 1rem; }
-        .context-card li { padding: 0.4rem 0; padding-left: 1.4rem; position: relative; font-size: 0.95rem; color: var(--gray-text); }
-        .context-card li::before { content: '•'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
+        
+        /* Vision Section */
         .vision { background: var(--gray-light); }
         .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2.5rem; margin-top: 2.5rem; }
         .solution-card { background: var(--white); padding: 2.25rem; border-radius: 10px; border: 2px solid var(--gray-light); border-top: 4px solid var(--teal); box-shadow: 0 4px 14px rgba(0,0,0,0.07); }
@@ -138,6 +98,8 @@
         .solution-card li { padding: 0.6rem 0; padding-left: 1.6rem; position: relative; border-bottom: 1px solid var(--gray-light); }
         .solution-card li:last-child { border-bottom: none; }
         .solution-card li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
+        
+        /* Deal Flow */
         .use-case { background: var(--white); }
         .deal-overview { background: var(--gray-light); padding: 2rem; border-radius: 10px; margin-bottom: 2.5rem; border-left: 4px solid var(--teal); }
         .deal-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; }
@@ -152,6 +114,8 @@
         .step-number { width: 48px; height: 48px; background: var(--teal); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; margin-bottom: 1.25rem; }
         .use-case-step h3 { margin-bottom: 0.9rem; color: var(--black); font-size: 1.25rem; }
         .step-benefit { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: var(--teal); font-weight: 600; }
+        
+        /* Pricing Section */
         .pricing { background: var(--gray-light); }
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
         .pricing-card { background: var(--white); padding: 2.25rem; border-radius: 10px; text-align: center; border: 2px solid var(--gray-light); transition: transform 0.3s, box-shadow 0.3s; }
@@ -170,6 +134,8 @@
         .pricing-features li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
         .pricing-note { margin-top: 2.5rem; padding: 1.5rem; background: var(--white); border-radius: 10px; border-left: 4px solid var(--teal); font-size: 0.95rem; color: var(--gray-text); }
         .pricing-note strong { color: var(--black); }
+        
+        /* Tokens Section */
         .tokens { background: var(--black); color: var(--white); }
         .tokens .section-title { color: var(--white); }
         .tokens-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
@@ -180,17 +146,23 @@
         .token-card li { padding: 0.65rem 0; padding-left: 1.6rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .token-card li:last-child { border-bottom: none; }
         .token-card li::before { content: '→'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
+        
+        /* UAE Section */
         .uae { background: var(--white); }
         .uae-list { max-width: 850px; margin: 2.5rem auto 0; }
         .uae-item { display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.75rem; background: var(--gray-light); margin-bottom: 1rem; border-radius: 10px; border-left: 4px solid var(--teal); }
         .uae-check { color: var(--teal); font-size: 1.5rem; font-weight: bold; flex-shrink: 0; }
         .uae-item h3 { margin-bottom: 0.4rem; color: var(--black); font-size: 1.15rem; }
+        
+        /* Team Section */
         .team { background: var(--gray-light); }
         .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 2.5rem; }
         .team-card { background: var(--white); text-align: center; padding: 2.25rem; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.07); }
         .team-avatar { width: 110px; height: 110px; background: linear-gradient(135deg, var(--teal), var(--teal-light)); border-radius: 50%; margin: 0 auto 1.25rem; display: flex; align-items: center; justify-content: center; font-size: 2.75rem; color: var(--white); }
         .team-card h3 { font-size: 1.45rem; margin-bottom: 0.4rem; }
         .team-role { color: var(--teal); font-weight: 600; margin-bottom: 1rem; font-size: 1rem; }
+        
+        /* Roadmap Section */
         .roadmap { background: var(--black); color: var(--white); }
         .roadmap .section-title { color: var(--white); }
         .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin: 2.5rem 0; }
@@ -208,12 +180,16 @@
         .fund-bar-container { flex: 2; margin: 0 1.5rem; }
         .fund-bar { height: 10px; background: var(--teal); border-radius: 5px; margin-top: 0.4rem; }
         .fund-item.residual .fund-bar { background: rgba(0,196,180,0.5); }
+        
+        /* Ask Section */
         .ask { background: var(--white); text-align: center; }
         .ask-content { max-width: 700px; margin: 0 auto; }
         .ask-amount { font-size: 3.25rem; font-weight: 700; color: var(--teal); margin: 1.25rem 0; }
         .contact-info { margin: 2.5rem 0; padding: 2rem; background: var(--gray-light); border-radius: 10px; }
         .contact-email { font-size: 1.4rem; color: var(--teal); text-decoration: none; font-weight: 600; display: inline-block; margin: 1rem 0; }
         .contact-email:hover { text-decoration: underline; }
+        
+        /* Footer */
         footer { background: var(--black); color: var(--white); padding: 3rem 5%; text-align: center; }
         .footer-logo-img { height: 60px; width: auto; margin-bottom: 1rem; object-fit: contain; filter: brightness(0) invert(1); }
         .footer-links { display: flex; justify-content: center; gap: 1.75rem; margin: 1.25rem 0; flex-wrap: wrap; }
@@ -221,22 +197,17 @@
         .footer-links a:hover { opacity: 0.8; }
         .footer-legal { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #333; font-size: 0.85rem; opacity: 0.7; }
         .footer-legal a { color: var(--teal); }
+        
+        /* Animations & Mobile */
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { opacity: 0; transform: translateY(25px); transition: opacity 0.6s, transform 0.6s; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.1rem; }
-            .hero-subtitle { font-size: 1.35rem; }
-            .section-title { font-size: 1.9rem; }
-            .nav-links { display: none; }
-            .hero-buttons { flex-direction: column; }
-            .btn { width: 100%; }
-            .about-stats { grid-template-columns: repeat(2, 1fr); }
-            .deal-meta { grid-template-columns: 1fr; }
-            .logo-img { height: 40px; }
-            .fund-item { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
-            .fund-bar-container { width: 100%; margin: 0; }
-            .pricing-rate { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.1rem; } .hero-subtitle { font-size: 1.35rem; } .section-title { font-size: 1.9rem; } 
+            .nav-links { display: none; } .hero-buttons { flex-direction: column; } .btn { width: 100%; } 
+            .about-stats { grid-template-columns: repeat(2, 1fr); } .deal-meta { grid-template-columns: 1fr; } 
+            .logo-img { height: 40px; } .fund-item { flex-direction: column; align-items: flex-start; gap: 0.75rem; } 
+            .fund-bar-container { width: 100%; margin: 0; } .pricing-rate { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -268,8 +239,11 @@
             <p class="hero-description">GETH is an idea-stage project aiming to revolutionise the $4.6 trillion OTC commodity market by combining artificial intelligence, blockchain technology, and IoT tracking to eliminate manual processes, prevent fraud, and accelerate settlement times from months to hours.</p>
             <p class="hero-highlight">Vision: legal framework first, then MVP, then test deals. 1.10% all-inclusive fee — 60-70% cheaper than traditional brokers.</p>
             <div class="hero-buttons">
-                <a href="#pricing" class="btn btn-primary">See Pricing</a>
-                <a href="#ask" class="btn btn-secondary">Contact Founders</a>
+                <!-- ✅ ТРИГГЕР 1: Скачивание документов -->
+                <a href="GETH_ExecutiveSummary.pdf" download class="btn btn-primary" onclick="gtag('event', 'document_download', {'file_name': 'executive_summary'}); ym(110179125, 'reachGoal', 'doc_download');">Download Documents</a>
+                
+                <!-- ✅ ТРИГГЕР 2: Написать основателям -->
+                <a href="mailto:gethfounder@gmail.com" class="btn btn-secondary" onclick="gtag('event', 'contact_email_click', {'email': 'gethfounder@gmail.com'}); ym(110179125, 'reachGoal', 'email_click');">Contact Founders</a>
             </div>
         </div>
     </section>
@@ -295,17 +269,6 @@
                 <div class="problem-card fade-in"><div class="problem-icon">⚠️</div><h3>Fake Certificates</h3><p>Fraudulent quality certificates cost buyers over $50 billion annually</p></div>
                 <div class="problem-card fade-in"><div class="problem-icon">⏳</div><h3>18+ Month Disputes</h3><p>Court delays and arbitration bottlenecks kill deals and tie up capital</p></div>
                 <div class="problem-card fade-in"><div class="problem-icon">🚫</div><h3>SMEs Locked Out</h3><p>Small and medium enterprises have no access to trade finance or verified networks</p></div>
-            </div>
-        </div>
-    </section>
-    <section class="market-context">
-        <div class="container">
-            <h2 class="section-title">Why Existing Platforms Failed</h2>
-            <p class="section-subtitle">The market tried blockchain for commodities — and learned hard lessons</p>
-            <div class="context-grid">
-                <div class="context-card failed fade-in"><span class="context-status status-failed">SHUT DOWN 2023</span><h3>Vakt</h3><p style="color: var(--gray-text); font-size: 0.9rem;">Consortium of 15+ banks & trading houses (BP, Shell, ING, Mercuria)</p><ul><li>Post-trade processing only</li><li>Closed to non-members</li><li>Real cost: 1.5-3.0% (membership + fees)</li><li>No AI, IoT, or NFT integration</li><li>Shut down after 5 years</li></ul></div>
-                <div class="context-card struggling fade-in"><span class="context-status status-struggling">STRUGGLING</span><h3>Komgo</h3><p style="color: var(--gray-text); font-size: 0.9rem;">Consortium of 10 banks (Société Générale, ABN Amro, ING)</p><ul><li>Document workflow only</li><li>Closed to non-members</li><li>Real cost: 1.5-3.0% (membership + fees)</li><li>No AI, IoT, or NFT integration</li><li>Limited adoption after 7 years</li></ul></div>
-                <div class="context-card geth fade-in"><span class="context-status status-active">GETH APPROACH</span><h3>Open Platform</h3><p style="color: var(--gray-text); font-size: 0.9rem;">Accessible to all market participants</p><ul><li>End-to-end automation</li><li>Open to SMEs and traders</li><li>1.10% all-inclusive — no hidden fees</li><li>AI + IoT + NFT + tokens</li><li>Startup speed, not consortium bureaucracy</li></ul></div>
             </div>
         </div>
     </section>
@@ -345,7 +308,7 @@
                 </div>
                 <h4 style="margin: 2rem 0 1.25rem; color: var(--black); font-size: 1.25rem;">Transaction Participants</h4>
                 <div class="participants">
-                    <div class="participant-card"><div class="participant-role">🏭 Seller</div><div class="participant-desc">UAE-based oil refining company exporting 50,000 MT fuel oil</div></div>
+                    <div class="participant-card"><div class="participant-role"> Seller</div><div class="participant-desc">UAE-based oil refining company exporting 50,000 MT fuel oil</div></div>
                     <div class="participant-card"><div class="participant-role">🏢 Buyer</div><div class="participant-desc">Indian energy company requiring fuel oil for power generation</div></div>
                     <div class="participant-card"><div class="participant-role">🤝 Intermediary</div><div class="participant-desc">Swiss trading firm facilitating the transaction for commission</div></div>
                 </div>
@@ -358,7 +321,7 @@
                 <div class="use-case-step fade-in"><div class="step-number">4</div><h3>🚢 Logistics Coordination</h3><p>Seller confirms cargo readiness. Buyer selects preferred shipping route. Intermediary coordinates with carrier for vessel booking. IoT sensors activated for real-time tracking.</p><div class="step-benefit">Target: Transparent logistics for all parties</div></div>
                 <div class="use-case-step fade-in"><div class="step-number">5</div><h3>📡 Real-Time Cargo Tracking</h3><p>IoT devices monitor cargo temperature, humidity, and location throughout voyage. Satellite data streamed to GETH platform. Automated notifications at key milestones.</p><div class="step-benefit">Target: Tamper-proof tracking data</div></div>
                 <div class="use-case-step fade-in"><div class="step-number">6</div><h3>✅ Quality Verification</h3><p>Upon arrival, independent inspector verifies cargo quality. Buyer digitally signs acceptance. IoT data confirms no temperature excursions during transit.</p><div class="step-benefit">Target: Instant confirmation — no 18-month disputes</div></div>
-                <div class="use-case-step fade-in"><div class="step-number">7</div><h3>💰 Automated Settlement</h3><p>Smart contract releases $18,791,000 to seller (after 1.10% GETH fee of $209,000). Intermediary receives separate $38,000 commission. Settlement completes in under 2 hours.</p><div class="step-benefit">Target: $209,000 GETH revenue (1.10% of deal)</div></div>
+                <div class="use-case-step fade-in"><div class="step-number">7</div><h3> Automated Settlement</h3><p>Smart contract releases $18,791,000 to seller (after 1.10% GETH fee of $209,000). Intermediary receives separate $38,000 commission. Settlement completes in under 2 hours.</p><div class="step-benefit">Target: $209,000 GETH revenue (1.10% of deal)</div></div>
                 <div class="use-case-step fade-in"><div class="step-number">8</div><h3>📊 Reporting & Analytics</h3><p>All participants access deal history via dashboard. Buyer receives comprehensive digital passport with ESG data. Complete audit trail for compliance.</p><div class="step-benefit">Target: Complete audit trail for compliance</div></div>
             </div>
         </div>
@@ -425,7 +388,8 @@
                 <div class="contact-info">
                     <h3 style="color: var(--teal); margin-bottom: 1.25rem;">Get in Touch</h3>
                     <p style="margin-bottom: 1.25rem;">Ready to discuss an honest, early-stage opportunity?</p>
-                    <a href="mailto:gethfounder@gmail.com" class="contact-email">gethfounder@gmail.com</a>
+                    <!-- ✅ ТРИГГЕР 2: Email внизу страницы -->
+                    <a href="mailto:gethfounder@gmail.com" class="contact-email" onclick="gtag('event', 'contact_email_click', {'email': 'gethfounder@gmail.com'}); ym(110179125, 'reachGoal', 'email_click');">gethfounder@gmail.com</a>
                 </div>
                 <div style="text-align: left; margin: 2.5rem 0; padding: 2rem; background: var(--gray-light); border-radius: 10px;">
                     <h3 style="color: var(--teal); margin-bottom: 1.25rem;">What Investors Receive:</h3>
