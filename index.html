@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GETH — Digital Platform for OTC Commodity Trade | Idea Stage Pre-seed</title>
-    <meta name="description" content="GETH (Global Energy Trade Hub) — idea-stage project digitising $4.6T OTC commodity trade. Dubai-based (VARA/DMCC). Legal-first approach. 1.10% all-inclusive fee. Syndicated Deal Investment for crypto investors.">
+    <meta name="description" content="GETH (Global Energy Trade Hub) — idea-stage project digitising $4.6T OTC commodity trade. Dubai-based (VARA/DMCC). Legal-first approach. 1.10% all-inclusive fee.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -68,6 +68,14 @@
         .stat-item { text-align: center; padding: 2rem 1.5rem; background: var(--gray-light); border-radius: 10px; border-left: 4px solid var(--teal); }
         .stat-number { font-size: 2.25rem; font-weight: 700; color: var(--teal); display: block; }
         .stat-label { font-size: 0.95rem; color: var(--gray-text); margin-top: 0.5rem; }
+        
+        /* ✅ НОВАЯ СЕКЦИЯ TRACTION */
+        .traction { padding: 4rem 5%; background: var(--white); border-bottom: 1px solid var(--gray-light); }
+        .traction-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.75rem; margin-top: 2rem; }
+        .traction-item { text-align: center; padding: 2rem 1.5rem; background: var(--gray-light); border-radius: 10px; border-left: 4px solid var(--teal); }
+        .traction-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .traction-title { font-size: 1.1rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; }
+        .traction-desc { font-size: 0.85rem; color: var(--gray-text); line-height: 1.5; }
         
         section { padding: 5rem 5%; }
         .container { max-width: 1100px; margin: 0 auto; }
@@ -138,6 +146,12 @@
         .sdi-tier-card ul { list-style: none; text-align: left; margin-top: 1rem; }
         .sdi-tier-card li { padding: 0.4rem 0; padding-left: 1.4rem; position: relative; color: rgba(255,255,255,0.85); font-size: 0.9rem; }
         .sdi-tier-card li::before { content: '→'; position: absolute; left: 0; color: var(--teal); }
+        .sdi-yield-justification { margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid var(--teal); }
+        .sdi-yield-justification h4 { color: var(--teal); margin-bottom: 1rem; font-size: 1.2rem; }
+        .sdi-yield-justification ul { list-style: none; color: rgba(255,255,255,0.85); line-height: 1.8; }
+        .sdi-yield-justification li { margin-bottom: 0.75rem; }
+        .sdi-yield-justification li strong { color: var(--white); }
+        .sdi-yield-disclaimer { margin-top: 1rem; font-size: 0.85rem; color: rgba(255,255,255,0.6); font-style: italic; }
         .sdi-revenue { margin-top: 3rem; padding: 2rem; background: var(--gray-dark); border-radius: 10px; border-left: 4px solid var(--teal); }
         .sdi-revenue h4 { color: var(--teal); margin-bottom: 1rem; font-size: 1.35rem; }
         .sdi-revenue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
@@ -164,7 +178,14 @@
         .pricing-features li { padding: 0.5rem 0; padding-left: 1.6rem; position: relative; font-size: 0.95rem; }
         .pricing-features li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
         .pricing-note { margin-top: 2.5rem; padding: 1.5rem; background: var(--white); border-radius: 10px; border-left: 4px solid var(--teal); font-size: 0.95rem; color: var(--gray-text); }
+        .pricing-note h4 { color: var(--black); margin-bottom: 1rem; font-size: 1.1rem; }
         .pricing-note strong { color: var(--black); }
+        .unit-economics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+        .unit-economics-item { padding: 0.75rem; background: var(--white); border-radius: 6px; }
+        .unit-economics-label { font-size: 0.85rem; color: var(--gray-text); }
+        .unit-economics-value { font-weight: 700; color: var(--teal); font-size: 1.2rem; }
+        .cost-breakdown { background: var(--white); padding: 1rem; border-radius: 6px; font-size: 0.9rem; color: var(--gray-text); }
+        .cost-breakdown em { font-size: 0.8rem; margin-top: 0.5rem; display: block; }
         
         .use-case { background: var(--white); }
         .deal-overview { background: var(--gray-light); padding: 2rem; border-radius: 10px; margin-bottom: 2.5rem; border-left: 4px solid var(--teal); }
@@ -242,7 +263,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.1rem; } .hero-subtitle { font-size: 1.35rem; } .section-title { font-size: 1.9rem; } 
             .nav-links { display: none; } .hero-buttons { flex-direction: column; } .btn { width: 100%; } 
-            .about-stats { grid-template-columns: repeat(2, 1fr); } .deal-meta { grid-template-columns: 1fr; } 
+            .about-stats, .traction-grid { grid-template-columns: repeat(2, 1fr); } .deal-meta { grid-template-columns: 1fr; } 
             .logo-img { height: 40px; } .fund-item { flex-direction: column; align-items: flex-start; gap: 0.75rem; } 
             .fund-bar-container { width: 100%; margin: 0; } .pricing-rate { font-size: 2.5rem; }
             .cycle-step { flex-direction: column; gap: 1rem; }
@@ -261,6 +282,7 @@
             </a>
             <div class="nav-links">
                 <a href="#about">About</a>
+                <a href="#traction">Traction</a>
                 <a href="#problem">Problem</a>
                 <a href="#vision">Vision</a>
                 <a href="#tech-specs">Tech Specs</a>
@@ -276,11 +298,11 @@
     </nav>
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge"><span></span><span>Idea Stage • Pre-seed • Dubai, UAE (VARA/DMCC pathway)</span></div>
-            <h1>Digital Platform for OTC Commodity Trade</h1>
+            <div class="hero-badge"><span>💡</span><span>Idea Stage • Pre-seed • Dubai, UAE (VARA/DMCC pathway)</span></div>
+            <h1>Built by Traders, for Traders</h1>
             <p class="hero-subtitle">Global Energy Trade Hub</p>
             <p class="hero-description">GETH is an idea-stage project aiming to revolutionise the $4.6 trillion OTC commodity market by combining artificial intelligence, blockchain technology, and IoT tracking to eliminate manual processes, prevent fraud, and accelerate settlement times from months to hours.</p>
-            <p class="hero-highlight">Vision: legal framework first, then MVP, then test deals. 1.10% all-inclusive fee — 60-70% cheaper than traditional brokers. Phase 2: Syndicated Deal Investment for crypto investors.</p>
+            <p class="hero-highlight">We combine AI, regulated escrow, and IoT to deliver <strong>2-hour settlement</strong> for fuel oil, metals, and agri-commodities — replacing 18-month disputes. 1.10% all-inclusive fee. Phase 2: Syndicated Deal Investment (15-25% USD Target Yield).</p>
             <div class="hero-buttons">
                 <a href="GETH_ExecutiveSummary.pdf" download class="btn btn-primary" onclick="gtag('event', 'document_download', {'file_name': 'executive_summary'}); ym(110179125, 'reachGoal', 'doc_download');">Download Documents</a>
                 <a href="mailto:gethfounder@gmail.com" class="btn btn-secondary" onclick="gtag('event', 'contact_email_click', {'email': 'gethfounder@gmail.com'}); ym(110179125, 'reachGoal', 'email_click');">Contact Founders</a>
@@ -291,7 +313,7 @@
         <div class="about-content fade-in">
             <h2>What is GETH?</h2>
             <p>GETH (Global Energy Trade Hub) is an <strong>idea-stage project</strong> designed to become a next-generation automated digital ecosystem for over-the-counter (OTC) commodity trading. We aim to address critical pain points in the $4.6 trillion market: 63% manual processes, certificate fraud costing $50B+ annually, and dispute resolution delays exceeding 18 months.</p>
-            <p>Our approach: secure the <strong>legal foundation first</strong> (UAE VARA + DMCC licensing), then build the automated platform with AI-driven counterparty scoring, smart contract-based escrow, and real-time IoT cargo tracking — and finally validate with test deals from the founder's industry network. In Phase 2, we'll introduce <strong>Syndicated Deal Investment (SDI)</strong> — allowing crypto investors to participate in real commodity deals and earn yield.</p>
+            <p>Our approach: secure the <strong>legal foundation first</strong> (UAE VARA + DMCC licensing), then build the automated platform with AI-driven counterparty scoring, smart contract-based escrow, and real-time IoT cargo tracking — and finally validate with test deals from the founder's industry network. In Phase 2, we plan to introduce <strong>Syndicated Deal Investment (SDI)</strong> — allowing crypto investors to participate in real commodity deals and earn yield.</p>
             <div class="about-stats">
                 <div class="stat-item"><span class="stat-number">$4.6T</span><div class="stat-label">Total Addressable Market</div></div>
                 <div class="stat-item"><span class="stat-number">63%</span><div class="stat-label">Manual Processes to Eliminate</div></div>
@@ -300,6 +322,37 @@
             </div>
         </div>
     </section>
+    
+    <!-- ✅ НОВАЯ СЕКЦИЯ: TRACTION (ЧЕСТНЫЙ IDEA STAGE) -->
+    <section id="traction" class="traction">
+        <div class="container">
+            <h2 class="section-title">Why Us? Founder-Market Fit & Early Traction</h2>
+            <p class="section-subtitle">In commodity trading, technology is secondary. Trust and access are primary.</p>
+            <div class="traction-grid">
+                <div class="traction-item fade-in">
+                    <div class="traction-icon">🤝</div>
+                    <div class="traction-title">Target: 5-10 Pilot Deals</div>
+                    <div class="traction-desc">From founder's 8+ year network across UAE, Finland, Mozambique, Zimbabwe. Ready to test post-MVP.</div>
+                </div>
+                <div class="traction-item fade-in">
+                    <div class="traction-icon">⚖️</div>
+                    <div class="traction-title">Plan: Top-Tier Legal Counsel</div>
+                    <div class="traction-desc">Engage leading UAE law firm for VARA/DMCC structuring. Legal-first approach protects investor capital.</div>
+                </div>
+                <div class="traction-item fade-in">
+                    <div class="traction-icon">🏦</div>
+                    <div class="traction-title">Target: Regulated Escrow</div>
+                    <div class="traction-desc">Partnership with UAE banks (RAKBANK/Emirates NBD) for compliant fund locking and settlement.</div>
+                </div>
+                <div class="traction-item fade-in">
+                    <div class="traction-icon">🔬</div>
+                    <div class="traction-title">Target: Inspection Integration</div>
+                    <div class="traction-desc">API integration with SGS/Bureau Veritas for automated quality verification and NFT certificates.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="problem" class="problem">
         <div class="container">
             <h2 class="section-title">The Problem</h2>
@@ -355,7 +408,7 @@
                     </div>
                 </div>
                 <div class="partner-card fade-in">
-                    <div class="partner-icon"></div>
+                    <div class="partner-icon">🏦</div>
                     <h3>RAKBANK / Emirates NBD</h3>
                     <p>Regulated escrow services for commodity trade</p>
                     <p><strong>Integration:</strong> Bank API ↔ Smart Contract via Chainlink Functions</p>
@@ -412,10 +465,10 @@
             <div style="text-align:center;"><span class="sdi-badge">PHASE 2 FEATURE • Post-PMF</span></div>
             <h2 class="section-title">Syndicated Deal Investment (SDI)</h2>
             <p class="section-subtitle">Opening commodity trade to crypto investors and DeFi capital</p>
-            <p class="sdi-intro fade-in">SDI transforms GETH from a trading platform into a <strong>collective investment engine</strong>. Our AI automatically matches sellers and buyers, then offers verified deals to third-party investors (crypto funds, DeFi protocols, accredited individuals). Investors participate in real commodity transactions and earn yield from the profit share — fully automated via smart contracts.</p>
+            <p class="sdi-intro fade-in">SDI transforms GETH into a <strong>collective investment engine</strong>. Post-PMF, our AI offers verified deals to accredited investors who earn yield from real commodity transactions — fully automated via smart contracts.</p>
             <div class="sdi-flow fade-in">
                 <div class="sdi-flow-box">
-                    <h4> Seller + 🏢 Buyer</h4>
+                    <h4>🏭 Seller + 🏢 Buyer</h4>
                     <p>Verified counterparties with pre-committed deal terms</p>
                 </div>
                 <div class="sdi-flow-arrow">→</div>
@@ -460,6 +513,18 @@
                     </ul>
                 </div>
             </div>
+            
+            <!-- ✅ ОБНОВЛЕННЫЙ БЛОК ОБОСНОВАНИЯ YIELD -->
+            <div class="sdi-yield-justification fade-in">
+                <h4>Why 15–25% USD Target Yield?</h4>
+                <ul>
+                    <li><strong>Emerging Markets Premium:</strong> Trades UAE ↔ Africa/South Asia carry higher margins than EU-US routes.</li>
+                    <li><strong>SME Risk Premium:</strong> Small traders pay more for capital access that banks deny them.</li>
+                    <li><strong>Token Upside:</strong> Additional yield potential via $GETH token appreciation (not guaranteed).</li>
+                </ul>
+                <p class="sdi-yield-disclaimer">Disclaimer: Historical trade finance yields in emerging markets range 12-18%. Target yields include token appreciation potential and are based on unit economics of verified deals, not speculative projections.</p>
+            </div>
+
             <div class="sdi-revenue fade-in">
                 <h4>SDI Revenue Uplift (Year 3 Projection)</h4>
                 <div class="sdi-revenue-grid">
@@ -496,7 +561,28 @@
                 <div class="pricing-card featured fade-in"><div class="pricing-tier">Standard</div><div class="pricing-rate">1.10%</div><div class="pricing-label">All-Inclusive</div><div class="pricing-breakdown"><div class="pricing-breakdown-item"><strong>Platform fee</strong><span>0.50%</span></div><div class="pricing-breakdown-item"><strong>Escrow fee</strong><span>0.60%</span></div><div class="pricing-breakdown-item" style="border-top: 1px solid #ddd; padding-top: 0.6rem; margin-top: 0.4rem;"><strong>Total</strong><span>1.10%</span></div></div><ul class="pricing-features"><li>AI matching & counterparty scoring</li><li>IoT cargo tracking</li><li>NFT quality certificates (SGS/BV)</li><li>Smart contract escrow</li><li>Automated settlement in hours</li><li>Complete audit trail</li></ul></div>
                 <div class="pricing-card fade-in"><div class="pricing-tier">After Intro Period</div><div class="pricing-rate">0.90%</div><div class="pricing-label">Early Adopter Lifetime</div><div class="pricing-breakdown"><div class="pricing-breakdown-item"><strong>Platform fee</strong><span>0.35%</span></div><div class="pricing-breakdown-item"><strong>Escrow fee</strong><span>0.55%</span></div><div class="pricing-breakdown-item" style="border-top: 1px solid #ddd; padding-top: 0.6rem; margin-top: 0.4rem;"><strong>Total</strong><span>0.90%</span></div></div><ul class="pricing-features"><li>Lifetime discount for first 10 clients</li><li>All standard features included</li><li>Advisory board participation</li><li>Co-marketing opportunities</li><li>Priority support</li></ul></div>
             </div>
-            <div class="pricing-note"><strong>What's included in the fee:</strong> AI matching, counterparty scoring, IoT tracking, NFT quality certificates (SGS/Bureau Veritas), smart contract escrow, automated settlement, KYB/KYC verification, platform maintenance, and compliance. <strong>Minimum fee:</strong> $5,000 per deal. <strong>Maximum fee:</strong> $750,000 per deal.</div>
+            
+            <!-- ✅ ОБНОВЛЕННЫЙ UNIT ECONOMICS BREAKDOWN -->
+            <div class="pricing-note">
+                <h4>Transparent Unit Economics (Per $19M Fuel Oil Deal)</h4>
+                <div class="unit-economics-grid">
+                    <div class="unit-economics-item">
+                        <div class="unit-economics-label">Total Revenue</div>
+                        <div class="unit-economics-value">$209,000 (1.10%)</div>
+                    </div>
+                    <div class="unit-economics-item">
+                        <div class="unit-economics-label">Net GETH Margin</div>
+                        <div class="unit-economics-value" style="color: var(--black);">~$112,300 (54%)</div>
+                    </div>
+                </div>
+                <div class="cost-breakdown">
+                    <strong>Cost Breakdown:</strong> Bank Escrow (RAKBANK/Emirates NBD): -$66,500 (0.35%) | 
+                    IoT Provider: -$9,500 (0.05%) | 
+                    Inspection (SGS/BV): -$5,700 | 
+                    Infrastructure/APIs: -$15,000<br>
+                    <em>This margin funds platform development, legal compliance, and team growth.</em>
+                </div>
+            </div>
         </div>
     </section>
     <section id="use-case" class="use-case">
