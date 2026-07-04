@@ -380,8 +380,42 @@
             <h2 class="section-title">Technical Architecture & Deal Cycle</h2>
             <p class="section-subtitle">Hybrid fintech + blockchain architecture ensuring regulatory compliance and automated trust</p>
             <div class="tech-cycle">
-                <div class="cycle-step fade-in"><div class="step-number">1</div><div class="step-content"><h3>Onboarding & AI Counterparty Scoring</h3><p>Users undergo dynamic verification via OCR and external APIs (Sumsub, Dun & Bradstreet). Our NLP model analyzes legal docs and news for hidden risks, while Graph Neural Networks (GNN) map relationship clusters to detect fraud. A dynamic Trust Score (0–1000) determines exposure limits. Only verification hashes are stored on-chain for privacy.</p></div></div>
-                <div class="cycle-step fade-in"><div class="step-number">2</div><div class="step-content"><h3>Lot Creation & NFT Quality Certificate</h3><p>Sellers upload specs and SGS/Bureau Veritas certificates. AI validates document authenticity against inspection databases. Upon approval, an ERC-721 NFT is minted with IPFS-stored metadata (quality params, inspector ID). This NFT acts as a tamper-proof digital twin of the physical asset until ownership transfer.</p></div></div>
+<div class="cycle-step fade-in">
+    <div class="step-number">1</div>
+    <div class="step-content">
+        <h3>Onboarding & Counterparty Verification</h3>
+        <p>Every participant undergoes structured institutional verification before accessing the platform. GETH builds confidence through a multi-layer trust framework:</p>
+        <ul style="list-style: none; margin-top: 1rem; padding-left: 0;">
+            <li style="padding: 0.4rem 0; padding-left: 1.4rem; position: relative;">
+                <span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span>
+                <strong>KYC / KYB Verification</strong> — identity validation for individuals and businesses
+            </li>
+            <li style="padding: 0.4rem 0; padding-left: 1.4rem; position: relative;">
+                <span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span>
+                <strong>AML & Sanctions Screening</strong> — continuous monitoring against international watchlists
+            </li>
+            <li style="padding: 0.4rem 0; padding-left: 1.4rem; position: relative;">
+                <span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span>
+                <strong>Corporate Due Diligence</strong> — ownership structure, financial standing, trading history
+            </li>
+            <li style="padding: 0.4rem 0; padding-left: 1.4rem; position: relative;">
+                <span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span>
+                <strong>Document Verification</strong> — automated validation of certificates, licenses, and contracts
+            </li>
+            <li style="padding: 0.4rem 0; padding-left: 1.4rem; position: relative;">
+                <span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span>
+                <strong>AI-Powered Risk Scoring</strong> — dynamic trust rating based on verified data and behavior
+            </li>
+            <li style="padding: 0.4rem 0; padding-left: 1.4rem; position: relative;">
+                <span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span>
+                <strong>Compliance by Design</strong> — regulatory checks embedded into every workflow
+            </li>
+        </ul>
+        <p style="margin-top: 1rem; font-style: italic; color: var(--gray-text);">
+            Result: counterparties are verified in minutes, not weeks — reducing fraud risk and accelerating deal execution.
+        </p>
+    </div>
+</div>                <div class="cycle-step fade-in"><div class="step-number">2</div><div class="step-content"><h3>Lot Creation & NFT Quality Certificate</h3><p>Sellers upload specs and SGS/Bureau Veritas certificates. AI validates document authenticity against inspection databases. Upon approval, an ERC-721 NFT is minted with IPFS-stored metadata (quality params, inspector ID). This NFT acts as a tamper-proof digital twin of the physical asset until ownership transfer.</p></div></div>
                 <div class="cycle-step fade-in"><div class="step-number">3</div><div class="step-content"><h3>Matching & Escrow Fund Reservation</h3><p>Buyers sign EIP-712 offers. Backend generates payment orders for partner banks (RAKBANK/Emirates NBD). Upon fiat/USDC receipt at the regulated escrow account, the <code>TradeEscrow.sol</code> smart contract transitions to <code>FUNDS_LOCKED</code>. Funds are legally protected yet programmatically controlled.</p></div></div>
                 <div class="cycle-step fade-in"><div class="step-number">4</div><div class="step-content"><h3>IoT Monitoring & Oracle Integration</h3><p>Activated trackers stream temperature, humidity, and GPS data via MQTT. Custom Chainlink Oracles aggregate this data and push it on-chain. The smart contract updates delivery status automatically. Critical deviations trigger a <code>DISPUTE_FLAGGED</code> state instantly.</p></div></div>
                 <div class="cycle-step fade-in"><div class="step-number">5</div><div class="step-content"><h3>Acceptance & Atomic Settlement</h3><p>Final inspection results are signed via Qualified Electronic Signature (QES). The smart contract verifies conditions atomically. If met, <code>releaseFunds()</code> triggers bank webhooks to distribute payments: 98.9% to seller, 1.0% to intermediary (if involved), 0.1% to reserve. GETH's 0.5% platform fee is invoiced separately. The NFT is burned/redeemed and replaced with an ESG Digital Passport.</p></div></div>
