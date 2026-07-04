@@ -415,7 +415,7 @@
             Result: counterparties are verified in minutes, not weeks — reducing fraud risk and accelerating deal execution.
         </p>
     </div>
-</div>                <div class="cycle-step fade-in"><div class="step-number">2</div><div class="step-content"><h3>Lot Creation & NFT Quality Certificate</h3><p>Sellers upload specs and SGS/Bureau Veritas certificates. AI validates document authenticity against inspection databases. Upon approval, an ERC-721 NFT is minted with IPFS-stored metadata (quality params, inspector ID). This NFT acts as a tamper-proof digital twin of the physical asset until ownership transfer.</p></div></div>
+</div>                <div class="cycle-step fade-in"><div class="step-number">2</div><div class="step-content"><h3>Lot Creation & NFT Quality Certificate</h3><p>Sellers upload specs and SGS/Bureau Veritas certificates. Platform validates document authenticity against inspection databases. Upon approval, an ERC-721 NFT is minted with IPFS-stored metadata (quality params, inspector ID). This NFT acts as a tamper-proof digital twin of the physical asset until ownership transfer.</p></div></div>
                 <div class="cycle-step fade-in"><div class="step-number">3</div><div class="step-content"><h3>Matching & Escrow Fund Reservation</h3><p>Buyers sign EIP-712 offers. Backend generates payment orders for partner banks (RAKBANK/Emirates NBD). Upon fiat/USDC receipt at the regulated escrow account, the <code>TradeEscrow.sol</code> smart contract transitions to <code>FUNDS_LOCKED</code>. Funds are legally protected yet programmatically controlled.</p></div></div>
                 <div class="cycle-step fade-in"><div class="step-number">4</div><div class="step-content"><h3>IoT Monitoring & Oracle Integration</h3><p>Activated trackers stream temperature, humidity, and GPS data via MQTT. Custom Chainlink Oracles aggregate this data and push it on-chain. The smart contract updates delivery status automatically. Critical deviations trigger a <code>DISPUTE_FLAGGED</code> state instantly.</p></div></div>
                 <div class="cycle-step fade-in"><div class="step-number">5</div><div class="step-content"><h3>Acceptance & Atomic Settlement</h3><p>Final inspection results are signed via Qualified Electronic Signature (QES). The smart contract verifies conditions atomically. If met, <code>releaseFunds()</code> triggers bank webhooks to distribute payments: 98.9% to seller, 1.0% to intermediary (if involved), 0.1% to reserve. GETH's 0.5% platform fee is invoiced separately. The NFT is burned/redeemed and replaced with an ESG Digital Passport.</p></div></div>
@@ -443,7 +443,7 @@
                 </div>
                 <div class="partner-card fade-in">
                     <div class="partner-icon">🏦</div>
-                    <h3>RAKBANK / Emirates NBD</h3>
+                    <h3>RAKBANK / Emirates NBD (example)</h3>
                     <p>Regulated escrow services for commodity trade</p>
                     <p><strong>Integration:</strong> Bank API ↔ Smart Contract via Chainlink Functions</p>
                     <div class="partner-benefit">
