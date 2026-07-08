@@ -1495,904 +1495,686 @@
         </div>
     </footer>
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-            });
-        });
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+// ========================================
+// SUPABASE & OPENROUTER CONFIGURATION
+// ========================================
+const SUPABASE_URL = 'https://gcgzkgkynzxrqnujlppl.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_6rbVazwkgjrRnXZzjuseNw_SwO3Drlf';
+const OPENROUTER_API_KEY = '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';
+
+let supabase = null;
+let supabaseReady = false;
+
+// Безопасная инициализация Supabase (чтобы не ломать старый дашборд)
+try {
+    if (typeof window.supabase !== 'undefined' && window.supabase.createClient) {
+        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        supabaseReady = true;
+        console.log('✅ Supabase initialized successfully');
+    }
+} catch (error) {
+    console.error('❌ Error initializing Supabase:', error);
+}
+
+// ========================================
+// 12-STEP MVP DEMO LOGIC
+// ========================================
+let mvpState = {
+    currentStep: 1,
+    totalSteps: 12,
+    dealData: {},
+    userRole: null,
+    aiScore: null,
+    startTime: null
+};
+
+// Функция открытия демо (вызывается из кнопки)
+function openMvpDemo() {
+    // Если модального окна нет в HTML, создаем его динамически
+    if (!document.getElementById('mvp-modal')) {
+        createMvpModal();
+    }
+    
+    document.getElementById('mvp-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    mvpState.startTime = Date.now();
+    mvpState.currentStep = 1;
+    renderStep(1);
+    
+    if (typeof gtag !== 'undefined') gtag('event', 'mvp_demo_launch');
+    if (typeof ym !== 'undefined') ym(110179125, 'reachGoal', 'mvp_demo_launch');
+}
+
+function closeMvpDemo() {
+    const modal = document.getElementById('mvp-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+function updateProgress() {
+    const percent = ((mvpState.currentStep - 1) / mvpState.totalSteps) * 100;
+    const fill = document.getElementById('mvp-progress-fill');
+    const stepText = document.getElementById('mvp-current-step');
+    const percentText = document.getElementById('mvp-progress-percent');
+    
+    if (fill) fill.style.width = percent + '%';
+    if (stepText) stepText.textContent = mvpState.currentStep;
+    if (percentText) percentText.textContent = Math.round(percent) + '% Complete';
+}
+
+function renderStep(step) {
+    mvpState.currentStep = step;
+    updateProgress();
+    const container = document.getElementById('mvp-step-container');
+    if (!container) return;
+
+    const steps = {
+        1: renderStep1_Registration,
+        2: renderStep2_KYC,
+        3: renderStep3_LotCreation,
+        4: renderStep4_SGSCertificate,
+        5: renderStep5_CounterpartyMatching,
+        6: renderStep6_ContractCreation,
+        7: renderStep7_CarrierInsurance,
+        8: renderStep8_EscrowLock,
+        9: renderStep9_IoTActivation,
+        10: renderStep10_TransitMonitoring,
+        11: renderStep11_Inspection,
+        12: renderStep12_Settlement
+    };
+
+    container.innerHTML = steps[step]();
+    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// --- STEP 1: Registration ---
+function renderStep1_Registration() {
+    return `
+        <div class="mvp-step">
+            <div class="mvp-step-header">
+                <div class="mvp-step-number">1</div>
+                <h3>📝 Registration & Role Selection</h3>
+            </div>
+            <p class="mvp-step-description">Create your account and select your role in commodity trading.</p>
+            <div class="mvp-form-group">
+                <label>Full Name *</label>
+                <input type="text" id="mvp-name" value="Pavel Bogomolov-Cheliuskin">
+            </div>
+            <div class="mvp-form-group">
+                <label>Company Name *</label>
+                <input type="text" id="mvp-company" value="GETH Trading LLC">
+            </div>
+            <div class="mvp-form-group">
+                <label>Your Role in Trading *</label>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.5rem;">
+                    <label style="padding: 1rem; background: var(--gray-light); border-radius: 8px; cursor: pointer; text-align: center;">
+                        <input type="radio" name="role" value="seller" style="margin-bottom: 0.5rem;">
+                        <div style="font-weight: 600;">🏭 Seller</div>
+                    </label>
+                    <label style="padding: 1rem; background: var(--gray-light); border-radius: 8px; cursor: pointer; text-align: center;">
+                        <input type="radio" name="role" value="buyer" style="margin-bottom: 0.5rem;">
+                        <div style="font-weight: 600;">🏢 Buyer</div>
+                    </label>
+                    <label style="padding: 1rem; background: var(--teal); border-radius: 8px; cursor: pointer; text-align: center; color: white;">
+                        <input type="radio" name="role" value="both" checked style="margin-bottom: 0.5rem;">
+                        <div style="font-weight: 600;">🔄 Both (Test)</div>
+                    </label>
+                </div>
+            </div>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-primary" onclick="completeRegistration()">Continue to KYC/KYB →</button>
+            </div>
+        </div>`;
+}
+
+function completeRegistration() {
+    const role = document.querySelector('input[name="role"]:checked').value;
+    mvpState.userRole = role;
+    mvpState.dealData.userName = document.getElementById('mvp-name').value;
+    mvpState.dealData.companyName = document.getElementById('mvp-company').value;
+    renderStep(2);
+}
+
+// --- STEP 2: KYC ---
+function renderStep2_KYC() {
+    return `
+        <div class="mvp-step">
+            <div class="mvp-step-header">
+                <div class="mvp-step-number">2</div>
+                <h3>🔐 KYC/KYB Verification</h3>
+            </div>
+            <p class="mvp-step-description">Complete Know Your Customer / Know Your Business verification.</p>
+            <div class="mvp-form-group">
+                <label>Company Registration Number *</label>
+                <input type="text" id="mvp-reg-number" value="DMCC-123456">
+            </div>
+            <div class="mvp-form-group">
+                <label>Tax ID / VAT Number *</label>
+                <input type="text" id="mvp-tax-id" value="AE123456789">
+            </div>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(1)">← Back</button>
+                <button class="mvp-btn mvp-btn-primary" onclick="submitKYC()">Submit for Verification</button>
+            </div>
+            <div id="mvp-kyc-result"></div>
+        </div>`;
+}
+
+function submitKYC() {
+    const resultDiv = document.getElementById('mvp-kyc-result');
+    resultDiv.innerHTML = `
+        <div class="api-response active" style="margin-top: 1rem;">
+            <div class="api-header"> KYC/KYB Verification Result</div>
+            <div class="api-status">HTTP 200 OK</div>
+            Verification Status: APPROVED ✓
+            Company: ${mvpState.dealData.companyName}
+            Registration: ${document.getElementById('mvp-reg-number').value}
+            Tax ID: ${document.getElementById('mvp-tax-id').value}
+            Compliance Checks: AML ✓ | Sanctions ✓ | PEP ✓
+        </div>
+        <div class="mvp-btn-group">
+            <button class="mvp-btn mvp-btn-primary" onclick="renderStep(3)">Continue to Lot Creation →</button>
+        </div>`;
+}
+
+// --- STEP 3: Lot Creation ---
+function renderStep3_LotCreation() {
+    const isSeller = mvpState.userRole === 'seller' || mvpState.userRole === 'both';
+    const isBuyer = mvpState.userRole === 'buyer' || mvpState.userRole === 'both';
+    
+    return `
+        <div class="mvp-step">
+            <div class="mvp-step-header">
+                <div class="mvp-step-number">3</div>
+                <h3>📦 Lot Creation</h3>
+            </div>
+            ${isSeller && isBuyer ? `
+            <div class="mvp-form-group">
+                <label>Transaction Role *</label>
+                <select id="mvp-tx-role">
+                    <option value="seller"> I am SELLING (Seller)</option>
+                    <option value="buyer">🏢 I am BUYING (Buyer)</option>
+                </select>
+            </div>` : ''}
+            <div class="mvp-form-group">
+                <label>Product Type *</label>
+                <select id="mvp-commodity">
+                    <option value="Diesel EN590 10PPM">Diesel EN590 10PPM</option>
+                    <option value="Fuel Oil HSFO 3.5%">Fuel Oil HSFO 3.5%</option>
+                    <option value="Crude Oil Murban">Crude Oil Murban</option>
+                </select>
+            </div>
+            <div class="mvp-form-row">
+                <div class="mvp-form-group">
+                    <label>Quantity (MT) *</label>
+                    <input type="number" id="mvp-quantity" value="50000" min="1">
+                </div>
+                <div class="mvp-form-group">
+                    <label>Unit Price (USD/MT) *</label>
+                    <input type="number" id="mvp-price" value="850" min="1">
+                </div>
+            </div>
+            <div class="mvp-form-row">
+                <div class="mvp-form-group">
+                    <label>Origin Port</label>
+                    <input type="text" id="mvp-origin" value="Fujairah, UAE">
+                </div>
+                <div class="mvp-form-group">
+                    <label>Destination Port</label>
+                    <input type="text" id="mvp-dest" value="Rotterdam, Netherlands">
+                </div>
+            </div>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(2)">← Back</button>
+                <button class="mvp-btn mvp-btn-primary" onclick="createLot()">Create Lot →</button>
+            </div>
+        </div>`;
+}
+
+function createLot() {
+    const txRole = mvpState.userRole === 'both' ? document.getElementById('mvp-tx-role').value : mvpState.userRole;
+    const quantity = parseFloat(document.getElementById('mvp-quantity').value);
+    const price = parseFloat(document.getElementById('mvp-price').value);
+    
+    mvpState.dealData.txRole = txRole;
+    mvpState.dealData.commodity = document.getElementById('mvp-commodity').value;
+    mvpState.dealData.quantity = quantity;
+    mvpState.dealData.origin = document.getElementById('mvp-origin').value;
+    mvpState.dealData.destination = document.getElementById('mvp-dest').value;
+    
+    if (txRole === 'seller') {
+        mvpState.dealData.sellingPrice = price;
+        mvpState.dealData.totalValue = quantity * price;
+    } else {
+        mvpState.dealData.maxPurchasePrice = price;
+    }
+    renderStep(4);
+}
+
+// --- STEP 4: SGS Certificate ---
+function renderStep4_SGSCertificate() {
+    if (mvpState.dealData.txRole !== 'seller') {
+        return `<div class="mvp-step"><div class="mvp-step-header"><div class="mvp-step-number">4</div><h3>⏭️ SGS Certificate (Seller Only)</h3></div><p class="mvp-step-description">As a buyer, you skip this step.</p><div class="mvp-btn-group"><button class="mvp-btn mvp-btn-primary" onclick="renderStep(5)">Continue →</button></div></div>`;
+    }
+    return `
+        <div class="mvp-step">
+            <div class="mvp-step-header">
+                <div class="mvp-step-number">4</div>
+                <h3>🔬 SGS Certificate Upload + NFT Minting</h3>
+            </div>
+            <p class="mvp-step-description">Upload SGS quality certificate. System will verify and mint it as NFT.</p>
+            <div style="padding: 2rem; background: var(--gray-light); border-radius: 8px; text-align: center; border: 2px dashed var(--teal); margin-bottom: 1rem;">
+                <div style="font-size: 2rem;">📄</div>
+                <div style="font-weight: 600;">SGS_Certificate_Diesel_EN590_50000MT.pdf</div>
+            </div>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(3)">← Back</button>
+                <button class="mvp-btn mvp-btn-primary" onclick="generateSgsCertificate()">Verify & Mint NFT</button>
+            </div>
+            <div id="mvp-sgs-result"></div>
+        </div>`;
+}
+
+function generateSgsCertificate() {
+    const resultDiv = document.getElementById('mvp-sgs-result');
+    const certNumber = 'SGS-UAE-2026-' + Math.floor(Math.random() * 9000000 + 1000000);
+    const tokenId = Math.floor(Math.random() * 900000 + 100000);
+    
+    resultDiv.innerHTML = `
+        <div class="api-response active" style="margin-top: 1rem;">
+            <div class="api-header"> SGS API Verification & NFT Minting</div>
+            <div class="api-status">HTTP 200 OK</div>
+            Certificate: ${certNumber} | Status: VERIFIED ✓
+            NFT Token ID: #${tokenId} | Network: Arbitrum One
+            IPFS Hash: QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco
+        </div>
+        <div class="mvp-btn-group">
+            <button class="mvp-btn mvp-btn-primary" onclick="renderStep(5)">Continue to Matching →</button>
+        </div>`;
+}
+
+// --- STEP 5: Counterparty Matching ---
+function renderStep5_CounterpartyMatching() {
+    return `
+        <div class="mvp-step">
+            <div class="mvp-step-header">
+                <div class="mvp-step-number">5</div>
+                <h3>🤝 Counterparty Matching</h3>
+            </div>
+            <p class="mvp-step-description">AI is finding qualified ${mvpState.dealData.txRole === 'seller' ? 'buyers' : 'sellers'} for your commodity.</p>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(4)">← Back</button>
+                <button class="mvp-btn mvp-btn-primary" onclick="findCounterparty()">🤖 Find Counterparty via AI</button>
+            </div>
+            <div id="mvp-match-result"></div>
+        </div>`;
+}
+
+function findCounterparty() {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="mvp-spinner"></span> Searching...';
+    
+    setTimeout(() => {
+        const counterpartyName = mvpState.dealData.txRole === 'seller' ? 'Rotterdam Energy Trading B.V.' : 'Gulf Petroleum Trading LLC';
+        const trustScore = Math.floor(Math.random() * 200 + 750);
+        mvpState.dealData.counterparty = { name: counterpartyName, trustScore: trustScore };
         
-        // ========================================
-        // MVP DEMO - INTERACTIVE DEAL CYCLE
-        // ========================================
+        document.getElementById('mvp-match-result').innerHTML = `
+            <div class="api-response active" style="margin-top: 1rem;">
+                <div class="api-header"> AI Matching Engine Response</div>
+                <div class="api-status">HTTP 200 OK</div>
+                Match Found: ${counterpartyName}
+                Years in Business: 15 | Total Trades: 847 | Default Rate: 0.2%
+                AI Trust Score: ${trustScore}/1000 | Risk Level: ${trustScore >= 800 ? 'LOW' : 'MEDIUM'}
+            </div>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-primary" onclick="renderStep(6)">Proceed to Contract →</button>
+            </div>`;
+    }, 2000);
+}
+
+// --- STEP 6: Contract Creation ---
+function renderStep6_ContractCreation() {
+    const price = mvpState.dealData.txRole === 'seller' ? mvpState.dealData.sellingPrice : mvpState.dealData.maxPurchasePrice;
+    const commodityValue = mvpState.dealData.quantity * price;
+    
+    return `
+        <div class="mvp-step">
+            <div class="mvp-step-header">
+                <div class="mvp-step-number">6</div>
+                <h3>📜 Contract Creation</h3>
+            </div>
+            <p class="mvp-step-description">Platform generates legally binding contract with Smart Contract integration.</p>
+            <div style="background: var(--gray-light); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.9rem;">
+                <strong>Parties:</strong> ${mvpState.dealData.companyName} ↔ ${mvpState.dealData.counterparty.name}<br>
+                <strong>Product:</strong> ${mvpState.dealData.commodity} | <strong>Qty:</strong> ${mvpState.dealData.quantity} MT<br>
+                <strong>Total Value:</strong> $${commodityValue.toLocaleString()} | <strong>Incoterms:</strong> CIF
+            </div>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(5)">← Back</button>
+                <button class="mvp-btn mvp-btn-primary" onclick="acceptContract()">✓ Accept & Generate Smart Contract</button>
+            </div>
+            <div id="mvp-contract-result"></div>
+        </div>`;
+}
+
+function acceptContract() {
+    document.getElementById('mvp-contract-result').innerHTML = `
+        <div class="api-response active" style="margin-top: 1rem;">
+            <div class="api-header">📜 Legal Contract & Smart Contract Deployed</div>
+            <div class="api-status">HTTP 200 OK</div>
+            Contract ID: GETH-CONTRACT-2026-847291 | Status: EXECUTED ✓
+            Smart Contract Address: 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEbE
+            Network: Arbitrum One (L2) | Gas Used: 247,891
+        </div>
+        <div class="mvp-btn-group">
+            <button class="mvp-btn mvp-btn-primary" onclick="renderStep(7)">Continue to Carrier & Insurance →</button>
+        </div>`;
+}
+
+// --- STEP 7: Carrier & Insurance ---
+function renderStep7_CarrierInsurance() {
+    return `
+        <div class="mvp-step">
+            <div class="mvp-step-header">
+                <div class="mvp-step-number">7</div>
+                <h3>🚢 Carrier Selection + Cargo Insurance</h3>
+            </div>
+            <p class="mvp-step-description">System automatically selects optimal carrier and arranges cargo insurance.</p>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(6)">← Back</button>
+                <button class="mvp-btn mvp-btn-primary" onclick="selectCarrierAndInsurance()"> Find Carrier + Arrange Insurance</button>
+            </div>
+            <div id="mvp-carrier-result"></div>
+        </div>`;
+}
+
+function selectCarrierAndInsurance() {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="mvp-spinner"></span> Searching...';
+    
+    setTimeout(() => {
+        const commodityValue = mvpState.dealData.txRole === 'seller' ? mvpState.dealData.totalValue : (mvpState.dealData.quantity * mvpState.dealData.maxPurchasePrice);
+        const logisticsCost = 185000;
+        const insuranceCost = commodityValue * 0.0025;
+        const totalDealValue = commodityValue + logisticsCost + insuranceCost;
         
-        const OPENROUTER_API_KEY = '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';
+        mvpState.dealData.commodityValue = commodityValue;
+        mvpState.dealData.logistics = logisticsCost;
+        mvpState.dealData.insurance = insuranceCost;
+        mvpState.dealData.totalDealValue = totalDealValue;
         
-        let mvpState = {
-            currentStep: 1,
-            dealData: {},
-            aiScore: null,
-            startTime: null
-        };
+        document.getElementById('mvp-carrier-result').innerHTML = `
+            <div class="api-response active" style="margin-top: 1rem;">
+                <div class="api-header"> Carrier & Insurance API Response</div>
+                <div class="api-status">HTTP 200 OK</div>
+                Carrier: Mediterranean Shipping Company (MSC) | Vessel: MSC GULF STAR
+                Insurance: Lloyd's Syndicate 2001 | Coverage: Institute Cargo Clauses (A)
+                
+                💰 Total Deal Value Breakdown:
+                Commodity Value: $${commodityValue.toLocaleString()}
+                Logistics (MSC): $${logisticsCost.toLocaleString()}
+                Insurance (Lloyd's): $${insuranceCost.toLocaleString(undefined, {maximumFractionDigits: 0})}
+                ----------------------------------------
+                TOTAL DEAL VALUE: $${totalDealValue.toLocaleString(undefined, {maximumFractionDigits: 0})}
+            </div>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-primary" onclick="renderStep(8)">Proceed to Escrow Lock →</button>
+            </div>`;
+    }, 2000);
+}
+
+// --- STEP 8: Escrow Lock ---
+function renderStep8_EscrowLock() {
+    const total = mvpState.dealData.totalDealValue;
+    return `
+        <div class="mvp-step">
+            <div class="mvp-step-header">
+                <div class="mvp-step-number">8</div>
+                <h3>🔒 Escrow Fund Reservation</h3>
+            </div>
+            <p class="mvp-step-description">Buyer deposits full deal value into regulated escrow account (RAKBANK).</p>
+            <div style="background: var(--gray-light); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                <strong>Total Amount:</strong> $${total.toLocaleString(undefined, {maximumFractionDigits: 0})}<br>
+                <strong>Bank:</strong> RAKBANK (UAE Central Bank Regulated)<br>
+                <strong>Smart Contract:</strong> 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEbE
+            </div>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(7)">← Back</button>
+                <button class="mvp-btn mvp-btn-primary" onclick="simulateEscrowLock()">🏦 Lock Funds via Bank API</button>
+            </div>
+            <div id="mvp-escrow-result"></div>
+        </div>`;
+}
+
+function simulateEscrowLock() {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="mvp-spinner"></span> Processing...';
+    
+    setTimeout(() => {
+        const txHash = '0x' + Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+        document.getElementById('mvp-escrow-result').innerHTML = `
+            <div class="api-response active" style="margin-top: 1rem;">
+                <div class="api-header"> RAKBANK Escrow API Response</div>
+                <div class="api-status">HTTP 200 OK</div>
+                Transaction ID: TXN-RAK-2026-948271 | Status: FUNDS_LOCKED ✓
+                Amount: $${mvpState.dealData.totalDealValue.toLocaleString(undefined, {maximumFractionDigits: 0})} USD
+                TX Hash: ${txHash} | Block: 24891723 | Confirmations: 12/12 ✓
+            </div>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-primary" onclick="renderStep(9)">Activate IoT Tracking →</button>
+            </div>`;
+    }, 1500);
+}
+
+// --- STEP 9: IoT Activation ---
+function renderStep9_IoTActivation() {
+    return `
+        <div class="mvp-step">
+            <div class="mvp-step-header">
+                <div class="mvp-step-number">9</div>
+                <h3>📡 IoT Tracker Activation</h3>
+            </div>
+            <p class="mvp-step-description">Cargo tracking sensors activated. Real-time data streamed via MQTT.</p>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(8)">← Back</button>
+                <button class="mvp-btn mvp-btn-primary" onclick="simulateIotActivation()">📡 Activate IoT Tracker</button>
+            </div>
+            <div id="mvp-iot-result"></div>
+        </div>`;
+}
+
+function simulateIotActivation() {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="mvp-spinner"></span> Activating...';
+    
+    setTimeout(() => {
+        document.getElementById('mvp-iot-result').innerHTML = `
+            <div class="api-response active" style="margin-top: 1rem;">
+                <div class="api-header">📡 IoT Platform API Response</div>
+                <div class="api-status">HTTP 200 OK</div>
+                Device Status: ACTIVE ✓ | GPS: 25.1289, 56.3265 (${mvpState.dealData.origin})
+                Temperature: 24.5°C (within spec) | Battery: 98%
+                Chainlink Oracle Connected ✓
+            </div>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-primary" onclick="renderStep(10)">Continue to Transit →</button>
+            </div>`;
+    }, 1500);
+}
+
+// --- STEP 10: Transit Monitoring ---
+function renderStep10_TransitMonitoring() {
+    return `
+        <div class="mvp-step">
+            <div class="mvp-step-header">
+                <div class="mvp-step-number">10</div>
+                <h3>🚢 Real-Time Transit Monitoring</h3>
+            </div>
+            <p class="mvp-step-description">Cargo in transit. IoT data continuously streamed.</p>
+            <div style="background: var(--gray-light); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                <strong>Current Status:</strong> Arabian Sea (21.4°N, 62.8°E)<br>
+                <strong>Speed:</strong> 14.2 knots | <strong>Days in Transit:</strong> 10 of 20
+            </div>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(9)">← Back</button>
+                <button class="mvp-btn mvp-btn-primary" onclick="renderStep(11)">Fast-Forward to Arrival →</button>
+            </div>
+        </div>`;
+}
+
+// --- STEP 11: Inspection ---
+function renderStep11_Inspection() {
+    return `
+        <div class="mvp-step">
+            <div class="mvp-step-header">
+                <div class="mvp-step-number">11</div>
+                <h3>✅ Quality Verification (SGS Inspection)</h3>
+            </div>
+            <p class="mvp-step-description">Cargo arrived. Independent SGS inspector conducts final quality verification.</p>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(10)">← Back</button>
+                <button class="mvp-btn mvp-btn-primary" onclick="simulateSgsInspection()">🔬 Request SGS API Verification</button>
+            </div>
+            <div id="mvp-sgs-inspect-result"></div>
+        </div>`;
+}
+
+function simulateSgsInspection() {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="mvp-spinner"></span> Running lab analysis...';
+    
+    setTimeout(() => {
+        document.getElementById('mvp-sgs-inspect-result').innerHTML = `
+            <div class="api-response active" style="margin-top: 1rem;">
+                <div class="api-header">🔬 SGS Inspection API Response</div>
+                <div class="api-status">HTTP 200 OK</div>
+                Inspection Report: PASSED ✓
+                Quality Parameters: All within spec ✓
+                Quantity Verified: ${mvpState.dealData.quantity.toLocaleString()} MT ✓
+                Digital Signature: QES-Applied ✓
+            </div>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-primary" onclick="renderStep(12)">Trigger Settlement →</button>
+            </div>`;
+    }, 2000);
+}
+
+// --- STEP 12: Settlement ---
+function renderStep12_Settlement() {
+    return `
+        <div class="mvp-step">
+            <div class="mvp-step-header">
+                <div class="mvp-step-number">12</div>
+                <h3> Automated Settlement + Final Summary</h3>
+            </div>
+            <div class="mvp-btn-group">
+                <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(11)">← Back</button>
+                <button class="mvp-btn mvp-btn-primary" onclick="simulateSettlement()">⚡ Execute Smart Contract</button>
+            </div>
+            <div id="mvp-settle-result"></div>
+        </div>`;
+}
+
+function simulateSettlement() {
+    const btn = event.target;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="mvp-spinner"></span> Executing...';
+    
+    setTimeout(() => {
+        const commodityValue = mvpState.dealData.commodityValue;
+        const logisticsCost = mvpState.dealData.logistics;
+        const insuranceCost = mvpState.dealData.insurance;
+        const totalDealValue = mvpState.dealData.totalDealValue;
+        const platformFee = totalDealValue * 0.011;
+        const elapsed = Math.round((Date.now() - mvpState.startTime) / 1000);
+        const score = mvpState.dealData.counterparty ? mvpState.dealData.counterparty.trustScore : 0;
+        const txHash = '0x' + Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('');
         
-        function openMvpDemo() {
-            document.getElementById('mvp-modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-            mvpState.startTime = Date.now();
-            renderStep(1);
-            gtag('event', 'mvp_demo_launch');
-            ym(110179125, 'reachGoal', 'mvp_demo_launch');
-        }
-        
-        function closeMvpDemo() {
-            document.getElementById('mvp-modal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        
-        function updateProgress() {
-            const percent = ((mvpState.currentStep - 1) / 8) * 100;
-            document.getElementById('mvp-progress-fill').style.width = percent + '%';
-            document.getElementById('mvp-current-step').textContent = mvpState.currentStep;
-            document.getElementById('mvp-progress-percent').textContent = Math.round(percent) + '% Complete';
-        }
-        
-        function renderStep(step) {
-            mvpState.currentStep = step;
-            updateProgress();
-            const container = document.getElementById('mvp-step-container');
+        document.getElementById('mvp-settle-result').innerHTML = `
+            <div class="api-response active" style="margin-top: 1rem;">
+                <div class="api-header"> Smart Contract Execution</div>
+                <div class="api-status">HTTP 200 OK</div>
+                TX Hash: ${txHash} | Status: SUCCESS ✓
+                
+                Payment Distribution:
+                ├─ Seller: $${commodityValue.toLocaleString()}
+                ├─ Carrier (MSC): $${logisticsCost.toLocaleString()}
+                ├─ Insurer (Lloyd's): $${insuranceCost.toLocaleString(undefined, {maximumFractionDigits: 0})}
+                ├─ GETH Platform Fee (1.10%): $${platformFee.toLocaleString(undefined, {maximumFractionDigits: 0})}
+                └─ Total: $${totalDealValue.toLocaleString(undefined, {maximumFractionDigits: 0})}
+                
+                All parties paid ✓ | NFT Burned ✓ | ESG Passport Issued ✓
+            </div>
             
-            const steps = {
-                1: renderStep1,
-                2: renderStep2,
-                3: renderStep3,
-                4: renderStep4,
-                5: renderStep5,
-                6: renderStep6,
-                7: renderStep7,
-                8: renderStep8
-            };
-            
-            container.innerHTML = steps[step]();
-            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        
-        // STEP 1: Counterparty Verification + AI Scoring
-        function renderStep1() {
-            return `
-                <div class="mvp-step">
-                    <div class="mvp-step-header">
-                        <div class="mvp-step-number">1</div>
-                        <h3>🔍 Counterparty Verification & AI Risk Scoring</h3>
+            <div class="mvp-summary" style="margin-top: 1.5rem;">
+                <h3>🎉 Deal Successfully Completed</h3>
+                <div class="mvp-summary-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div class="mvp-summary-item" style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 8px;">
+                        <div class="mvp-summary-label" style="font-size: 0.8rem; opacity: 0.9;">Total Deal Value</div>
+                        <div class="mvp-summary-value" style="font-size: 1.2rem; font-weight: 700;">$${totalDealValue.toLocaleString(undefined, {maximumFractionDigits: 0})}</div>
                     </div>
-                    <p class="mvp-step-description">
-                        Enter counterparty details. Our AI engine (powered by Llama 3.1 70B) will analyze 
-                        the company and generate a real-time Trust Score (0-1000).
-                    </p>
-                    
-                    <div class="mvp-form-group">
-                        <label>Company Name *</label>
-                        <input type="text" id="mvp-company" placeholder="e.g., Al Futtaim Energy Trading LLC" value="Al Futtaim Energy Trading LLC">
+                    <div class="mvp-summary-item" style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 8px;">
+                        <div class="mvp-summary-label" style="font-size: 0.8rem; opacity: 0.9;">GETH Revenue</div>
+                        <div class="mvp-summary-value" style="font-size: 1.2rem; font-weight: 700;">$${platformFee.toLocaleString(undefined, {maximumFractionDigits: 0})}</div>
                     </div>
-                    
-                    <div class="mvp-form-row">
-                        <div class="mvp-form-group">
-                            <label>Country *</label>
-                            <select id="mvp-country">
-                                <option value="UAE">United Arab Emirates</option>
-                                <option value="India">India</option>
-                                <option value="Singapore">Singapore</option>
-                                <option value="Switzerland">Switzerland</option>
-                                <option value="Nigeria">Nigeria</option>
-                            </select>
-                        </div>
-                        <div class="mvp-form-group">
-                            <label>Years in Business</label>
-                            <input type="number" id="mvp-years" value="12" min="1" max="100">
-                        </div>
+                    <div class="mvp-summary-item" style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 8px;">
+                        <div class="mvp-summary-label" style="font-size: 0.8rem; opacity: 0.9;">Settlement Time</div>
+                        <div class="mvp-summary-value" style="font-size: 1.2rem; font-weight: 700;">60 seconds</div>
                     </div>
-                    
-                    <div class="mvp-form-group">
-                        <label>Additional Information (for AI analysis)</label>
-                        <textarea id="mvp-info" placeholder="Known deals, reputation, financial standing, etc.">Major UAE-based commodity trader. Active in fuel oil, crude, and metals. Known partners include ADNOC and ENOC. Strong financials, no sanctions history.</textarea>
-                    </div>
-                    
-                    <div id="mvp-ai-result"></div>
-                    
-                    <div class="mvp-btn-group">
-                        <button class="mvp-btn mvp-btn-primary" onclick="runMvpAiScoring()" id="mvp-ai-btn">
-                            🤖 Run AI Risk Analysis
-                        </button>
-                        <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(2)" id="mvp-next-1" style="display:none;">
-                            Continue to Step 2 →
-                        </button>
+                    <div class="mvp-summary-item" style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 8px;">
+                        <div class="mvp-summary-label" style="font-size: 0.8rem; opacity: 0.9;">Trust Score</div>
+                        <div class="mvp-summary-value" style="font-size: 1.2rem; font-weight: 700;">${score}/1000</div>
                     </div>
                 </div>
-            `;
-        }
-        
-        async function runMvpAiScoring() {
-            const company = document.getElementById('mvp-company').value;
-            const country = document.getElementById('mvp-country').value;
-            const years = document.getElementById('mvp-years').value;
-            const info = document.getElementById('mvp-info').value;
-            const btn = document.getElementById('mvp-ai-btn');
-            const resultDiv = document.getElementById('mvp-ai-result');
+            </div>
             
-            btn.disabled = true;
-            btn.innerHTML = '<span class="mvp-spinner"></span> Analyzing with Llama 3.1 70B...';
+            <div style="margin-top: 1.5rem; padding: 1rem; background: var(--gray-light); border-radius: 8px; text-align: center; font-size: 0.9rem; color: var(--gray-text);">
+                Demo completed in <strong>${elapsed} seconds</strong> • 12 steps • Full platform logic
+            </div>
             
-            mvpState.dealData.counterparty = { company, country, years, info };
-            
-            try {
-                const prompt = `Analyze this commodity trading counterparty for risk assessment:
+            <div class="mvp-btn-group" style="justify-content: center; margin-top: 1rem;">
+                <button class="mvp-btn mvp-btn-primary" onclick="window.location.href='mailto:gethfounder@gmail.com?subject=GETH MVP Demo - Investor Inquiry'">📧 Contact Founders</button>
+                <button class="mvp-btn mvp-btn-secondary" onclick="closeMvpDemo()">← Return to Website</button>
+            </div>`;
+    }, 2000);
+}
 
-Company: ${company}
-Country: ${country}
-Years in business: ${years}
-Additional info: ${info}
-
-Return ONLY a JSON object:
-{
-  "trust_score": <0-1000>,
-  "risk_level": "<low|medium|high>",
-  "risk_factors": ["factor1", "factor2", "factor3"],
-  "positive_factors": ["factor1", "factor2"],
-  "recommendation": "<approve|review|reject>",
-  "confidence": <0-1>,
-  "analysis_summary": "2-3 sentence summary"
-}`;
-                
-                const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-                        'Content-Type': 'application/json',
-                        'HTTP-Referer': window.location.href,
-                        'X-Title': 'GETH MVP Demo'
-                    },
-                    body: JSON.stringify({
-                        model: 'meta-llama/llama-3.1-70b-instruct',
-                        messages: [{ role: 'user', content: prompt }],
-                        temperature: 0.3,
-                        max_tokens: 600
-                    })
-                });
-                
-                const data = await response.json();
-                const aiResponse = data.choices[0].message.content;
-                
-                const jsonMatch = aiResponse.match(/\{[\s\S]*\}/);
-                if (!jsonMatch) throw new Error('Invalid AI response');
-                
-                const parsed = JSON.parse(jsonMatch[0]);
-                mvpState.aiScore = parsed;
-                
-                const scoreClass = parsed.trust_score >= 700 ? 'high' : parsed.trust_score >= 400 ? 'medium' : 'low';
-                const scoreColor = parsed.trust_score >= 700 ? '#10b981' : parsed.trust_score >= 400 ? '#f59e0b' : '#ef4444';
-                
-                resultDiv.innerHTML = `
-                    <div class="trust-score-display">
-                        <div class="trust-score-label">AI-Generated Trust Score</div>
-                        <div class="trust-score-value">${parsed.trust_score}/1000</div>
-                        <div class="trust-score-label">${parsed.risk_level.toUpperCase()} RISK • ${parsed.recommendation.toUpperCase()}</div>
-                        <div class="trust-score-bar">
-                            <div class="trust-score-fill" style="width: ${parsed.trust_score/10}%;"></div>
-                        </div>
-                        <div style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
-                            Confidence: ${(parsed.confidence * 100).toFixed(0)}%
-                        </div>
+// Вспомогательная функция для создания модального окна, если его нет в HTML
+function createMvpModal() {
+    const modalHTML = `
+        <div id="mvp-modal" class="mvp-modal">
+            <div class="mvp-modal-header">
+                <h2> GETH MVP Demo — Live Deal Cycle</h2>
+                <button class="mvp-close-btn" onclick="closeMvpDemo()">✕ Close Demo</button>
+            </div>
+            <div class="mvp-container">
+                <div class="mvp-progress">
+                    <div class="mvp-progress-bar">
+                        <div id="mvp-progress-fill" class="mvp-progress-fill"></div>
                     </div>
-                    
-                    <div class="risk-factors">
-                        <h4>📋 AI Analysis Summary</h4>
-                        <p style="color: var(--gray-text); line-height: 1.6;">${parsed.analysis_summary}</p>
-                    </div>
-                    
-                    <div class="risk-factors">
-                        <h4>✓ Positive Factors</h4>
-                        ${parsed.positive_factors.map(f => `<div class="risk-factor-item positive">${f}</div>`).join('')}
-                    </div>
-                    
-                    <div class="risk-factors">
-                        <h4>⚠️ Risk Factors</h4>
-                        ${parsed.risk_factors.map(f => `<div class="risk-factor-item">${f}</div>`).join('')}
-                    </div>
-                    
-                    <div class="api-response active">
-                        <div class="api-header">🔗 OpenRouter API Response</div>
-                        <div class="api-status">HTTP 200 OK</div>
-                        Model: meta-llama/llama-3.1-70b-instruct
-                        Tokens: ${data.usage.total_tokens}
-                        Latency: ${Date.now() - mvpState.startTime}ms
-                    </div>
-                `;
-                
-                document.getElementById('mvp-next-1').style.display = 'inline-flex';
-                btn.style.display = 'none';
-                
-                gtag('event', 'mvp_ai_scoring', { score: parsed.trust_score });
-                ym(110179125, 'reachGoal', 'mvp_ai_scoring');
-                
-            } catch (error) {
-                resultDiv.innerHTML = `
-                    <div class="api-response active">
-                        <div class="api-header">❌ API Error</div>
-                        <div class="api-error">${error.message}</div>
-                    </div>
-                `;
-                btn.disabled = false;
-                btn.innerHTML = '🤖 Retry AI Analysis';
-            }
-        }
-        
-        // STEP 2: Lot Creation
-        function renderStep2() {
-            return `
-                <div class="mvp-step">
-                    <div class="mvp-step-header">
-                        <div class="mvp-step-number">2</div>
-                        <h3>📤 Lot Creation & Certificate Upload</h3>
-                    </div>
-                    <p class="mvp-step-description">
-                        Seller uploads commodity specifications and SGS quality certificate. 
-                        System validates document authenticity.
-                    </p>
-                    
-                    <div class="mvp-form-group">
-                        <label>Commodity Type *</label>
-                        <select id="mvp-commodity">
-                            <option value="Fuel Oil">Fuel Oil (HSFO 3.5%)</option>
-                            <option value="Crude Oil">Crude Oil (Murban)</option>
-                            <option value="Natural Gas">Natural Gas (LNG)</option>
-                            <option value="Copper">Copper Cathode</option>
-                        </select>
-                    </div>
-                    
-                    <div class="mvp-form-row">
-                        <div class="mvp-form-group">
-                            <label>Quantity (MT) *</label>
-                            <input type="number" id="mvp-quantity" value="50000" min="1">
-                        </div>
-                        <div class="mvp-form-group">
-                            <label>Unit Price (USD/MT) *</label>
-                            <input type="number" id="mvp-price" value="380" min="1">
-                        </div>
-                    </div>
-                    
-                    <div class="mvp-form-row">
-                        <div class="mvp-form-group">
-                            <label>Origin Port</label>
-                            <input type="text" id="mvp-origin" value="Mina-Said, UAE">
-                        </div>
-                        <div class="mvp-form-group">
-                            <label>Destination Port</label>
-                            <input type="text" id="mvp-dest" value="Mumbai, India">
-                        </div>
-                    </div>
-                    
-                    <div class="mvp-form-group">
-                        <label>SGS Certificate Number</label>
-                        <input type="text" id="mvp-certificate" value="SGS-UAE-2026-0847291">
-                    </div>
-                    
-                    <div class="mvp-btn-group">
-                        <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(1)">← Back</button>
-                        <button class="mvp-btn mvp-btn-primary" onclick="simulateCertificateValidation()">
-                            🔬 Validate Certificate via SGS API
-                        </button>
-                    </div>
-                    
-                    <div id="mvp-cert-result"></div>
-                </div>
-            `;
-        }
-        
-        function simulateCertificateValidation() {
-            const quantity = parseFloat(document.getElementById('mvp-quantity').value);
-            const price = parseFloat(document.getElementById('mvp-price').value);
-            const total = quantity * price;
-            
-            mvpState.dealData = {
-                ...mvpState.dealData,
-                commodity: document.getElementById('mvp-commodity').value,
-                quantity,
-                price,
-                total,
-                origin: document.getElementById('mvp-origin').value,
-                destination: document.getElementById('mvp-dest').value,
-                certificate: document.getElementById('mvp-certificate').value
-            };
-            
-            const resultDiv = document.getElementById('mvp-cert-result');
-            resultDiv.innerHTML = `
-                <div class="api-response active">
-                    <div class="api-header">🔗 SGS API Response</div>
-                    <div class="api-status">HTTP 200 OK</div>
-                    
-Certificate Number: ${mvpState.dealData.certificate}
-Status: VERIFIED ✓
-Issuer: SGS UAE
-Issue Date: 2026-07-01
-Expiry: 2026-08-01
-Commodity: ${mvpState.dealData.commodity}
-Quality: Meets specifications ✓
-Inspector ID: INS-UAE-4829
-
-NFT Minting: PENDING
-IPFS Hash: QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco
-                </div>
-                
-                <div style="margin-top: 1rem;">
-                    <span class="status-pill success">✓ Certificate Verified</span>
-                    <span class="status-pill info">🎨 NFT Ready to Mint</span>
-                    <span class="status-pill info">💾 IPFS Stored</span>
-                </div>
-                
-                <div style="background: var(--gray-light); padding: 1.25rem; border-radius: 8px; margin-top: 1rem;">
-                    <strong>Deal Summary:</strong><br>
-                    Commodity: ${mvpState.dealData.commodity}<br>
-                    Quantity: ${quantity.toLocaleString()} MT<br>
-                    Unit Price: $${price}/MT<br>
-                    <strong style="color: var(--teal); font-size: 1.2rem;">Total Value: $${total.toLocaleString()}</strong>
-                </div>
-                
-                <div class="mvp-btn-group">
-                    <button class="mvp-btn mvp-btn-primary" onclick="renderStep(3)">
-                        Continue to Escrow →
-                    </button>
-                </div>
-            `;
-        }
-        
-        // STEP 3: Escrow Lock
-        function renderStep3() {
-            const total = mvpState.dealData.total;
-            return `
-                <div class="mvp-step">
-                    <div class="mvp-step-header">
-                        <div class="mvp-step-number">3</div>
-                        <h3>🔒 Escrow Fund Reservation</h3>
-                    </div>
-                    <p class="mvp-step-description">
-                        Buyer deposits funds into regulated escrow account (RAKBANK). 
-                        Smart contract locks all deal terms.
-                    </p>
-                    
-                    <div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                        <strong>Escrow Details:</strong><br>
-                        Amount: <strong style="color: var(--teal); font-size: 1.3rem;">$${total.toLocaleString()}</strong><br>
-                        Bank: RAKBANK (UAE Central Bank Regulated)<br>
-                        Account: ESC-GETH-8472910<br>
-                        Smart Contract: 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEbE<br>
-                        Network: Arbitrum One (L2)
-                    </div>
-                    
-                    <div class="mvp-btn-group">
-                        <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(2)">← Back</button>
-                        <button class="mvp-btn mvp-btn-primary" onclick="simulateEscrowLock()" id="mvp-escrow-btn">
-                            🏦 Lock Funds via Bank API
-                        </button>
-                    </div>
-                    
-                    <div id="mvp-escrow-result"></div>
-                </div>
-            `;
-        }
-        
-        function simulateEscrowLock() {
-            const btn = document.getElementById('mvp-escrow-btn');
-            const resultDiv = document.getElementById('mvp-escrow-result');
-            
-            btn.disabled = true;
-            btn.innerHTML = '<span class="mvp-spinner"></span> Processing bank API...';
-            
-            setTimeout(() => {
-                const txHash = '0x' + Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('');
-                
-                resultDiv.innerHTML = `
-                    <div class="api-response active">
-                        <div class="api-header">🔗 RAKBANK Escrow API Response</div>
-                        <div class="api-status">HTTP 200 OK</div>
-                        
-Transaction ID: TXN-RAK-2026-948271
-Status: FUNDS_LOCKED ✓
-Amount: $${mvpState.dealData.total.toLocaleString()} USD
-Timestamp: ${new Date().toISOString()}
-Expiry: 45 days (2026-08-22)
-Smart Contract State: FUNDS_LOCKED
-
-Blockchain Confirmation:
-TX Hash: ${txHash}
-Block: 24891723
-Gas Used: 284,291
-Confirmations: 12/12 ✓
-                    </div>
-                    
-                    <div style="margin-top: 1rem;">
-                        <span class="status-pill success">✓ Funds Locked</span>
-                        <span class="status-pill success">✓ Smart Contract Active</span>
-                        <span class="status-pill info">⏱ 45-day Window</span>
-                    </div>
-                    
-                    <div class="mvp-btn-group">
-                        <button class="mvp-btn mvp-btn-primary" onclick="renderStep(4)">
-                            Continue to Logistics →
-                        </button>
-                    </div>
-                `;
-                btn.style.display = 'none';
-            }, 2000);
-        }
-        
-        // STEP 4: IoT Activation
-        function renderStep4() {
-            return `
-                <div class="mvp-step">
-                    <div class="mvp-step-header">
-                        <div class="mvp-step-number">4</div>
-                        <h3>📡 IoT Tracker Activation</h3>
-                    </div>
-                    <p class="mvp-step-description">
-                        Cargo tracking sensors activated. Real-time data streamed to platform via MQTT. 
-                        Chainlink Oracle will push updates on-chain.
-                    </p>
-                    
-                    <div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                        <strong>IoT Device Configuration:</strong><br>
-                        Device ID: IOT-TRK-847291-A<br>
-                        Type: Marine Container Tracker<br>
-                        Sensors: GPS, Temperature, Humidity, Shock, Light<br>
-                        Protocol: MQTT over 4G/Satellite<br>
-                        Update Interval: Every 15 minutes<br>
-                        Battery Life: 90 days
-                    </div>
-                    
-                    <div class="mvp-btn-group">
-                        <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(3)">← Back</button>
-                        <button class="mvp-btn mvp-btn-primary" onclick="simulateIotActivation()" id="mvp-iot-btn">
-                            📡 Activate IoT Tracker
-                        </button>
-                    </div>
-                    
-                    <div id="mvp-iot-result"></div>
-                </div>
-            `;
-        }
-        
-        function simulateIotActivation() {
-            const btn = document.getElementById('mvp-iot-btn');
-            const resultDiv = document.getElementById('mvp-iot-result');
-            
-            btn.disabled = true;
-            btn.innerHTML = '<span class="mvp-spinner"></span> Activating sensors...';
-            
-            setTimeout(() => {
-                resultDiv.innerHTML = `
-                    <div class="api-response active">
-                        <div class="api-header">🔗 IoT Platform API Response</div>
-                        <div class="api-status">HTTP 200 OK</div>
-                        
-Device Status: ACTIVE ✓
-First Ping: ${new Date().toISOString()}
-GPS: 25.276987, 55.296249 (Mina-Said Port)
-Temperature: 28.3°C (within spec)
-Humidity: 62% (within spec)
-Shock Sensor: 0g (no impact)
-Light Sensor: SEALED ✓
-Battery: 98%
-
-Chainlink Oracle:
-Oracle Address: 0x3F4B641c84dE92e9e1e8D8e5f8B9e7C6d5A4b3C2
-Update Frequency: 15 min
-Data Feed ID: GETH-IOT-847291
-                    </div>
-                    
-                    <div style="margin-top: 1rem;">
-                        <span class="status-pill success">✓ Tracker Active</span>
-                        <span class="status-pill success">✓ Oracle Connected</span>
-                        <span class="status-pill info">📍 GPS Locked</span>
-                    </div>
-                    
-                    <div class="mvp-timeline">
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">T+0 min</div>
-                            <div class="mvp-timeline-content">Cargo loaded at Mina-Said Port</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">T+15 min</div>
-                            <div class="mvp-timeline-content">Vessel departed — GPS confirmed</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">T+30 min</div>
-                            <div class="mvp-timeline-content">Entering Gulf of Oman</div>
-                        </div>
-                    </div>
-                    
-                    <div class="mvp-btn-group">
-                        <button class="mvp-btn mvp-btn-primary" onclick="renderStep(5)">
-                            Continue to Transit →
-                        </button>
-                    </div>
-                `;
-                btn.style.display = 'none';
-            }, 1800);
-        }
-        
-        // STEP 5: Transit Monitoring
-        function renderStep5() {
-            return `
-                <div class="mvp-step">
-                    <div class="mvp-step-header">
-                        <div class="mvp-step-number">5</div>
-                        <h3>🚢 Real-Time Transit Monitoring</h3>
-                    </div>
-                    <p class="mvp-step-description">
-                        Cargo in transit. IoT data continuously streamed. 
-                        Smart contract monitors for deviations.
-                    </p>
-                    
-                    <div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                        <strong>Current Status:</strong><br>
-                        Location: Arabian Sea (21.4°N, 62.8°E)<br>
-                        Speed: 14.2 knots<br>
-                        ETA: 2026-08-15 14:30 UTC<br>
-                        Distance Remaining: 1,847 nautical miles<br>
-                        Days in Transit: 12 of 45
-                    </div>
-                    
-                    <div class="mvp-timeline">
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">Day 1</div>
-                            <div class="mvp-timeline-content">Departed Mina-Said Port, UAE</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">Day 3</div>
-                            <div class="mvp-timeline-content">Entered Gulf of Oman</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">Day 7</div>
-                            <div class="mvp-timeline-content">Arabian Sea — all systems normal</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">Day 12 (NOW)</div>
-                            <div class="mvp-timeline-content">Mid-voyage — on schedule</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">Day 45</div>
-                            <div class="mvp-timeline-content">ETA Mumbai Port, India</div>
-                        </div>
-                    </div>
-                    
-                    <div class="api-response active">
-                        <div class="api-header">📊 Live IoT Data Stream (Last 3 Updates)</div>
-[14:30 UTC] GPS: 21.4°N, 62.8°E | Temp: 29.1°C | Status: NORMAL
-[14:15 UTC] GPS: 21.3°N, 62.6°E | Temp: 28.9°C | Status: NORMAL
-[14:00 UTC] GPS: 21.2°N, 62.4°E | Temp: 28.7°C | Status: NORMAL
-
-Chainlink Oracle: Last update 2 min ago ✓
-Smart Contract State: IN_TRANSIT
-                    </div>
-                    
-                    <div class="mvp-btn-group">
-                        <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(4)">← Back</button>
-                        <button class="mvp-btn mvp-btn-primary" onclick="renderStep(6)">
-                            Fast-Forward to Arrival →
-                        </button>
+                    <div class="mvp-progress-text">
+                        <span>Step <strong id="mvp-current-step">1</strong> of 12</span>
+                        <span id="mvp-progress-percent">0% Complete</span>
                     </div>
                 </div>
-            `;
-        }
-        
-        // STEP 6: Quality Inspection
-        function renderStep6() {
-            return `
-                <div class="mvp-step">
-                    <div class="mvp-step-header">
-                        <div class="mvp-step-number">6</div>
-                        <h3>✅ Quality Verification (SGS Inspection)</h3>
-                    </div>
-                    <p class="mvp-step-description">
-                        Cargo arrived at Mumbai Port. Independent SGS inspector conducts 
-                        final quality verification against NFT certificate specifications.
-                    </p>
-                    
-                    <div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                        <strong>Inspection Details:</strong><br>
-                        Inspector: Mr. Rajesh Kumar (SGS India)<br>
-                        License: SGS-IN-48291<br>
-                        Location: Mumbai Port Terminal 3<br>
-                        Method: Physical sampling + lab analysis<br>
-                        Standard: ISO 2002:2019
-                    </div>
-                    
-                    <div class="mvp-btn-group">
-                        <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(5)">← Back</button>
-                        <button class="mvp-btn mvp-btn-primary" onclick="simulateSgsInspection()" id="mvp-sgs-btn">
-                            🔬 Request SGS API Verification
-                        </button>
-                    </div>
-                    
-                    <div id="mvp-sgs-result"></div>
-                </div>
-            `;
-        }
-        
-        function simulateSgsInspection() {
-            const btn = document.getElementById('mvp-sgs-btn');
-            const resultDiv = document.getElementById('mvp-sgs-result');
-            
-            btn.disabled = true;
-            btn.innerHTML = '<span class="mvp-spinner"></span> Running lab analysis...';
-            
-            setTimeout(() => {
-                resultDiv.innerHTML = `
-                    <div class="api-response active">
-                        <div class="api-header">🔗 SGS Inspection API Response</div>
-                        <div class="api-status">HTTP 200 OK</div>
-                        
-Inspection Report: SGS-IN-2026-48291-MUM
-Status: PASSED ✓
-Timestamp: ${new Date().toISOString()}
+                <div id="mvp-step-container"></div>
+            </div>
+        </div>`;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
 
-Quality Parameters:
-├─ Sulphur Content: 3.42% (spec: ≤3.5%) ✓
-├─ Density @ 15°C: 0.991 g/cm³ (spec: 0.980-1.010) ✓
-├─ Viscosity @ 50°C: 378 cSt (spec: ≤380) ✓
-├─ Flash Point: 72°C (spec: ≥60) ✓
-├─ Water Content: 0.4% (spec: ≤1.0%) ✓
-└─ Sediment: 0.08% (spec: ≤0.10%) ✓
-
-Quantity Verification:
-├─ Bill of Lading: 50,000 MT
-├─ Actual Received: 49,987 MT
-└─ Variance: -0.026% (within tolerance) ✓
-
-Digital Signature: QES-Applied ✓
-Inspector ID: INS-IN-48291
-Report Hash: 0x8f4e2b1a9c7d6e5f3a2b1c9d8e7f6a5b4c3d2e1f
-                    </div>
-                    
-                    <div style="margin-top: 1rem;">
-                        <span class="status-pill success">✓ Quality PASSED</span>
-                        <span class="status-pill success">✓ Quantity Verified</span>
-                        <span class="status-pill success">✓ QES Signed</span>
-                        <span class="status-pill info">🎨 NFT Ready to Burn</span>
-                    </div>
-                    
-                    <div style="background: #ddfff5; padding: 1.25rem; border-radius: 8px; margin-top: 1rem; border-left: 4px solid var(--teal);">
-                        <strong style="color: var(--teal);">✓ All Conditions Met</strong><br>
-                        Smart contract can now trigger automated settlement.
-                    </div>
-                    
-                    <div class="mvp-btn-group">
-                        <button class="mvp-btn mvp-btn-primary" onclick="renderStep(7)">
-                            Trigger Settlement →
-                        </button>
-                    </div>
-                `;
-                btn.style.display = 'none';
-            }, 2500);
-        }
-        
-        // STEP 7: Automated Settlement
-        function renderStep7() {
-            const total = mvpState.dealData.total;
-            const platformFee = total * 0.011;
-            const sellerReceives = total - platformFee;
-            
-            return `
-                <div class="mvp-step">
-                    <div class="mvp-step-header">
-                        <div class="mvp-step-number">7</div>
-                        <h3>💰 Automated Settlement</h3>
-                    </div>
-                    <p class="mvp-step-description">
-                        Smart contract triggers <code>releaseFunds()</code>. Bank webhooks distribute 
-                        payments atomically. Settlement completes in under 2 hours.
-                    </p>
-                    
-                    <div class="mvp-btn-group">
-                        <button class="mvp-btn mvp-btn-secondary" onclick="renderStep(6)">← Back</button>
-                        <button class="mvp-btn mvp-btn-primary" onclick="simulateSettlement()" id="mvp-settle-btn">
-                            ⚡ Execute Smart Contract
-                        </button>
-                    </div>
-                    
-                    <div id="mvp-settle-result"></div>
-                </div>
-            `;
-        }
-        
-        function simulateSettlement() {
-            const btn = document.getElementById('mvp-settle-btn');
-            const resultDiv = document.getElementById('mvp-settle-result');
-            const total = mvpState.dealData.total;
-            const platformFee = total * 0.011;
-            const sellerReceives = total - platformFee;
-            
-            btn.disabled = true;
-            btn.innerHTML = '<span class="mvp-spinner"></span> Executing smart contract...';
-            
-            setTimeout(() => {
-                const txHash = '0x' + Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('');
-                
-                resultDiv.innerHTML = `
-                    <div class="api-response active">
-                        <div class="api-header">🔗 Smart Contract Execution</div>
-                        <div class="api-status">HTTP 200 OK</div>
-                        
-Contract: TradeEscrow.sol
-Function: releaseFunds()
-TX Hash: ${txHash}
-Block: 24891847
-Gas Used: 312,847
-Status: SUCCESS ✓
-
-Payment Distribution:
-├─ Seller: $${sellerReceives.toLocaleString(undefined, {maximumFractionDigits: 0})} (98.9%)
-├─ GETH Platform: $${platformFee.toLocaleString(undefined, {maximumFractionDigits: 0})} (1.10%)
-└─ Total: $${total.toLocaleString()}
-
-Bank Webhooks:
-├─ RAKBANK: FUNDS_RELEASED ✓
-├─ Seller Account: CREDITED ✓
-└─ GETH Treasury: CREDITED ✓
-
-NFT Status:
-├─ Original Certificate: BURNED ✓
-├─ ESG Passport: MINTED ✓
-└─ Token ID: #847291
-                    </div>
-                    
-                    <div style="margin-top: 1rem;">
-                        <span class="status-pill success">✓ Settlement Complete</span>
-                        <span class="status-pill success">✓ Funds Distributed</span>
-                        <span class="status-pill success">✓ NFT Burned</span>
-                        <span class="status-pill success">✓ ESG Passport Issued</span>
-                    </div>
-                    
-                    <div class="mvp-timeline">
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">T+0 sec</div>
-                            <div class="mvp-timeline-content">Smart contract triggered</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">T+12 sec</div>
-                            <div class="mvp-timeline-content">Bank webhook received</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">T+34 sec</div>
-                            <div class="mvp-timeline-content">Funds distributed to all parties</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">T+48 sec</div>
-                            <div class="mvp-timeline-content">NFT burned, ESG passport minted</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">T+60 sec</div>
-                            <div class="mvp-timeline-content">✓ Deal fully settled</div>
-                        </div>
-                    </div>
-                    
-                    <div class="mvp-btn-group">
-                        <button class="mvp-btn mvp-btn-primary" onclick="renderStep(8)">
-                            View Final Summary →
-                        </button>
-                    </div>
-                `;
-                btn.style.display = 'none';
-            }, 2500);
-        }
-        
-        // STEP 8: Final Summary
-        function renderStep8() {
-            const total = mvpState.dealData.total;
-            const platformFee = total * 0.011;
-            const elapsed = Math.round((Date.now() - mvpState.startTime) / 1000);
-            const score = mvpState.aiScore ? mvpState.aiScore.trust_score : 0;
-            
-            return `
-                <div class="mvp-step">
-                    <div class="mvp-step-header">
-                        <div class="mvp-step-number">8</div>
-                        <h3>📊 Deal Complete — Full Summary</h3>
-                    </div>
-                    
-                    <div class="mvp-summary">
-                        <h3>🎉 Deal Successfully Completed</h3>
-                        <div class="mvp-summary-grid">
-                            <div class="mvp-summary-item">
-                                <div class="mvp-summary-label">Deal Value</div>
-                                <div class="mvp-summary-value">$${total.toLocaleString()}</div>
-                            </div>
-                            <div class="mvp-summary-item">
-                                <div class="mvp-summary-label">GETH Revenue</div>
-                                <div class="mvp-summary-value">$${platformFee.toLocaleString(undefined, {maximumFractionDigits: 0})}</div>
-                            </div>
-                            <div class="mvp-summary-item">
-                                <div class="mvp-summary-label">Settlement Time</div>
-                                <div class="mvp-summary-value">60 seconds</div>
-                            </div>
-                            <div class="mvp-summary-item">
-                                <div class="mvp-summary-label">Trust Score</div>
-                                <div class="mvp-summary-value">${score}/1000</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h4 style="margin: 2rem 0 1rem; color: var(--black);">Complete Deal Timeline</h4>
-                    <div class="mvp-timeline">
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">Stage 1</div>
-                            <div class="mvp-timeline-content">AI Counterparty Verification — Score: ${score}/1000</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">Stage 2</div>
-                            <div class="mvp-timeline-content">Lot Created — ${mvpState.dealData.commodity}, ${mvpState.dealData.quantity.toLocaleString()} MT</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">Stage 3</div>
-                            <div class="mvp-timeline-content">Escrow Locked — RAKBANK, Smart Contract Active</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">Stage 4</div>
-                            <div class="mvp-timeline-content">IoT Tracker Activated — Chainlink Oracle Connected</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">Stage 5</div>
-                            <div class="mvp-timeline-content">45-Day Transit — Real-time Monitoring</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">Stage 6</div>
-                            <div class="mvp-timeline-content">SGS Inspection — Quality PASSED ✓</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">Stage 7</div>
-                            <div class="mvp-timeline-content">Automated Settlement — 60 seconds</div>
-                        </div>
-                        <div class="mvp-timeline-item">
-                            <div class="mvp-timeline-time">Stage 8</div>
-                            <div class="mvp-timeline-content">✓ Deal Complete — ESG Passport Issued</div>
-                        </div>
-                    </div>
-                    
-                    <div style="background: linear-gradient(135deg, var(--black), var(--gray-dark)); color: var(--white); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
-                        <h3 style="color: var(--teal); margin-bottom: 1rem;">🚀 This is GETH in Action</h3>
-                        <p style="line-height: 1.7; margin-bottom: 1rem;">
-                            What traditionally takes <strong>18+ months</strong> of disputes, manual paperwork, 
-                            and uncertainty — GETH completes in <strong>45 days with 60-second settlement</strong>.
-                        </p>
-                        <p style="line-height: 1.7;">
-                            <strong>Real AI</strong> (Llama 3.1 70B) scored the counterparty.<br>
-                            <strong>Real blockchain</strong> (Arbitrum) secured the funds.<br>
-                            <strong>Real integrations</strong> (SGS, RAKBANK, IoT) verified quality.<br>
-                            <strong>Zero human intervention</strong> in settlement.
-                        </p>
-                    </div>
-                    
-                    <div class="mvp-btn-group" style="justify-content: center; margin-top: 2rem;">
-                        <button class="mvp-btn mvp-btn-primary" onclick="window.location.href='mailto:gethfounder@gmail.com?subject=GETH MVP Demo - Investor Inquiry'">
-                            📧 Contact Founders
-                        </button>
-                        <button class="mvp-btn mvp-btn-secondary" onclick="closeMvpDemo()">
-                            ← Return to Website
-                        </button>
-                    </div>
-                    
-                    <div style="margin-top: 2rem; padding: 1rem; background: var(--gray-light); border-radius: 8px; text-align: center; font-size: 0.9rem; color: var(--gray-text);">
-                        Demo completed in <strong>${elapsed} seconds</strong> • 
-                        Powered by OpenRouter AI, Supabase, and blockchain simulation
-                    </div>
-                </div>
-            `;
-        }
-    </script>
+// Инициализация при загрузке
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('🚀 GETH 12-Step MVP Demo Script Loaded');
+});
+</script>
 </body>
 </html>
