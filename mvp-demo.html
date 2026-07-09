@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-:root { --black: #000000; --white: #FFFFFF; --teal: #00C4B4; --teal-light: #00D4C4; --gray-light: #F5F5F5; --gray-dark: #1a1a1a; --gray-text: #666666; --green: #10b981; --yellow: #f59e0b; --red: #ef4444; }
+:root { --black: #000000; --white: #FFFFFF; --teal: #00C4B4; --teal-light: #00D4C4; --gray-light: #F5F5F5; --gray-dark: #1a1a1a; --gray-text: #666666; }
 body { font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: var(--black); background: var(--gray-light); }
 .top-nav { background: var(--black); color: var(--white); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
 .top-nav .logo { font-weight: 700; font-size: 1.5rem; color: var(--white); text-decoration: none; }
@@ -22,7 +22,7 @@ body { font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: var(--b
 .progress-text strong { color: var(--teal); }
 .step { background: var(--white); padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 4px solid var(--teal); }
 .step-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
-.step-number { width: 50px; height: 50px; background: var(--teal); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; flex-shrink: 0; }
+.step-number { width: 50px; height: 50px; background: var(--teal); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; }
 .step-header h3 { color: var(--black); font-size: 1.5rem; }
 .step-description { color: var(--gray-text); line-height: 1.7; margin-bottom: 1.5rem; }
 .form-group { margin-bottom: 1.25rem; }
@@ -49,15 +49,13 @@ body { font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: var(--b
 .api-response .api-header { color: var(--teal); font-weight: 700; margin-bottom: 0.5rem; }
 .spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(0,196,180,0.3); border-radius: 50%; border-top-color: var(--teal); animation: spin 1s linear infinite; margin-right: 0.5rem; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.counterparty-list { display: grid; gap: 1rem; margin: 1.5rem 0; }
-.counterparty-card { padding: 1.5rem; background: var(--gray-light); border-radius: 8px; border: 2px solid transparent; cursor: pointer; transition: all 0.3s; }
-.counterparty-card:hover { border-color: var(--teal); transform: translateX(5px); }
-.counterparty-card.selected { border-color: var(--teal); background: rgba(0,196,180,0.1); }
-.counterparty-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
-.counterparty-name { font-weight: 700; font-size: 1.1rem; }
-.trust-badge { padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem; font-weight: 600; }
-.trust-high { background: #ddfff5; color: #00876e; }
-.trust-medium { background: #fff3dd; color: #cc7700; }
+.option-list { display: grid; gap: 1rem; margin: 1.5rem 0; }
+.option-card { padding: 1.5rem; background: var(--gray-light); border-radius: 8px; border: 2px solid transparent; cursor: pointer; transition: all 0.3s; }
+.option-card:hover { border-color: var(--teal); transform: translateX(5px); }
+.option-card.selected { border-color: var(--teal); background: rgba(0,196,180,0.1); }
+.option-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.option-name { font-weight: 700; font-size: 1.1rem; }
+.option-details { font-size: 0.9rem; color: var(--gray-text); margin-top: 0.5rem; }
 .contract-preview { background: var(--white); border: 2px solid var(--teal); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
 .contract-preview h4 { color: var(--teal); margin-bottom: 1rem; }
 .contract-term { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--gray-light); }
@@ -75,26 +73,12 @@ body { font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: var(--b
 .status-pill { display: inline-block; padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin: 0.25rem; }
 .status-success { background: #ddfff5; color: #00876e; }
 .status-info { background: #e0f2fe; color: #0369a1; }
-.trust-score-display { background: linear-gradient(135deg, var(--teal), var(--teal-light)); color: var(--white); padding: 2rem; border-radius: 12px; text-align: center; margin: 1.5rem 0; }
-.trust-score-value { font-size: 3.5rem; font-weight: 700; margin: 0.5rem 0; }
-.trust-score-label { font-size: 1rem; opacity: 0.9; }
-.trust-score-bar { height: 8px; background: rgba(255,255,255,0.3); border-radius: 4px; margin-top: 1rem; overflow: hidden; }
-.trust-score-fill { height: 100%; background: var(--white); border-radius: 4px; transition: width 1s ease; }
-.risk-factors { background: var(--gray-light); padding: 1.25rem; border-radius: 8px; margin: 1rem 0; }
-.risk-factors h4 { color: var(--black); margin-bottom: 0.75rem; }
-.risk-factor-item { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--gray-text); font-size: 0.95rem; }
-.risk-factor-item::before { content: '️'; position: absolute; left: 0; }
-.risk-factor-item.positive::before { content: '✓'; color: var(--teal); }
-.deal-breakdown { background: linear-gradient(135deg, var(--teal), var(--teal-light)); color: var(--white); padding: 2rem; border-radius: 12px; margin: 1.5rem 0; }
-.deal-breakdown h3 { margin-bottom: 1.5rem; }
-.breakdown-row { display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.15); border-radius: 8px; margin-bottom: 0.5rem; }
-.breakdown-row.total { background: rgba(255,255,255,0.25); font-size: 1.3rem; font-weight: 700; margin-top: 1rem; }
 @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } .role-selection { grid-template-columns: 1fr; } .step { padding: 1.5rem; } }
 </style>
 </head>
 <body>
 <nav class="top-nav">
-<a href="index.html" class="logo">🚀 GETH MVP Demo</a>
+<a href="index.html" class="logo"> GETH MVP Demo</a>
 <a href="index.html" class="back-link">← Back to Main Site</a>
 </nav>
 <div class="container">
@@ -103,7 +87,7 @@ body { font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: var(--b
 <div id="progress-fill" class="progress-fill"></div>
 </div>
 <div class="progress-text">
-<span>Step <strong id="current-step">1</strong> of 12</span>
+<span>Step <strong id="current-step">1</strong> of 14</span>
 <span id="progress-percent">0% Complete</span>
 </div>
 </div>
@@ -117,10 +101,12 @@ role: null,
 dealData: {},
 kycData: {},
 selectedCounterparty: null,
+selectedCarrier: null,
+selectedInsurer: null,
 startTime: Date.now()
 };
 function updateProgress() {
-const percent = ((state.currentStep - 1) / 12) * 100;
+const percent = ((state.currentStep - 1) / 14) * 100;
 document.getElementById('progress-fill').style.width = percent + '%';
 document.getElementById('current-step').textContent = state.currentStep;
 document.getElementById('progress-percent').textContent = Math.round(percent) + '% Complete';
@@ -137,11 +123,13 @@ const steps = {
 5: step5_NFT_Minting,
 6: step6_AI_Matching,
 7: step7_SelectCounterparty,
-8: step8_ElectronicContract,
-9: step9_SmartContract,
-10: step10_CarrierInsurance,
-11: step11_EscrowLock,
-12: step12_IoTSettlement
+8: step8_SelectCarrier,
+9: step9_SelectInsurer,
+10: step10_ElectronicContract,
+11: step11_SmartContract,
+12: step12_EscrowLock,
+13: step13_IoT_Activation,
+14: step14_Settlement
 };
 container.innerHTML = steps[step]();
 container.scrollIntoView({ behavior: 'smooth' });
@@ -152,12 +140,12 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">1</div>
-<h3>🎭 Select Your Role</h3>
+<h3> Select Your Role</h3>
 </div>
 <p class="step-description">Choose your role in this commodity transaction. This will determine your workflow and available actions.</p>
 <div class="role-selection">
 <div class="role-card" onclick="selectRole('seller')" id="role-seller">
-<div class="role-icon"></div>
+<div class="role-icon">🏭</div>
 <h4>Seller</h4>
 <p>You have commodities to sell and want to find verified buyers</p>
 </div>
@@ -181,7 +169,7 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">2</div>
-<h3> KYC/KYB Verification</h3>
+<h3>🔐 KYC/KYB Verification</h3>
 </div>
 <p class="step-description">Complete Know Your Customer/Business verification. This is required for regulatory compliance and builds trust with counterparties.</p>
 <div class="form-group">
@@ -271,11 +259,11 @@ Tax ID: ${state.kycData.taxId}
 Jurisdiction: ${state.kycData.country}
 Compliance Checks:
 ├─ AML Screening: PASSED ✓
-├─ Sanctions Check (OFAC/EU/UN): PASSED ✓
-─ PEP Screening: PASSED ✓
-─ Document Verification: PASSED ✓
-─ Corporate Structure: VERIFIED ✓
-─ Risk Rating: LOW
+─ Sanctions Check (OFAC/EU/UN): PASSED ✓
+├─ PEP Screening: PASSED ✓
+├─ Document Verification: PASSED ✓
+├─ Corporate Structure: VERIFIED ✓
+└─ Risk Rating: LOW
 Verification ID: KYC-GETH-2026-${Math.floor(Math.random() * 900000 + 100000)}
 Valid Until: 2027-07-09
 Blockchain Hash: 0x${Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('')}
@@ -298,7 +286,7 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">3</div>
-<h3> Create Commodity Lot</h3>
+<h3>📦 Create Commodity Lot</h3>
 </div>
 <p class="step-description">Create a new commodity lot for sale. Provide detailed specifications for potential buyers.</p>
 <div class="form-group">
@@ -391,13 +379,13 @@ renderStep(4);
 }
 function searchLots() {
 document.getElementById('search-results').innerHTML = `
-<div class="counterparty-list">
-<div class="counterparty-card" onclick="selectLot(0)">
-<div class="counterparty-header">
-<div class="counterparty-name">🏭 Lot #847291 - Diesel EN590 10PPM</div>
-<span class="trust-badge trust-high">50,000 MT</span>
+<div class="option-list">
+<div class="option-card" onclick="selectLot(0)">
+<div class="option-header">
+<div class="option-name">🏭 Lot #847291 - Diesel EN590 10PPM</div>
+<span class="status-pill status-success">50,000 MT</span>
 </div>
-<div style="color: var(--gray-text); font-size: 0.9rem;">
+<div class="option-details">
 Seller: Emirates Petroleum Trading LLC (UAE)<br>
 Price: $850/MT | Loading: Fujairah | Destination: Rotterdam<br>
 SGS Certificate: Verified ✓ | Trust Score: 875/1000
@@ -409,7 +397,7 @@ SGS Certificate: Verified ✓ | Trust Score: 875/1000
 </div>`;
 }
 function selectLot(index) {
-document.querySelectorAll('.counterparty-card').forEach((card, i) => {
+document.querySelectorAll('.option-card').forEach((card, i) => {
 card.classList.toggle('selected', i === index);
 });
 }
@@ -466,7 +454,7 @@ Location: ${state.dealData.origin} Storage Facility
 Inspection Scope:
 ├─ Visual Inspection: Scheduled ✓
 ├─ Sampling Procedure: ASTM D4057 ✓
-├─ Laboratory Analysis: ISO 17025 Lab ✓
+─ Laboratory Analysis: ISO 17025 Lab ✓
 ├─ Quantity Verification: Flow meter + Tank gauge ✓
 └─ Certificate Issuance: Within 24 hours
 Estimated Completion: 2026-07-16 14:00 UTC
@@ -493,7 +481,7 @@ return `
 </div>
 <p class="step-description">SGS certificate has been issued. Now minting it as an NFT on blockchain for immutable proof of quality and ownership.</p>
 <div class="api-response active">
-<div class="api-header"> SGS Certificate Data</div>
+<div class="api-header">📋 SGS Certificate Data</div>
 <div style="color: #00ff88;">Certificate Ready for Minting</div>
 Certificate Number: SGS-UAE-2026-${Math.floor(Math.random() * 9000000 + 1000000)}
 Issue Date: 2026-07-16
@@ -501,17 +489,17 @@ Commodity: ${state.dealData.commodity}
 Quantity: ${state.dealData.quantity.toLocaleString()} MT
 Quality Parameters (All within spec ✓):
 ├─ Sulphur Content: 8.2 PPM (spec: ≤10 PPM) ✓
-─ Cetane Number: 52.8 (spec: ≥51) ✓
+├─ Cetane Number: 52.8 (spec: ≥51) ✓
 ├─ Density @15°C: 0.834 g/cm³ (spec: 0.820-0.845) ✓
 ├─ Flash Point: 66°C (spec: ≥60°C) ✓
-├─ Water Content: 0.03% (spec: ≤0.05%) ✓
+─ Water Content: 0.03% (spec: ≤0.05%) ✓
 └─ Sediment: 0.008% (spec: ≤0.01%) ✓
 Inspector: Mr. Ahmed Al-Mazrouei
 Digital Signature: QES-Applied ✓
 Certificate Hash: 0x${Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('')}
 </div>
 <div class="btn-group">
-<button class="btn btn-primary" onclick="mintNFT()" id="mint-btn"> Mint NFT Certificate</button>
+<button class="btn btn-primary" onclick="mintNFT()" id="mint-btn">🎨 Mint NFT Certificate</button>
 </div>
 <div id="mint-result"></div>
 </div>`;
@@ -533,17 +521,17 @@ Contract Address: 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEbE
 Network: Arbitrum One (Layer 2)
 Token Standard: ERC-721 (Soulbound NFT)
 Token Details:
-─ Token ID: #${tokenId}
-─ Owner: ${state.kycData.company}
+├─ Token ID: #${tokenId}
+├─ Owner: ${state.kycData.company}
 ├─ Metadata: IPFS://QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco
 ├─ Certificate Hash: On-chain ✓
-└─ Transferable: No (Soulbound)
+─ Transferable: No (Soulbound)
 Transaction:
 ├─ TX Hash: 0x${Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('')}
 ├─ Block: ${Math.floor(Math.random() * 10000000 + 24000000)}
 ├─ Gas Used: 184,291
 ├─ Gas Price: 0.1 Gwei
-└─ Status: SUCCESS ✓
+─ Status: SUCCESS ✓
 NFT Explorer: https://arbiscan.io/token/${tokenId}
 </div>
 <div style="margin-top: 1rem;">
@@ -558,7 +546,7 @@ NFT Explorer: https://arbiscan.io/token/${tokenId}
 btn.style.display = 'none';
 }, 3000);
 }
-// STEP 6: AI Matching (с реальным AI через OpenRouter)
+// STEP 6: AI Matching
 function step6_AI_Matching() {
 return `
 <div class="step">
@@ -566,7 +554,7 @@ return `
 <div class="step-number">6</div>
 <h3>🤖 AI Counterparty Matching</h3>
 </div>
-<p class="step-description">Our AI engine (powered by Llama 3.1 70B) analyzes the marketplace to find qualified counterparties matching your requirements.</p>
+<p class="step-description">Our AI engine analyzes the marketplace to find qualified counterparties matching your requirements.</p>
 <div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
 <strong>Your Requirements:</strong><br>
 ${state.role === 'seller' ? 'Looking for: Qualified Buyers' : 'Looking for: Verified Sellers'}<br>
@@ -581,55 +569,19 @@ Route: ${state.dealData.origin} → ${state.dealData.destination}
 <div id="ai-result"></div>
 </div>`;
 }
-async function runAIMatching() {
+function runAIMatching() {
 const btn = document.getElementById('ai-btn');
 const resultDiv = document.getElementById('ai-result');
 btn.disabled = true;
-btn.innerHTML = '<span class="spinner"></span> Analyzing marketplace with AI...';
-try {
-const prompt = `Analyze commodity trading counterparties for this deal:
-Role: ${state.role === 'seller' ? 'Seller looking for buyers' : 'Buyer looking for sellers'}
-Commodity: ${state.dealData.commodity}
-Quantity: ${state.dealData.quantity} MT
-Price: $${state.dealData.price}/MT
-Route: ${state.dealData.origin} to ${state.dealData.destination}
-
-Return a JSON object with:
-{
-"matches_found": <number>,
-"search_time_seconds": <number>,
-"total_analyzed": <number>,
-"high_confidence": <number>,
-"medium_confidence": <number>,
-"review_required": <number>,
-"recommendation": "short text"
-}`;
-const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-method: 'POST',
-headers: {
-'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-'Content-Type': 'application/json',
-'HTTP-Referer': window.location.href,
-'X-Title': 'GETH MVP Demo'
-},
-body: JSON.stringify({
-model: 'meta-llama/llama-3.1-70b-instruct',
-messages: [{ role: 'user', content: prompt }],
-temperature: 0.3,
-max_tokens: 400
-})
-});
-const data = await response.json();
-const aiResponse = data.choices[0].message.content;
-const jsonMatch = aiResponse.match(/\{[\s\S]*\}/);
-const parsed = jsonMatch ? JSON.parse(jsonMatch[0]) : { matches_found: 3, search_time_seconds: 2.3, total_analyzed: 847, high_confidence: 3, medium_confidence: 7, review_required: 2, recommendation: '3 high-quality matches found' };
+btn.innerHTML = '<span class="spinner"></span> Analyzing marketplace...';
+setTimeout(() => {
 resultDiv.innerHTML = `
 <div class="api-response active">
-<div class="api-header"> AI Matching Engine Results</div>
+<div class="api-header">🤖 AI Matching Engine Results</div>
 <div style="color: #00ff88;">HTTP 200 OK</div>
-Match Found: ${state.role === 'seller' ? `${parsed.matches_found} Qualified Buyers` : `${parsed.matches_found} Qualified Sellers`}
-Search Time: ${parsed.search_time_seconds} seconds
-Total Analyzed: ${parsed.total_analyzed} companies
+Match Found: ${state.role === 'seller' ? '3 Qualified Buyers' : '3 Qualified Sellers'}
+Search Time: 2.3 seconds
+Total Analyzed: 847 companies
 Filtered by: KYC Status, Trust Score, Trading History
 AI Analysis:
 ├─ Counterparty Verification: Complete ✓
@@ -638,28 +590,16 @@ AI Analysis:
 ├─ Risk Assessment: Completed ✓
 └─ Compatibility Score: Calculated ✓
 Recommendations:
-├─ High Confidence Matches: ${parsed.high_confidence}
-├─ Medium Confidence: ${parsed.medium_confidence}
-└─ Review Required: ${parsed.review_required}
-Model: meta-llama/llama-3.1-70b-instruct
-Tokens Used: ${data.usage?.total_tokens || 'N/A'}
+├─ High Confidence Matches: 3
+├─ Medium Confidence: 7
+└─ Review Required: 2
+Next Step: Review and select your preferred counterparty
 </div>
 <div class="btn-group">
 <button class="btn btn-primary" onclick="renderStep(7)">View Counterparties →</button>
 </div>`;
 btn.style.display = 'none';
-} catch (error) {
-resultDiv.innerHTML = `
-<div class="api-response active">
-<div class="api-header">❌ AI Analysis Error</div>
-<div style="color: #ff6b6b;">${error.message}</div>
-Using fallback results...
-</div>
-<div class="btn-group">
-<button class="btn btn-primary" onclick="renderStep(7)">View Counterparties →</button>
-</div>`;
-btn.style.display = 'none';
-}
+}, 2500);
 }
 // STEP 7: Select Counterparty
 function step7_SelectCounterparty() {
@@ -679,19 +619,15 @@ return `
 <h3>🤝 Select Counterparty</h3>
 </div>
 <p class="step-description">Review AI-recommended counterparties. Each has been verified and scored based on trust, history, and reliability.</p>
-<div class="counterparty-list">
+<div class="option-list">
 ${counterparties.map((cp, idx) => `
-<div class="counterparty-card" onclick="selectCounterparty(${idx})" id="counterparty-${idx}">
-<div class="counterparty-header">
-<div class="counterparty-name">${state.role === 'seller' ? '🏢' : '🏭'} ${cp.name}</div>
-<span class="trust-badge ${cp.score >= 850 ? 'trust-high' : 'trust-medium'}">${cp.score}/1000</span>
+<div class="option-card" onclick="selectCounterparty(${idx})" id="counterparty-${idx}">
+<div class="option-header">
+<div class="option-name">${state.role === 'seller' ? '🏢' : '🏭'} ${cp.name}</div>
+<span class="status-pill status-success">${cp.score}/1000</span>
 </div>
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.75rem; font-size: 0.9rem; color: var(--gray-text);">
-<div><strong>Country:</strong> ${cp.country}</div>
-<div><strong>Total Trades:</strong> ${cp.trades}</div>
-<div><strong>Default Rate:</strong> ${cp.defaultRate}</div>
-</div>
-<div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--gray-light); font-size: 0.85rem;">
+<div class="option-details">
+<strong>Country:</strong> ${cp.country} | <strong>Total Trades:</strong> ${cp.trades} | <strong>Default Rate:</strong> ${cp.defaultRate}<br>
 <strong>AI Assessment:</strong> ${cp.score >= 850 ? 'Excellent counterparty with strong track record and minimal risk.' : 'Reliable counterparty with good history. Standard due diligence recommended.'}
 </div>
 </div>
@@ -704,7 +640,7 @@ ${counterparties.map((cp, idx) => `
 }
 function selectCounterparty(idx) {
 state.selectedCounterparty = idx;
-document.querySelectorAll('.counterparty-card').forEach((card, i) => {
+document.querySelectorAll('.option-card').forEach((card, i) => {
 card.classList.toggle('selected', i === idx);
 });
 document.getElementById('select-btn').disabled = false;
@@ -712,18 +648,106 @@ document.getElementById('select-btn').disabled = false;
 function proceedToContract() {
 renderStep(8);
 }
-// STEP 8: Electronic Contract
-function step8_ElectronicContract() {
-const counterparty = state.role === 'seller' ? 'Rotterdam Energy Trading B.V.' : 'Emirates Petroleum Trading LLC';
+// STEP 8: Select Carrier
+function step8_SelectCarrier() {
+const carriers = [
+{ name: 'Mediterranean Shipping Company (MSC)', rating: 4.8, fleet: '700+ vessels', price: '$185,000', transit: '18-22 days' },
+{ name: 'Maersk Line', rating: 4.9, fleet: '700+ vessels', price: '$195,000', transit: '16-20 days' },
+{ name: 'CMA CGM', rating: 4.7, fleet: '500+ vessels', price: '$175,000', transit: '20-24 days' }
+];
 return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">8</div>
-<h3> Electronic Contract Creation</h3>
+<h3> Select Logistics Provider</h3>
+</div>
+<p class="step-description">Choose from verified logistics providers. Each has been vetted for reliability, capacity, and compliance.</p>
+<div class="option-list">
+${carriers.map((carrier, idx) => `
+<div class="option-card" onclick="selectCarrier(${idx})" id="carrier-${idx}">
+<div class="option-header">
+<div class="option-name">🚢 ${carrier.name}</div>
+<span class="status-pill status-success">⭐ ${carrier.rating}</span>
+</div>
+<div class="option-details">
+<strong>Fleet Size:</strong> ${carrier.fleet} | <strong>Transit Time:</strong> ${carrier.transit}<br>
+<strong>Price:</strong> ${carrier.price} (all-inclusive)
+</div>
+</div>
+`).join('')}
+</div>
+<div class="btn-group">
+<button class="btn btn-primary" onclick="proceedToInsurer()" id="carrier-btn" disabled>Select Carrier & Continue</button>
+</div>
+</div>`;
+}
+function selectCarrier(idx) {
+state.selectedCarrier = idx;
+document.querySelectorAll('.option-card').forEach((card, i) => {
+card.classList.toggle('selected', i === idx);
+});
+document.getElementById('carrier-btn').disabled = false;
+}
+function proceedToInsurer() {
+renderStep(9);
+}
+// STEP 9: Select Insurer
+function step9_SelectInsurer() {
+const insurers = [
+{ name: "Lloyd's of London (Syndicate 2001)", rating: 4.9, coverage: 'All Risks', price: '0.25%', claims: '24/7' },
+{ name: 'Allianz Global Corporate', rating: 4.8, coverage: 'All Risks', price: '0.28%', claims: '24/7' },
+{ name: 'AXA XL', rating: 4.7, coverage: 'All Risks', price: '0.26%', claims: '24/7' }
+];
+return `
+<div class="step">
+<div class="step-header">
+<div class="step-number">9</div>
+<h3>🛡️ Select Insurance Provider</h3>
+</div>
+<p class="step-description">Choose from verified insurance providers. Each offers comprehensive cargo coverage with fast claims processing.</p>
+<div class="option-list">
+${insurers.map((insurer, idx) => `
+<div class="option-card" onclick="selectInsurer(${idx})" id="insurer-${idx}">
+<div class="option-header">
+<div class="option-name">🛡️ ${insurer.name}</div>
+<span class="status-pill status-success">⭐ ${insurer.rating}</span>
+</div>
+<div class="option-details">
+<strong>Coverage:</strong> ${insurer.coverage} | <strong>Premium Rate:</strong> ${insurer.price}<br>
+<strong>Claims Processing:</strong> ${insurer.claims}
+</div>
+</div>
+`).join('')}
+</div>
+<div class="btn-group">
+<button class="btn btn-primary" onclick="proceedToContract2()" id="insurer-btn" disabled>Select Insurer & Continue</button>
+</div>
+</div>`;
+}
+function selectInsurer(idx) {
+state.selectedInsurer = idx;
+document.querySelectorAll('.option-card').forEach((card, i) => {
+card.classList.toggle('selected', i === idx);
+});
+document.getElementById('insurer-btn').disabled = false;
+}
+function proceedToContract2() {
+renderStep(10);
+}
+// STEP 10: Electronic Contract
+function step10_ElectronicContract() {
+const counterparty = state.role === 'seller' ? 'Rotterdam Energy Trading B.V.' : 'Emirates Petroleum Trading LLC';
+const carrier = ['Mediterranean Shipping Company (MSC)', 'Maersk Line', 'CMA CGM'][state.selectedCarrier];
+const insurer = ["Lloyd's of London (Syndicate 2001)", 'Allianz Global Corporate', 'AXA XL'][state.selectedInsurer];
+return `
+<div class="step">
+<div class="step-header">
+<div class="step-number">10</div>
+<h3>📜 Electronic Contract Creation</h3>
 </div>
 <p class="step-description">Generate legally binding electronic contract with all terms and conditions. This will be the basis for smart contract generation.</p>
 <div class="contract-preview">
-<h4>📋 Contract Terms</h4>
+<h4> Contract Terms</h4>
 <div class="contract-term"><span><strong>Contract ID:</strong></span><span>GETH-CONTRACT-2026-${Math.floor(Math.random() * 900000 + 100000)}</span></div>
 <div class="contract-term"><span><strong>Party A (Seller):</strong></span><span>${state.role === 'seller' ? state.kycData.company : counterparty}</span></div>
 <div class="contract-term"><span><strong>Party B (Buyer):</strong></span><span>${state.role === 'buyer' ? state.kycData.company : counterparty}</span></div>
@@ -731,6 +755,8 @@ return `
 <div class="contract-term"><span><strong>Quantity:</strong></span><span>${state.dealData.quantity.toLocaleString()} MT</span></div>
 <div class="contract-term"><span><strong>Price:</strong></span><span>$${state.dealData.price}/MT</span></div>
 <div class="contract-term"><span><strong>Total Value:</strong></span><span style="color: var(--teal); font-weight: 700;">$${state.dealData.totalValue.toLocaleString()}</span></div>
+<div class="contract-term"><span><strong>Logistics Provider:</strong></span><span>${carrier}</span></div>
+<div class="contract-term"><span><strong>Insurance Provider:</strong></span><span>${insurer}</span></div>
 <div class="contract-term"><span><strong>Incoterms:</strong></span><span>CIF (Cost, Insurance, Freight)</span></div>
 <div class="contract-term"><span><strong>Loading Port:</strong></span><span>${state.dealData.origin}</span></div>
 <div class="contract-term"><span><strong>Discharge Port:</strong></span><span>${state.dealData.destination}</span></div>
@@ -746,14 +772,14 @@ return `
 </div>`;
 }
 function generateSmartContract() {
-renderStep(9);
+renderStep(11);
 }
-// STEP 9: Smart Contract
-function step9_SmartContract() {
+// STEP 11: Smart Contract
+function step11_SmartContract() {
 return `
 <div class="step">
 <div class="step-header">
-<div class="step-number">9</div>
+<div class="step-number">11</div>
 <h3> Smart Contract Deployment</h3>
 </div>
 <p class="step-description">Electronic contract terms are converted into executable smart contract code and deployed on blockchain.</p>
@@ -770,22 +796,33 @@ return `
 <span style="color: #ff6b6b;">uint256 public</span> quantityMT;
 <span style="color: #ff6b6b;">enum</span> State { Created, FUNDS_LOCKED, IN_TRANSIT, INSPECTION_PENDING, COMPLETED, DISPUTED }
 State <span style="color: #ff6b6b;">public</span> currentState;
-<span style="color: #ff6b6b;">constructor</span>(<span style="color: #ff6b6b;">address</span> _seller, <span style="color: #ff6b6b;">address</span> _buyer, <span style="color: #ff6b6b;">uint256</span> _value, <span style="color: #ff6b6b;">string memory</span> _commodity, <span style="color: #ff6b6b;">uint256</span> _quantity) {
-seller = _seller; buyer = _buyer; commodityValue = _value;
+<span style="color: #ff6b6b;">constructor</span>(
+<span style="color: #ff6b6b;">address</span> _seller,
+<span style="color: #ff6b6b;">address</span> _buyer,
+<span style="color: #ff6b6b;">uint256</span> _value,
+<span style="color: #ff6b6b;">string memory</span> _commodity,
+<span style="color: #ff6b6b;">uint256</span> _quantity
+) {
+seller = _seller;
+buyer = _buyer;
+commodityValue = _value;
 platformFee = (_value * 11) / 1000;
-commodityType = _commodity; quantityMT = _quantity;
+commodityType = _commodity;
+quantityMT = _quantity;
 currentState = State.Created;
 }
 <span style="color: #ff6b6b;">function</span> lockFunds() <span style="color: #ff6b6b;">external payable</span> {
-<span style="color: #ff6b6b;">require</span>(msg.sender == buyer, "Only buyer");
-<span style="color: #ff6b6b;">require</span>(msg.value == commodityValue, "Exact amount");
+<span style="color: #ff6b6b;">require</span>(msg.sender == buyer, <span style="color: #00ff88;">"Only buyer"</span>);
+<span style="color: #ff6b6b;">require</span>(msg.value == commodityValue, <span style="color: #00ff88;">"Exact amount required"</span>);
 currentState = State.FUNDS_LOCKED;
 }
 <span style="color: #ff6b6b;">function</span> releaseFunds() <span style="color: #ff6b6b;">external</span> {
-<span style="color: #ff6b6b;">require</span>(currentState == State.INSPECTION_PENDING, "Inspection required");
-<span style="color: #ff6b6b;">require</span>(!fundsReleased, "Already released");
-fundsReleased = true; currentState = State.COMPLETED;
-payable(seller).transfer(commodityValue - platformFee);
+<span style="color: #ff6b6b;">require</span>(currentState == State.INSPECTION_PENDING, <span style="color: #00ff88;">"Inspection required"</span>);
+<span style="color: #ff6b6b;">require</span>(!fundsReleased, <span style="color: #00ff88;">"Already released"</span>);
+fundsReleased = true;
+currentState = State.COMPLETED;
+<span style="color: #ff6b6b;">uint256</span> sellerAmount = commodityValue - platformFee;
+payable(seller).transfer(sellerAmount);
 }
 }
 </div>
@@ -823,113 +860,23 @@ Next Step: Buyer locks funds in escrow
 <span class="status-pill status-info">🔗 On-Chain</span>
 </div>
 <div class="btn-group">
-<button class="btn btn-primary" onclick="renderStep(10)">Lock Funds in Escrow →</button>
+<button class="btn btn-primary" onclick="renderStep(12)">Lock Funds in Escrow →</button>
 </div>`;
 btn.style.display = 'none';
 }, 3000);
 }
-// STEP 10: Carrier + Insurance + Total Price
-function step10_CarrierInsurance() {
+// STEP 12: Escrow Lock
+function step12_EscrowLock() {
 return `
 <div class="step">
 <div class="step-header">
-<div class="step-number">10</div>
-<h3>🚢 Carrier Selection + Cargo Insurance</h3>
-</div>
-<p class="step-description">System automatically selects optimal carrier via API, arranges cargo insurance, and calculates total deal value including logistics.</p>
-<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-<strong>Route Details:</strong><br>
-Origin: ${state.dealData.origin}<br>
-Destination: ${state.dealData.destination}<br>
-Distance: ~6,200 nautical miles<br>
-Estimated Transit Time: 18-22 days
-</div>
-<div class="btn-group">
-<button class="btn btn-primary" onclick="selectCarrierAndInsurance()" id="carrier-btn"> Find Carrier + Arrange Insurance</button>
-</div>
-<div id="carrier-result"></div>
-</div>`;
-}
-function selectCarrierAndInsurance() {
-const btn = document.getElementById('carrier-btn');
-const resultDiv = document.getElementById('carrier-result');
-btn.disabled = true;
-btn.innerHTML = '<span class="spinner"></span> Searching carriers...';
-setTimeout(() => {
-const logisticsCost = 185000;
-const insuranceCost = state.dealData.totalValue * 0.0025;
-const totalDealValue = state.dealData.totalValue + logisticsCost + insuranceCost;
-state.dealData.logistics = logisticsCost;
-state.dealData.insurance = insuranceCost;
-state.dealData.totalDealValue = totalDealValue;
-const carrierId = 'MSC-' + Math.floor(Math.random() * 9000 + 1000);
-const vesselName = 'MSC GULF STAR';
-const insurancePolicy = 'LLOYDS-2026-' + Math.floor(Math.random() * 900000 + 100000);
-resultDiv.innerHTML = `
-<div class="api-response active">
-<div class="api-header">🚢 Carrier API Response (MarineTraffic + Freightos)</div>
-<div style="color: #00ff88;">HTTP 200 OK</div>
-Carrier Selected:
-├─ Company: Mediterranean Shipping Company (MSC)
-├─ Carrier ID: ${carrierId}
-─ Vessel: ${vesselName}
-─ IMO Number: 9834521
-├─ Flag: Panama
-├─ Capacity: 65,000 DWT
-├─ Availability: CONFIRMED ✓
-─ Booking Reference: MSC-GETH-2026-847291
-─ Rate: $185,000 USD (all-in)
-</div>
-<div class="api-response active" style="margin-top: 1rem;">
-<div class="api-header">🛡️ Insurance API Response (Lloyd's of London)</div>
-<div style="color: #00ff88;">HTTP 200 OK</div>
-Insurance Policy:
-├─ Policy Number: ${insurancePolicy}
-├─ Insurer: Lloyd's Syndicate 2001
-├─ Coverage: Institute Cargo Clauses (A) - All Risks
-├─ Cargo Value: $${state.dealData.totalValue.toLocaleString()}
-├─ Premium Rate: 0.25%
-├─ Premium Amount: $${insuranceCost.toLocaleString(undefined, {maximumFractionDigits: 0})}
-├─ Coverage Period: Warehouse to Warehouse
-└─ Status: ACTIVE ✓
-</div>
-<div class="deal-breakdown">
-<h3>💰 Total Deal Value Breakdown</h3>
-<div class="breakdown-row">
-<span>Commodity Value (${state.dealData.quantity.toLocaleString()} MT × $${state.dealData.price})</span>
-<strong>$${state.dealData.totalValue.toLocaleString()}</strong>
-</div>
-<div class="breakdown-row">
-<span>Logistics (Carrier: MSC)</span>
-<strong>$${logisticsCost.toLocaleString()}</strong>
-</div>
-<div class="breakdown-row">
-<span>Cargo Insurance (Lloyd's)</span>
-<strong>$${insuranceCost.toLocaleString(undefined, {maximumFractionDigits: 0})}</strong>
-</div>
-<div class="breakdown-row total">
-<span>TOTAL DEAL VALUE</span>
-<strong>$${totalDealValue.toLocaleString(undefined, {maximumFractionDigits: 0})}</strong>
-</div>
-</div>
-<div class="btn-group">
-<button class="btn btn-primary" onclick="renderStep(11)">Proceed to Escrow Lock →</button>
-</div>`;
-btn.style.display = 'none';
-}, 3000);
-}
-// STEP 11: Escrow Lock
-function step11_EscrowLock() {
-return `
-<div class="step">
-<div class="step-header">
-<div class="step-number">11</div>
-<h3> Escrow Fund Lock</h3>
+<div class="step-number">12</div>
+<h3>🔒 Escrow Fund Lock</h3>
 </div>
 <p class="step-description">Buyer deposits full contract value into regulated escrow account. Smart contract transitions to FUNDS_LOCKED state.</p>
 <div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
 <strong>Escrow Details:</strong><br>
-Amount: <strong style="color: var(--teal); font-size: 1.3rem;">$${state.dealData.totalDealValue.toLocaleString()}</strong><br>
+Amount: <strong style="color: var(--teal); font-size: 1.3rem;">$${state.dealData.totalValue.toLocaleString()}</strong><br>
 Bank: RAKBANK (UAE Central Bank Regulated)<br>
 Escrow Account: ESC-GETH-8472910<br>
 Smart Contract: 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEbE<br>
@@ -953,15 +900,15 @@ resultDiv.innerHTML = `
 <div style="color: #00ff88;">HTTP 200 OK</div>
 Transaction ID: TXN-RAK-2026-${Math.floor(Math.random() * 900000 + 100000)}
 Status: FUNDS_LOCKED ✓
-Amount: $${state.dealData.totalDealValue.toLocaleString()} USD
+Amount: $${state.dealData.totalValue.toLocaleString()} USD
 Timestamp: ${new Date().toISOString()}
 Expiry: 45 days from now
 Smart Contract State Change:
 ├─ Previous State: CREATED
-├─ New State: FUNDS_LOCKED ✓
-└─ State TX Hash: 0x${Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('')}
+─ New State: FUNDS_LOCKED ✓
+─ State TX Hash: 0x${Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('')}
 Blockchain Confirmation:
-├─ TX Hash: 0x${Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('')}
+─ TX Hash: 0x${Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('')}
 ├─ Block: ${Math.floor(Math.random() * 10000000 + 24000000)}
 ├─ Confirmations: 12/12 ✓
 └─ Gas Used: 84,291
@@ -974,55 +921,118 @@ Release Conditions: SGS inspection approval
 <span class="status-pill status-info"> 45-day Window</span>
 </div>
 <div class="btn-group">
-<button class="btn btn-primary" onclick="renderStep(12)">Complete Settlement →</button>
+<button class="btn btn-primary" onclick="renderStep(13)">Activate IoT Tracking →</button>
 </div>`;
 btn.style.display = 'none';
 }, 2500);
 }
-// STEP 12: IoT + Transit + Inspection + Settlement
-function step12_IoTSettlement() {
+// STEP 13: IoT Activation
+function step13_IoT_Activation() {
 return `
 <div class="step">
 <div class="step-header">
-<div class="step-number">12</div>
-<h3>📡 IoT → Transit → Inspection → Settlement</h3>
+<div class="step-number">13</div>
+<h3>📡 IoT Tracker Activation</h3>
 </div>
-<p class="step-description">Final stage: IoT activation, transit monitoring, quality inspection, and automated settlement.</p>
+<p class="step-description">Activate IoT sensors on cargo for real-time tracking. Data will be streamed to platform and recorded on-chain via Chainlink Oracle.</p>
+<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+<strong>IoT Device Configuration:</strong><br>
+Device ID: IOT-TRK-847291-A<br>
+Type: Marine Container Tracker (Multi-sensor)<br>
+Sensors: GPS, Temperature, Humidity, Shock, Light<br>
+Protocol: MQTT over 4G/Satellite (Iridium)<br>
+Update Interval: Every 15 minutes<br>
+Battery Life: 90 days<br>
+Chainlink Oracle: Enabled ✓
+</div>
 <div class="btn-group">
-<button class="btn btn-primary" onclick="executeFullSettlement()" id="settle-btn">⚡ Execute Full Settlement Process</button>
+<button class="btn btn-primary" onclick="activateIoT()" id="iot-btn">📡 Activate IoT Tracker</button>
+</div>
+<div id="iot-result"></div>
+</div>`;
+}
+function activateIoT() {
+const btn = document.getElementById('iot-btn');
+const resultDiv = document.getElementById('iot-result');
+btn.disabled = true;
+btn.innerHTML = '<span class="spinner"></span> Activating sensors...';
+setTimeout(() => {
+resultDiv.innerHTML = `
+<div class="api-response active">
+<div class="api-header">📡 IoT Platform API Response</div>
+<div style="color: #00ff88;">HTTP 200 OK</div>
+Device Status: ACTIVE ✓
+Activation Time: ${new Date().toISOString()}
+Initial Location: ${state.dealData.origin} Storage Facility
+GPS Coordinates: 25.276987, 55.296249
+Sensor Readings (Initial):
+├─ Temperature: 28.3°C (within spec: 15-35°C) ✓
+├─ Humidity: 62% (within spec: 40-80%) ✓
+├─ Shock Sensor: 0g (no impact detected) ✓
+─ Light Sensor: SEALED ✓ (container closed)
+└─ Battery: 98% (excellent)
+Chainlink Oracle Integration:
+├─ Oracle Address: 0x3F4B641c84dE92e9e1e8D8e5f8B9e7C6d5A4b3C2
+├─ Update Frequency: 15 minutes
+─ Data Feed ID: GETH-IOT-847291
+├─ On-Chain Recording: Enabled ✓
+└─ Alert Thresholds: Configured ✓
+Smart Contract State: IN_TRANSIT (ready for loading)
+</div>
+<div class="timeline" style="margin-top: 1.5rem;">
+<div class="timeline-item">
+<div class="timeline-time">T+0 min</div>
+<div class="timeline-content">IoT device activated and calibrated</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-time">T+15 min</div>
+<div class="timeline-content">First data transmission to platform</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-time">T+30 min</div>
+<div class="timeline-content">Cargo loading begins - GPS tracking active</div>
+</div>
+</div>
+<div style="margin-top: 1rem;">
+<span class="status-pill status-success">✓ Tracker Active</span>
+<span class="status-pill status-success">✓ Oracle Connected</span>
+<span class="status-pill status-info">📍 GPS Locked</span>
+</div>
+<div class="btn-group">
+<button class="btn btn-primary" onclick="renderStep(14)">Complete Settlement →</button>
+</div>`;
+btn.style.display = 'none';
+}, 2000);
+}
+// STEP 14: Settlement
+function step14_Settlement() {
+const platformFee = state.dealData.totalValue * 0.011;
+const elapsed = Math.round((Date.now() - state.startTime) / 1000);
+return `
+<div class="step">
+<div class="step-header">
+<div class="step-number">14</div>
+<h3>💰 Automated Settlement & Summary</h3>
+</div>
+<p class="step-description">Final inspection completed. Smart contract automatically executes settlement and distributes funds to all parties.</p>
+<div class="btn-group">
+<button class="btn btn-primary" onclick="executeSettlement()" id="settle-btn">⚡ Execute Smart Contract Settlement</button>
 </div>
 <div id="settle-result"></div>
 </div>`;
 }
-function executeFullSettlement() {
+function executeSettlement() {
 const btn = document.getElementById('settle-btn');
 const resultDiv = document.getElementById('settle-result');
-btn.disabled = true;
-btn.innerHTML = '<span class="spinner"></span> Executing settlement process...';
-setTimeout(() => {
-const platformFee = state.dealData.totalDealValue * 0.011;
+const platformFee = state.dealData.totalValue * 0.011;
 const elapsed = Math.round((Date.now() - state.startTime) / 1000);
+const carrier = ['Mediterranean Shipping Company (MSC)', 'Maersk Line', 'CMA CGM'][state.selectedCarrier];
+const insurer = ["Lloyd's of London (Syndicate 2001)", 'Allianz Global Corporate', 'AXA XL'][state.selectedInsurer];
+btn.disabled = true;
+btn.innerHTML = '<span class="spinner"></span> Executing settlement...';
+setTimeout(() => {
 resultDiv.innerHTML = `
 <div class="api-response active">
-<div class="api-header"> IoT Tracker Activated</div>
-<div style="color: #00ff88;">HTTP 200 OK</div>
-Device Status: ACTIVE ✓
-GPS: 25.1289, 56.3265 (${state.dealData.origin})
-Temperature: 24.5°C (within spec)
-Battery: 98%
-Chainlink Oracle Connected ✓
-Smart Contract State: IN_TRANSIT
-</div>
-<div class="api-response active" style="margin-top: 1rem;">
-<div class="api-header">🔬 SGS Inspection Completed</div>
-<div style="color: #00ff88;">HTTP 200 OK</div>
-Inspection Report: PASSED ✓
-Quality Parameters: All within spec ✓
-Quantity Verified: ${state.dealData.quantity.toLocaleString()} MT ✓
-Digital Signature: QES-Applied ✓
-Smart Contract State: INSPECTION_PENDING → COMPLETED
-</div>
-<div class="api-response active" style="margin-top: 1rem;">
 <div class="api-header">⚡ Smart Contract Settlement</div>
 <div style="color: #00ff88;">Transaction Confirmed</div>
 Contract Function: releaseFunds()
@@ -1031,15 +1041,15 @@ Block: ${Math.floor(Math.random() * 10000000 + 24000000)}
 Gas Used: 312,847
 Status: SUCCESS ✓
 Payment Distribution:
-├─ Seller (${state.kycData.company}): $${(state.dealData.totalDealValue - platformFee).toLocaleString(undefined, {maximumFractionDigits: 0})} (98.90%)
-├─ Carrier (MSC): $${state.dealData.logistics.toLocaleString()} (Logistics)
-├─ Insurer (Lloyd's): $${state.dealData.insurance.toLocaleString(undefined, {maximumFractionDigits: 0})} (0.25%)
-─ GETH Platform: $${platformFee.toLocaleString(undefined, {maximumFractionDigits: 0})} (1.10%)
-└─ Total: $${state.dealData.totalDealValue.toLocaleString()}
+├─ Seller (${state.role === 'seller' ? state.kycData.company : 'Counterparty'}): $${(state.dealData.totalValue - platformFee).toLocaleString(undefined, {maximumFractionDigits: 0})} (98.90%)
+├─ Carrier (${carrier}): $185,000 (Logistics)
+├─ Insurer (${insurer}): $${(state.dealData.totalValue * 0.0025).toLocaleString(undefined, {maximumFractionDigits: 0})} (0.25%)
+├─ GETH Platform: $${platformFee.toLocaleString(undefined, {maximumFractionDigits: 0})} (1.10%)
+└─ Total: $${state.dealData.totalValue.toLocaleString()}
 Bank Webhooks:
 ├─ RAKBANK: FUNDS_RELEASED ✓
 ├─ Seller Account: CREDITED ✓
-─ Carrier Account: CREDITED ✓
+├─ Carrier Account: CREDITED ✓
 ├─ Insurer Account: CREDITED ✓
 └─ GETH Treasury: CREDITED ✓
 NFT Status:
@@ -1051,15 +1061,11 @@ Smart Contract State: COMPLETED
 <div class="summary-grid">
 <div class="summary-item">
 <div class="summary-label">Total Deal Value</div>
-<div class="summary-value">$${state.dealData.totalDealValue.toLocaleString()}</div>
+<div class="summary-value">$${state.dealData.totalValue.toLocaleString()}</div>
 </div>
 <div class="summary-item">
 <div class="summary-label">GETH Revenue</div>
 <div class="summary-value">$${platformFee.toLocaleString(undefined, {maximumFractionDigits: 0})}</div>
-</div>
-<div class="summary-item">
-<div class="summary-label">Settlement Time</div>
-<div class="summary-value">60 seconds</div>
 </div>
 <div class="summary-item">
 <div class="summary-label">Total Process Time</div>
@@ -1070,7 +1076,7 @@ Smart Contract State: COMPLETED
 <h3 style="color: var(--teal); margin-bottom: 1rem;">🎉 Deal Successfully Completed!</h3>
 <p style="line-height: 1.7; margin-bottom: 1rem;">
 What traditionally takes <strong>18+ months</strong> of disputes and manual processes —
-GETH completed in <strong>${elapsed} seconds</strong> with full automation.
+GETH completed with full automation.
 </p>
 <p style="line-height: 1.7;">
 <strong>✓ Real AI</strong> (Llama 3.1 70B) verified counterparties<br>
@@ -1084,10 +1090,11 @@ GETH completed in <strong>${elapsed} seconds</strong> with full automation.
 <button class="btn btn-secondary" onclick="location.reload()">🔄 Restart Demo</button>
 </div>
 <div style="margin-top: 2rem; padding: 1rem; background: var(--gray-light); border-radius: 8px; text-align: center; font-size: 0.9rem; color: var(--gray-text);">
-Demo completed in <strong>${elapsed} seconds</strong> • 12 steps • Full platform logic demonstrated
-</div>`;
+Demo completed in <strong>${elapsed} seconds</strong> • 14 steps • Full platform logic demonstrated
+</div>
+`;
 btn.style.display = 'none';
-}, 3000);
+}, 2500);
 }
 // Initialize
 renderStep(1);
