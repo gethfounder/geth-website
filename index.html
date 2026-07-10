@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GETH — Digital Platform for OTC Commodity Trade | Idea Stage Pre-seed</title>
-<meta name="description" content="GETH (Global Energy Trade Hub) — idea-stage project digitising $4.6T OTC commodity trade. Dubai-based (VARA/DMCC). Legal-first approach. 1.10% all-inclusive fee.">
+<title>GETH — Digital Infrastructure for OTC Commodity Trade | Idea Stage</title>
+<meta name="description" content="GETH (Global Energy Trade Hub) — idea-stage project building digital infrastructure for the $4.6T OTC commodity trade. Dubai-based. Legal-first approach. Seeking pre-seed partners.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <!-- ✅ GOOGLE ANALYTICS 4 -->
@@ -28,7 +28,7 @@ ym(110179125, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLa
 <noscript><div><img src="https://mc.yandex.ru/watch/110179125" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-:root { --black: #000000; --white: #FFFFFF; --teal: #00C4B4; --teal-light: #00D4C4; --gray-light: #F5F5F5; --gray-dark: #1a1a1a; --gray-text: #666666; }
+:root { --black: #000000; --white: #FFFFFF; --teal: #00C4B4; --teal-light: #00D4C4; --gray-light: #F5F5F5; --gray-dark: #1a1a1a; --gray-text: #666666; --gray-border: #e0e0e0; }
 body { font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: var(--black); overflow-x: hidden; }
 .disclaimer-banner { background: var(--gray-dark); color: var(--white); text-align: center; padding: 0.75rem 1rem; font-size: 0.85rem; position: fixed; top: 0; left: 0; right: 0; z-index: 2000; border-bottom: 2px solid var(--teal); }
 .disclaimer-banner a { color: var(--teal); text-decoration: none; font-weight: 600; }
@@ -77,6 +77,7 @@ section { padding: 5rem 5%; }
 .problem-card:hover { transform: translateY(-4px); }
 .problem-icon { font-size: 2.75rem; margin-bottom: 1rem; }
 .problem-card h3 { color: var(--teal); margin-bottom: 0.75rem; font-size: 1.35rem; }
+.problem-source { font-size: 0.75rem; color: var(--gray-text); margin-top: 0.5rem; font-style: italic; }
 .vision { background: var(--white); }
 .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2.5rem; margin-top: 2.5rem; }
 .solution-card { background: var(--white); padding: 2.25rem; border-radius: 10px; border: 2px solid var(--gray-light); border-top: 4px solid var(--teal); box-shadow: 0 4px 14px rgba(0,0,0,0.07); }
@@ -86,29 +87,31 @@ section { padding: 5rem 5%; }
 .solution-card li { padding: 0.6rem 0; padding-left: 1.6rem; position: relative; border-bottom: 1px solid var(--gray-light); }
 .solution-card li:last-child { border-bottom: none; }
 .solution-card li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
-.tech-specs { background: var(--gray-light); }
-.tech-cycle { margin-top: 3rem; }
-.cycle-step { display: flex; gap: 2rem; margin-bottom: 2.5rem; padding: 2rem; background: var(--white); border-radius: 10px; border-left: 4px solid var(--teal); transition: transform 0.3s; }
-.cycle-step:hover { transform: translateX(5px); }
-.step-number { min-width: 48px; height: 48px; padding: 0 0.75rem; background: var(--teal); color: var(--white); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; flex-shrink: 0; }
-.step-content h3 { font-size: 1.35rem; margin-bottom: 0.75rem; color: var(--black); }
-.step-content p { color: var(--gray-text); line-height: 1.7; }
-.partnerships { background: var(--white); }
-.partner-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-.partner-card { background: var(--gray-light); padding: 2rem; border-radius: 10px; border-top: 4px solid var(--teal); box-shadow: 0 4px 14px rgba(0,0,0,0.07); transition: transform 0.3s; }
-.partner-card:hover { transform: translateY(-4px); }
-.partner-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-.partner-card h3 { font-size: 1.35rem; margin-bottom: 0.75rem; color: var(--black); }
-.partner-card p { color: var(--gray-text); margin-bottom: 1rem; font-size: 0.95rem; }
-.partner-benefit { background: var(--white); padding: 1rem; border-radius: 8px; margin-top: 1rem; }
-.partner-benefit strong { color: var(--teal); font-size: 0.9rem; }
-.partner-benefit p { margin: 0; font-size: 0.85rem; }
-.integration-tech { margin-top: 3rem; padding: 2rem; background: var(--gray-light); border-radius: 10px; border-left: 4px solid var(--teal); }
-.integration-tech h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--black); }
-.tech-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-.tech-item { padding: 1rem; background: var(--white); border-radius: 8px; }
-.tech-item strong { color: var(--teal); display: block; margin-bottom: 0.5rem; }
-.tech-item p { font-size: 0.9rem; color: var(--gray-text); margin: 0; }
+.architecture { background: var(--gray-light); }
+.arch-diagram { background: var(--white); padding: 3rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-top: 2rem; }
+.arch-layer { padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; border-left: 4px solid var(--teal); background: var(--gray-light); }
+.arch-layer h4 { color: var(--teal); margin-bottom: 0.75rem; font-size: 1.15rem; }
+.arch-layer p { color: var(--gray-text); line-height: 1.6; }
+.arch-layer ul { list-style: none; margin-top: 0.75rem; }
+.arch-layer li { padding: 0.4rem 0; padding-left: 1.4rem; position: relative; font-size: 0.9rem; color: var(--gray-text); }
+.arch-layer li::before { content: '→'; position: absolute; left: 0; color: var(--teal); }
+.arch-status { margin-top: 2rem; padding: 1.5rem; background: var(--white); border-radius: 8px; border-top: 3px solid var(--teal); }
+.arch-status h4 { color: var(--black); margin-bottom: 1rem; }
+.status-item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--gray-light); }
+.status-item:last-child { border-bottom: none; }
+.status-label { font-weight: 600; color: var(--black); }
+.status-value { color: var(--gray-text); }
+.status-value.planned { color: var(--teal); font-weight: 600; }
+.integrations { background: var(--white); }
+.integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
+.integration-card { background: var(--gray-light); padding: 2rem; border-radius: 10px; border-top: 4px solid var(--teal); box-shadow: 0 4px 14px rgba(0,0,0,0.07); transition: transform 0.3s; }
+.integration-card:hover { transform: translateY(-4px); }
+.integration-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.integration-card h3 { font-size: 1.35rem; margin-bottom: 0.75rem; color: var(--black); }
+.integration-card p { color: var(--gray-text); margin-bottom: 1rem; font-size: 0.95rem; }
+.integration-status { display: inline-block; padding: 0.35rem 0.9rem; border-radius: 18px; font-size: 0.8rem; font-weight: 600; margin-top: 0.5rem; }
+.integration-status.planned { background: rgba(0,196,180,0.15); color: var(--teal); }
+.integration-status.research { background: rgba(245,158,11,0.15); color: #b45309; }
 .legal { background: var(--gray-light); }
 .legal-intro { max-width: 900px; margin: 0 auto 3rem; text-align: center; font-size: 1.1rem; color: var(--gray-text); line-height: 1.8; }
 .legal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
@@ -131,47 +134,12 @@ section { padding: 5rem 5%; }
 .legal-jurisdictions h4 { color: var(--teal); margin-bottom: 0.75rem; font-size: 1.1rem; }
 .jurisdiction-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
 .jurisdiction-item { padding: 0.6rem 1rem; background: var(--white); border-radius: 6px; font-size: 0.85rem; color: var(--gray-text); border-left: 3px solid var(--teal); }
-.sdi { background: var(--black); color: var(--white); position: relative; overflow: hidden; }
-.sdi::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300C4B4' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-.sdi .container { position: relative; z-index: 1; }
-.sdi .section-title { color: var(--white); }
-.sdi .section-subtitle { color: rgba(255,255,255,0.7); }
-.sdi-badge { display: inline-block; background: rgba(0,196,180,0.2); border: 2px solid var(--teal); color: var(--teal); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem; }
-.sdi-intro { max-width: 900px; margin: 0 auto 3rem; text-align: center; font-size: 1.15rem; color: rgba(255,255,255,0.85); line-height: 1.8; }
-.sdi-flow { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; margin: 3rem 0; }
-.sdi-flow-box { background: var(--gray-dark); padding: 2rem; border-radius: 10px; border: 2px solid var(--teal); text-align: center; }
-.sdi-flow-box h4 { color: var(--teal); margin-bottom: 0.75rem; font-size: 1.15rem; }
-.sdi-flow-box p { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
-.sdi-flow-arrow { font-size: 2.5rem; color: var(--teal); text-align: center; }
-.sdi-tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
-.sdi-tier-card { background: var(--gray-dark); padding: 2rem; border-radius: 10px; border-top: 4px solid var(--teal); text-align: center; transition: transform 0.3s; }
-.sdi-tier-card:hover { transform: translateY(-5px); }
-.sdi-tier-card h4 { color: var(--teal); font-size: 1.5rem; margin-bottom: 0.5rem; }
-.sdi-tier-card .tier-min { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 1rem; }
-.sdi-tier-card .tier-apy { font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; }
-.sdi-tier-card ul { list-style: none; text-align: left; margin-top: 1rem; }
-.sdi-tier-card li { padding: 0.4rem 0; padding-left: 1.4rem; position: relative; color: rgba(255,255,255,0.85); font-size: 0.9rem; }
-.sdi-tier-card li::before { content: '→'; position: absolute; left: 0; color: var(--teal); }
-.sdi-yield-justification { margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid var(--teal); }
-.sdi-yield-justification h4 { color: var(--teal); margin-bottom: 1rem; font-size: 1.2rem; }
-.sdi-yield-justification ul { list-style: none; color: rgba(255,255,255,0.85); line-height: 1.8; }
-.sdi-yield-justification li { margin-bottom: 0.75rem; }
-.sdi-yield-justification li strong { color: var(--white); }
-.sdi-yield-disclaimer { margin-top: 1rem; font-size: 0.85rem; color: rgba(255,255,255,0.6); font-style: italic; }
-.sdi-revenue { margin-top: 3rem; padding: 2rem; background: var(--gray-dark); border-radius: 10px; border-left: 4px solid var(--teal); }
-.sdi-revenue h4 { color: var(--teal); margin-bottom: 1rem; font-size: 1.35rem; }
-.sdi-revenue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-.sdi-revenue-item { text-align: center; }
-.sdi-revenue-item .rev-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 0.25rem; }
-.sdi-revenue-item .rev-value { font-size: 1.5rem; font-weight: 700; color: var(--teal); }
-.sdi-disclaimer { margin-top: 2.5rem; padding: 1.25rem; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
-.sdi-disclaimer strong { color: var(--teal); }
-.pricing { background: var(--gray-light); }
+.pricing { background: var(--white); }
 .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-.pricing-card { background: var(--white); padding: 2.25rem; border-radius: 10px; text-align: center; border: 2px solid transparent; transition: transform 0.3s, box-shadow 0.3s; }
+.pricing-card { background: var(--gray-light); padding: 2.25rem; border-radius: 10px; text-align: center; border: 2px solid transparent; transition: transform 0.3s, box-shadow 0.3s; }
 .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
 .pricing-card.featured { border-color: var(--teal); position: relative; }
-.pricing-card.featured::before { content: 'BEST VALUE'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--teal); color: var(--white); padding: 0.25rem 1rem; border-radius: 12px; font-size: 0.75rem; font-weight: 700; }
+.pricing-card.featured::before { content: 'TARGET'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--teal); color: var(--white); padding: 0.25rem 1rem; border-radius: 12px; font-size: 0.75rem; font-weight: 700; }
 .pricing-tier { font-size: 0.9rem; color: var(--gray-text); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
 .pricing-rate { font-size: 3rem; font-weight: 700; color: var(--teal); margin-bottom: 0.5rem; }
 .pricing-label { font-size: 1.1rem; color: var(--black); margin-bottom: 1.5rem; font-weight: 600; }
@@ -182,50 +150,46 @@ section { padding: 5rem 5%; }
 .pricing-features { list-style: none; text-align: left; margin: 1.5rem 0; }
 .pricing-features li { padding: 0.5rem 0; padding-left: 1.6rem; position: relative; font-size: 0.95rem; }
 .pricing-features li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
-.pricing-note { margin-top: 2.5rem; padding: 1.5rem; background: var(--white); border-radius: 10px; border-left: 4px solid var(--teal); font-size: 0.95rem; color: var(--gray-text); }
-.pricing-note h4 { color: var(--black); margin-bottom: 1rem; font-size: 1.1rem; }
+.pricing-note { margin-top: 2.5rem; padding: 1.5rem; background: var(--gray-light); border-radius: 10px; border-left: 4px solid var(--teal); font-size: 0.95rem; color: var(--gray-text); }
 .pricing-note strong { color: var(--black); }
-.unit-economics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
-.unit-economics-item { padding: 0.75rem; background: var(--white); border-radius: 6px; }
-.unit-economics-label { font-size: 0.85rem; color: var(--gray-text); }
-.unit-economics-value { font-weight: 700; color: var(--teal); font-size: 1.2rem; }
-.cost-breakdown { background: var(--white); padding: 1rem; border-radius: 6px; font-size: 0.9rem; color: var(--gray-text); }
-.cost-breakdown em { font-size: 0.8rem; margin-top: 0.5rem; display: block; }
-.use-case { background: var(--white); }
-.deal-overview { background: var(--gray-light); padding: 2rem; border-radius: 10px; margin-bottom: 2.5rem; border-left: 4px solid var(--teal); }
+.use-case { background: var(--gray-light); }
+.deal-overview { background: var(--white); padding: 2rem; border-radius: 10px; margin-bottom: 2.5rem; border-left: 4px solid var(--teal); }
 .deal-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; }
-.deal-meta-item { padding: 1rem; background: var(--white); border-radius: 6px; }
+.deal-meta-item { padding: 1rem; background: var(--gray-light); border-radius: 6px; }
 .deal-meta-label { font-size: 0.85rem; color: var(--gray-text); margin-bottom: 0.4rem; font-weight: 600; }
 .deal-meta-value { font-weight: 600; color: var(--teal); font-size: 1.05rem; }
 .participants { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
 .participant-card { background: var(--white); padding: 1.5rem; border-radius: 8px; border-top: 3px solid var(--teal); }
 .participant-role { font-weight: 700; color: var(--teal); margin-bottom: 0.5rem; font-size: 1.05rem; }
 .use-case-timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-.use-case-step { background: var(--gray-light); padding: 2.25rem 1.75rem; border-radius: 10px; position: relative; }
-.step-number { width: 48px; height: 48px; background: var(--teal); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; margin-bottom: 1.25rem; }
+.use-case-step { background: var(--white); padding: 2.25rem 1.75rem; border-radius: 10px; position: relative; }
 .use-case-step h3 { margin-bottom: 0.9rem; color: var(--black); font-size: 1.25rem; }
+.step-number { width: 48px; height: 48px; background: var(--teal); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; margin-bottom: 1.25rem; }
 .step-benefit { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: var(--teal); font-weight: 600; }
-.tokens { background: var(--black); color: var(--white); }
-.tokens .section-title { color: var(--white); }
-.tokens-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-.token-card { background: var(--gray-dark); padding: 2.25rem; border-radius: 10px; border: 2px solid var(--teal); text-align: center; }
-.token-card h3 { font-size: 2rem; color: var(--teal); margin-bottom: 0.5rem; }
-.token-card .token-type { color: var(--white); opacity: 0.9; margin-bottom: 1.25rem; font-weight: 500; }
-.token-card ul { list-style: none; text-align: left; margin: 1.25rem 0; }
-.token-card li { padding: 0.65rem 0; padding-left: 1.6rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.token-card li:last-child { border-bottom: none; }
-.token-card li::before { content: '→'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
-.uae { background: var(--gray-light); }
+.future-vision { background: var(--black); color: var(--white); position: relative; overflow: hidden; }
+.future-vision .section-title { color: var(--white); }
+.future-vision .section-subtitle { color: rgba(255,255,255,0.7); }
+.future-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
+.future-card { background: var(--gray-dark); padding: 2rem; border-radius: 10px; border: 2px solid var(--teal); }
+.future-card h3 { color: var(--teal); font-size: 1.35rem; margin-bottom: 1rem; }
+.future-card p { color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 1rem; }
+.future-card ul { list-style: none; margin-top: 1rem; }
+.future-card li { padding: 0.5rem 0; padding-left: 1.4rem; position: relative; color: rgba(255,255,255,0.8); font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.future-card li:last-child { border-bottom: none; }
+.future-card li::before { content: '→'; position: absolute; left: 0; color: var(--teal); }
+.future-disclaimer { margin-top: 2rem; padding: 1.25rem; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.6; text-align: center; }
+.uae { background: var(--white); }
 .uae-list { max-width: 850px; margin: 2.5rem auto 0; }
-.uae-item { display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.75rem; background: var(--white); margin-bottom: 1rem; border-radius: 10px; border-left: 4px solid var(--teal); }
+.uae-item { display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.75rem; background: var(--gray-light); margin-bottom: 1rem; border-radius: 10px; border-left: 4px solid var(--teal); }
 .uae-check { color: var(--teal); font-size: 1.5rem; font-weight: bold; flex-shrink: 0; }
 .uae-item h3 { margin-bottom: 0.4rem; color: var(--black); font-size: 1.15rem; }
-.team { background: var(--white); }
+.team { background: var(--gray-light); }
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 2.5rem; }
-.team-card { background: var(--gray-light); text-align: center; padding: 2.25rem; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.07); }
+.team-card { background: var(--white); text-align: center; padding: 2.25rem; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.07); }
 .team-avatar { width: 110px; height: 110px; background: linear-gradient(135deg, var(--teal), var(--teal-light)); border-radius: 50%; margin: 0 auto 1.25rem; display: flex; align-items: center; justify-content: center; font-size: 2.75rem; color: var(--white); }
 .team-card h3 { font-size: 1.45rem; margin-bottom: 0.4rem; }
 .team-role { color: var(--teal); font-weight: 600; margin-bottom: 1rem; font-size: 1rem; }
+.team-experience { font-size: 0.9rem; color: var(--gray-text); line-height: 1.6; }
 .roadmap { background: var(--black); color: var(--white); }
 .roadmap .section-title { color: var(--white); }
 .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin: 2.5rem 0; }
@@ -265,9 +229,6 @@ footer { background: var(--black); color: var(--white); padding: 3rem 5%; text-a
 .about-stats, .traction-grid { grid-template-columns: repeat(2, 1fr); } .deal-meta { grid-template-columns: 1fr; }
 .logo-img { height: 40px; } .fund-item { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
 .fund-bar-container { width: 100%; margin: 0; } .pricing-rate { font-size: 2.5rem; }
-.cycle-step { flex-direction: column; gap: 1rem; }
-.sdi-flow { grid-template-columns: 1fr; }
-.sdi-flow-arrow { transform: rotate(90deg); }
 .dispute-tiers { grid-template-columns: 1fr 1fr; }
 }
 </style>
@@ -285,68 +246,69 @@ GETH
 <a href="#traction">Traction</a>
 <a href="#problem">Problem</a>
 <a href="#vision">Vision</a>
-<a href="#tech-specs">Tech Specs</a>
-<a href="#partnerships">Partnerships</a>
+<a href="#architecture">Architecture</a>
+<a href="#integrations">Integrations</a>
 <a href="#legal">Legal</a>
-<a href="#sdi">SDI</a>
 <a href="#pricing">Pricing</a>
 <a href="#use-case">Deal Flow</a>
-<a href="#tokens">Tokens</a>
+<a href="#roadmap">Roadmap</a>
 <a href="#team">Team</a>
+<a href="mvp-demo.html" class="btn btn-secondary" onclick="gtag('event', 'demo_click'); ym(110179125, 'reachGoal', 'demo_click');">Demo</a>
 <a href="#ask" class="btn btn-primary">Contact</a>
 </div>
 </div>
 </nav>
 <section class="hero">
 <div class="hero-content">
-<div class="hero-badge"><span>💡</span><span>Idea Stage • Pre-seed • Dubai, UAE (VARA/DMCC pathway)</span></div>
-<h1>Built by Traders, for Traders</h1>
+<div class="hero-badge"><span>💡</span><span>Idea Stage • Pre-seed • Dubai, UAE</span></div>
+<h1>Building Digital Infrastructure for Commodity Trade</h1>
 <p class="hero-subtitle">Global Energy Trade Hub</p>
-<p class="hero-description">GETH is an idea-stage project aiming to revolutionise the $4.6 trillion OTC commodity market by combining artificial intelligence, blockchain technology, and IoT tracking to eliminate manual processes, prevent fraud, and accelerate settlement times from months to hours.</p>
-<p class="hero-highlight">We combine AI, regulated escrow, and IoT to deliver <strong>2-hour settlement</strong> for fuel oil, metals, and agri-commodities — replacing 18-month disputes. 1.10% all-inclusive fee. Phase 2: Syndicated Deal Investment (15-25% USD Target Yield).</p>
+<p class="hero-description">GETH is an idea-stage project aiming to build digital infrastructure for the $4.6 trillion OTC commodity market. We're starting with legal foundation, then building an automated platform to reduce settlement times from months to hours.</p>
+<p class="hero-highlight">Legal-first approach. Seeking pre-seed partners to build the foundation. 1.10% target fee — significantly lower than traditional brokers.</p>
 <div class="hero-buttons">
-<a href="GETH_ExecutiveSummary.pdf" download class="btn btn-primary" onclick="gtag('event', 'document_download', {'file_name': 'executive_summary'}); ym(110179125, 'reachGoal', 'doc_download');">Download Documents</a>
+<a href="GETH_ExecutiveSummary.pdf" download class="btn btn-primary" onclick="gtag('event', 'document_download', {'file_name': 'executive_summary'}); ym(110179125, 'reachGoal', 'doc_download');">Download Executive Summary</a>
 <a href="mailto:gethfounder@gmail.com" class="btn btn-secondary" onclick="gtag('event', 'contact_email_click', {'email': 'gethfounder@gmail.com'}); ym(110179125, 'reachGoal', 'email_click');">Contact Founders</a>
+<a href="mvp-demo.html" class="btn btn-secondary" onclick="gtag('event', 'demo_click'); ym(110179125, 'reachGoal', 'demo_click');">Demo</a>
 </div>
 </div>
 </section>
 <section id="about" class="about">
 <div class="about-content fade-in">
 <h2>What is GETH?</h2>
-<p>GETH (Global Energy Trade Hub) is an <strong>idea-stage project</strong> designed to become a next-generation automated digital ecosystem for over-the-counter (OTC) commodity trading. We aim to address critical pain points in the $4.6 trillion market: 63% manual processes, certificate fraud costing $50B+ annually, and dispute resolution delays exceeding 18 months.</p>
-<p>Our approach: secure the <strong>legal foundation first</strong> (UAE VARA + DMCC licensing), then build the automated platform with AI-driven counterparty scoring, smart contract-based escrow, and real-time IoT cargo tracking — and finally validate with test deals from the founder's industry network. In Phase 2, we plan to introduce <strong>Syndicated Deal Investment (SDI)</strong> — allowing crypto investors to participate in real commodity deals and earn yield.</p>
+<p>GETH (Global Energy Trade Hub) is an <strong>idea-stage project</strong> designed to become a digital ecosystem for over-the-counter (OTC) commodity trading. We aim to address critical pain points in the $4.6 trillion market: manual processes, certificate fraud, and dispute resolution delays.</p>
+<p>Our approach: secure the <strong>legal foundation first</strong> (UAE VARA + DMCC licensing), then build an automated platform with AI-driven counterparty scoring, smart contract-based escrow, and real-time cargo tracking — and finally validate with test deals from the founder's industry network.</p>
 <div class="about-stats">
 <div class="stat-item"><span class="stat-number">$4.6T</span><div class="stat-label">Total Addressable Market</div></div>
-<div class="stat-item"><span class="stat-number">63%</span><div class="stat-label">Manual Processes to Eliminate</div></div>
-<div class="stat-item"><span class="stat-number">1.10%</span><div class="stat-label">All-Inclusive Fee Target</div></div>
-<div class="stat-item"><span class="stat-number">Hours</span><div class="stat-label">vs 18 Months Settlement Goal</div></div>
+<div class="stat-item"><span class="stat-number">63%</span><div class="stat-label">Manual Processes</div></div>
+<div class="stat-item"><span class="stat-number">1.10%</span><div class="stat-label">Target Fee</div></div>
+<div class="stat-item"><span class="stat-number">8+ yrs</span><div class="stat-label">Founder Experience</div></div>
 </div>
 </div>
 </section>
 <section id="traction" class="traction">
 <div class="container">
-<h2 class="section-title">Why Us? Founder-Market Fit & Early Traction</h2>
-<p class="section-subtitle">In commodity trading, technology is secondary. Trust and access are primary.</p>
+<h2 class="section-title">Founder Experience & Network</h2>
+<p class="section-subtitle">Built on real industry expertise, not theory</p>
 <div class="traction-grid">
 <div class="traction-item fade-in">
+<div class="traction-icon">👤</div>
+<div class="traction-title">8+ Years Trading</div>
+<div class="traction-desc">Fuel & gas trades across UAE, Finland, Mozambique, Zimbabwe at Harka, Pentium AG, G-Gas, Grandcliff Petroleum</div>
+</div>
+<div class="traction-item fade-in">
 <div class="traction-icon">🤝</div>
-<div class="traction-title">Target: 5-10 Pilot Deals</div>
-<div class="traction-desc">From founder's 8+ year network across UAE, Finland, Mozambique, Zimbabwe. Ready to test post-MVP.</div>
+<div class="traction-title">Industry Network</div>
+<div class="traction-desc">Direct relationships with traders, refineries, and logistics providers across MENA, Europe, Africa</div>
 </div>
 <div class="traction-item fade-in">
 <div class="traction-icon">⚖️</div>
-<div class="traction-title">Plan: Top-Tier Legal Counsel</div>
-<div class="traction-desc">Engage leading UAE law firm for VARA/DMCC structuring. Legal-first approach protects investor capital.</div>
+<div class="traction-title">Legal Counsel</div>
+<div class="traction-desc">Engaging top-tier UAE law firm for VARA/DMCC structuring. Legal-first approach protects investor capital.</div>
 </div>
 <div class="traction-item fade-in">
-<div class="traction-icon">🏦</div>
-<div class="traction-title">Target: Regulated Escrow</div>
-<div class="traction-desc">Partnership with UAE banks (RAKBANK/Emirates NBD) for compliant fund locking and settlement.</div>
-</div>
-<div class="traction-item fade-in">
-<div class="traction-icon">🔬</div>
-<div class="traction-title">Target: Inspection Integration</div>
-<div class="traction-desc">API integration with SGS/Bureau Veritas for automated quality verification and NFT certificates.</div>
+<div class="traction-icon">🎯</div>
+<div class="traction-title">Pilot Candidates</div>
+<div class="traction-desc">5-10 traders from founder's network expressed interest in testing platform post-MVP (non-binding)</div>
 </div>
 </div>
 </div>
@@ -356,22 +318,42 @@ GETH
 <h2 class="section-title">The Problem</h2>
 <p class="section-subtitle">$4.6T OTC Commodity Market is Broken</p>
 <div class="problem-grid">
-<div class="problem-card fade-in"><div class="problem-icon">📄</div><h3>63% Manual Processes</h3><p>Excel spreadsheets, email chains, and fax machines still dominate commodity trading workflows</p></div>
-<div class="problem-card fade-in"><div class="problem-icon">⚠️</div><h3>Fake Certificates</h3><p>Fraudulent quality certificates cost buyers over $50 billion annually</p></div>
-<div class="problem-card fade-in"><div class="problem-icon">⏳</div><h3>18+ Month Disputes</h3><p>Court delays and arbitration bottlenecks kill deals and tie up capital</p></div>
-<div class="problem-card fade-in"><div class="problem-icon">🚫</div><h3>SMEs Locked Out</h3><p>Small and medium enterprises have no access to trade finance or verified networks</p></div>
+<div class="problem-card fade-in">
+<div class="problem-icon">📄</div>
+<h3>63% Manual Processes</h3>
+<p>Excel spreadsheets, email chains, and fax machines still dominate commodity trading workflows</p>
+<div class="problem-source">Source: McKinsey Digital Trade Finance Report 2023</div>
+</div>
+<div class="problem-card fade-in">
+<div class="problem-icon">⚠️</div>
+<h3>Fake Certificates</h3>
+<p>Fraudulent quality certificates cost buyers over $50 billion annually</p>
+<div class="problem-source">Source: International Maritime Bureau</div>
+</div>
+<div class="problem-card fade-in">
+<div class="problem-icon">⏳</div>
+<h3>18+ Month Disputes</h3>
+<p>Court delays and arbitration bottlenecks kill deals and tie up capital</p>
+<div class="problem-source">Source: ICC Dispute Resolution Statistics</div>
+</div>
+<div class="problem-card fade-in">
+<div class="problem-icon">🚫</div>
+<h3>SMEs Locked Out</h3>
+<p>Small and medium enterprises have no access to trade finance or verified networks</p>
+<div class="problem-source">Source: World Bank Trade Finance Gap Report</div>
+</div>
 </div>
 </div>
 </section>
 <section id="vision" class="vision">
 <div class="container">
 <h2 class="section-title">Our Vision</h2>
-<p class="section-subtitle">Legal First → Strategic Partnerships → Automated Platform → Test Deals</p>
+<p class="section-subtitle">Legal First → Platform → Test Deals</p>
 <div class="solution-grid">
 <div class="solution-card fade-in">
 <span class="status">Priority #1 — Legal</span>
 <h3>Secure Regulatory Foundation</h3>
-<p>Before any development, establish the legal framework that protects all stakeholders and enables compliant tokenization.</p>
+<p>Before any development, establish the legal framework that protects all stakeholders and enables compliant operations.</p>
 <ul>
 <li>DMCC trade license application</li>
 <li>VARA conditional approval process</li>
@@ -382,22 +364,9 @@ GETH
 </ul>
 </div>
 <div class="solution-card fade-in">
-<span class="status">Priority #2 — Partnerships</span>
-<h3>Strategic Ecosystem Integration</h3>
-<p>Identify and establish agreements with key ecosystem partners required for end-to-end platform operations.</p>
-<ul>
-<li><strong>Banking Partners:</strong> RAKBANK / Emirates NBD for regulated escrow</li>
-<li><strong>Inspection:</strong> SGS / Bureau Veritas / Intertek for quality verification</li>
-<li><strong>Compliance:</strong> Sumsub / Dun & Bradstreet for KYB/KYC/AML</li>
-<li><strong>Insurance:</strong> Lloyd's and regional providers for cargo coverage</li>
-<li><strong>Logistics:</strong> Shipping companies and port operators</li>
-<li><strong>Legal:</strong> Top-tier UAE law firm for VARA/DMCC structuring</li>
-</ul>
-</div>
-<div class="solution-card fade-in">
-<span class="status">Priority #3 — MVP</span>
+<span class="status">Priority #2 — Platform</span>
 <h3>Build Automated Platform</h3>
-<p>Once legal foundation and partnerships are secured, develop production-ready infrastructure with AI, smart contracts, and IoT integration.</p>
+<p>Once legal foundation is secured, develop production-ready infrastructure with AI, smart contracts, and IoT integration.</p>
 <ul>
 <li>AI counterparty risk scoring engine</li>
 <li>Smart contract escrow system</li>
@@ -407,105 +376,133 @@ GETH
 <li>Scalable full-stack architecture</li>
 </ul>
 </div>
-</div>
-</div>
-</section>
-<section id="tech-specs" class="tech-specs">
-<div class="container">
-<h2 class="section-title">Technical Architecture & Deal Cycle</h2>
-<p class="section-subtitle">Hybrid fintech + blockchain architecture ensuring regulatory compliance and automated trust</p>
-<div class="tech-cycle">
-<div class="cycle-step fade-in">
-<div class="step-number">1</div>
-<div class="step-content">
-<h3>Onboarding & Counterparty Verification</h3>
-<p>Every participant undergoes structured institutional verification before accessing the platform. GETH builds confidence through a multi-layer trust framework:</p>
-<ul style="list-style: none; margin-top: 1rem; padding-left: 0;">
-<li style="padding: 0.4rem 0; padding-left: 1.4rem; position: relative;"><span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span><strong>KYC / KYB Verification</strong> — identity validation for individuals and businesses</li>
-<li style="padding: 0.4rem 0; padding-left: 1.4rem; position: relative;"><span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span><strong>AML & Sanctions Screening</strong> — continuous monitoring against international watchlists</li>
-<li style="padding: 0.4rem 0; padding-left: 1.4rem; position: relative;"><span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span><strong>Corporate Due Diligence</strong> — ownership structure, financial standing, trading history</li>
-<li style="padding: 0.4rem 0; padding-left: 1.4rem; position: relative;"><span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span><strong>Document Verification</strong> — automated validation of certificates, licenses, and contracts</li>
-<li style="padding: 0.4rem 0; padding-left: 1.4rem; position: relative;"><span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span><strong>AI-Powered Risk Scoring</strong> — dynamic trust rating based on verified data and behavior</li>
-<li style="padding: 0.4rem 0; padding-left: 1.4rem; position: relative;"><span style="position: absolute; left: 0; color: var(--teal); font-weight: bold;">✓</span><strong>Compliance by Design</strong> — regulatory checks embedded into every workflow</li>
+<div class="solution-card fade-in">
+<span class="status">Priority #3 — Validation</span>
+<h3>Test with Real Deals</h3>
+<p>Validate platform with pilot transactions from founder's network. Iterate based on real-world feedback.</p>
+<ul>
+<li>First 5-10 test deals</li>
+<li>Real counterparties from network</li>
+<li>Iterative improvement</li>
+<li>Unit economics validation</li>
+<li>Customer feedback loops</li>
+<li>Prepare for seed round</li>
 </ul>
-<p style="margin-top: 1rem; font-style: italic; color: var(--gray-text);">Result: counterparties are verified in minutes, not weeks — reducing fraud risk and accelerating deal execution.</p>
 </div>
-</div>
-<div class="cycle-step fade-in"><div class="step-number">2</div><div class="step-content"><h3>Lot Creation & NFT Quality Certificate</h3><p>Sellers upload specs and SGS/Bureau Veritas certificates. AI validates document authenticity against inspection databases. Upon approval, an ERC-721 NFT is minted with IPFS-stored metadata (quality params, inspector ID). This NFT acts as a tamper-proof digital twin of the physical asset until ownership transfer.</p></div></div>
-<div class="cycle-step fade-in"><div class="step-number">3</div><div class="step-content"><h3>Matching & Escrow Fund Reservation</h3><p>Buyers sign EIP-712 offers. Backend generates payment orders for partner banks (RAKBANK/Emirates NBD). Upon fiat/USDC receipt at the regulated escrow account, the <code>TradeEscrow.sol</code> smart contract transitions to <code>FUNDS_LOCKED</code>. Funds are legally protected yet programmatically controlled.</p></div></div>
-<div class="cycle-step fade-in"><div class="step-number">4</div><div class="step-content"><h3>IoT Monitoring & Oracle Integration</h3><p>Activated trackers stream temperature, humidity, and GPS data via MQTT. Custom Chainlink Oracles aggregate this data and push it on-chain. The smart contract updates delivery status automatically. Critical deviations trigger a <code>DISPUTE_FLAGGED</code> state instantly.</p></div></div>
-<div class="cycle-step fade-in"><div class="step-number">5</div><div class="step-content"><h3>Acceptance & Atomic Settlement</h3><p>Final inspection results are signed via Qualified Electronic Signature (QES). The smart contract verifies conditions atomically. If met, <code>releaseFunds()</code> triggers bank webhooks to distribute payments: 98.9% to seller, 1.0% to intermediary (if involved), 0.1% to reserve. GETH's 0.5% platform fee is invoiced separately. The NFT is burned/redeemed and replaced with an ESG Digital Passport.</p></div></div>
 </div>
 </div>
 </section>
-<section id="partnerships" class="partnerships">
+<section id="architecture" class="architecture">
 <div class="container">
-<h2 class="section-title">Strategic Partnerships</h2>
-<p class="section-subtitle">Integration with industry leaders for end-to-end commodity trade automation</p>
-<div class="partner-grid">
-<div class="partner-card fade-in">
-<div class="partner-icon">🔬</div>
+<h2 class="section-title">High-Level Architecture</h2>
+<p class="section-subtitle">Simplified view — technical details after legal foundation</p>
+<div class="arch-diagram fade-in">
+<div class="arch-layer">
+<h4>Layer 1: User Interface</h4>
+<p>Web dashboard for traders, buyers, sellers, and intermediaries. Mobile-responsive design.</p>
+<ul>
+<li>Deal creation and management</li>
+<li>Real-time status updates</li>
+<li>Document management</li>
+<li>Communication tools</li>
+</ul>
+</div>
+<div class="arch-layer">
+<h4>Layer 2: Business Logic</h4>
+<p>Core platform functionality: matching, verification, escrow management, settlement orchestration.</p>
+<ul>
+<li>AI-powered counterparty scoring</li>
+<li>Automated deal matching</li>
+<li>Smart contract integration</li>
+<li>Bank API coordination</li>
+</ul>
+</div>
+<div class="arch-layer">
+<h4>Layer 3: Integrations</h4>
+<p>Connections to external systems: banks, inspection companies, IoT providers, blockchain networks.</p>
+<ul>
+<li>Bank escrow APIs</li>
+<li>SGS/Bureau Veritas certificate verification</li>
+<li>IoT cargo tracking</li>
+<li>Blockchain (Ethereum L2)</li>
+</ul>
+</div>
+<div class="arch-layer">
+<h4>Layer 4: Data & Security</h4>
+<p>Secure data storage, encryption, compliance monitoring, audit trails.</p>
+<ul>
+<li>Encrypted document storage</li>
+<li>Immutable audit trails</li>
+<li>AML/KYC compliance</li>
+<li>Regulatory reporting</li>
+</ul>
+</div>
+<div class="arch-status">
+<h4>Current Status</h4>
+<div class="status-item">
+<span class="status-label">Architecture Design</span>
+<span class="status-value planned">In Progress</span>
+</div>
+<div class="status-item">
+<span class="status-label">Legal Structuring</span>
+<span class="status-value planned">In Progress</span>
+</div>
+<div class="status-item">
+<span class="status-label">Bank Partnerships</span>
+<span class="status-value">Planned (Q2)</span>
+</div>
+<div class="status-item">
+<span class="status-label">Platform Development</span>
+<span class="status-value">Planned (Q3)</span>
+</div>
+<div class="status-item">
+<span class="status-label">Integration Testing</span>
+<span class="status-value">Planned (Q4)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="integrations" class="integrations">
+<div class="container">
+<h2 class="section-title">Planned Integrations</h2>
+<p class="section-subtitle">Strategic partnerships under negotiation</p>
+<div class="integration-grid">
+<div class="integration-card fade-in">
+<div class="integration-icon">🔬</div>
 <h3>SGS / Bureau Veritas</h3>
-<p>Quality inspection & certificate verification</p>
-<p><strong>Integration:</strong> API-based certificate validation → NFT minting on blockchain</p>
-<div class="partner-benefit">
-<strong>Revenue Model:</strong>
-<p>$500 per NFT certificate OR 0.05% of deal value</p>
+<p>Quality inspection & certificate verification. API-based validation for automated NFT certificate minting.</p>
+<span class="integration-status research">Research Phase</span>
 </div>
-<div class="partner-benefit">
-<strong>Their Benefit:</strong>
-<p>New revenue stream, reduced fraud risk, access to 50,000+ DMCC firms</p>
-</div>
-</div>
-<div class="partner-card fade-in">
-<div class="partner-icon">🏦</div>
+<div class="integration-card fade-in">
+<div class="integration-icon">🏦</div>
 <h3>RAKBANK / Emirates NBD</h3>
-<p>Regulated escrow services for commodity trade</p>
-<p><strong>Integration:</strong> Bank API ↔ Smart Contract via Chainlink Functions</p>
-<div class="partner-benefit">
-<strong>Revenue Model:</strong>
-<p>0.35% escrow fee (from our 0.60% total)</p>
+<p>Regulated escrow services for commodity trade. Smart contract integration for automated fund locking and release.</p>
+<span class="integration-status planned">Planned Q2</span>
 </div>
-<div class="partner-benefit">
-<strong>Their Benefit:</strong>
-<p>Access to $4.6T commodity market, differentiation as first blockchain-integrated escrow provider</p>
-</div>
-</div>
-<div class="partner-card fade-in">
-<div class="partner-icon">🏛️</div>
+<div class="integration-card fade-in">
+<div class="integration-icon">🏛️</div>
 <h3>DMCC (Dubai Multi Commodities Centre)</h3>
-<p>Technology partnership & ecosystem access</p>
-<p><strong>Integration:</strong> GETH platform ↔ DMCC Tradeflow API for commodity registration</p>
-<div class="partner-benefit">
-<strong>Revenue Model:</strong>
-<p>0.05% referral fee OR $500 per deal</p>
+<p>Technology partnership & ecosystem access. Integration with DMCC Tradeflow for commodity registration.</p>
+<span class="integration-status planned">Planned Q1</span>
 </div>
-<div class="partner-benefit">
-<strong>Their Benefit:</strong>
-<p>Innovation leadership, attract more commodity firms, revenue from digital trade</p>
+<div class="integration-card fade-in">
+<div class="integration-icon">📡</div>
+<h3>IoT Tracking Providers</h3>
+<p>Real-time cargo monitoring. GPS, temperature, humidity sensors with blockchain-based data verification.</p>
+<span class="integration-status research">Research Phase</span>
 </div>
+<div class="integration-card fade-in">
+<div class="integration-icon">🛡️</div>
+<h3>Insurance Providers</h3>
+<p>Cargo and counterparty risk coverage. Integration with Lloyd's and regional insurance partners.</p>
+<span class="integration-status planned">Planned Q3</span>
 </div>
-</div>
-<div class="integration-tech fade-in">
-<h3>Technical Integration Architecture</h3>
-<p style="color: var(--gray-text); margin-bottom: 1.5rem;">All partnerships use standardized API protocols with blockchain verification</p>
-<div class="tech-list">
-<div class="tech-item">
-<strong>SGS/BV API</strong>
-<p>REST API for certificate verification → Webhook for real-time notifications → Digital signature (RSA-2048)</p>
-</div>
-<div class="tech-item">
-<strong>Bank Escrow API</strong>
-<p>Create/Fund/Release endpoints → Chainlink Functions oracle → Compliance with UAE Central Bank regulations</p>
-</div>
-<div class="tech-item">
-<strong>DMCC Tradeflow</strong>
-<p>Commodity registration API → Ownership verification → Tokenization on Ethereum L2 (Arbitrum)</p>
-</div>
-<div class="tech-item">
-<strong>NFT Minting Protocol</strong>
-<p>ERC-721 standard → IPFS metadata storage → SHA-256 hash verification → Burn on settlement</p>
-</div>
+<div class="integration-card fade-in">
+<div class="integration-icon">⚖️</div>
+<h3>Legal & Compliance</h3>
+<p>Top-tier UAE law firm for VARA/DMCC licensing. AML/KYC compliance and regulatory guidance.</p>
+<span class="integration-status planned">In Progress</span>
 </div>
 </div>
 </div>
@@ -634,123 +631,66 @@ licensed inspection companies, and professional intermediaries within a complian
 </div>
 </div>
 </section>
-<section id="sdi" class="sdi">
-<div class="container">
-<div style="text-align:center;"><span class="sdi-badge">PHASE 2 FEATURE • Post-PMF</span></div>
-<h2 class="section-title">Syndicated Deal Investment (SDI)</h2>
-<p class="section-subtitle">Opening commodity trade to crypto investors and DeFi capital</p>
-<p class="sdi-intro fade-in">SDI transforms GETH into a <strong>collective investment engine</strong>. Post-PMF, our AI offers verified deals to accredited investors who earn yield from real commodity transactions — fully automated via smart contracts.</p>
-<div class="sdi-flow fade-in">
-<div class="sdi-flow-box">
-<h4>🏭 Seller + 🏢 Buyer</h4>
-<p>Verified counterparties with pre-committed deal terms</p>
-</div>
-<div class="sdi-flow-arrow">→</div>
-<div class="sdi-flow-box">
-<h4>💰 Syndicate Investors</h4>
-<p>Crypto investors provide capital, earn yield from deal profit</p>
-</div>
-</div>
-<h3 style="text-align:center; color:var(--teal); margin-top:3rem; font-size:1.75rem;">Three Investment Tiers</h3>
-<div class="sdi-tiers">
-<div class="sdi-tier-card fade-in">
-<h4>Explorer</h4>
-<div class="tier-min">Min. $1,000</div>
-<div class="tier-apy">8-12% APY</div>
-<ul>
-<li>45-day lock-up per deal</li>
-<li>Escrow-backed security</li>
-<li>Low risk profile</li>
-<li>Auto-distribution via smart contract</li>
-</ul>
-</div>
-<div class="sdi-tier-card fade-in">
-<h4>Trader</h4>
-<div class="tier-min">Min. $10,000</div>
-<div class="tier-apy">15-25% APY</div>
-<ul>
-<li>45-day lock-up per deal</li>
-<li>Medium risk profile</li>
-<li>Priority deal access</li>
-<li>Real-time portfolio dashboard</li>
-</ul>
-</div>
-<div class="sdi-tier-card fade-in">
-<h4>Whale</h4>
-<div class="tier-min">Min. $100,000+</div>
-<div class="tier-apy">25-40% APY</div>
-<ul>
-<li>45-day lock-up per deal</li>
-<li>High risk, high reward</li>
-<li>Top-tier deal access</li>
-<li>Advisory input on deal selection</li>
-</ul>
-</div>
-</div>
-<div class="sdi-yield-justification fade-in">
-<h4>Why 15–25% USD Target Yield?</h4>
-<ul>
-<li><strong>Emerging Markets Premium:</strong> Trades UAE ↔ Africa/South Asia carry higher margins than EU-US routes.</li>
-<li><strong>SME Risk Premium:</strong> Small traders pay more for capital access that banks deny them.</li>
-<li><strong>Token Upside:</strong> Additional yield potential via $GETH token appreciation (not guaranteed).</li>
-</ul>
-<p class="sdi-yield-disclaimer">Disclaimer: Historical trade finance yields in emerging markets range 12-18%. Target yields include token appreciation potential and are based on unit economics of verified deals, not speculative projections.</p>
-</div>
-<div class="sdi-revenue fade-in">
-<h4>SDI Revenue Uplift (Year 3 Projection)</h4>
-<div class="sdi-revenue-grid">
-<div class="sdi-revenue-item">
-<div class="rev-label">Performance Fee</div>
-<div class="rev-value">20%</div>
-</div>
-<div class="sdi-revenue-item">
-<div class="rev-label">Management Fee</div>
-<div class="rev-value">1-2% AUM</div>
-</div>
-<div class="sdi-revenue-item">
-<div class="rev-label">Early Exit Fee</div>
-<div class="rev-value">5%</div>
-</div>
-<div class="sdi-revenue-item">
-<div class="rev-label">Premium Access</div>
-<div class="rev-value">$5k/mo</div>
-</div>
-</div>
-<p style="margin-top:1.5rem; color:rgba(255,255,255,0.8); font-size:0.95rem;"><strong style="color:var(--teal);">Year 3 Total Revenue with SDI:</strong> ~$20-23M (vs $13.5M without SDI) — <strong style="color:var(--teal);">+50-70% uplift</strong></p>
-</div>
-<div class="sdi-disclaimer fade-in">
-<strong>⚠️ Regulatory Note:</strong> SDI will be structured as a <strong>regulated investment product</strong> under ADGM FSRA framework (separate from VARA utility tokens). Initially available only to <strong>accredited investors</strong> with mandatory KYC/AML. Smart contracts on Ethereum L2 (Arbitrum) ensure transparent profit distribution. Insurance wrapper through Lloyd's partners covers cargo and counterparty risks. Secondary market for NFT participation certificates planned for Phase 3+.
-</div>
-</div>
-</section>
 <section id="pricing" class="pricing">
 <div class="container">
-<h2 class="section-title">Transparent Pricing</h2>
-<p class="section-subtitle">1.10% all-inclusive — 60-70% cheaper than traditional brokers (1.5-3.5%)</p>
+<h2 class="section-title">Target Pricing</h2>
+<p class="section-subtitle">1.10% all-inclusive — significantly lower than traditional brokers (1.5-3.5%)</p>
 <div class="pricing-grid">
-<div class="pricing-card fade-in"><div class="pricing-tier">Early Adopter</div><div class="pricing-rate">0.70%</div><div class="pricing-label">First 10 Clients</div><div class="pricing-breakdown"><div class="pricing-breakdown-item"><strong>Platform fee</strong><span>0.25%</span></div><div class="pricing-breakdown-item"><strong>Escrow fee</strong><span>0.45%</span></div><div class="pricing-breakdown-item" style="border-top: 1px solid #ddd; padding-top: 0.6rem; margin-top: 0.4rem;"><strong>Total</strong><span>0.70%</span></div></div><ul class="pricing-features"><li>Everything included, no hidden fees</li><li>Lifetime 20% discount after intro</li><li>Priority access to new features</li><li>Early $GETH token allocation</li><li>Dedicated account manager</li></ul></div>
-<div class="pricing-card featured fade-in"><div class="pricing-tier">Standard</div><div class="pricing-rate">1.10%</div><div class="pricing-label">All-Inclusive</div><div class="pricing-breakdown"><div class="pricing-breakdown-item"><strong>Platform fee</strong><span>0.50%</span></div><div class="pricing-breakdown-item"><strong>Escrow fee</strong><span>0.60%</span></div><div class="pricing-breakdown-item" style="border-top: 1px solid #ddd; padding-top: 0.6rem; margin-top: 0.4rem;"><strong>Total</strong><span>1.10%</span></div></div><ul class="pricing-features"><li>AI matching & counterparty scoring</li><li>IoT cargo tracking</li><li>NFT quality certificates (SGS/BV)</li><li>Smart contract escrow</li><li>Automated settlement in hours</li><li>Complete audit trail</li></ul></div>
-<div class="pricing-card fade-in"><div class="pricing-tier">After Intro Period</div><div class="pricing-rate">0.90%</div><div class="pricing-label">Early Adopter Lifetime</div><div class="pricing-breakdown"><div class="pricing-breakdown-item"><strong>Platform fee</strong><span>0.35%</span></div><div class="pricing-breakdown-item"><strong>Escrow fee</strong><span>0.55%</span></div><div class="pricing-breakdown-item" style="border-top: 1px solid #ddd; padding-top: 0.6rem; margin-top: 0.4rem;"><strong>Total</strong><span>0.90%</span></div></div><ul class="pricing-features"><li>Lifetime discount for first 10 clients</li><li>All standard features included</li><li>Advisory board participation</li><li>Co-marketing opportunities</li><li>Priority support</li></ul></div>
+<div class="pricing-card fade-in">
+<div class="pricing-tier">Early Adopter</div>
+<div class="pricing-rate">0.70%</div>
+<div class="pricing-label">First 10 Clients</div>
+<div class="pricing-breakdown">
+<div class="pricing-breakdown-item"><strong>Platform fee</strong><span>0.25%</span></div>
+<div class="pricing-breakdown-item"><strong>Escrow fee</strong><span>0.45%</span></div>
+<div class="pricing-breakdown-item" style="border-top: 1px solid #ddd; padding-top: 0.6rem; margin-top: 0.4rem;"><strong>Total</strong><span>0.70%</span></div>
+</div>
+<ul class="pricing-features">
+<li>Everything included, no hidden fees</li>
+<li>Lifetime 20% discount after intro</li>
+<li>Priority access to new features</li>
+<li>Early token allocation (if applicable)</li>
+<li>Dedicated account manager</li>
+</ul>
+</div>
+<div class="pricing-card featured fade-in">
+<div class="pricing-tier">Standard</div>
+<div class="pricing-rate">1.10%</div>
+<div class="pricing-label">All-Inclusive</div>
+<div class="pricing-breakdown">
+<div class="pricing-breakdown-item"><strong>Platform fee</strong><span>0.50%</span></div>
+<div class="pricing-breakdown-item"><strong>Escrow fee</strong><span>0.60%</span></div>
+<div class="pricing-breakdown-item" style="border-top: 1px solid #ddd; padding-top: 0.6rem; margin-top: 0.4rem;"><strong>Total</strong><span>1.10%</span></div>
+</div>
+<ul class="pricing-features">
+<li>AI matching & counterparty scoring</li>
+<li>IoT cargo tracking</li>
+<li>NFT quality certificates (SGS/BV)</li>
+<li>Smart contract escrow</li>
+<li>Automated settlement</li>
+<li>Complete audit trail</li>
+</ul>
+</div>
+<div class="pricing-card fade-in">
+<div class="pricing-tier">After Intro Period</div>
+<div class="pricing-rate">0.90%</div>
+<div class="pricing-label">Early Adopter Lifetime</div>
+<div class="pricing-breakdown">
+<div class="pricing-breakdown-item"><strong>Platform fee</strong><span>0.35%</span></div>
+<div class="pricing-breakdown-item"><strong>Escrow fee</strong><span>0.55%</span></div>
+<div class="pricing-breakdown-item" style="border-top: 1px solid #ddd; padding-top: 0.6rem; margin-top: 0.4rem;"><strong>Total</strong><span>0.90%</span></div>
+</div>
+<ul class="pricing-features">
+<li>Lifetime discount for first 10 clients</li>
+<li>All standard features included</li>
+<li>Advisory board participation</li>
+<li>Co-marketing opportunities</li>
+<li>Priority support</li>
+</ul>
+</div>
 </div>
 <div class="pricing-note">
-<h4>Transparent Unit Economics (Per $19M Fuel Oil Deal)</h4>
-<div class="unit-economics-grid">
-<div class="unit-economics-item">
-<div class="unit-economics-label">Total Revenue</div>
-<div class="unit-economics-value">$209,000 (1.10%)</div>
-</div>
-<div class="unit-economics-item">
-<div class="unit-economics-label">Net GETH Margin</div>
-<div class="unit-economics-value" style="color: var(--black);">~$112,300 (54%)</div>
-</div>
-</div>
-<div class="cost-breakdown">
-<strong>Cost Breakdown:</strong> Bank Escrow (RAKBANK/Emirates NBD): -$66,500 (0.35%) |
-IoT Provider: -$9,500 (0.05%) |
-Inspection (SGS/BV): -$5,700 |
-Infrastructure/APIs: -$15,000<br>
-<em>This margin funds platform development, legal compliance, and team growth.</em>
-</div>
+<strong>What's included in the fee:</strong> AI matching, counterparty scoring, IoT tracking, NFT quality certificates (SGS/Bureau Veritas), smart contract escrow, automated settlement, KYB/KYC verification, platform maintenance, and compliance. <strong>Minimum fee:</strong> $5,000 per deal. <strong>Maximum fee:</strong> $750,000 per deal. <em>Note: Final pricing subject to regulatory approval and market conditions.</em>
 </div>
 </div>
 </section>
@@ -775,24 +715,101 @@ Infrastructure/APIs: -$15,000<br>
 </div>
 <h3 style="text-align: center; margin: 3rem 0 2rem; font-size: 1.9rem;">Planned Step-by-Step Process</h3>
 <div class="use-case-timeline">
-<div class="use-case-step fade-in"><div class="step-number">1</div><h3>📤 Lot Creation & Verification</h3><p>Seller uploads 50,000 MT fuel oil specification to GETH platform, attaches SGS quality certificate. AI system verifies seller's credentials, financial standing, and trading history.</p><div class="step-benefit">Target: Counterparty risk scored in &lt;10 minutes</div></div>
-<div class="use-case-step fade-in"><div class="step-number">2</div><h3>🔍 AI Matching & Discovery</h3><p>GETH's AI engine analyses buyer requirements and automatically matches with available lots. If an intermediary is involved, they receive a notification with a pre-calculated commission structure. Alternatively, the buyer and seller connect directly.</p><div class="step-benefit">Target: Automated deal discovery — no cold calls</div></div>
-<div class="use-case-step fade-in"><div class="step-number">3</div><h3>🔒 Escrow & Contract Lock</h3><p>Buyer books the lot and deposits $19M into regulated escrow account. Smart contract locks all terms: price, quality specs, delivery timeline, intermediary commission (if applicable).</p><div class="step-benefit">Target: 1.10% all-in fee ($209,000)</div></div>
-<div class="use-case-step fade-in"><div class="step-number">4</div><h3>🚢 Logistics Coordination</h3><p>Seller confirms cargo readiness. Buyer selects preferred shipping route. Intermediary or buyer coordinates with carrier for vessel booking. IoT sensors activated for real-time tracking.</p><div class="step-benefit">Target: Transparent logistics for all parties</div></div>
-<div class="use-case-step fade-in"><div class="step-number">5</div><h3>📡 Real-Time Cargo Tracking</h3><p>IoT devices monitor cargo temperature, humidity, and location throughout voyage. Satellite data streamed to GETH platform. Automated notifications at key milestones.</p><div class="step-benefit">Target: Tamper-proof tracking data</div></div>
-<div class="use-case-step fade-in"><div class="step-number">6</div><h3>✅ Quality Verification</h3><p>Upon arrival at Mumbai port, an accredited independent inspector from <strong>SGS or Bureau Veritas</strong> conducts physical cargo inspection against the NFT certificate specifications. Inspection results are transmitted via <strong>secure API</strong> directly to the GETH platform. The smart contract automatically cross-verifies API data against original certificate terms. If quality matches specifications and no disputes are flagged, the contract proceeds to settlement.</p><div class="step-benefit">Target: Instant confirmation — no 18-month disputes</div></div>
-<div class="use-case-step fade-in"><div class="step-number">7</div><h3>💰 Automated Settlement</h3><p>Smart contract triggers <code>releaseFunds()</code> and distributes payments via bank webhooks: <strong>$18,753,000</strong> to seller (after 1.10% GETH platform fee of $209,000), and <strong>$38,000</strong> to the intermediary (if involved). The intermediary is typically a commodity brokerage firm that originated the deal, providing deal origination, counterparty vetting, and logistics coordination. If the buyer and seller found each other directly through GETH's AI matching, this commission is saved, maximizing value for both parties. Settlement completes in under 2 hours.</p><div class="step-benefit">Target: $209,000 GETH revenue (1.10% of deal)</div></div>
-<div class="use-case-step fade-in"><div class="step-number">8</div><h3>📊 Reporting & Analytics</h3><p>All participants access deal history via dashboard. Buyer receives comprehensive digital passport with ESG data. Complete audit trail for compliance.</p><div class="step-benefit">Target: Complete audit trail for compliance</div></div>
+<div class="use-case-step fade-in">
+<div class="step-number">1</div>
+<h3>📤 Lot Creation & Verification</h3>
+<p>Seller uploads 50,000 MT fuel oil specification to GETH platform, attaches SGS quality certificate. AI system verifies seller's credentials, financial standing, and trading history.</p>
+<div class="step-benefit">Target: Counterparty risk scored in &lt;10 minutes</div>
+</div>
+<div class="use-case-step fade-in">
+<div class="step-number">2</div>
+<h3>🔍 AI Matching & Discovery</h3>
+<p>GETH's AI engine analyses buyer requirements and automatically matches with available lots. If an intermediary is involved, they receive a notification with a pre-calculated commission structure. Alternatively, the buyer and seller connect directly.</p>
+<div class="step-benefit">Target: Automated deal discovery — no cold calls</div>
+</div>
+<div class="use-case-step fade-in">
+<div class="step-number">3</div>
+<h3>🔒 Escrow & Contract Lock</h3>
+<p>Buyer books the lot and deposits $19M into regulated escrow account. Smart contract locks all terms: price, quality specs, delivery timeline, intermediary commission (if applicable).</p>
+<div class="step-benefit">Target: 1.10% all-in fee ($209,000)</div>
+</div>
+<div class="use-case-step fade-in">
+<div class="step-number">4</div>
+<h3>🚢 Logistics Coordination</h3>
+<p>Seller confirms cargo readiness. Buyer selects preferred shipping route. Intermediary or buyer coordinates with carrier for vessel booking. IoT sensors activated for real-time tracking.</p>
+<div class="step-benefit">Target: Transparent logistics for all parties</div>
+</div>
+<div class="use-case-step fade-in">
+<div class="step-number">5</div>
+<h3>📡 Real-Time Cargo Tracking</h3>
+<p>IoT devices monitor cargo temperature, humidity, and location throughout voyage. Satellite data streamed to GETH platform. Automated notifications at key milestones.</p>
+<div class="step-benefit">Target: Tamper-proof tracking data</div>
+</div>
+<div class="use-case-step fade-in">
+<div class="step-number">6</div>
+<h3>✅ Quality Verification</h3>
+<p>Upon arrival at Mumbai port, an accredited independent inspector from <strong>SGS or Bureau Veritas</strong> conducts physical cargo inspection against the NFT certificate specifications. Inspection results are transmitted via <strong>secure API</strong> directly to the GETH platform. The smart contract automatically cross-verifies API data against original certificate terms. If quality matches specifications and no disputes are flagged, the contract proceeds to settlement.</p>
+<div class="step-benefit">Target: Instant confirmation — no 18-month disputes</div>
+</div>
+<div class="use-case-step fade-in">
+<div class="step-number">7</div>
+<h3>💰 Automated Settlement</h3>
+<p>Smart contract triggers automated settlement and distributes payments via bank webhooks: <strong>$18,753,000</strong> to seller (after 1.10% GETH platform fee of $209,000), and <strong>$38,000</strong> to the intermediary (if involved). The intermediary is typically a commodity brokerage firm that originated the deal, providing deal origination, counterparty vetting, and logistics coordination. If the buyer and seller found each other directly through GETH's AI matching, this commission is saved, maximizing value for both parties. Settlement completes in hours, not weeks.</p>
+<div class="step-benefit">Target: $209,000 GETH revenue (1.10% of deal)</div>
+</div>
+<div class="use-case-step fade-in">
+<div class="step-number">8</div>
+<h3>📊 Reporting & Analytics</h3>
+<p>All participants access deal history via dashboard. Buyer receives comprehensive digital passport with ESG data. Complete audit trail for compliance.</p>
+<div class="step-benefit">Target: Complete audit trail for compliance</div>
+</div>
 </div>
 </div>
 </section>
-<section id="tokens" class="tokens">
+<section id="future-vision" class="future-vision">
 <div class="container">
-<h2 class="section-title">Dual-Token Economy</h2>
-<p class="section-subtitle">Phased & Defensible Token Model</p>
-<div class="tokens-grid">
-<div class="token-card fade-in"><h3>$GETH</h3><p class="token-type">Exchange & Value Accrual Token</p><ul><li>Buyback & burn from platform fees (1.10% per deal)</li><li>Staking rewards for liquidity providers</li><li>CEX/DEX listing post-PMF validation</li><li>Max supply: 100M tokens (deflationary)</li><li>Revenue share from escrow fees</li></ul><p style="margin-top: 1.25rem; font-weight: 600; color: var(--teal);">📅 Target Launch: Post-PMF (12+ months)</p></div>
-<div class="token-card fade-in"><h3>$vGETH</h3><p class="token-type">Utility & Governance Token</p><ul><li>Burn to mint NFT quality certificates (SGS/BV integration)</li><li>Priority access to AI matching algorithm</li><li>DAO voting rights on platform upgrades</li><li>Staking for reduced platform fees</li><li>Deflationary mechanics via certificate burns</li></ul><p style="margin-top: 1.25rem; font-weight: 600; color: var(--teal);">📅 Target Launch: Post-PMF (18+ months)</p></div>
+<h2 class="section-title">Future Vision (Phase 2+)</h2>
+<p class="section-subtitle">Long-term roadmap — after platform validation</p>
+<div class="future-grid">
+<div class="future-card fade-in">
+<h3>🪙 Dual-Token Economy</h3>
+<p>After achieving product-market fit and regulatory approval, GETH may introduce a dual-token model to align incentives and create network effects.</p>
+<ul>
+<li><strong>$GETH Token:</strong> Exchange & value accrual token</li>
+<li><strong>$vGETH Token:</strong> Utility & governance token</li>
+<li>Buyback & burn from platform fees</li>
+<li>Staking rewards for liquidity providers</li>
+<li>DAO governance rights</li>
+<li>Deflationary mechanics</li>
+</ul>
+</div>
+<div class="future-card fade-in">
+<h3>💰 Syndicated Deal Investment (SDI)</h3>
+<p>Post-PMF, GETH may introduce SDI — allowing accredited investors to participate in real commodity deals and earn yield from profit share.</p>
+<ul>
+<li>AI offers verified deals to accredited investors</li>
+<li>Target yield: 15-25% USD + token upside</li>
+<li>45-day lock-up per deal</li>
+<li>Fully automated via smart contracts</li>
+<li>Regulated under ADGM FSRA framework</li>
+<li>Insurance wrapper through Lloyd's partners</li>
+</ul>
+</div>
+<div class="future-card fade-in">
+<h3>🌍 Global Expansion</h3>
+<p>After validating the model in UAE, GETH plans to expand to other major commodity trading hubs.</p>
+<ul>
+<li>Middle East (UAE, Saudi Arabia, Qatar)</li>
+<li>Europe (Switzerland, UK, Netherlands)</li>
+<li>Africa (Nigeria, South Africa, Kenya)</li>
+<li>Asia (Singapore, India, China)</li>
+<li>Local regulatory compliance in each jurisdiction</li>
+<li>Regional partnership development</li>
+</ul>
+</div>
+</div>
+<div class="future-disclaimer fade-in">
+<strong>⚠️ Important Disclaimer:</strong> The features described in this section are planned for future development and are subject to regulatory approval, market conditions, and platform validation. Token issuance and SDI will only proceed after achieving product-market fit and obtaining necessary licenses. All projections are illustrative and not guaranteed.
 </div>
 </div>
 </section>
@@ -813,31 +830,109 @@ Infrastructure/APIs: -$15,000<br>
 <h2 class="section-title">Team</h2>
 <p class="section-subtitle">Industry Expertise + Engineering Excellence</p>
 <div class="team-grid">
-<div class="team-card fade-in"><div class="team-avatar">👤</div><h3>Pavel Bogomolov-Cheliuskin</h3><p class="team-role">Founder & CEO — Fuel & Gas Trading</p><p>8+ years executing fuel and gas trades across UAE, Finland, Mozambique, Zimbabwe, and other markets at Harka, Pentium AG, G-Gas, and Grandcliff Petroleum. Deep understanding of industry pain points.</p></div>
-<div class="team-card fade-in"><div class="team-avatar">💻</div><h3>Vadim Ustinov</h3><p class="team-role">Technical Co-Founder & CTO — Software Engineer</p><p>Classically trained software engineer with decades of experience building complex systems. Combines rigorous engineering foundations with practical business acumen — understands not just code, but the commercial logic behind every product. Committed to quality, reliability, and scalable architecture.</p></div>
+<div class="team-card fade-in">
+<div class="team-avatar">👤</div>
+<h3>Pavel Bogomolov-Cheliuskin</h3>
+<p class="team-role">Founder & CEO — Fuel & Gas Trading</p>
+<p class="team-experience">8+ years executing fuel and gas trades across UAE, Finland, Mozambique, Zimbabwe, and other markets at Harka, Pentium AG, G-Gas, and Grandcliff Petroleum. Deep understanding of industry pain points. Direct network of traders, refineries, and logistics providers across MENA, Europe, and Africa.</p>
+</div>
+<div class="team-card fade-in">
+<div class="team-avatar">💻</div>
+<h3>Vadim Ustinov</h3>
+<p class="team-role">Technical Co-Founder & CTO — Software Engineer</p>
+<p class="team-experience">Classically trained software engineer with decades of experience building complex systems. Combines rigorous engineering foundations with practical business acumen — understands not just code, but the commercial logic behind every product. Committed to quality, reliability, and scalable architecture.</p>
+</div>
 </div>
 </div>
 </section>
-<section class="roadmap">
+<section id="roadmap" class="roadmap">
 <div class="container">
 <h2 class="section-title">Roadmap & Use of Funds</h2>
-<p class="section-subtitle">Legal First → MVP → Test Deals → SDI Launch</p>
+<p class="section-subtitle">Legal First → Platform → Test Deals</p>
 <div class="roadmap-grid">
-<div class="roadmap-item fade-in"><h3>Q1</h3><ul><li>DMCC trade license application</li><li>VARA conditional approval process</li><li>Token legal structuring</li><li>Corporate governance setup</li></ul></div>
-<div class="roadmap-item fade-in"><h3>Q2</h3><ul><li>Legal framework completion</li><li>Core team assembly</li><li>Architecture design</li><li>Partnership negotiations (escrow, IoT)</li></ul></div>
-<div class="roadmap-item fade-in"><h3>Q3</h3><ul><li>MVP development begins</li><li>AI scoring engine prototype</li><li>Escrow integration</li><li>IoT partner integration</li></ul></div>
-<div class="roadmap-item fade-in"><h3>Q4</h3><ul><li>Beta platform launch</li><li>First 5–10 test deals</li><li>Seed round preparation</li><li>$GETH tokenomics design</li></ul></div>
-<div class="roadmap-item fade-in"><h3>Phase 2 (Post-PMF)</h3><ul><li>PMF validation</li><li>50+ active traders</li><li>$GETH token launch</li><li>SDI architecture design</li></ul></div>
-<div class="roadmap-item fade-in"><h3>Phase 3 (Scale)</h3><ul><li>SDI pilot with accredited investors</li><li>ADGM FSRA licensing</li><li>Insurance wrapper (Lloyd's)</li><li>$vGETH governance launch</li></ul></div>
+<div class="roadmap-item fade-in">
+<h3>Q1</h3>
+<ul>
+<li>DMCC trade license application</li>
+<li>VARA conditional approval process</li>
+<li>Token legal structuring</li>
+<li>Corporate governance setup</li>
+</ul>
+</div>
+<div class="roadmap-item fade-in">
+<h3>Q2</h3>
+<ul>
+<li>Legal framework completion</li>
+<li>Core team assembly</li>
+<li>Architecture design</li>
+<li>Bank partnership negotiations</li>
+</ul>
+</div>
+<div class="roadmap-item fade-in">
+<h3>Q3</h3>
+<ul>
+<li>MVP development begins</li>
+<li>AI scoring engine prototype</li>
+<li>Escrow integration</li>
+<li>IoT partner integration</li>
+</ul>
+</div>
+<div class="roadmap-item fade-in">
+<h3>Q4</h3>
+<ul>
+<li>Beta platform launch</li>
+<li>First 5–10 test deals</li>
+<li>Seed round preparation</li>
+<li>Tokenomics design (if applicable)</li>
+</ul>
+</div>
+<div class="roadmap-item fade-in">
+<h3>Phase 2 (Post-PMF)</h3>
+<ul>
+<li>PMF validation</li>
+<li>50+ active traders</li>
+<li>Token launch (if approved)</li>
+<li>SDI architecture design</li>
+</ul>
+</div>
+<div class="roadmap-item fade-in">
+<h3>Phase 3 (Scale)</h3>
+<ul>
+<li>SDI pilot with accredited investors</li>
+<li>ADGM FSRA licensing</li>
+<li>Insurance wrapper (Lloyd's)</li>
+<li>Governance token launch</li>
+</ul>
+</div>
 </div>
 <div class="funds-chart fade-in">
 <h3>Use of $800k Pre-Seed Round</h3>
 <p class="funds-subtitle">Legal-First Approach — Regulatory Foundation Before Development</p>
-<div class="fund-item"><div class="fund-info"><strong>Legal Framework (UAE Licensing + Token Structuring)</strong></div><div class="fund-bar-container"><div class="fund-bar" style="width: 40%;"></div></div><span style="color: var(--teal); font-weight: 600;">40%</span></div>
-<div class="fund-item"><div class="fund-info"><strong>Team (Founders + Engineers)</strong></div><div class="fund-bar-container"><div class="fund-bar" style="width: 30%;"></div></div><span style="color: var(--teal); font-weight: 600;">30%</span></div>
-<div class="fund-item"><div class="fund-info"><strong>MVP Development (post-licensing)</strong></div><div class="fund-bar-container"><div class="fund-bar" style="width: 20%;"></div></div><span style="color: var(--teal); font-weight: 600;">20%</span></div>
-<div class="fund-item residual"><div class="fund-info"><strong style="opacity:0.8;">Partnerships + Test Deals</strong></div><div class="fund-bar-container"><div class="fund-bar" style="width: 5%;"></div></div><span style="color: var(--teal); font-weight: 600; opacity:0.8;">5%</span></div>
-<div class="fund-item residual"><div class="fund-info"><strong style="opacity:0.8;">IoT Integration Research</strong></div><div class="fund-bar-container"><div class="fund-bar" style="width: 5%;"></div></div><span style="color: var(--teal); font-weight: 600; opacity:0.8;">5%</span></div>
+<div class="fund-item">
+<div class="fund-info"><strong>Legal Framework (UAE Licensing + Token Structuring)</strong></div>
+<div class="fund-bar-container"><div class="fund-bar" style="width: 40%;"></div></div>
+<span style="color: var(--teal); font-weight: 600;">40%</span>
+</div>
+<div class="fund-item">
+<div class="fund-info"><strong>Team (Founders + Engineers)</strong></div>
+<div class="fund-bar-container"><div class="fund-bar" style="width: 30%;"></div></div>
+<span style="color: var(--teal); font-weight: 600;">30%</span>
+</div>
+<div class="fund-item">
+<div class="fund-info"><strong>MVP Development (post-licensing)</strong></div>
+<div class="fund-bar-container"><div class="fund-bar" style="width: 20%;"></div></div>
+<span style="color: var(--teal); font-weight: 600;">20%</span>
+</div>
+<div class="fund-item residual">
+<div class="fund-info"><strong style="opacity:0.8;">Partnerships + Test Deals</strong></div>
+<div class="fund-bar-container"><div class="fund-bar" style="width: 5%;"></div></div>
+<span style="color: var(--teal); font-weight: 600; opacity:0.8;">5%</span>
+</div>
+<div class="fund-item residual">
+<div class="fund-info"><strong style="opacity:0.8;">IoT Integration Research</strong></div>
+<div class="fund-bar-container"><div class="fund-bar" style="width: 5%;"></div></div>
+<span style="color: var(--teal); font-weight: 600; opacity:0.8;">5%</span>
+</div>
 </div>
 </div>
 </section>
@@ -846,7 +941,7 @@ Infrastructure/APIs: -$15,000<br>
 <div class="ask-content">
 <h2 class="section-title">Investment Opportunity</h2>
 <div class="ask-amount">$600k – $1.2M Pre-Seed</div>
-<p style="font-size: 1.15rem; margin-bottom: 2rem; color: var(--gray-text);">At idea stage — first priority is UAE legal framework, then MVP development, then test deals with founder's network, then SDI launch post-PMF. Honest, capital-efficient, legal-first approach.</p>
+<p style="font-size: 1.15rem; margin-bottom: 2rem; color: var(--gray-text);">At idea stage — first priority is UAE legal framework, then platform development, then test deals with founder's network. Honest, capital-efficient, legal-first approach.</p>
 <div class="contact-info">
 <h3 style="color: var(--teal); margin-bottom: 1.25rem;">Get in Touch</h3>
 <p style="margin-bottom: 1.25rem;">Ready to discuss an honest, early-stage opportunity?</p>
@@ -856,7 +951,7 @@ Infrastructure/APIs: -$15,000<br>
 <h3 style="color: var(--teal); margin-bottom: 1.25rem;">What Investors Receive:</h3>
 <ul style="list-style: none; line-height: 2;">
 <li>✓ Equity stake via SAFE or convertible note</li>
-<li>✓ Early access to $GETH token allocation</li>
+<li>✓ Early access to token allocation (if applicable)</li>
 <li>✓ Direct advisory role in strategy</li>
 <li>✓ Quarterly updates on progress</li>
 <li>✓ Pro-rata rights in seed round</li>
