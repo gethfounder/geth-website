@@ -5,99 +5,169 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GETH — Interactive MVP Demo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:root { --black: #000000; --white: #FFFFFF; --teal: #00C4B4; --teal-light: #00D4C4; --gray-light: #F5F5F5; --gray-dark: #1a1a1a; --gray-text: #666666; }
-body { font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: var(--black); background: var(--gray-light); }
-.top-nav { background: var(--black); color: var(--white); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-.top-nav .logo { font-weight: 700; font-size: 1.5rem; color: var(--white); text-decoration: none; }
-.back-link { color: var(--white); text-decoration: none; padding: 0.5rem 1.25rem; border: 2px solid var(--teal); border-radius: 8px; font-weight: 600; }
-.back-link:hover { background: var(--teal); }
-.container { max-width: 1000px; margin: 2rem auto; padding: 0 5%; }
-.progress { background: var(--white); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-.progress-bar { height: 10px; background: var(--gray-light); border-radius: 5px; overflow: hidden; margin-bottom: 1rem; }
-.progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--teal-light)); width: 0%; transition: width 0.5s ease; }
-.progress-text { display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--gray-text); }
-.progress-text strong { color: var(--teal); }
-.step { background: var(--white); padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 4px solid var(--teal); }
-.step-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
-.step-number { width: 50px; height: 50px; background: var(--teal); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; }
-.step-header h3 { color: var(--black); font-size: 1.5rem; }
-.step-description { color: var(--gray-text); line-height: 1.7; margin-bottom: 1.5rem; }
-.form-group { margin-bottom: 1.25rem; }
-.form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--black); }
-.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem; border: 2px solid var(--gray-light); border-radius: 8px; font-size: 1rem; font-family: inherit; }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--teal); }
-.form-group textarea { min-height: 100px; resize: vertical; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.role-selection { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
-.role-card { padding: 2rem; background: var(--gray-light); border-radius: 10px; border: 3px solid transparent; cursor: pointer; transition: all 0.3s; text-align: center; }
-.role-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-.role-card.selected { border-color: var(--teal); background: rgba(0,196,180,0.1); }
-.role-icon { font-size: 3rem; margin-bottom: 1rem; }
-.role-card h4 { color: var(--teal); margin-bottom: 0.5rem; font-size: 1.3rem; }
-.btn { padding: 0.85rem 1.75rem; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; font-size: 1rem; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; }
-.btn-primary { background: var(--teal); color: var(--white); }
-.btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,196,180,0.3); }
-.btn-secondary { background: transparent; color: var(--teal); border: 2px solid var(--teal); }
-.btn-secondary:hover { background: var(--teal); color: var(--white); }
-.btn:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn-group { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-.api-response { background: var(--gray-dark); color: #00ff88; padding: 1.25rem; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 0.9rem; margin: 1rem 0; border-left: 4px solid var(--teal); white-space: pre-wrap; display: none; }
-.api-response.active { display: block; }
-.api-response .api-header { color: var(--teal); font-weight: 700; margin-bottom: 0.5rem; }
-.spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(0,196,180,0.3); border-radius: 50%; border-top-color: var(--teal); animation: spin 1s linear infinite; margin-right: 0.5rem; }
-@keyframes spin { to { transform: rotate(360deg); } }
-.counterparty-list { display: grid; gap: 1rem; margin: 1.5rem 0; }
-.counterparty-card { padding: 1.5rem; background: var(--gray-light); border-radius: 8px; border: 2px solid transparent; cursor: pointer; transition: all 0.3s; }
-.counterparty-card:hover { border-color: var(--teal); transform: translateX(5px); }
-.counterparty-card.selected { border-color: var(--teal); background: rgba(0,196,180,0.1); }
-.counterparty-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
-.counterparty-name { font-weight: 700; font-size: 1.1rem; }
-.trust-badge { padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem; font-weight: 600; }
-.trust-high { background: #ddfff5; color: #00876e; }
-.trust-medium { background: #fff3dd; color: #cc7700; }
-.contract-preview { background: var(--white); border: 2px solid var(--teal); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
-.contract-preview h4 { color: var(--teal); margin-bottom: 1rem; }
-.contract-term { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--gray-light); }
-.smart-contract { background: var(--gray-dark); color: #00ff88; padding: 1.5rem; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 0.85rem; margin: 1rem 0; overflow-x: auto; }
-.timeline { position: relative; padding-left: 2rem; margin: 1.5rem 0; }
-.timeline::before { content: ''; position: absolute; left: 0.5rem; top: 0; bottom: 0; width: 2px; background: var(--gray-light); }
-.timeline-item { position: relative; padding-bottom: 1.5rem; }
-.timeline-item::before { content: ''; position: absolute; left: -1.75rem; top: 0.5rem; width: 12px; height: 12px; background: var(--teal); border-radius: 50%; border: 3px solid var(--white); }
-.timeline-time { font-size: 0.85rem; color: var(--gray-text); margin-bottom: 0.25rem; }
-.timeline-content { font-weight: 600; color: var(--black); }
-.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-.summary-item { background: rgba(0,196,180,0.1); padding: 1.25rem; border-radius: 8px; border-left: 4px solid var(--teal); }
-.summary-label { font-size: 0.85rem; color: var(--gray-text); margin-bottom: 0.5rem; }
-.summary-value { font-size: 1.5rem; font-weight: 700; color: var(--teal); }
-.status-pill { display: inline-block; padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin: 0.25rem; }
-.status-success { background: #ddfff5; color: #00876e; }
-.status-info { background: #e0f2fe; color: #0369a1; }
-.status-pending { background: #fff3dd; color: #cc7700; }
-.signature-box { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
-.signature-card { padding: 1.5rem; background: var(--gray-light); border-radius: 8px; border: 2px solid var(--gray-light); text-align: center; }
-.signature-card.signed { border-color: var(--teal); background: rgba(0,196,180,0.05); }
-.signature-card h4 { margin-bottom: 0.5rem; }
-.signature-status { font-size: 0.9rem; color: var(--gray-text); margin-bottom: 1rem; }
-.signature-status.signed { color: var(--teal); font-weight: 600; }
-.logistics-list { display: grid; gap: 1rem; margin: 1.5rem 0; }
-.logistics-card { padding: 1.5rem; background: var(--gray-light); border-radius: 8px; border: 2px solid transparent; cursor: pointer; transition: all 0.3s; }
-.logistics-card:hover { border-color: var(--teal); }
-.logistics-card.selected { border-color: var(--teal); background: rgba(0,196,180,0.1); }
-.logistics-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
-.logistics-name { font-weight: 700; font-size: 1.1rem; }
-.logistics-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.75rem; font-size: 0.9rem; color: var(--gray-text); }
-@media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } .role-selection { grid-template-columns: 1fr; } .step { padding: 1.5rem; } .signature-box { grid-template-columns: 1fr; } .logistics-details { grid-template-columns: 1fr; } }
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --ink:#12161F; --ink-2:#1C2230; --paper:#F7F4EC; --paper-2:#EFEADC; --card:#FFFFFF;
+  --brass:#B27E3C; --brass-deep:#8C5F26; --pine:#2F5C4F; --line:#DCD4BE;
+  --ink-soft:#54596A; --white:#FFFFFF; --amber:#E3B678;
+  --font-display:'Fraunces',serif; --font-body:'IBM Plex Sans',Arial,sans-serif; --font-mono:'IBM Plex Mono',monospace;
+  /* aliases so inline styles in JS-generated markup pick up the new theme automatically */
+  --teal:#8C5F26; --teal-light:#B27E3C; --black:#12161F; --gray-light:#EFEADC; --gray-dark:#1C2230; --gray-text:#54596A;
+}
+body{font-family:var(--font-body);line-height:1.65;color:var(--ink);background:var(--paper);}
+.icon-sm{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;vertical-align:-2px;margin-right:0.4rem;}
+.icon-lg{width:38px;height:38px;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
+.step-icon{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-right:0.7rem;color:var(--brass-deep);vertical-align:-4px;}
+.top-nav{background:var(--ink);color:var(--white);padding:1rem 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--ink-2);}
+.top-nav .logo{font-family:var(--font-display);font-weight:600;font-size:1.35rem;color:var(--white);text-decoration:none;}
+.logo-tag{font-family:var(--font-mono);font-size:0.72rem;color:var(--amber);letter-spacing:0.04em;text-transform:uppercase;margin-left:0.5rem;font-weight:500;}
+.back-link{color:var(--white);text-decoration:none;padding:0.55rem 1.25rem;border:1.5px solid var(--brass);border-radius:3px;font-weight:600;font-size:0.9rem;}
+.back-link:hover{background:var(--brass);border-color:var(--brass);}
+.container{max-width:1000px;margin:2rem auto;padding:0 5%;}
+.progress{background:var(--card);padding:1.5rem;border-radius:3px;margin-bottom:2rem;border:1px solid var(--line);}
+.progress-bar{height:6px;background:var(--paper-2);border-radius:3px;overflow:hidden;margin-bottom:1rem;}
+.progress-fill{height:100%;background:var(--brass);width:0%;transition:width 0.5s ease;}
+.progress-text{display:flex;justify-content:space-between;font-size:0.85rem;color:var(--ink-soft);font-family:var(--font-mono);}
+.progress-text strong{color:var(--brass-deep);}
+.step{background:var(--card);padding:2.5rem;border-radius:3px;border:1px solid var(--line);border-top:3px solid var(--brass);}
+.step-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;}
+.step-number{width:44px;height:44px;background:var(--ink);color:var(--amber);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:1.2rem;font-weight:600;flex-shrink:0;}
+.step-header h3{font-family:var(--font-display);color:var(--ink);font-size:1.4rem;font-weight:600;display:flex;align-items:center;}
+.step-description{color:var(--ink-soft);line-height:1.7;margin-bottom:1.5rem;}
+.form-group{margin-bottom:1.25rem;}
+.form-group label{display:block;font-weight:600;margin-bottom:0.5rem;color:var(--ink);font-size:0.92rem;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:0.7rem;border:1.5px solid var(--line);border-radius:3px;font-size:0.95rem;font-family:inherit;background:var(--paper);color:var(--ink);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--brass);}
+.form-group textarea{min-height:100px;resize:vertical;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.role-selection{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0;}
+.role-card{padding:2rem;background:var(--paper-2);border-radius:3px;border:1.5px solid var(--line);cursor:pointer;transition:all 0.25s;text-align:center;}
+.role-card:hover{border-color:var(--brass);}
+.role-card.selected{border-color:var(--brass);background:rgba(178,126,60,0.08);}
+.role-icon{margin-bottom:1rem;display:flex;justify-content:center;color:var(--brass-deep);}
+.role-card h4{font-family:var(--font-display);color:var(--ink);margin-bottom:0.5rem;font-size:1.2rem;font-weight:600;}
+.btn{padding:0.75rem 1.5rem;border-radius:3px;border:1.5px solid transparent;font-weight:600;cursor:pointer;font-size:0.92rem;transition:all 0.25s;display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-body);}
+.btn-primary{background:var(--ink);color:var(--paper);}
+.btn-primary:hover{background:var(--brass-deep);}
+.btn-secondary{background:transparent;color:var(--ink);border-color:var(--ink);}
+.btn-secondary:hover{border-color:var(--brass-deep);color:var(--brass-deep);}
+.btn:disabled{opacity:0.45;cursor:not-allowed;}
+.btn-group{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;}
+.api-response{background:var(--ink);color:#8FE3C7;padding:1.25rem;border-radius:3px;font-family:var(--font-mono);font-size:0.85rem;margin:1rem 0;border-left:3px solid var(--brass);white-space:pre-wrap;display:none;line-height:1.6;}
+.api-response.active{display:block;}
+.api-response .api-header{color:var(--amber);font-weight:600;margin-bottom:0.6rem;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.03em;}
+.spinner{display:inline-block;width:16px;height:16px;border:2.5px solid rgba(178,126,60,0.3);border-radius:50%;border-top-color:var(--brass);animation:spin 1s linear infinite;margin-right:0.5rem;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.counterparty-list{display:grid;gap:1rem;margin:1.5rem 0;}
+.counterparty-card{padding:1.5rem;background:var(--paper-2);border-radius:3px;border:1.5px solid var(--line);cursor:pointer;transition:all 0.25s;}
+.counterparty-card:hover{border-color:var(--brass);}
+.counterparty-card.selected{border-color:var(--brass);background:rgba(178,126,60,0.08);}
+.counterparty-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;}
+.counterparty-name{font-weight:600;font-size:1.02rem;display:flex;align-items:center;}
+.trust-badge{padding:0.25rem 0.7rem;border-radius:12px;font-size:0.78rem;font-weight:600;font-family:var(--font-mono);}
+.trust-high{background:rgba(47,92,79,0.12);color:var(--pine);}
+.trust-medium{background:rgba(178,126,60,0.14);color:var(--brass-deep);}
+.contract-preview{background:var(--card);border:1.5px solid var(--brass);border-radius:3px;padding:1.5rem;margin:1.5rem 0;}
+.contract-preview h4{font-family:var(--font-display);color:var(--ink);margin-bottom:1rem;font-weight:600;}
+.contract-term{display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--line);font-size:0.92rem;}
+.smart-contract{background:var(--ink);color:#8FE3C7;padding:1.5rem;border-radius:3px;font-family:var(--font-mono);font-size:0.82rem;margin:1rem 0;overflow-x:auto;line-height:1.6;}
+.timeline{position:relative;padding-left:2rem;margin:1.5rem 0;}
+.timeline::before{content:'';position:absolute;left:0.5rem;top:0;bottom:0;width:2px;background:var(--line);}
+.timeline-item{position:relative;padding-bottom:1.5rem;}
+.timeline-item::before{content:'';position:absolute;left:-1.75rem;top:0.5rem;width:10px;height:10px;background:var(--brass);border-radius:50%;border:2px solid var(--card);}
+.timeline-time{font-size:0.8rem;color:var(--ink-soft);margin-bottom:0.25rem;font-family:var(--font-mono);}
+.timeline-content{font-weight:600;color:var(--ink);font-size:0.92rem;}
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:1.5rem;}
+.summary-item{background:var(--paper-2);padding:1.25rem;border-radius:3px;border-left:3px solid var(--brass);}
+.summary-label{font-size:0.8rem;color:var(--ink-soft);margin-bottom:0.5rem;}
+.summary-value{font-family:var(--font-mono);font-size:1.35rem;font-weight:600;color:var(--brass-deep);}
+.status-pill{display:inline-block;padding:0.3rem 0.85rem;border-radius:12px;font-size:0.78rem;font-weight:600;margin:0.25rem 0.25rem 0.25rem 0;font-family:var(--font-mono);}
+.status-success{background:rgba(47,92,79,0.12);color:var(--pine);}
+.status-info{background:rgba(178,126,60,0.12);color:var(--brass-deep);}
+.status-pending{background:rgba(178,126,60,0.14);color:var(--brass-deep);}
+.signature-box{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0;}
+.signature-card{padding:1.5rem;background:var(--paper-2);border-radius:3px;border:1.5px solid var(--line);text-align:center;}
+.signature-card.signed{border-color:var(--pine);background:rgba(47,92,79,0.05);}
+.signature-card h4{font-family:var(--font-display);margin-bottom:0.5rem;font-weight:600;}
+.signature-status{font-size:0.88rem;color:var(--ink-soft);margin-bottom:1rem;}
+.signature-status.signed{color:var(--pine);font-weight:600;}
+.logistics-list{display:grid;gap:1rem;margin:1.5rem 0;}
+.logistics-card{padding:1.5rem;background:var(--paper-2);border-radius:3px;border:1.5px solid var(--line);cursor:pointer;transition:all 0.25s;}
+.logistics-card:hover{border-color:var(--brass);}
+.logistics-card.selected{border-color:var(--brass);background:rgba(178,126,60,0.08);}
+.logistics-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;}
+.logistics-name{font-weight:600;font-size:1.02rem;display:flex;align-items:center;}
+.logistics-details{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:0.75rem;font-size:0.88rem;color:var(--ink-soft);}
+@media (max-width:768px){.form-row{grid-template-columns:1fr;}.role-selection{grid-template-columns:1fr;}.step{padding:1.5rem;}.signature-box{grid-template-columns:1fr;}.logistics-details{grid-template-columns:1fr;}}
+.compare-strip{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin-bottom:1.5rem;background:var(--card);}
+.compare-col{padding:1.25rem 1.5rem;}
+.compare-col.traditional{border-right:1px solid var(--line);}
+.compare-col.geth{background:rgba(178,126,60,0.05);}
+.compare-label{font-family:var(--font-mono);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--ink-soft);margin-bottom:0.9rem;}
+.compare-col.geth .compare-label{color:var(--brass-deep);}
+.compare-row{display:flex;flex-direction:column;gap:0.15rem;padding:0.55rem 0;border-top:1px solid var(--line);font-size:0.85rem;}
+.compare-row:first-of-type{border-top:none;}
+.compare-row span{color:var(--ink-soft);font-size:0.78rem;}
+.compare-row strong{font-weight:600;color:var(--ink);}
+.safety-note{display:flex;gap:0.9rem;background:rgba(47,92,79,0.07);border:1px solid rgba(47,92,79,0.25);border-radius:3px;padding:1rem 1.25rem;margin:1.25rem 0;font-size:0.88rem;color:var(--ink);align-items:flex-start;}
+.safety-note svg{color:var(--pine);width:20px;height:20px;flex-shrink:0;margin-top:0.1rem;}
+.match-breakdown{margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--line);font-size:0.82rem;color:var(--ink-soft);display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;}
+.match-breakdown div strong{display:block;color:var(--ink);font-family:var(--font-mono);font-size:0.85rem;}
+.big-metric{background:var(--ink);color:var(--white);padding:2rem;border-radius:3px;text-align:center;margin:1.5rem 0;}
+.big-metric .compare-arrow{font-family:var(--font-mono);font-size:2.1rem;font-weight:600;display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap;}
+.big-metric .from{color:rgba(255,255,255,0.4);text-decoration:line-through;font-size:1.4rem;}
+.big-metric .to{color:var(--amber);}
+.big-metric .caption{font-size:0.85rem;color:rgba(255,255,255,0.6);margin-top:0.75rem;font-family:var(--font-mono);}
+.dispute-branch{margin-top:1.5rem;padding:1.5rem;background:var(--paper-2);border:1px dashed var(--line);border-radius:3px;}
+.dispute-branch h4{font-family:var(--font-display);margin-bottom:0.5rem;}
+.dispute-tier-mini{display:flex;justify-content:space-between;padding:0.6rem 0;border-top:1px solid var(--line);font-size:0.85rem;}
+.dispute-tier-mini:first-of-type{border-top:none;}
+@media (max-width:768px){.compare-strip{grid-template-columns:1fr;}.compare-col.traditional{border-right:none;border-bottom:1px solid var(--line);}.match-breakdown{grid-template-columns:1fr;}.big-metric .compare-arrow{flex-direction:column;gap:0.5rem;}}
 </style>
 </head>
 <body>
+<!-- ICON SPRITE -->
+<svg style="display:none">
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/><path d="M9 13h6M9 17h6"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-5-5"/></symbol>
+<symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 2h6M10 2v6l-6 11a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-6-11V2"/></symbol>
+<symbol id="i-scroll" viewBox="0 0 24 24"><path d="M6 3h12v14a3 3 0 0 1-3 3H6"/><path d="M6 3a3 3 0 0 0-3 3v11a3 3 0 0 0 3 3"/><path d="M9 8h6M9 12h6"/></symbol>
+<symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol>
+<symbol id="i-network" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 7.5 10.5 16M16 7.5 13.5 16M8.5 6h7"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="M9 8l-5 4 5 4M15 8l5 4-5 4"/></symbol>
+<symbol id="i-ship" viewBox="0 0 24 24"><path d="M3 15l2 6h14l2-6M5 15h14l-2-6H7z"/><path d="M12 9V3M9 5h6"/></symbol>
+<symbol id="i-satellite" viewBox="0 0 24 24"><path d="M4 11a8 8 0 0 1 8-8"/><path d="M4 11l4 4M13 3l4 4"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M6 21l3-3M18 21l-3-3"/></symbol>
+<symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 6.5c0-1.9-2.2-3.5-5-3.5s-5 1.4-5 3.3S9 9.4 12 10c3 .6 5 1.8 5 3.7S14.8 17 12 17s-5-1.6-5-3.5"/></symbol>
+<symbol id="i-landmark" viewBox="0 0 24 24"><path d="M4 21h16M5 21V9M19 21V9M12 21v-7"/><path d="M2 9l10-6 10 6"/></symbol>
+<symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 10 12 4l9 6"/><path d="M4 10v9M9 10v9M15 10v9M20 10v9"/><path d="M2 21h20"/></symbol>
+</svg>
+<div style="background:var(--ink);color:rgba(255,255,255,0.85);text-align:center;padding:0.6rem 1rem;font-size:0.8rem;font-family:var(--font-mono);border-bottom:1px solid var(--brass);">⚠️ This is an <strong style="color:var(--amber);">interactive simulation</strong> of the planned GETH platform for illustration purposes — no live AI, blockchain, or third-party APIs are called. GETH is idea-stage; nothing here has been built in production.</div>
 <nav class="top-nav">
-<a href="index.html" class="logo">🚀 GETH MVP Demo</a>
+<a href="index.html" class="logo">GETH <span class="logo-tag">MVP Demo</span></a>
 <a href="index.html" class="back-link">← Back to Main Site</a>
 </nav>
 <div class="container">
+<div class="compare-strip">
+<div class="compare-col traditional">
+<div class="compare-label">Traditional OTC Trade</div>
+<div class="compare-row"><span>Counterparty vetting</span><strong>Days — reference calls, manual checks</strong></div>
+<div class="compare-row"><span>Certificate trust</span><strong>Paper certificates — forgeable</strong></div>
+<div class="compare-row"><span>Settlement</span><strong>3–6 weeks — wire transfers, reconciliation</strong></div>
+<div class="compare-row"><span>Disputes</span><strong>18+ months — court &amp; arbitration backlog</strong></div>
+</div>
+<div class="compare-col geth">
+<div class="compare-label">GETH — Simulated Flow</div>
+<div class="compare-row"><span>Counterparty vetting</span><strong>&lt;10 min — AI-scored against 847 companies</strong></div>
+<div class="compare-row"><span>Certificate trust</span><strong>NFT-bound certificate, on-chain hash</strong></div>
+<div class="compare-row"><span>Settlement</span><strong>Minutes — smart contract, bank webhook</strong></div>
+<div class="compare-row"><span>Disputes</span><strong>Tiered resolution — first step is free, 0–14 days</strong></div>
+</div>
+</div>
 <div class="progress">
 <div class="progress-bar">
 <div id="progress-fill" class="progress-fill"></div>
@@ -110,7 +180,6 @@ body { font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: var(--b
 <div id="step-container"></div>
 </div>
 <script>
-const OPENROUTER_API_KEY = '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';
 let state = {
 currentStep: 1,
 role: null,
@@ -157,17 +226,17 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">1</div>
-<h3>🎭 Select Your Role</h3>
+<h3><svg class="step-icon"><use href="#i-user"/></svg>Select Your Role</h3>
 </div>
 <p class="step-description">Choose your role in this commodity transaction. This will determine your workflow and available actions.</p>
 <div class="role-selection">
 <div class="role-card" onclick="selectRole('seller')" id="role-seller">
-<div class="role-icon">🏭</div>
+<div class="role-icon"><svg class="icon-lg"><use href="#i-landmark"/></svg></div>
 <h4>Seller</h4>
 <p>You have commodities to sell and want to find verified buyers</p>
 </div>
 <div class="role-card" onclick="selectRole('buyer')" id="role-buyer">
-<div class="role-icon"></div>
+<div class="role-icon"><svg class="icon-lg"><use href="#i-bank"/></svg></div>
 <h4>Buyer</h4>
 <p>You need to purchase commodities from verified sellers</p>
 </div>
@@ -186,7 +255,7 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">2</div>
-<h3>🔐 KYC/KYB Verification</h3>
+<h3><svg class="step-icon"><use href="#i-lock"/></svg>KYC/KYB Verification</h3>
 </div>
 <p class="step-description">Complete Know Your Customer/Business verification. This is required for regulatory compliance and builds trust with counterparties.</p>
 <div class="form-group">
@@ -224,7 +293,7 @@ return `
 </div>
 <div class="form-group">
 <label>Upload Documents</label>
-<div style="padding: 2rem; background: var(--gray-light); border-radius: 8px; border: 2px dashed var(--teal); text-align: center;">
+<div style="padding: 2rem; background: var(--gray-light); border-radius: 3px; border: 2px dashed var(--teal); text-align: center;">
 <div style="font-size: 2rem; margin-bottom: 0.5rem;"></div>
 <div style="font-weight: 600; margin-bottom: 0.5rem;">Required Documents:</div>
 <div style="font-size: 0.9rem; color: var(--gray-text); margin-bottom: 1rem;">
@@ -233,7 +302,7 @@ return `
 • Trade License<br>
 • Passport copies of directors
 </div>
-<button class="btn btn-secondary" onclick="simulateDocUpload()">📁 Upload Documents</button>
+<button class="btn btn-secondary" onclick="simulateDocUpload()">Upload Documents</button>
 </div>
 <div id="doc-status" style="margin-top: 1rem;"></div>
 </div>
@@ -245,7 +314,7 @@ return `
 }
 function simulateDocUpload() {
 document.getElementById('doc-status').innerHTML = `
-<div style="padding: 0.75rem; background: #ddfff5; border-radius: 6px; border-left: 4px solid var(--teal);">
+<div style="padding: 0.75rem; background: rgba(47,92,79,0.1); border-radius: 3px; border-left: 3px solid var(--pine);">
 <strong>✓ Documents uploaded:</strong><br>
 • Certificate_of_Incorporation.pdf (2.4 MB)<br>
 • Trade_License.pdf (1.1 MB)<br>
@@ -267,8 +336,8 @@ years: document.getElementById('kyc-years').value
 setTimeout(() => {
 resultDiv.innerHTML = `
 <div class="api-response active">
-<div class="api-header">🔐 KYC/KYB Verification Result</div>
-<div style="color: #00ff88;">HTTP 200 OK</div>
+<div class="api-header">KYC/KYB Verification — Result</div>
+<div style="color: #7FD9B9;">HTTP 200 OK</div>
 Verification Status: APPROVED ✓
 Company: ${state.kycData.company}
 Registration: ${state.kycData.regNumber}
@@ -288,7 +357,7 @@ Blockchain Hash: 0x${Array(64).fill(0).map(() => Math.floor(Math.random() * 16).
 <div style="margin-top: 1rem;">
 <span class="status-pill status-success">✓ KYC Approved</span>
 <span class="status-pill status-success">✓ KYB Approved</span>
-<span class="status-pill status-info">🔒 Verified on Blockchain</span>
+<span class="status-pill status-info">Verified on Blockchain</span>
 </div>
 <div class="btn-group">
 <button class="btn btn-primary" onclick="renderStep(3)">Continue →</button>
@@ -303,7 +372,7 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">3</div>
-<h3>📦 Create Commodity Lot</h3>
+<h3><svg class="step-icon"><use href="#i-doc"/></svg>Create Commodity Lot</h3>
 </div>
 <p class="step-description">Create a new commodity lot for sale. Provide detailed specifications and delivery terms.</p>
 <div class="form-group">
@@ -373,7 +442,7 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">3</div>
-<h3>🔍 Search for Commodities</h3>
+<h3><svg class="step-icon"><use href="#i-search"/></svg>Search for Commodities</h3>
 </div>
 <p class="step-description">Search for available commodity lots that match your requirements.</p>
 <div class="form-group">
@@ -423,29 +492,48 @@ totalValue: parseFloat(document.getElementById('lot-quantity').value) * parseFlo
 };
 renderStep(4);
 }
+const availableLots = [
+{ commodity: 'Diesel EN590 10PPM', quantity: 50000, price: 850, incoterms: 'CIF', origin: 'Fujairah, UAE', destination: 'Rotterdam, Netherlands', seller: 'Emirates Petroleum Trading LLC (UAE)', trustScore: 875 }
+];
 function searchLots() {
 document.getElementById('search-results').innerHTML = `
 <div class="counterparty-list">
-<div class="counterparty-card" onclick="selectLot(0)">
+${availableLots.map((lot, i) => `
+<div class="counterparty-card" onclick="selectLot(${i})" id="lot-${i}">
 <div class="counterparty-header">
-<div class="counterparty-name">🏭 Lot #847291 - Diesel EN590 10PPM</div>
-<span class="trust-badge trust-high">50,000 MT</span>
+<div class="counterparty-name"><svg class="icon-sm"><use href="#i-landmark"/></svg>Lot #847291 - ${lot.commodity}</div>
+<span class="trust-badge trust-high">${lot.quantity.toLocaleString()} MT</span>
 </div>
 <div style="color: var(--gray-text); font-size: 0.9rem;">
-Seller: Emirates Petroleum Trading LLC (UAE)<br>
-Price: $850/MT | Incoterms: CIF | Loading: Fujairah | Destination: Rotterdam<br>
-SGS Certificate: Verified ✓ | Trust Score: 875/1000
+Seller: ${lot.seller}<br>
+Price: $${lot.price}/MT | Incoterms: ${lot.incoterms} | Loading: ${lot.origin} | Destination: ${lot.destination}<br>
+SGS Certificate: Verified ✓ | Trust Score: ${lot.trustScore}/1000
 </div>
 </div>
+`).join('')}
 </div>
 <div class="btn-group">
-<button class="btn btn-primary" onclick="renderStep(6)">Proceed to Counterparty Selection →</button>
+<button class="btn btn-primary" onclick="proceedFromSearch()" id="lot-proceed-btn" disabled>Select Lot & Proceed to Counterparty Matching →</button>
 </div>`;
 }
 function selectLot(index) {
 document.querySelectorAll('.counterparty-card').forEach((card, i) => {
 card.classList.toggle('selected', i === index);
 });
+const lot = availableLots[index];
+state.dealData = {
+commodity: lot.commodity,
+quantity: lot.quantity,
+price: lot.price,
+incoterms: lot.incoterms,
+origin: lot.origin,
+destination: lot.destination,
+totalValue: lot.quantity * lot.price
+};
+document.getElementById('lot-proceed-btn').disabled = false;
+}
+function proceedFromSearch() {
+renderStep(6);
 }
 // STEP 4: SGS Verification
 function step4_SGS_Verification() {
@@ -453,10 +541,10 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">4</div>
-<h3>🔬 SGS Quality Verification</h3>
+<h3><svg class="step-icon"><use href="#i-flask"/></svg>SGS Quality Verification</h3>
 </div>
 <p class="step-description">Request SGS inspection and quality certificate. This is required to verify commodity specifications before NFT minting.</p>
-<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 3px; margin-bottom: 1.5rem;">
 <strong>Lot Details:</strong><br>
 Commodity: ${state.dealData.commodity}<br>
 Quantity: ${state.dealData.quantity.toLocaleString()} MT<br>
@@ -464,6 +552,7 @@ Incoterms: ${state.dealData.incoterms}<br>
 Value: $${state.dealData.totalValue.toLocaleString()}<br>
 Loading Port: ${state.dealData.origin}
 </div>
+<div class="safety-note"><svg><use href="#i-lock"/></svg><div><strong>Buyer protection:</strong> escrowed funds are released only after this independent inspection is confirmed against the certificate on file — the buyer never pays before quality is verified by a third party, not by GETH or the seller.</div></div>
 <div class="form-group">
 <label>SGS Inspection Type</label>
 <select id="sgs-type">
@@ -490,8 +579,8 @@ btn.innerHTML = '<span class="spinner"></span> Connecting to SGS API...';
 setTimeout(() => {
 resultDiv.innerHTML = `
 <div class="api-response active">
-<div class="api-header">🔬 SGS API Response</div>
-<div style="color: #00ff88;">HTTP 200 OK</div>
+<div class="api-header">SGS API — Response</div>
+<div style="color: #7FD9B9;">HTTP 200 OK</div>
 Inspection Request Confirmed
 Request ID: SGS-REQ-2026-${Math.floor(Math.random() * 900000 + 100000)}
 Inspector Assigned: Mr. Ahmed Al-Mazrouei (SGS UAE)
@@ -510,7 +599,7 @@ Blockchain Recording: Enabled ✓
 </div>
 <div style="margin-top: 1rem;">
 <span class="status-pill status-success">✓ Inspection Scheduled</span>
-<span class="status-pill status-info">🔬 Inspector Assigned</span>
+<span class="status-pill status-info">Inspector Assigned</span>
 </div>
 <div class="btn-group">
 <button class="btn btn-primary" onclick="renderStep(5)">Proceed to NFT Minting →</button>
@@ -524,12 +613,12 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">5</div>
-<h3>🎨 Mint Quality Certificate as NFT</h3>
+<h3><svg class="step-icon"><use href="#i-scroll"/></svg>Mint Quality Certificate as NFT</h3>
 </div>
 <p class="step-description">SGS certificate has been issued. Now minting it as an NFT on blockchain for immutable proof of quality and ownership.</p>
 <div class="api-response active">
-<div class="api-header">📋 SGS Certificate Data</div>
-<div style="color: #00ff88;">Certificate Ready for Minting</div>
+<div class="api-header">SGS Certificate — Data</div>
+<div style="color: #7FD9B9;">Certificate Ready for Minting</div>
 Certificate Number: SGS-UAE-2026-${Math.floor(Math.random() * 9000000 + 1000000)}
 Issue Date: 2026-07-16
 Commodity: ${state.dealData.commodity}
@@ -547,7 +636,7 @@ Digital Signature: QES-Applied ✓
 Certificate Hash: 0x${Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('')}
 </div>
 <div class="btn-group">
-<button class="btn btn-primary" onclick="mintNFT()" id="mint-btn">🎨 Mint NFT Certificate</button>
+<button class="btn btn-primary" onclick="mintNFT()" id="mint-btn">Mint NFT Certificate</button>
 </div>
 <div id="mint-result"></div>
 </div>`;
@@ -562,8 +651,8 @@ const tokenId = Math.floor(Math.random() * 900000 + 100000);
 state.dealData.nftTokenId = tokenId;
 resultDiv.innerHTML = `
 <div class="api-response active">
-<div class="api-header">🎨 NFT Minting Successful</div>
-<div style="color: #00ff88;">Transaction Confirmed</div>
+<div class="api-header">NFT Minting — Successful</div>
+<div style="color: #7FD9B9;">Transaction Confirmed</div>
 Smart Contract: CertificateRegistry.sol
 Contract Address: 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEbE
 Network: Arbitrum One (Layer 2)
@@ -585,8 +674,8 @@ NFT Explorer: https://arbiscan.io/token/${tokenId}
 <div style="margin-top: 1rem;">
 <span class="status-pill status-success">✓ NFT Minted</span>
 <span class="status-pill status-success">✓ On-Chain</span>
-<span class="status-pill status-info">💾 IPFS Stored</span>
-<span class="status-pill status-info">🔒 Soulbound</span>
+<span class="status-pill status-info">IPFS Stored</span>
+<span class="status-pill status-info">Soulbound</span>
 </div>
 <div class="btn-group">
 <button class="btn btn-primary" onclick="renderStep(6)">Find Counterparties →</button>
@@ -600,10 +689,10 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">6</div>
-<h3>🤖 AI Counterparty Matching</h3>
+<h3><svg class="step-icon"><use href="#i-cpu"/></svg>AI Counterparty Matching</h3>
 </div>
 <p class="step-description">Our AI engine analyzes the marketplace to find qualified counterparties matching your requirements.</p>
-<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 3px; margin-bottom: 1.5rem;">
 <strong>Your Requirements:</strong><br>
 ${state.role === 'seller' ? 'Looking for: Qualified Buyers' : 'Looking for: Verified Sellers'}<br>
 Commodity: ${state.dealData.commodity}<br>
@@ -613,7 +702,7 @@ ${state.role === 'seller' ? `Price: $${state.dealData.price}/MT` : `Max Price: $
 Route: ${state.dealData.origin} → ${state.dealData.destination}
 </div>
 <div class="btn-group">
-<button class="btn btn-primary" onclick="runAIMatching()" id="ai-btn"> Run AI Matching Algorithm</button>
+<button class="btn btn-primary" onclick="runAIMatching()" id="ai-btn">Run AI Matching Algorithm</button>
 </div>
 <div id="ai-result"></div>
 </div>`;
@@ -626,12 +715,17 @@ btn.innerHTML = '<span class="spinner"></span> Analyzing marketplace...';
 setTimeout(() => {
 resultDiv.innerHTML = `
 <div class="api-response active">
-<div class="api-header">🤖 AI Matching Engine Results</div>
-<div style="color: #00ff88;">HTTP 200 OK</div>
+<div class="api-header">AI Matching Engine — Results</div>
+<div style="color: #7FD9B9;">HTTP 200 OK</div>
 Match Found: ${state.role === 'seller' ? '3 Qualified Buyers' : '3 Qualified Sellers'}
 Search Time: 2.3 seconds
 Total Analyzed: 847 companies
 Filtered by: KYC Status, Trust Score, Trading History, Incoterms Preference
+Matching Criteria & Weights:
+├─ Trust score & default history: 35%
+├─ Route / logistics fit: 25%
+├─ Incoterms compatibility: 25%
+└─ Trade volume match: 15%
 AI Analysis:
 ├─ Counterparty Verification: Complete ✓
 ├─ Financial Standing: Verified ✓
@@ -653,26 +747,26 @@ btn.style.display = 'none';
 // STEP 7: Select Counterparty
 function step7_SelectCounterparty() {
 const counterparties = state.role === 'seller' ? [
-{ name: 'Rotterdam Energy Trading B.V.', country: 'Netherlands', score: 875, trades: 847, defaultRate: '0.2%' },
-{ name: 'European Fuel Distributors GmbH', country: 'Germany', score: 820, trades: 523, defaultRate: '0.4%' },
-{ name: 'Nordic Petroleum AB', country: 'Sweden', score: 790, trades: 312, defaultRate: '0.5%' }
+{ name: 'Rotterdam Energy Trading B.V.', country: 'Netherlands', score: 875, trades: 847, defaultRate: '0.2%', incotermsMatch: '100%', routeFit: 'Direct route, 6 past deals', volumeFit: '±5% of typical lot' },
+{ name: 'European Fuel Distributors GmbH', country: 'Germany', score: 820, trades: 523, defaultRate: '0.4%', incotermsMatch: '100%', routeFit: 'Direct route, 2 past deals', volumeFit: '±20% of typical lot' },
+{ name: 'Nordic Petroleum AB', country: 'Sweden', score: 790, trades: 312, defaultRate: '0.5%', incotermsMatch: '80%', routeFit: 'One transshipment', volumeFit: '±30% of typical lot' }
 ] : [
-{ name: 'Emirates Petroleum Trading LLC', country: 'UAE', score: 890, trades: 1247, defaultRate: '0.1%' },
-{ name: 'Gulf Energy Commodities', country: 'UAE', score: 845, trades: 689, defaultRate: '0.3%' },
-{ name: 'Middle East Fuel Suppliers', country: 'Saudi Arabia', score: 810, trades: 445, defaultRate: '0.4%' }
+{ name: 'Emirates Petroleum Trading LLC', country: 'UAE', score: 890, trades: 1247, defaultRate: '0.1%', incotermsMatch: '100%', routeFit: 'Direct route, 11 past deals', volumeFit: '±5% of typical lot' },
+{ name: 'Gulf Energy Commodities', country: 'UAE', score: 845, trades: 689, defaultRate: '0.3%', incotermsMatch: '100%', routeFit: 'Direct route, 4 past deals', volumeFit: '±15% of typical lot' },
+{ name: 'Middle East Fuel Suppliers', country: 'Saudi Arabia', score: 810, trades: 445, defaultRate: '0.4%', incotermsMatch: '80%', routeFit: 'One transshipment', volumeFit: '±25% of typical lot' }
 ];
 return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">7</div>
-<h3>🤝 Select Counterparty</h3>
+<h3><svg class="step-icon"><use href="#i-network"/></svg>Select Counterparty</h3>
 </div>
 <p class="step-description">Review AI-recommended counterparties. Each has been verified and scored based on trust, history, and reliability.</p>
 <div class="counterparty-list">
 ${counterparties.map((cp, idx) => `
 <div class="counterparty-card" onclick="selectCounterparty(${idx})" id="counterparty-${idx}">
 <div class="counterparty-header">
-<div class="counterparty-name">${state.role === 'seller' ? '🏢' : '🏭'} ${cp.name}</div>
+<div class="counterparty-name"><svg class="icon-sm"><use href="#i-${state.role === 'seller' ? 'bank' : 'landmark'}"/></svg>${cp.name}</div>
 <span class="trust-badge ${cp.score >= 850 ? 'trust-high' : 'trust-medium'}">${cp.score}/1000</span>
 </div>
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.75rem; font-size: 0.9rem; color: var(--gray-text);">
@@ -682,6 +776,11 @@ ${counterparties.map((cp, idx) => `
 </div>
 <div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--gray-light); font-size: 0.85rem;">
 <strong>AI Assessment:</strong> ${cp.score >= 850 ? 'Excellent counterparty with strong track record and minimal risk.' : 'Reliable counterparty with good history. Standard due diligence recommended.'}
+</div>
+<div class="match-breakdown">
+<div><strong>${cp.incotermsMatch}</strong>Incoterms match</div>
+<div><strong>${cp.routeFit}</strong>Route fit</div>
+<div><strong>${cp.volumeFit}</strong>Volume fit</div>
 </div>
 </div>
 `).join('')}
@@ -708,10 +807,10 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">8</div>
-<h3>📋 Negotiation & Terms Agreement</h3>
+<h3><svg class="step-icon"><use href="#i-doc"/></svg>Negotiation & Terms Agreement</h3>
 </div>
 <p class="step-description">Both parties review and negotiate the deal terms before proceeding to contract creation.</p>
-<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 3px; margin-bottom: 1.5rem;">
 <strong>Deal Summary:</strong><br>
 Seller: ${state.role === 'seller' ? state.kycData.company : counterparty}<br>
 Buyer: ${state.role === 'buyer' ? state.kycData.company : counterparty}<br>
@@ -732,7 +831,7 @@ Dispute resolution: DIFC-LCIA Arbitration</textarea>
 </div>
 <div class="btn-group">
 <button class="btn btn-secondary" onclick="renderStep(7)">← Back</button>
-<button class="btn btn-primary" onclick="proceedToContract()">✓ Agree to Terms & Create Contract</button>
+<button class="btn btn-primary" onclick="proceedToContract()">Agree to Terms & Create Contract</button>
 </div>
 </div>`;
 }
@@ -747,11 +846,11 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">9</div>
-<h3>📜 Electronic Contract Signing</h3>
+<h3><svg class="step-icon"><use href="#i-scroll"/></svg>Electronic Contract Signing</h3>
 </div>
 <p class="step-description">Both parties must sign the electronic contract. Once signed by both parties, the contract will be recorded on blockchain and smart contract will be generated.</p>
 <div class="contract-preview">
-<h4>📋 Contract Terms</h4>
+<h4>Contract Terms</h4>
 <div class="contract-term">
 <span><strong>Contract ID:</strong></span>
 <span>GETH-CONTRACT-2026-${Math.floor(Math.random() * 900000 + 100000)}</span>
@@ -803,14 +902,14 @@ return `
 </div>
 <div class="signature-box">
 <div class="signature-card ${state.sellerSigned ? 'signed' : ''}">
-<h4>🏭 Seller Signature</h4>
+<h4>Seller Signature</h4>
 <div class="signature-status ${state.sellerSigned ? 'signed' : ''}">
 ${state.sellerSigned ? '✓ Signed & Recorded on Blockchain' : 'Pending Signature'}
 </div>
 ${!state.sellerSigned ? `<button class="btn btn-primary" onclick="signContract('seller')">Sign as Seller</button>` : ''}
 </div>
 <div class="signature-card ${state.buyerSigned ? 'signed' : ''}">
-<h4> Buyer Signature</h4>
+<h4>Buyer Signature</h4>
 <div class="signature-status ${state.buyerSigned ? 'signed' : ''}">
 ${state.buyerSigned ? '✓ Signed & Recorded on Blockchain' : 'Pending Signature'}
 </div>
@@ -819,7 +918,7 @@ ${!state.buyerSigned ? `<button class="btn btn-primary" onclick="signContract('b
 </div>
 <div class="btn-group">
 <button class="btn btn-secondary" onclick="renderStep(8)">← Back</button>
-${state.sellerSigned && state.buyerSigned ? '<button class="btn btn-primary" onclick="proceedToSmartContract()">✓ Both Parties Signed - Generate Smart Contract</button>' : ''}
+${state.sellerSigned && state.buyerSigned ? '<button class="btn btn-primary" onclick="proceedToSmartContract()">Both Parties Signed — Generate Smart Contract</button>' : ''}
 </div>
 </div>`;
 }
@@ -840,7 +939,7 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">10</div>
-<h3> Smart Contract Deployment</h3>
+<h3><svg class="step-icon"><use href="#i-code"/></svg>Smart Contract Deployment</h3>
 </div>
 <p class="step-description">Electronic contract terms are converted into executable smart contract code and deployed on blockchain.</p>
 <div class="smart-contract">
@@ -864,12 +963,12 @@ platformFee = (_value * 11) / 1000;
 currentState = State.SIGNED;
 }
 <span style="color: #ff6b6b;">function</span> lockFunds() <span style="color: #ff6b6b;">external payable</span> {
-<span style="color: #ff6b6b;">require</span>(msg.sender == buyer, <span style="color: #00ff88;">"Only buyer"</span>);
-<span style="color: #ff6b6b;">require</span>(msg.value == commodityValue, <span style="color: #00ff88;">"Exact amount"</span>);
+<span style="color: #ff6b6b;">require</span>(msg.sender == buyer, <span style="color: #7FD9B9;">"Only buyer"</span>);
+<span style="color: #ff6b6b;">require</span>(msg.value == commodityValue, <span style="color: #7FD9B9;">"Exact amount"</span>);
 currentState = State.FUNDS_LOCKED;
 }
 <span style="color: #ff6b6b;">function</span> releaseFunds() <span style="color: #ff6b6b;">external</span> {
-<span style="color: #ff6b6b;">require</span>(currentState == State.IN_TRANSIT, <span style="color: #00ff88;">"Delivery confirmed"</span>);
+<span style="color: #ff6b6b;">require</span>(currentState == State.IN_TRANSIT, <span style="color: #7FD9B9;">"Delivery confirmed"</span>);
 fundsReleased = true;
 currentState = State.COMPLETED;
 payable(seller).transfer(commodityValue - platformFee);
@@ -877,7 +976,7 @@ payable(seller).transfer(commodityValue - platformFee);
 }
 </div>
 <div class="btn-group">
-<button class="btn btn-primary" onclick="deployContract()" id="deploy-btn">🚀 Deploy to Arbitrum</button>
+<button class="btn btn-primary" onclick="deployContract()" id="deploy-btn">Deploy to Arbitrum</button>
 </div>
 <div id="deploy-result"></div>
 </div>`;
@@ -890,8 +989,8 @@ btn.innerHTML = '<span class="spinner"></span> Deploying to blockchain...';
 setTimeout(() => {
 resultDiv.innerHTML = `
 <div class="api-response active">
-<div class="api-header">⚡ Smart Contract Deployed</div>
-<div style="color: #00ff88;">Transaction Confirmed</div>
+<div class="api-header">Smart Contract — Deployed</div>
+<div style="color: #7FD9B9;">Transaction Confirmed</div>
 Contract Address: 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEbE
 Network: Arbitrum One (Layer 2)
 Deployment TX: 0x${Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('')}
@@ -908,7 +1007,7 @@ Next Step: Select logistics provider and lock funds in escrow
 <div style="margin-top: 1rem;">
 <span class="status-pill status-success">✓ Deployed</span>
 <span class="status-pill status-success">✓ Verified</span>
-<span class="status-pill status-info">🔗 On-Chain</span>
+<span class="status-pill status-info">On-Chain</span>
 </div>
 <div class="btn-group">
 <button class="btn btn-primary" onclick="renderStep(11)">Select Logistics Provider →</button>
@@ -927,10 +1026,10 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">11</div>
-<h3>🚢 Select Logistics Provider</h3>
+<h3><svg class="step-icon"><use href="#i-ship"/></svg>Select Logistics Provider</h3>
 </div>
 <p class="step-description">Choose a logistics provider for cargo transportation. The selected provider will handle shipping according to Incoterms: ${state.dealData.incoterms}.</p>
-<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 3px; margin-bottom: 1.5rem;">
 <strong>Shipment Details:</strong><br>
 Route: ${state.dealData.origin} → ${state.dealData.destination}<br>
 Commodity: ${state.dealData.commodity}<br>
@@ -941,7 +1040,7 @@ Incoterms: ${state.dealData.incoterms}
 ${logisticsProviders.map((lp, idx) => `
 <div class="logistics-card" onclick="selectLogistics(${idx})" id="logistics-${idx}">
 <div class="logistics-header">
-<div class="logistics-name">🚢 ${lp.name}</div>
+<div class="logistics-name"><svg class="icon-sm"><use href="#i-ship"/></svg>${lp.name}</div>
 <span class="trust-badge trust-high">⭐ ${lp.rating}</span>
 </div>
 <div class="logistics-details">
@@ -974,10 +1073,10 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">12</div>
-<h3>🔒 Escrow Fund Lock</h3>
+<h3><svg class="step-icon"><use href="#i-lock"/></svg>Escrow Fund Lock</h3>
 </div>
 <p class="step-description">Buyer deposits full contract value into regulated escrow account. Smart contract transitions to FUNDS_LOCKED state.</p>
-<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 3px; margin-bottom: 1.5rem;">
 <strong>Escrow Details:</strong><br>
 Amount: <strong style="color: var(--teal); font-size: 1.3rem;">$${state.dealData.totalValue.toLocaleString()}</strong><br>
 Bank: RAKBANK (UAE Central Bank Regulated)<br>
@@ -985,9 +1084,10 @@ Escrow Account: ESC-GETH-8472910<br>
 Smart Contract: 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEbE<br>
 Network: Arbitrum One
 </div>
+<div class="safety-note"><svg><use href="#i-lock"/></svg><div><strong>Seller protection:</strong> the seller only loads cargo once funds are confirmed locked in regulated escrow — capital is committed before shipment, not on a promise to pay after delivery.</div></div>
 <div class="btn-group">
 <button class="btn btn-secondary" onclick="renderStep(11)">← Back</button>
-<button class="btn btn-primary" onclick="lockFunds()" id="lock-btn">🏦 Lock Funds via Bank API</button>
+<button class="btn btn-primary" onclick="lockFunds()" id="lock-btn">Lock Funds via Bank API</button>
 </div>
 <div id="lock-result"></div>
 </div>`;
@@ -1000,8 +1100,8 @@ btn.innerHTML = '<span class="spinner"></span> Processing bank transfer...';
 setTimeout(() => {
 resultDiv.innerHTML = `
 <div class="api-response active">
-<div class="api-header">🏦 RAKBANK Escrow API Response</div>
-<div style="color: #00ff88;">HTTP 200 OK</div>
+<div class="api-header">RAKBANK Escrow API — Response</div>
+<div style="color: #7FD9B9;">HTTP 200 OK</div>
 Transaction ID: TXN-RAK-2026-${Math.floor(Math.random() * 900000 + 100000)}
 Status: FUNDS_LOCKED ✓
 Amount: $${state.dealData.totalValue.toLocaleString()} USD
@@ -1022,7 +1122,7 @@ Release Conditions: SGS inspection approval
 <div style="margin-top: 1rem;">
 <span class="status-pill status-success">✓ Funds Locked</span>
 <span class="status-pill status-success">✓ Smart Contract Active</span>
-<span class="status-pill status-info">⏱ 45-day Window</span>
+<span class="status-pill status-info">45-day Window</span>
 </div>
 <div class="btn-group">
 <button class="btn btn-primary" onclick="renderStep(13)">Activate IoT Tracking →</button>
@@ -1036,10 +1136,10 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">13</div>
-<h3>📡 IoT Tracker Activation</h3>
+<h3><svg class="step-icon"><use href="#i-satellite"/></svg>IoT Tracker Activation</h3>
 </div>
 <p class="step-description">Activate IoT sensors on cargo for real-time tracking. Data will be streamed to platform and recorded on-chain via Chainlink Oracle.</p>
-<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+<div style="background: var(--gray-light); padding: 1.5rem; border-radius: 3px; margin-bottom: 1.5rem;">
 <strong>IoT Device Configuration:</strong><br>
 Device ID: IOT-TRK-847291-A<br>
 Type: Marine Container Tracker (Multi-sensor)<br>
@@ -1051,7 +1151,7 @@ Chainlink Oracle: Enabled ✓
 </div>
 <div class="btn-group">
 <button class="btn btn-secondary" onclick="renderStep(12)">← Back</button>
-<button class="btn btn-primary" onclick="activateIoT()" id="iot-btn">📡 Activate IoT Tracker</button>
+<button class="btn btn-primary" onclick="activateIoT()" id="iot-btn">Activate IoT Tracker</button>
 </div>
 <div id="iot-result"></div>
 </div>`;
@@ -1064,8 +1164,8 @@ btn.innerHTML = '<span class="spinner"></span> Activating sensors...';
 setTimeout(() => {
 resultDiv.innerHTML = `
 <div class="api-response active">
-<div class="api-header"> IoT Platform API Response</div>
-<div style="color: #00ff88;">HTTP 200 OK</div>
+<div class="api-header">IoT Platform API — Response</div>
+<div style="color: #7FD9B9;">HTTP 200 OK</div>
 Device Status: ACTIVE ✓
 Activation Time: ${new Date().toISOString()}
 Initial Location: ${state.dealData.origin} Storage Facility
@@ -1101,7 +1201,7 @@ Smart Contract State: IN_TRANSIT (ready for loading)
 <div style="margin-top: 1rem;">
 <span class="status-pill status-success">✓ Tracker Active</span>
 <span class="status-pill status-success">✓ Oracle Connected</span>
-<span class="status-pill status-info">📍 GPS Locked</span>
+<span class="status-pill status-info">GPS Locked</span>
 </div>
 <div class="btn-group">
 <button class="btn btn-primary" onclick="renderStep(14)">Complete Settlement →</button>
@@ -1117,14 +1217,32 @@ return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">14</div>
-<h3>💰 Automated Settlement & Summary</h3>
+<h3><svg class="step-icon"><use href="#i-dollar"/></svg>Automated Settlement & Summary</h3>
 </div>
 <p class="step-description">Final inspection completed. Smart contract automatically executes settlement and distributes funds to all parties.</p>
 <div class="btn-group">
 <button class="btn btn-secondary" onclick="renderStep(13)">← Back</button>
-<button class="btn btn-primary" onclick="executeSettlement()" id="settle-btn">⚡ Execute Smart Contract Settlement</button>
+<button class="btn btn-primary" onclick="executeSettlement()" id="settle-btn">Execute Smart Contract Settlement</button>
+<button class="btn btn-secondary" onclick="reportDiscrepancy()" id="dispute-btn">⚠ Report Quality Discrepancy Instead</button>
 </div>
 <div id="settle-result"></div>
+</div>`;
+}
+function reportDiscrepancy() {
+document.getElementById('settle-btn').style.display = 'none';
+document.getElementById('dispute-btn').style.display = 'none';
+document.getElementById('settle-result').innerHTML = `
+<div class="dispute-branch">
+<h4>Discharge inspection flagged a discrepancy</h4>
+<p style="color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 1rem;">In this scenario, the arrival inspection did not fully match the certificate on file. Funds stay locked in escrow — nothing is released automatically — and GETH's tiered dispute framework takes over instead of settlement.</p>
+<div class="dispute-tier-mini"><span><strong>Tier 1</strong> — Direct negotiation</span><span>0–14 days · free</span></div>
+<div class="dispute-tier-mini"><span><strong>Tier 2</strong> — Platform mediation</span><span>14–30 days · $500–2,000</span></div>
+<div class="dispute-tier-mini"><span><strong>Tier 3</strong> — Expert determination</span><span>30–60 days · $5,000–20,000</span></div>
+<div class="dispute-tier-mini"><span><strong>Tier 4</strong> — DIFC-LCIA arbitration</span><span>60–180 days · binding</span></div>
+<p style="margin-top:1rem; font-size:0.85rem; color:var(--ink-soft);">Compare this to a typical OTC dispute today, which runs 18+ months through courts with no structured off-ramp. This branch is the reason escrow — not direct payment — is central to the platform design.</p>
+<div class="btn-group">
+<button class="btn btn-secondary" onclick="renderStep(14)">← Back to Settlement</button>
+</div>
 </div>`;
 }
 function executeSettlement() {
@@ -1137,8 +1255,8 @@ btn.innerHTML = '<span class="spinner"></span> Executing settlement...';
 setTimeout(() => {
 resultDiv.innerHTML = `
 <div class="api-response active">
-<div class="api-header">⚡ Smart Contract Settlement</div>
-<div style="color: #00ff88;">Transaction Confirmed</div>
+<div class="api-header">Smart Contract — Settlement</div>
+<div style="color: #7FD9B9;">Transaction Confirmed</div>
 Contract Function: releaseFunds()
 TX Hash: 0x${Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('')}
 Block: ${Math.floor(Math.random() * 10000000 + 24000000)}
@@ -1180,28 +1298,26 @@ Smart Contract State: COMPLETED
 <div class="summary-value">${elapsed}s</div>
 </div>
 </div>
-<div style="background: linear-gradient(135deg, var(--black), var(--gray-dark)); color: var(--white); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
-<h3 style="color: var(--teal); margin-bottom: 1rem;">🎉 Deal Successfully Completed!</h3>
-<p style="line-height: 1.7; margin-bottom: 1rem;">
-What traditionally takes <strong>18+ months</strong> of disputes and manual processes —
-GETH completed in <strong>${elapsed} seconds</strong> with full automation.
-</p>
+<div style="background: linear-gradient(135deg, var(--black), var(--gray-dark)); color: var(--white); padding: 2rem; border-radius: 3px; margin-top: 2rem;">
+<h3 style="color: var(--teal); margin-bottom: 1rem; font-family: var(--font-display);">Deal Successfully Completed</h3>
+<div class="big-metric">
+<div class="compare-arrow"><span class="from">18+ months</span><span>→</span><span class="to">${elapsed}s</span></div>
+<div class="caption">Typical time for an OTC commodity dispute-free settlement cycle vs. this simulated GETH flow</div>
+</div>
 <p style="line-height: 1.7;">
-<strong>✓ Real AI</strong> (Llama 3.1 70B) verified counterparties<br>
-<strong>✓ Real blockchain</strong> (Arbitrum) secured funds and NFTs<br>
-<strong>✓ Real APIs</strong> (SGS, RAKBANK, IoT) verified quality<br>
-<strong>✓ Zero manual intervention</strong> in settlement
+This is a simulated walkthrough of the target workflow — no live AI, blockchain, or third-party APIs are called in this demo. It illustrates the logic GETH plans to build: AI-assisted counterparty matching, smart-contract escrow, and automated settlement, once the legal foundation (see main site) is in place.
 </p>
 </div>
 <div class="btn-group" style="justify-content: center; margin-top: 2rem;">
-<button class="btn btn-primary" onclick="window.location.href='mailto:gethfounder@gmail.com?subject=GETH MVP Demo - Investor Inquiry'">📧 Contact Founders</button>
-<button class="btn btn-secondary" onclick="location.reload()">🔄 Restart Demo</button>
+<button class="btn btn-primary" onclick="window.location.href='mailto:gethfounder@gmail.com?subject=GETH MVP Demo - Investor Inquiry'">Contact Founders</button>
+<button class="btn btn-secondary" onclick="location.reload()">Restart Demo</button>
 </div>
-<div style="margin-top: 2rem; padding: 1rem; background: var(--gray-light); border-radius: 8px; text-align: center; font-size: 0.9rem; color: var(--gray-text);">
+<div style="margin-top: 2rem; padding: 1rem; background: var(--gray-light); border-radius: 3px; text-align: center; font-size: 0.9rem; color: var(--gray-text);">
 Demo completed in <strong>${elapsed} seconds</strong> • 14 steps • Full platform logic demonstrated
 </div>
 `;
 btn.style.display = 'none';
+document.getElementById('dispute-btn').style.display = 'none';
 }, 2500);
 }
 // Initialize
