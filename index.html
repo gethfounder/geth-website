@@ -6,7 +6,8 @@
 <title>GETH — Digital Infrastructure for OTC Commodity Trade | Idea Stage</title>
 <meta name="description" content="GETH (Global Energy Trade Hub) — idea-stage project building digital infrastructure for the $4.6T OTC commodity trade. Dubai-based. Legal-first approach. Seeking pre-seed partners.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- ✅ GOOGLE ANALYTICS 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSHL3R83PX"></script>
 <script>
@@ -27,977 +28,884 @@ ym(110179125, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLa
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/110179125" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:root { --black: #000000; --white: #FFFFFF; --teal: #00C4B4; --teal-light: #00D4C4; --gray-light: #F5F5F5; --gray-dark: #1a1a1a; --gray-text: #666666; --gray-border: #e0e0e0; }
-body { font-family: 'Inter', Arial, sans-serif; line-height: 1.6; color: var(--black); overflow-x: hidden; }
-.disclaimer-banner { background: var(--gray-dark); color: var(--white); text-align: center; padding: 0.75rem 1rem; font-size: 0.85rem; position: fixed; top: 0; left: 0; right: 0; z-index: 2000; border-bottom: 2px solid var(--teal); }
-.disclaimer-banner a { color: var(--teal); text-decoration: none; font-weight: 600; }
-nav { position: fixed; top: 42px; width: 100%; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); z-index: 1000; padding: 1.25rem 5%; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
-.nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-.logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.5rem; color: var(--black); text-decoration: none; }
-.logo-img { height: 50px; width: auto; object-fit: contain; }
-.nav-links { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
-.nav-links a { color: var(--black); text-decoration: none; font-weight: 500; transition: color 0.3s; font-size: 0.9rem; }
-.nav-links a:hover { color: var(--teal); }
-.btn { padding: 0.75rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; display: inline-block; border: 2px solid transparent; cursor: pointer; font-size: 0.95rem; }
-.btn-primary { background: var(--teal); color: var(--white); }
-.btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,196,180,0.3); }
-.btn-secondary { background: transparent; color: var(--teal); border: 2px solid var(--teal); }
-.btn-secondary:hover { background: var(--teal); color: var(--white); }
-.hero { margin-top: 140px; padding: 6rem 5%; background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%); color: var(--white); position: relative; overflow: hidden; }
-.hero-content { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
-.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0,196,180,0.15); border: 2px solid var(--teal); color: var(--teal); padding: 0.6rem 1.25rem; border-radius: 25px; font-size: 0.85rem; font-weight: 600; margin-bottom: 2rem; }
-.hero h1 { font-size: 3.25rem; font-weight: 700; margin-bottom: 1.25rem; line-height: 1.2; }
-.hero-subtitle { font-size: 1.75rem; color: var(--teal); margin-bottom: 1.5rem; font-weight: 500; }
-.hero-description { font-size: 1.15rem; margin-bottom: 1rem; opacity: 0.95; line-height: 1.7; max-width: 850px; }
-.hero-highlight { font-size: 1.15rem; margin-bottom: 2rem; font-weight: 500; color: var(--teal); max-width: 850px; }
-.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-.about { padding: 5rem 5%; background: var(--white); }
-.about-content { max-width: 1100px; margin: 0 auto; text-align: center; }
-.about-content h2 { font-size: 2.5rem; margin-bottom: 1.75rem; color: var(--black); }
-.about-content > p { font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.75rem; color: var(--gray-text); max-width: 900px; margin-left: auto; margin-right: auto; }
-.about-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.75rem; margin-top: 3rem; }
-.stat-item { text-align: center; padding: 2rem 1.5rem; background: var(--gray-light); border-radius: 10px; border-left: 4px solid var(--teal); }
-.stat-number { font-size: 2.25rem; font-weight: 700; color: var(--teal); display: block; }
-.stat-label { font-size: 0.95rem; color: var(--gray-text); margin-top: 0.5rem; }
-.traction { padding: 4rem 5%; background: var(--white); border-bottom: 1px solid var(--gray-light); }
-.traction-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.75rem; margin-top: 2rem; }
-.traction-item { text-align: center; padding: 2rem 1.5rem; background: var(--gray-light); border-radius: 10px; border-left: 4px solid var(--teal); }
-.traction-icon { font-size: 2rem; margin-bottom: 0.75rem; }
-.traction-title { font-size: 1.1rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; }
-.traction-desc { font-size: 0.85rem; color: var(--gray-text); line-height: 1.5; }
-section { padding: 5rem 5%; }
-.container { max-width: 1100px; margin: 0 auto; }
-.section-title { font-size: 2.25rem; font-weight: 700; text-align: center; margin-bottom: 1rem; }
-.section-subtitle { text-align: center; color: var(--gray-text); margin-bottom: 3rem; font-size: 1.1rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-.section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--teal); margin: 1rem auto 0; border-radius: 2px; }
-.problem { background: var(--gray-light); }
-.problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-.problem-card { text-align: center; padding: 2.25rem 1.75rem; background: var(--white); border-radius: 10px; transition: transform 0.3s; box-shadow: 0 3px 10px rgba(0,0,0,0.06); }
-.problem-card:hover { transform: translateY(-4px); }
-.problem-icon { font-size: 2.75rem; margin-bottom: 1rem; }
-.problem-card h3 { color: var(--teal); margin-bottom: 0.75rem; font-size: 1.35rem; }
-.problem-source { font-size: 0.75rem; color: var(--gray-text); margin-top: 0.5rem; font-style: italic; }
-.vision { background: var(--white); }
-.solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2.5rem; margin-top: 2.5rem; }
-.solution-card { background: var(--white); padding: 2.25rem; border-radius: 10px; border: 2px solid var(--gray-light); border-top: 4px solid var(--teal); box-shadow: 0 4px 14px rgba(0,0,0,0.07); }
-.solution-card h3 { font-size: 1.65rem; margin-bottom: 1rem; color: var(--black); }
-.solution-card .status { display: inline-block; background: var(--teal); color: var(--white); padding: 0.35rem 0.9rem; border-radius: 18px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
-.solution-card ul { list-style: none; margin-top: 1rem; }
-.solution-card li { padding: 0.6rem 0; padding-left: 1.6rem; position: relative; border-bottom: 1px solid var(--gray-light); }
-.solution-card li:last-child { border-bottom: none; }
-.solution-card li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
-.architecture { background: var(--gray-light); }
-.arch-diagram { background: var(--white); padding: 3rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-top: 2rem; }
-.arch-layer { padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; border-left: 4px solid var(--teal); background: var(--gray-light); }
-.arch-layer h4 { color: var(--teal); margin-bottom: 0.75rem; font-size: 1.15rem; }
-.arch-layer p { color: var(--gray-text); line-height: 1.6; }
-.arch-layer ul { list-style: none; margin-top: 0.75rem; }
-.arch-layer li { padding: 0.4rem 0; padding-left: 1.4rem; position: relative; font-size: 0.9rem; color: var(--gray-text); }
-.arch-layer li::before { content: '→'; position: absolute; left: 0; color: var(--teal); }
-.arch-status { margin-top: 2rem; padding: 1.5rem; background: var(--white); border-radius: 8px; border-top: 3px solid var(--teal); }
-.arch-status h4 { color: var(--black); margin-bottom: 1rem; }
-.status-item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--gray-light); }
-.status-item:last-child { border-bottom: none; }
-.status-label { font-weight: 600; color: var(--black); }
-.status-value { color: var(--gray-text); }
-.status-value.planned { color: var(--teal); font-weight: 600; }
-.integrations { background: var(--white); }
-.integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-.integration-card { background: var(--gray-light); padding: 2rem; border-radius: 10px; border-top: 4px solid var(--teal); box-shadow: 0 4px 14px rgba(0,0,0,0.07); transition: transform 0.3s; }
-.integration-card:hover { transform: translateY(-4px); }
-.integration-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-.integration-card h3 { font-size: 1.35rem; margin-bottom: 0.75rem; color: var(--black); }
-.integration-card p { color: var(--gray-text); margin-bottom: 1rem; font-size: 0.95rem; }
-.integration-status { display: inline-block; padding: 0.35rem 0.9rem; border-radius: 18px; font-size: 0.8rem; font-weight: 600; margin-top: 0.5rem; }
-.integration-status.planned { background: rgba(0,196,180,0.15); color: var(--teal); }
-.integration-status.research { background: rgba(245,158,11,0.15); color: #b45309; }
-.legal { background: var(--gray-light); }
-.legal-intro { max-width: 900px; margin: 0 auto 3rem; text-align: center; font-size: 1.1rem; color: var(--gray-text); line-height: 1.8; }
-.legal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-.legal-card { background: var(--white); padding: 2rem; border-radius: 10px; border-top: 4px solid var(--teal); box-shadow: 0 4px 14px rgba(0,0,0,0.07); transition: transform 0.3s; }
-.legal-card:hover { transform: translateY(-4px); }
-.legal-icon { font-size: 2.25rem; margin-bottom: 1rem; }
-.legal-card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--black); }
-.legal-card > p { color: var(--gray-text); margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.6; }
-.legal-card ul { list-style: none; margin-top: 1rem; }
-.legal-card li { padding: 0.5rem 0; padding-left: 1.4rem; position: relative; font-size: 0.9rem; color: var(--gray-text); border-bottom: 1px solid var(--gray-light); }
-.legal-card li:last-child { border-bottom: none; }
-.legal-card li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
-.legal-dispute { margin-top: 3rem; padding: 2.5rem; background: var(--white); border-radius: 10px; border-left: 4px solid var(--teal); }
-.legal-dispute h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--black); text-align: center; }
-.dispute-tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-.dispute-tier { padding: 1.25rem; background: var(--gray-light); border-radius: 8px; text-align: center; border-top: 3px solid var(--teal); }
-.dispute-tier h4 { color: var(--teal); margin-bottom: 0.5rem; font-size: 1rem; }
-.dispute-tier p { font-size: 0.85rem; color: var(--gray-text); margin: 0; }
-.legal-jurisdictions { margin-top: 2rem; padding: 1.5rem; background: var(--gray-light); border-radius: 8px; }
-.legal-jurisdictions h4 { color: var(--teal); margin-bottom: 0.75rem; font-size: 1.1rem; }
-.jurisdiction-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
-.jurisdiction-item { padding: 0.6rem 1rem; background: var(--white); border-radius: 6px; font-size: 0.85rem; color: var(--gray-text); border-left: 3px solid var(--teal); }
-.pricing { background: var(--white); }
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-.pricing-card { background: var(--gray-light); padding: 2.25rem; border-radius: 10px; text-align: center; border: 2px solid transparent; transition: transform 0.3s, box-shadow 0.3s; }
-.pricing-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
-.pricing-card.featured { border-color: var(--teal); position: relative; }
-.pricing-card.featured::before { content: 'TARGET'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--teal); color: var(--white); padding: 0.25rem 1rem; border-radius: 12px; font-size: 0.75rem; font-weight: 700; }
-.pricing-tier { font-size: 0.9rem; color: var(--gray-text); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
-.pricing-rate { font-size: 3rem; font-weight: 700; color: var(--teal); margin-bottom: 0.5rem; }
-.pricing-label { font-size: 1.1rem; color: var(--black); margin-bottom: 1.5rem; font-weight: 600; }
-.pricing-breakdown { text-align: left; margin: 1.5rem 0; padding: 1rem; background: var(--white); border-radius: 8px; }
-.pricing-breakdown-item { display: flex; justify-content: space-between; padding: 0.4rem 0; font-size: 0.9rem; }
-.pricing-breakdown-item strong { color: var(--black); }
-.pricing-breakdown-item span { color: var(--teal); font-weight: 600; }
-.pricing-features { list-style: none; text-align: left; margin: 1.5rem 0; }
-.pricing-features li { padding: 0.5rem 0; padding-left: 1.6rem; position: relative; font-size: 0.95rem; }
-.pricing-features li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
-.pricing-note { margin-top: 2.5rem; padding: 1.5rem; background: var(--gray-light); border-radius: 10px; border-left: 4px solid var(--teal); font-size: 0.95rem; color: var(--gray-text); }
-.pricing-note strong { color: var(--black); }
-.use-case { background: var(--gray-light); }
-.deal-overview { background: var(--white); padding: 2rem; border-radius: 10px; margin-bottom: 2.5rem; border-left: 4px solid var(--teal); }
-.deal-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; }
-.deal-meta-item { padding: 1rem; background: var(--gray-light); border-radius: 6px; }
-.deal-meta-label { font-size: 0.85rem; color: var(--gray-text); margin-bottom: 0.4rem; font-weight: 600; }
-.deal-meta-value { font-weight: 600; color: var(--teal); font-size: 1.05rem; }
-.participants { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
-.participant-card { background: var(--white); padding: 1.5rem; border-radius: 8px; border-top: 3px solid var(--teal); }
-.participant-role { font-weight: 700; color: var(--teal); margin-bottom: 0.5rem; font-size: 1.05rem; }
-.use-case-timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-.use-case-step { background: var(--white); padding: 2.25rem 1.75rem; border-radius: 10px; position: relative; }
-.use-case-step h3 { margin-bottom: 0.9rem; color: var(--black); font-size: 1.25rem; }
-.step-number { width: 48px; height: 48px; background: var(--teal); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; margin-bottom: 1.25rem; }
-.step-benefit { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: var(--teal); font-weight: 600; }
-.future-vision { background: var(--black); color: var(--white); position: relative; overflow: hidden; }
-.future-vision .section-title { color: var(--white); }
-.future-vision .section-subtitle { color: rgba(255,255,255,0.7); }
-.future-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-.future-card { background: var(--gray-dark); padding: 2rem; border-radius: 10px; border: 2px solid var(--teal); }
-.future-card h3 { color: var(--teal); font-size: 1.35rem; margin-bottom: 1rem; }
-.future-card p { color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 1rem; }
-.future-card ul { list-style: none; margin-top: 1rem; }
-.future-card li { padding: 0.5rem 0; padding-left: 1.4rem; position: relative; color: rgba(255,255,255,0.8); font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.future-card li:last-child { border-bottom: none; }
-.future-card li::before { content: '→'; position: absolute; left: 0; color: var(--teal); }
-.future-disclaimer { margin-top: 2rem; padding: 1.25rem; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.6; text-align: center; }
-.uae { background: var(--white); }
-.uae-list { max-width: 850px; margin: 2.5rem auto 0; }
-.uae-item { display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.75rem; background: var(--gray-light); margin-bottom: 1rem; border-radius: 10px; border-left: 4px solid var(--teal); }
-.uae-check { color: var(--teal); font-size: 1.5rem; font-weight: bold; flex-shrink: 0; }
-.uae-item h3 { margin-bottom: 0.4rem; color: var(--black); font-size: 1.15rem; }
-.team { background: var(--gray-light); }
-.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 2.5rem; }
-.team-card { background: var(--white); text-align: center; padding: 2.25rem; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.07); }
-.team-avatar { width: 110px; height: 110px; background: linear-gradient(135deg, var(--teal), var(--teal-light)); border-radius: 50%; margin: 0 auto 1.25rem; display: flex; align-items: center; justify-content: center; font-size: 2.75rem; color: var(--white); }
-.team-card h3 { font-size: 1.45rem; margin-bottom: 0.4rem; }
-.team-role { color: var(--teal); font-weight: 600; margin-bottom: 1rem; font-size: 1rem; }
-.team-experience { font-size: 0.9rem; color: var(--gray-text); line-height: 1.6; }
-.roadmap { background: var(--black); color: var(--white); }
-.roadmap .section-title { color: var(--white); }
-.roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin: 2.5rem 0; }
-.roadmap-item { background: var(--gray-dark); padding: 1.75rem; border-radius: 10px; border-top: 4px solid var(--teal); }
-.roadmap-item h3 { color: var(--teal); margin-bottom: 0.9rem; font-size: 1.35rem; }
-.roadmap-item ul { list-style: none; }
-.roadmap-item li { padding: 0.45rem 0; padding-left: 1.4rem; position: relative; }
-.roadmap-item li::before { content: '•'; color: var(--teal); position: absolute; left: 0; font-weight: bold; }
-.funds-chart { margin-top: 2.5rem; background: var(--gray-dark); padding: 2rem; border-radius: 10px; }
-.funds-chart h3 { color: var(--teal); margin-bottom: 0.5rem; text-align: center; }
-.funds-subtitle { text-align: center; color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 2rem; }
-.fund-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid #333; }
-.fund-item:last-child { border-bottom: none; }
-.fund-info { flex: 1; }
-.fund-bar-container { flex: 2; margin: 0 1.5rem; }
-.fund-bar { height: 10px; background: var(--teal); border-radius: 5px; margin-top: 0.4rem; }
-.fund-item.residual .fund-bar { background: rgba(0,196,180,0.5); }
-.ask { background: var(--white); text-align: center; }
-.ask-content { max-width: 700px; margin: 0 auto; }
-.ask-amount { font-size: 3.25rem; font-weight: 700; color: var(--teal); margin: 1.25rem 0; }
-.contact-info { margin: 2.5rem 0; padding: 2rem; background: var(--gray-light); border-radius: 10px; }
-.contact-email { font-size: 1.4rem; color: var(--teal); text-decoration: none; font-weight: 600; display: inline-block; margin: 1rem 0; }
-.contact-email:hover { text-decoration: underline; }
-footer { background: var(--black); color: var(--white); padding: 3rem 5%; text-align: center; }
-.footer-logo-img { height: 60px; width: auto; margin-bottom: 1rem; object-fit: contain; filter: brightness(0) invert(1); }
-.footer-links { display: flex; justify-content: center; gap: 1.75rem; margin: 1.25rem 0; flex-wrap: wrap; }
-.footer-links a { color: var(--teal); text-decoration: none; transition: opacity 0.3s; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.5rem; }
-.footer-links a:hover { opacity: 0.8; }
-.footer-legal { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #333; font-size: 0.85rem; opacity: 0.7; }
-.footer-legal a { color: var(--teal); }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
-.fade-in { opacity: 0; transform: translateY(25px); transition: opacity 0.6s, transform 0.6s; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-@media (max-width: 768px) {
-.hero h1 { font-size: 2.1rem; } .hero-subtitle { font-size: 1.35rem; } .section-title { font-size: 1.9rem; }
-.nav-links { display: none; } .hero-buttons { flex-direction: column; } .btn { width: 100%; }
-.about-stats, .traction-grid { grid-template-columns: repeat(2, 1fr); } .deal-meta { grid-template-columns: 1fr; }
-.logo-img { height: 40px; } .fund-item { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
-.fund-bar-container { width: 100%; margin: 0; } .pricing-rate { font-size: 2.5rem; }
-.dispute-tiers { grid-template-columns: 1fr 1fr; }
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --ink:#12161F;
+  --ink-2:#1C2230;
+  --paper:#F7F4EC;
+  --paper-2:#EFEADC;
+  --card:#FFFFFF;
+  --brass:#B27E3C;
+  --brass-deep:#8C5F26;
+  --pine:#2F5C4F;
+  --line:#DCD4BE;
+  --line-dark:#333B4C;
+  --ink-soft:#54596A;
+  --white:#FFFFFF;
+  --font-display:'Fraunces',serif;
+  --font-body:'IBM Plex Sans',Arial,sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);line-height:1.65;color:var(--ink);background:var(--paper);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+
+/* ---------- utility ---------- */
+.eyebrow{font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.06em;color:var(--brass-deep);text-transform:uppercase;display:inline-flex;align-items:center;gap:0.5rem;margin-bottom:0.9rem;}
+.eyebrow::before{content:'§';font-weight:600;}
+.icon{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+
+/* ---------- disclaimer ---------- */
+.disclaimer-banner{background:var(--ink);color:rgba(255,255,255,0.85);text-align:center;padding:0.65rem 1rem;font-size:0.8rem;font-family:var(--font-mono);position:fixed;top:0;left:0;right:0;z-index:2000;border-bottom:1px solid var(--brass);}
+.disclaimer-banner a{color:var(--brass);text-decoration:none;font-weight:600;}
+
+/* ---------- nav ---------- */
+nav{position:fixed;top:38px;width:100%;background:rgba(247,244,236,0.92);backdrop-filter:blur(10px);z-index:1000;padding:1rem 5%;border-bottom:1px solid var(--line);}
+.nav-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:1.35rem;color:var(--ink);text-decoration:none;}
+.logo-img{height:38px;width:auto;object-fit:contain;}
+.nav-links{display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap;}
+.nav-links a{color:var(--ink-soft);text-decoration:none;font-weight:500;transition:color 0.2s;font-size:0.86rem;}
+.nav-links a:hover{color:var(--brass-deep);}
+.btn{padding:0.7rem 1.5rem;border-radius:3px;text-decoration:none;font-weight:600;transition:all 0.25s;display:inline-flex;align-items:center;gap:0.5rem;border:1.5px solid transparent;cursor:pointer;font-size:0.9rem;font-family:var(--font-body);}
+.btn-primary{background:var(--ink);color:var(--paper);}
+.btn-primary:hover{background:var(--brass-deep);}
+.btn-secondary{background:transparent;color:var(--ink);border:1.5px solid var(--ink);}
+.btn-secondary:hover{border-color:var(--brass-deep);color:var(--brass-deep);}
+.btn-brass{background:var(--brass);color:var(--white);}
+.btn-brass:hover{background:var(--brass-deep);}
+
+/* ---------- hero ---------- */
+.hero{margin-top:118px;padding:5.5rem 5% 4rem;background:radial-gradient(1200px 600px at 80% -10%, #202940 0%, var(--ink) 55%);color:var(--white);position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 38px,rgba(255,255,255,0.025) 39px);pointer-events:none;}
+.hero-content{position:relative;z-index:1;max-width:1140px;margin:0 auto;}
+.hero-badge{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--font-mono);background:rgba(178,126,60,0.14);border:1px solid var(--brass);color:#E3B678;padding:0.5rem 1.1rem;border-radius:2px;font-size:0.8rem;font-weight:500;margin-bottom:2rem;letter-spacing:0.03em;}
+.hero h1{font-family:var(--font-display);font-size:3.4rem;font-weight:600;margin-bottom:1.1rem;line-height:1.15;max-width:800px;}
+.hero-subtitle{font-family:var(--font-mono);font-size:1.05rem;color:#E3B678;margin-bottom:1.6rem;letter-spacing:0.02em;}
+.hero-description{font-size:1.1rem;margin-bottom:1rem;opacity:0.92;line-height:1.75;max-width:760px;}
+.hero-highlight{font-size:1.05rem;margin-bottom:2.2rem;font-weight:500;color:#E3B678;max-width:760px;}
+.hero-buttons{display:flex;gap:0.9rem;flex-wrap:wrap;}
+
+/* demo strip */
+.demo-strip{background:var(--brass);color:var(--ink);}
+.demo-strip-inner{max-width:1140px;margin:0 auto;padding:1.1rem 5%;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
+.demo-strip-text{display:flex;align-items:center;gap:0.9rem;font-weight:600;font-size:0.98rem;}
+.demo-strip a.btn{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.demo-strip a.btn:hover{background:var(--white);color:var(--ink);}
+
+section{padding:5rem 5%;}
+.container{max-width:1140px;margin:0 auto;}
+.section-head{max-width:720px;margin:0 auto 3rem;text-align:left;}
+.section-title{font-family:var(--font-display);font-size:2.15rem;font-weight:600;margin-bottom:0.6rem;line-height:1.2;}
+.section-subtitle{color:var(--ink-soft);font-size:1.05rem;max-width:680px;}
+.on-dark .eyebrow{color:#E3B678;}
+.on-dark .section-title{color:var(--white);}
+.on-dark .section-subtitle{color:rgba(255,255,255,0.7);}
+
+/* ---------- about ---------- */
+.about{background:var(--card);border-bottom:1px solid var(--line);}
+.about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:3.5rem;align-items:start;}
+.about-copy p{font-size:1.08rem;line-height:1.8;margin-bottom:1.4rem;color:var(--ink-soft);}
+.about-copy strong{color:var(--ink);}
+.stat-list{border-top:1px solid var(--line);}
+.stat-row{display:flex;justify-content:space-between;align-items:baseline;padding:1.1rem 0;border-bottom:1px solid var(--line);}
+.stat-num{font-family:var(--font-mono);font-size:1.5rem;font-weight:600;color:var(--brass-deep);}
+.stat-label{font-size:0.92rem;color:var(--ink-soft);text-align:right;}
+
+/* ---------- traction ledger rows ---------- */
+.traction{background:var(--paper-2);}
+.ledger-rows{border-top:1px solid var(--line);}
+.ledger-row{display:grid;grid-template-columns:44px 1fr 2.2fr;gap:1.5rem;align-items:flex-start;padding:1.4rem 0;border-bottom:1px solid var(--line);}
+.ledger-row .icon{color:var(--brass-deep);margin-top:0.15rem;}
+.ledger-row h3{font-size:1.05rem;font-weight:600;margin-bottom:0.25rem;}
+.ledger-row p{color:var(--ink-soft);font-size:0.95rem;}
+
+/* ---------- problem ---------- */
+.problem{background:var(--card);}
+.problem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.75rem;}
+.problem-card{padding:1.75rem 1.5rem;border:1px solid var(--line);border-radius:3px;}
+.problem-card .icon{color:var(--brass-deep);margin-bottom:1rem;width:26px;height:26px;}
+.problem-card h3{font-size:1.1rem;margin-bottom:0.5rem;font-weight:600;}
+.problem-card p{font-size:0.92rem;color:var(--ink-soft);margin-bottom:0.8rem;}
+.problem-source{font-size:0.72rem;color:var(--ink-soft);font-family:var(--font-mono);opacity:0.75;}
+
+/* ---------- vision ---------- */
+.vision{background:var(--paper-2);}
+.solution-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--card);}
+.solution-card{padding:2rem 1.85rem;border-right:1px solid var(--line);}
+.solution-card:last-child{border-right:none;}
+.solution-card .status{font-family:var(--font-mono);font-size:0.75rem;color:var(--brass-deep);text-transform:uppercase;letter-spacing:0.04em;display:block;margin-bottom:0.7rem;}
+.solution-card h3{font-size:1.3rem;margin-bottom:0.75rem;font-family:var(--font-display);font-weight:600;}
+.solution-card > p{color:var(--ink-soft);font-size:0.92rem;margin-bottom:1rem;}
+.solution-card ul{list-style:none;}
+.solution-card li{padding:0.45rem 0;padding-left:1.3rem;position:relative;font-size:0.88rem;color:var(--ink-soft);border-top:1px solid var(--line);}
+.solution-card li:first-child{border-top:none;}
+.solution-card li::before{content:'—';position:absolute;left:0;color:var(--brass);}
+
+/* ---------- risks ---------- */
+.risks{background:var(--card);}
+.risk-table{border-top:1px solid var(--line);}
+.risk-row{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;padding:1.5rem 0;border-bottom:1px solid var(--line);}
+.risk-row .risk-label{font-family:var(--font-mono);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--brass-deep);margin-bottom:0.4rem;display:block;}
+.risk-row h4{font-size:1rem;font-weight:600;margin-bottom:0.3rem;}
+.risk-row p{font-size:0.9rem;color:var(--ink-soft);}
+.risk-row .mitigation{border-left:2px solid var(--pine);padding-left:1.25rem;}
+@media(max-width:768px){.risk-row{grid-template-columns:1fr;gap:1rem;}}
+
+/* ---------- architecture ---------- */
+.architecture{background:var(--paper-2);}
+.arch-stack{display:flex;flex-direction:column;gap:0;margin-bottom:3rem;}
+.arch-layer{display:grid;grid-template-columns:200px 1fr;gap:2rem;padding:1.5rem 0;border-bottom:1px dashed var(--line);}
+.arch-layer:first-child{border-top:1px dashed var(--line);}
+.arch-layer h4{font-family:var(--font-mono);font-size:0.85rem;color:var(--brass-deep);text-transform:uppercase;letter-spacing:0.03em;}
+.arch-layer-body p{color:var(--ink-soft);font-size:0.92rem;margin-bottom:0.6rem;}
+.arch-layer-body .tags{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.tag{font-family:var(--font-mono);font-size:0.72rem;background:var(--card);border:1px solid var(--line);padding:0.25rem 0.6rem;border-radius:2px;color:var(--ink-soft);}
+.arch-status-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--card);}
+.arch-status-cell{padding:1rem 1.1rem;border-right:1px solid var(--line);}
+.arch-status-cell:last-child{border-right:none;}
+.arch-status-cell .lbl{font-size:0.78rem;color:var(--ink-soft);margin-bottom:0.35rem;}
+.arch-status-cell .val{font-family:var(--font-mono);font-size:0.82rem;font-weight:600;}
+.val.progress{color:var(--brass-deep);}
+.val.planned{color:var(--pine);}
+@media(max-width:900px){.arch-status-bar{grid-template-columns:repeat(2,1fr);}.arch-status-cell{border-bottom:1px solid var(--line);}}
+
+/* integrations */
+.integration-list{border-top:1px solid var(--line);}
+.integration-row{display:grid;grid-template-columns:34px 1fr auto;gap:1.25rem;align-items:center;padding:1.15rem 0;border-bottom:1px solid var(--line);}
+.integration-row .icon{color:var(--brass-deep);}
+.integration-row h4{font-size:0.98rem;font-weight:600;}
+.integration-row p{font-size:0.85rem;color:var(--ink-soft);}
+.status-pill{font-family:var(--font-mono);font-size:0.7rem;padding:0.3rem 0.7rem;border-radius:12px;white-space:nowrap;text-transform:uppercase;letter-spacing:0.03em;}
+.status-pill.planned{background:rgba(47,92,79,0.1);color:var(--pine);}
+.status-pill.research{background:rgba(178,126,60,0.12);color:var(--brass-deep);}
+@media(max-width:640px){.integration-row{grid-template-columns:28px 1fr;}.status-pill{grid-column:2;justify-self:start;}}
+
+/* ---------- legal accordion ---------- */
+.legal{background:var(--card);}
+.legal-intro{max-width:760px;font-size:1.05rem;color:var(--ink-soft);line-height:1.8;margin-bottom:1rem;}
+.legal-note{font-size:0.9rem;margin-bottom:2.5rem;}
+.legal-note a{color:var(--brass-deep);font-weight:600;text-decoration:none;}
+.legal-note a:hover{text-decoration:underline;}
+.accordion{border-top:1px solid var(--line);}
+.acc-item{border-bottom:1px solid var(--line);}
+.acc-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0;font-weight:600;font-size:1rem;}
+.acc-item summary::-webkit-details-marker{display:none;}
+.acc-item summary .plus{font-family:var(--font-mono);color:var(--brass-deep);font-size:1.2rem;transition:transform 0.2s;}
+.acc-item[open] summary .plus{transform:rotate(45deg);}
+.acc-body{padding-bottom:1.5rem;color:var(--ink-soft);font-size:0.92rem;}
+.acc-body p{margin-bottom:0.9rem;}
+.acc-body ul{list-style:none;columns:2;column-gap:2rem;}
+.acc-body li{padding:0.3rem 0;padding-left:1.1rem;position:relative;font-size:0.88rem;break-inside:avoid;}
+.acc-body li::before{content:'✓';position:absolute;left:0;color:var(--pine);}
+@media(max-width:640px){.acc-body ul{columns:1;}}
+
+.legal-dispute{margin-top:3rem;padding:2rem;background:var(--paper-2);border-radius:3px;}
+.legal-dispute h3{font-size:1.2rem;margin-bottom:0.3rem;font-family:var(--font-display);}
+.legal-dispute > p{color:var(--ink-soft);font-size:0.9rem;margin-bottom:1.5rem;}
+.dispute-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--card);}
+.dispute-tier{padding:1.1rem;border-right:1px solid var(--line);text-align:left;}
+.dispute-tier:last-child{border-right:none;}
+.dispute-tier .tier-num{font-family:var(--font-mono);color:var(--brass-deep);font-size:0.75rem;text-transform:uppercase;}
+.dispute-tier strong{display:block;font-size:0.92rem;margin:0.3rem 0;}
+.dispute-tier span.meta{font-size:0.8rem;color:var(--ink-soft);}
+@media(max-width:768px){.dispute-tiers{grid-template-columns:1fr 1fr;}.dispute-tier{border-bottom:1px solid var(--line);}}
+.jurisdiction-list{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:1.5rem;}
+.jurisdiction-item{font-size:0.85rem;color:var(--ink-soft);}
+.jurisdiction-item strong{color:var(--ink);display:block;font-size:0.75rem;font-family:var(--font-mono);text-transform:uppercase;margin-bottom:0.15rem;}
+
+/* ---------- pricing ---------- */
+.pricing{background:var(--paper-2);}
+.pricing-hero{background:var(--ink);color:var(--white);border-radius:3px;padding:2.75rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-bottom:2rem;}
+.pricing-hero .rate{font-family:var(--font-mono);font-size:3.5rem;font-weight:600;color:#E3B678;line-height:1;}
+.pricing-hero .rate-label{font-size:0.85rem;color:rgba(255,255,255,0.65);margin-top:0.4rem;}
+.pricing-hero-copy h3{font-family:var(--font-display);font-size:1.5rem;margin-bottom:0.6rem;}
+.pricing-hero-copy p{color:rgba(255,255,255,0.75);font-size:0.95rem;max-width:440px;}
+@media(max-width:768px){.pricing-hero{grid-template-columns:1fr;text-align:left;}}
+.pricing-table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--card);}
+.pricing-table th,.pricing-table td{padding:0.9rem 1.2rem;text-align:left;border-bottom:1px solid var(--line);font-size:0.9rem;}
+.pricing-table th{font-family:var(--font-mono);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.03em;color:var(--ink-soft);background:var(--paper-2);}
+.pricing-table td.rate-cell{font-family:var(--font-mono);font-weight:600;color:var(--brass-deep);}
+.pricing-table tr:last-child td{border-bottom:none;}
+.pricing-note{margin-top:1.75rem;font-size:0.88rem;color:var(--ink-soft);border-left:2px solid var(--brass);padding-left:1.25rem;}
+.pricing-note strong{color:var(--ink);}
+
+/* ---------- deal flow ledger ---------- */
+.use-case{background:var(--card);}
+.deal-overview{background:var(--paper-2);padding:2rem;border-radius:3px;margin-bottom:3rem;}
+.deal-overview h3{font-family:var(--font-display);margin-bottom:1.25rem;font-size:1.3rem;}
+.deal-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:1.75rem;}
+.deal-meta-label{font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;color:var(--ink-soft);margin-bottom:0.3rem;}
+.deal-meta-value{font-weight:600;font-size:1rem;}
+.participants{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.participant-card{background:var(--card);padding:1.25rem;border-radius:3px;border:1px solid var(--line);}
+.participant-role{font-weight:600;margin-bottom:0.4rem;font-size:0.95rem;}
+.participant-card p{font-size:0.85rem;color:var(--ink-soft);}
+
+.deal-ledger{position:relative;padding-left:2.5rem;border-left:2px solid var(--line);}
+.deal-step{position:relative;padding-bottom:2.5rem;}
+.deal-step:last-child{padding-bottom:0;}
+.deal-step::before{content:attr(data-step);position:absolute;left:-2.5rem;top:0;width:2rem;height:2rem;background:var(--ink);color:var(--paper);font-family:var(--font-mono);font-size:0.78rem;display:flex;align-items:center;justify-content:center;border-radius:50%;transform:translateX(-0.9rem);}
+.deal-step h3{font-size:1.08rem;margin-bottom:0.5rem;font-weight:600;display:flex;align-items:center;gap:0.6rem;}
+.deal-step h3 .icon{color:var(--brass-deep);width:20px;height:20px;}
+.deal-step p{color:var(--ink-soft);font-size:0.93rem;margin-bottom:0.6rem;}
+.step-benefit{font-family:var(--font-mono);font-size:0.8rem;color:var(--pine);}
+
+/* ---------- future vision ---------- */
+.future-vision{background:var(--ink);color:var(--white);}
+.future-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line-dark);border-radius:3px;overflow:hidden;}
+.future-card{padding:2rem;border-right:1px solid var(--line-dark);}
+.future-card:last-child{border-right:none;}
+.future-card h3{color:#E3B678;font-size:1.15rem;margin-bottom:0.9rem;font-family:var(--font-display);}
+.future-card p{color:rgba(255,255,255,0.75);font-size:0.88rem;line-height:1.6;margin-bottom:0.9rem;}
+.future-card ul{list-style:none;}
+.future-card li{padding:0.35rem 0;padding-left:1.1rem;position:relative;color:rgba(255,255,255,0.7);font-size:0.82rem;}
+.future-card li::before{content:'—';position:absolute;left:0;color:var(--brass);}
+.future-disclaimer{margin-top:1.75rem;padding:1.1rem 1.25rem;background:rgba(255,255,255,0.04);border-radius:3px;font-size:0.8rem;color:rgba(255,255,255,0.6);line-height:1.6;}
+@media(max-width:900px){.future-grid{grid-template-columns:1fr;}.future-card{border-right:none;border-bottom:1px solid var(--line-dark);}}
+
+/* ---------- uae ---------- */
+.uae{background:var(--paper-2);}
+.uae-list{border-top:1px solid var(--line);}
+.uae-item{display:grid;grid-template-columns:28px 1fr;gap:1.1rem;padding:1.25rem 0;border-bottom:1px solid var(--line);}
+.uae-item .icon{color:var(--pine);}
+.uae-item h3{font-size:1rem;margin-bottom:0.25rem;font-weight:600;}
+.uae-item p{font-size:0.9rem;color:var(--ink-soft);}
+
+/* ---------- team ---------- */
+.team{background:var(--card);}
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;}
+.team-card{border:1px solid var(--line);border-radius:3px;padding:2rem;display:flex;gap:1.5rem;}
+.team-avatar{width:64px;height:64px;background:var(--ink);color:#E3B678;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.3rem;font-weight:600;flex-shrink:0;}
+.team-card h3{font-size:1.15rem;margin-bottom:0.15rem;}
+.team-role{color:var(--brass-deep);font-weight:600;font-size:0.85rem;margin-bottom:0.75rem;}
+.team-experience{font-size:0.88rem;color:var(--ink-soft);margin-bottom:0.9rem;}
+.team-link{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--ink-soft);text-decoration:none;}
+.team-link:hover{color:var(--brass-deep);}
+.team-link .icon{width:16px;height:16px;}
+@media(max-width:768px){.team-grid{grid-template-columns:1fr;}.team-card{flex-direction:column;}}
+
+/* ---------- roadmap ---------- */
+.roadmap{background:var(--ink);color:var(--white);}
+.roadmap-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line-dark);border-radius:3px;overflow:hidden;margin-bottom:3rem;}
+.roadmap-item{padding:1.5rem;border-right:1px solid var(--line-dark);}
+.roadmap-item:last-child{border-right:none;}
+.roadmap-item h3{color:#E3B678;font-family:var(--font-mono);font-size:0.9rem;text-transform:uppercase;margin-bottom:0.9rem;}
+.roadmap-item ul{list-style:none;}
+.roadmap-item li{padding:0.35rem 0;font-size:0.82rem;color:rgba(255,255,255,0.75);padding-left:1rem;position:relative;}
+.roadmap-item li::before{content:'—';position:absolute;left:0;color:var(--brass);}
+.roadmap-phase-row{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line-dark);border-radius:3px;overflow:hidden;margin-bottom:3rem;}
+.roadmap-phase-row .roadmap-item{border-right:1px solid var(--line-dark);}
+.roadmap-phase-row .roadmap-item:last-child{border-right:none;}
+@media(max-width:900px){.roadmap-track,.roadmap-phase-row{grid-template-columns:1fr 1fr;}.roadmap-item{border-bottom:1px solid var(--line-dark);}}
+@media(max-width:560px){.roadmap-track,.roadmap-phase-row{grid-template-columns:1fr;}}
+
+.funds-chart{background:var(--ink-2);padding:2rem;border-radius:3px;}
+.funds-chart h3{font-family:var(--font-display);color:var(--white);margin-bottom:0.3rem;}
+.funds-subtitle{color:rgba(255,255,255,0.6);font-size:0.88rem;margin-bottom:1.75rem;}
+.fund-item{display:grid;grid-template-columns:1fr 2fr 50px;align-items:center;gap:1.25rem;padding:0.85rem 0;border-bottom:1px solid var(--line-dark);}
+.fund-item:last-child{border-bottom:none;}
+.fund-info{font-size:0.88rem;color:rgba(255,255,255,0.85);}
+.fund-bar-container{background:rgba(255,255,255,0.08);border-radius:2px;height:8px;}
+.fund-bar{height:8px;background:var(--brass);border-radius:2px;}
+.fund-item .pct{font-family:var(--font-mono);color:#E3B678;font-size:0.85rem;text-align:right;}
+@media(max-width:640px){.fund-item{grid-template-columns:1fr;gap:0.5rem;}.fund-item .pct{text-align:left;}}
+
+/* ---------- ask ---------- */
+.ask{background:var(--paper-2);text-align:left;}
+.ask-content{max-width:760px;}
+.ask-amount{font-family:var(--font-mono);font-size:2.6rem;font-weight:600;color:var(--brass-deep);margin:0.75rem 0 1.25rem;}
+.contact-box{margin:2rem 0;padding:1.75rem;background:var(--card);border-radius:3px;border:1px solid var(--line);}
+.contact-email{font-size:1.2rem;color:var(--brass-deep);text-decoration:none;font-weight:600;display:inline-block;margin-top:0.5rem;}
+.contact-email:hover{text-decoration:underline;}
+.receive-box{margin:1.75rem 0;padding:1.75rem;background:var(--card);border-radius:3px;border:1px solid var(--line);}
+.receive-box h3{font-family:var(--font-display);margin-bottom:1rem;font-size:1.1rem;}
+.receive-box ul{list-style:none;}
+.receive-box li{padding:0.5rem 0;padding-left:1.4rem;position:relative;font-size:0.92rem;border-top:1px solid var(--line);}
+.receive-box li:first-child{border-top:none;}
+.receive-box li::before{content:'✓';position:absolute;left:0;color:var(--pine);}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:rgba(255,255,255,0.85);padding:3.5rem 5% 2.5rem;text-align:left;}
+.footer-inner{max-width:1140px;margin:0 auto;}
+.footer-logo-img{height:36px;width:auto;margin-bottom:1rem;filter:brightness(0) invert(1);}
+.footer-links{display:flex;gap:1.75rem;margin:1.25rem 0;flex-wrap:wrap;}
+.footer-links a{color:#E3B678;text-decoration:none;font-size:0.9rem;display:inline-flex;align-items:center;gap:0.5rem;}
+.footer-links a:hover{opacity:0.8;}
+.footer-legal{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line-dark);font-size:0.8rem;opacity:0.6;}
+.footer-legal a{color:#E3B678;}
+
+/* ---------- reveal ---------- */
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){.fade-in{opacity:1;transform:none;transition:none;}}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .about-grid{grid-template-columns:1fr;}
+  .problem-grid{grid-template-columns:repeat(2,1fr);}
+  .solution-grid{grid-template-columns:1fr;}
+  .solution-card{border-right:none;border-bottom:1px solid var(--line);}
+  .deal-meta{grid-template-columns:1fr 1fr;}
+  .participants{grid-template-columns:1fr;}
+}
+@media (max-width:768px){
+  .hero h1{font-size:2.15rem;}
+  .section-title{font-size:1.7rem;}
+  .nav-links{display:none;}
+  .hero-buttons{flex-direction:column;align-items:stretch;}
+  .problem-grid{grid-template-columns:1fr;}
+  .logo-img{height:30px;}
+  .acc-body ul{columns:1;}
 }
 </style>
 </head>
 <body>
+
+<!-- ============ ICON SPRITE ============ -->
+<svg style="display:none">
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/><path d="M9 13h6M9 17h6"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 2 1 21h22z"/><path d="M12 9v5"/><path d="M12 17h.01"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></symbol>
+<symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.5 5.5l13 13"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></symbol>
+<symbol id="i-network" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 7.5 10.5 16M16 7.5 13.5 16M8.5 6h7"/></symbol>
+<symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M7 21h10"/><path d="M4 7h6M14 7h6"/><path d="M4 7l-2.5 5.5a3 3 0 0 0 5 0z"/><path d="M20 7l-2.5 5.5a3 3 0 0 0 5 0z"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+<symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 2h6M10 2v6l-6 11a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-6-11V2"/></symbol>
+<symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 10 12 4l9 6"/><path d="M4 10v9M9 10v9M15 10v9M20 10v9"/><path d="M2 21h20"/></symbol>
+<symbol id="i-landmark" viewBox="0 0 24 24"><path d="M4 21h16M5 21V9M19 21V9M12 21v-7"/><path d="M2 9l10-6 10 6"/></symbol>
+<symbol id="i-satellite" viewBox="0 0 24 24"><path d="M4 11a8 8 0 0 1 8-8"/><path d="M4 11l4 4M13 3l4 4"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M6 21l3-3M18 21l-3-3"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></symbol>
+<symbol id="i-scroll" viewBox="0 0 24 24"><path d="M6 3h12v14a3 3 0 0 1-3 3H6"/><path d="M6 3a3 3 0 0 0-3 3v11a3 3 0 0 0 3 3"/><path d="M9 8h6M9 12h6"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"/></symbol>
+<symbol id="i-ship" viewBox="0 0 24 24"><path d="M3 15l2 6h14l2-6M5 15h14l-2-6H7z"/><path d="M12 9V3M9 5h6"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-5-5"/></symbol>
+<symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 6.5c0-1.9-2.2-3.5-5-3.5s-5 1.4-5 3.3S9 9.4 12 10c3 .6 5 1.8 5 3.7S14.8 17 12 17s-5-1.6-5-3.5"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M11 20V4M18 20v-7"/><path d="M2 20h20"/></symbol>
+<symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 18v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+<symbol id="i-linkedin" viewBox="0 0 24 24" stroke="none" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+<symbol id="i-twitter" viewBox="0 0 24 24" stroke="none" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 6l9 7 9-7"/></symbol>
+</svg>
+
 <div class="disclaimer-banner">⚠️ <strong>GETH</strong> = Global Energy Trade Hub. Not affiliated with <a href="https://geth.ethereum.org" target="_blank" rel="noopener">Go-Ethereum (Geth)</a> or any cryptocurrency protocol.</div>
+
 <nav>
 <div class="nav-container">
-<a href="#" class="logo">
-<img src="logo.png" alt="GETH" class="logo-img" onerror="this.style.display='none'">
-GETH
-</a>
+<a href="#" class="logo"><img src="logo.png" alt="GETH" class="logo-img" onerror="this.style.display='none'">GETH</a>
 <div class="nav-links">
 <a href="#about">About</a>
-<a href="#traction">Traction</a>
 <a href="#problem">Problem</a>
 <a href="#vision">Vision</a>
-<a href="#architecture">Architecture</a>
-<a href="#integrations">Integrations</a>
+<a href="#risks">Risks</a>
+<a href="#architecture">Platform</a>
 <a href="#legal">Legal</a>
 <a href="#pricing">Pricing</a>
 <a href="#use-case">Deal Flow</a>
 <a href="#roadmap">Roadmap</a>
 <a href="#team">Team</a>
-<a href="mvp-demo.html" class="btn btn-secondary" onclick="gtag('event', 'demo_click'); ym(110179125, 'reachGoal', 'demo_click');">Demo</a>
+<a href="mvp-demo.html" class="btn btn-secondary" onclick="gtag('event','demo_click');ym(110179125,'reachGoal','demo_click');">Demo</a>
 <a href="#ask" class="btn btn-primary">Contact</a>
 </div>
 </div>
 </nav>
+
 <section class="hero">
 <div class="hero-content">
-<div class="hero-badge"><span>💡</span><span>Idea Stage • Pre-seed • Dubai, UAE</span></div>
-<h1>Building Digital Infrastructure for Commodity Trade</h1>
-<p class="hero-subtitle">Global Energy Trade Hub</p>
-<p class="hero-description">GETH is an idea-stage project aiming to build digital infrastructure for the $4.6 trillion OTC commodity market. We're starting with legal foundation, then building an automated platform to reduce settlement times from months to hours.</p>
-<p class="hero-highlight">Legal-first approach. Seeking pre-seed partners to build the foundation. 1.10% target fee — significantly lower than traditional brokers.</p>
+<div class="hero-badge"><span>Idea Stage · Pre-Seed · Dubai, UAE</span></div>
+<h1>Digital Infrastructure for OTC Commodity Trade</h1>
+<p class="hero-subtitle">GLOBAL ENERGY TRADE HUB</p>
+<p class="hero-description">GETH is an idea-stage project building digital infrastructure for the $4.6 trillion OTC commodity market. We're starting with the legal foundation, then building an automated platform to cut settlement from months to hours.</p>
+<p class="hero-highlight">Legal-first approach. Seeking pre-seed partners to build the foundation. Target fee 1.10% — well below traditional brokers.</p>
 <div class="hero-buttons">
-<a href="GETH_ExecutiveSummary.pdf" download class="btn btn-primary" onclick="gtag('event', 'document_download', {'file_name': 'executive_summary'}); ym(110179125, 'reachGoal', 'doc_download');">Download Executive Summary</a>
-<a href="mailto:gethfounder@gmail.com" class="btn btn-secondary" onclick="gtag('event', 'contact_email_click', {'email': 'gethfounder@gmail.com'}); ym(110179125, 'reachGoal', 'email_click');">Contact Founders</a>
-<a href="mvp-demo.html" class="btn btn-secondary" onclick="gtag('event', 'demo_click'); ym(110179125, 'reachGoal', 'demo_click');">Demo</a>
+<a href="GETH_ExecutiveSummary.pdf" download class="btn btn-primary" onclick="gtag('event','document_download',{'file_name':'executive_summary'});ym(110179125,'reachGoal','doc_download');">Download Executive Summary</a>
+<a href="mailto:gethfounder@gmail.com" class="btn btn-secondary" style="border-color:rgba(255,255,255,0.4);color:#fff;" onclick="gtag('event','contact_email_click',{'email':'gethfounder@gmail.com'});ym(110179125,'reachGoal','email_click');">Contact Founders</a>
 </div>
 </div>
 </section>
+
+<div class="demo-strip">
+<div class="demo-strip-inner">
+<div class="demo-strip-text"><svg class="icon" style="width:22px;height:22px;"><use href="#i-search"/></svg> See the AI matching, escrow and settlement flow working in an interactive MVP demo.</div>
+<a href="mvp-demo.html" class="btn" onclick="gtag('event','demo_click');ym(110179125,'reachGoal','demo_click');">Open Live Demo →</a>
+</div>
+</div>
+
 <section id="about" class="about">
-<div class="about-content fade-in">
-<h2>What is GETH?</h2>
-<p>GETH (Global Energy Trade Hub) is an <strong>idea-stage project</strong> designed to become a digital ecosystem for over-the-counter (OTC) commodity trading. We aim to address critical pain points in the $4.6 trillion market: manual processes, certificate fraud, and dispute resolution delays.</p>
-<p>Our approach: secure the <strong>legal foundation first</strong> (UAE VARA + DMCC licensing), then build an automated platform with AI-driven counterparty scoring, smart contract-based escrow, and real-time cargo tracking — and finally validate with test deals from the founder's industry network.</p>
-<div class="about-stats">
-<div class="stat-item"><span class="stat-number">$4.6T</span><div class="stat-label">Total Addressable Market</div></div>
-<div class="stat-item"><span class="stat-number">63%</span><div class="stat-label">Manual Processes</div></div>
-<div class="stat-item"><span class="stat-number">1.10%</span><div class="stat-label">Target Fee</div></div>
-<div class="stat-item"><span class="stat-number">8+ yrs</span><div class="stat-label">Founder Experience</div></div>
+<div class="container">
+<div class="about-grid">
+<div class="about-copy fade-in">
+<p class="eyebrow">01 — About</p>
+<h2 class="section-title" style="margin-bottom:1.25rem;">What is GETH?</h2>
+<p>GETH (Global Energy Trade Hub) is an <strong>idea-stage project</strong> designed to become a digital ecosystem for over-the-counter (OTC) commodity trading, addressing three pain points in the $4.6 trillion market: manual processes, certificate fraud, and slow dispute resolution.</p>
+<p>Our approach: secure the <strong>legal foundation first</strong> (UAE VARA + DMCC licensing), then build an automated platform with AI-driven counterparty scoring, smart contract escrow, and real-time cargo tracking — then validate with test deals from the founder's industry network.</p>
+</div>
+<div class="stat-list fade-in">
+<div class="stat-row"><span class="stat-num">$4.6T</span><span class="stat-label">Total addressable market</span></div>
+<div class="stat-row"><span class="stat-num">63%</span><span class="stat-label">Of trades still run on manual processes</span></div>
+<div class="stat-row"><span class="stat-num">1.10%</span><span class="stat-label">Target all-in fee</span></div>
+<div class="stat-row"><span class="stat-num">8+ yrs</span><span class="stat-label">Founder's trading experience</span></div>
+</div>
 </div>
 </div>
 </section>
+
 <section id="traction" class="traction">
 <div class="container">
-<h2 class="section-title">Founder Experience & Network</h2>
-<p class="section-subtitle">Built on real industry expertise, not theory</p>
-<div class="traction-grid">
-<div class="traction-item fade-in">
-<div class="traction-icon">👤</div>
-<div class="traction-title">8+ Years Trading</div>
-<div class="traction-desc">Fuel & gas trades across UAE, Finland, Mozambique, Zimbabwe at Harka, Pentium AG, G-Gas, Grandcliff Petroleum</div>
+<p class="eyebrow fade-in">02 — Founder Experience</p>
+<h2 class="section-title fade-in">Built on Real Industry Expertise</h2>
+<p class="section-subtitle fade-in">Not a theoretical opportunity — grounded in trading relationships that already exist.</p>
+<div class="ledger-rows">
+<div class="ledger-row fade-in">
+<svg class="icon"><use href="#i-user"/></svg>
+<h3>8+ Years Trading</h3>
+<p>Fuel & gas trades across UAE, Finland, Mozambique, and Zimbabwe at Harka, Pentium AG, G-Gas, and Grandcliff Petroleum.</p>
 </div>
-<div class="traction-item fade-in">
-<div class="traction-icon">🤝</div>
-<div class="traction-title">Industry Network</div>
-<div class="traction-desc">Direct relationships with traders, refineries, and logistics providers across MENA, Europe, Africa</div>
+<div class="ledger-row fade-in">
+<svg class="icon"><use href="#i-network"/></svg>
+<h3>Industry Network</h3>
+<p>Direct relationships with traders, refineries, and logistics providers across MENA, Europe, and Africa.</p>
 </div>
-<div class="traction-item fade-in">
-<div class="traction-icon">⚖️</div>
-<div class="traction-title">Legal Counsel</div>
-<div class="traction-desc">Engaging top-tier UAE law firm for VARA/DMCC structuring. Legal-first approach protects investor capital.</div>
+<div class="ledger-row fade-in">
+<svg class="icon"><use href="#i-scale"/></svg>
+<h3>Legal Counsel Engaged</h3>
+<p>Top-tier UAE law firm retained for VARA/DMCC structuring. Legal-first approach designed to protect investor capital.</p>
 </div>
-<div class="traction-item fade-in">
-<div class="traction-icon">🎯</div>
-<div class="traction-title">Pilot Candidates</div>
-<div class="traction-desc">5-10 traders from founder's network expressed interest in testing platform post-MVP (non-binding)</div>
+<div class="ledger-row fade-in">
+<svg class="icon"><use href="#i-target"/></svg>
+<h3>Pilot Candidates</h3>
+<p>5–10 traders from the founder's network have expressed non-binding interest in testing the platform post-MVP.</p>
 </div>
 </div>
 </div>
 </section>
+
 <section id="problem" class="problem">
 <div class="container">
-<h2 class="section-title">The Problem</h2>
-<p class="section-subtitle">$4.6T OTC Commodity Market is Broken</p>
+<p class="eyebrow fade-in">03 — The Problem</p>
+<h2 class="section-title fade-in">A $4.6T Market Still Runs on Paper</h2>
+<p class="section-subtitle fade-in">Four structural gaps that digital infrastructure can close.</p>
 <div class="problem-grid">
 <div class="problem-card fade-in">
-<div class="problem-icon">📄</div>
+<svg class="icon"><use href="#i-doc"/></svg>
 <h3>63% Manual Processes</h3>
-<p>Excel spreadsheets, email chains, and fax machines still dominate commodity trading workflows</p>
-<div class="problem-source">Source: McKinsey Digital Trade Finance Report 2023</div>
+<p>Spreadsheets, email chains, and fax machines still dominate commodity trading workflows.</p>
+<div class="problem-source">Source: McKinsey Digital Trade Finance Report, 2023</div>
 </div>
 <div class="problem-card fade-in">
-<div class="problem-icon">⚠️</div>
+<svg class="icon"><use href="#i-alert"/></svg>
 <h3>Fake Certificates</h3>
-<p>Fraudulent quality certificates cost buyers over $50 billion annually</p>
+<p>Fraudulent quality certificates cost buyers an estimated $50B+ annually.</p>
 <div class="problem-source">Source: International Maritime Bureau</div>
 </div>
 <div class="problem-card fade-in">
-<div class="problem-icon">⏳</div>
+<svg class="icon"><use href="#i-clock"/></svg>
 <h3>18+ Month Disputes</h3>
-<p>Court delays and arbitration bottlenecks kill deals and tie up capital</p>
+<p>Court delays and arbitration bottlenecks kill deals and tie up capital for years.</p>
 <div class="problem-source">Source: ICC Dispute Resolution Statistics</div>
 </div>
 <div class="problem-card fade-in">
-<div class="problem-icon">🚫</div>
+<svg class="icon"><use href="#i-block"/></svg>
 <h3>SMEs Locked Out</h3>
-<p>Small and medium enterprises have no access to trade finance or verified networks</p>
+<p>Small and medium enterprises have little access to trade finance or verified counterparties.</p>
 <div class="problem-source">Source: World Bank Trade Finance Gap Report</div>
 </div>
 </div>
 </div>
 </section>
+
 <section id="vision" class="vision">
 <div class="container">
-<h2 class="section-title">Our Vision</h2>
-<p class="section-subtitle">Legal First → Platform → Test Deals</p>
-<div class="solution-grid">
-<div class="solution-card fade-in">
-<span class="status">Priority #1 — Legal</span>
+<p class="eyebrow fade-in">04 — Our Vision</p>
+<h2 class="section-title fade-in">Legal First → Platform → Test Deals</h2>
+<p class="section-subtitle fade-in">A deliberately sequenced, capital-efficient build order.</p>
+<div class="solution-grid fade-in">
+<div class="solution-card">
+<span class="status">Priority 1 — Legal</span>
 <h3>Secure Regulatory Foundation</h3>
-<p>Before any development, establish the legal framework that protects all stakeholders and enables compliant operations.</p>
+<p>Establish the legal framework that protects all stakeholders before any development begins.</p>
 <ul>
 <li>DMCC trade license application</li>
 <li>VARA conditional approval process</li>
-<li>Token legal structuring (utility vs security)</li>
-<li>Escrow partnership with regulated bank</li>
-<li>Corporate governance setup</li>
+<li>Token legal structuring (utility vs. security)</li>
+<li>Escrow partnership with a regulated bank</li>
 <li>Regulatory contingency plan (ADGM fallback)</li>
 </ul>
 </div>
-<div class="solution-card fade-in">
-<span class="status">Priority #2 — Platform</span>
+<div class="solution-card">
+<span class="status">Priority 2 — Platform</span>
 <h3>Build Automated Platform</h3>
-<p>Once legal foundation is secured, develop production-ready infrastructure with AI, smart contracts, and IoT integration.</p>
+<p>Once legal foundation is secured, develop production infrastructure with AI, smart contracts, and IoT.</p>
 <ul>
-<li>AI counterparty risk scoring engine</li>
+<li>AI counterparty risk-scoring engine</li>
 <li>Smart contract escrow system</li>
 <li>IoT cargo tracking integration</li>
 <li>NFT-based quality certificates</li>
-<li>Automated KYB/KYC verification APIs</li>
-<li>Scalable full-stack architecture</li>
+<li>Automated KYB/KYC verification</li>
 </ul>
 </div>
-<div class="solution-card fade-in">
-<span class="status">Priority #3 — Validation</span>
+<div class="solution-card">
+<span class="status">Priority 3 — Validation</span>
 <h3>Test with Real Deals</h3>
-<p>Validate platform with pilot transactions from founder's network. Iterate based on real-world feedback.</p>
+<p>Validate the platform with pilot transactions sourced from the founder's network, then iterate.</p>
 <ul>
-<li>First 5-10 test deals</li>
-<li>Real counterparties from network</li>
-<li>Iterative improvement</li>
-<li>Unit economics validation</li>
+<li>First 5–10 test deals</li>
+<li>Real counterparties from the network</li>
+<li>Unit-economics validation</li>
 <li>Customer feedback loops</li>
-<li>Prepare for seed round</li>
+<li>Preparation for seed round</li>
 </ul>
 </div>
 </div>
 </div>
 </section>
+
+<section id="risks" class="risks">
+<div class="container">
+<p class="eyebrow fade-in">05 — Risks & Mitigations</p>
+<h2 class="section-title fade-in">What Could Go Wrong, and Our Plan</h2>
+<p class="section-subtitle fade-in">An honest look at the biggest open questions at this stage — and how we're addressing each one.</p>
+<div class="risk-table">
+<div class="risk-row fade-in">
+<div><span class="risk-label">Risk</span><h4>VARA declines or delays token/licensing approval</h4><p>Regulatory timelines in a new framework are inherently uncertain.</p></div>
+<div class="mitigation"><span class="risk-label">Mitigation</span><h4>ADGM fallback structure</h4><p>Pre-scoped contingency plan to pivot to ADGM licensing or a non-token utility-points model.</p></div>
+</div>
+<div class="risk-row fade-in">
+<div><span class="risk-label">Risk</span><h4>No regulated bank signs the escrow partnership</h4><p>Without a bank partner, automated fund locking cannot go live.</p></div>
+<div class="mitigation"><span class="risk-label">Mitigation</span><h4>Multiple parallel conversations</h4><p>Engaging more than one UAE bank in parallel; legal counsel structuring terms both banks would accept.</p></div>
+</div>
+<div class="risk-row fade-in">
+<div><span class="risk-label">Risk</span><h4>Pilot traders don't convert after MVP</h4><p>Current interest is non-binding and expressed pre-MVP.</p></div>
+<div class="mitigation"><span class="risk-label">Mitigation</span><h4>Manual-first validation</h4><p>Running the first test deals manually, before the platform is built, to prove demand cheaply and early.</p></div>
+</div>
+<div class="risk-row fade-in">
+<div><span class="risk-label">Risk</span><h4>Two-person team is thin for the scope</h4><p>Legal, platform, and business development all compete for founder time.</p></div>
+<div class="mitigation"><span class="risk-label">Mitigation</span><h4>30% of round to team</h4><p>Pre-seed use of funds allocates dedicated budget to hire before platform build begins.</p></div>
+</div>
+<div class="risk-row fade-in">
+<div><span class="risk-label">Risk</span><h4>Regulatory fragmentation from multi-jurisdiction expansion</h4><p>Pursuing several licensing regimes at once (GCC, Hong Kong, Singapore) in parallel would strain a pre-seed budget and dilute focus.</p></div>
+<div class="mitigation"><span class="risk-label">Mitigation</span><h4>One license first, expansion only post-PMF</h4><p>UAE (VARA + DMCC) remains the sole legal home through MVP and test deals. Qatar's QFC is the natural next license given its 2024 Digital Assets Framework already permits commodity tokenization on common-law terms parallel to VARA — pursued only after UAE product-market fit.</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
 <section id="architecture" class="architecture">
 <div class="container">
-<h2 class="section-title">High-Level Architecture</h2>
-<p class="section-subtitle">Simplified view — technical details after legal foundation</p>
-<div class="arch-diagram fade-in">
-<div class="arch-layer">
-<h4>Layer 1: User Interface</h4>
-<p>Web dashboard for traders, buyers, sellers, and intermediaries. Mobile-responsive design.</p>
-<ul>
-<li>Deal creation and management</li>
-<li>Real-time status updates</li>
-<li>Document management</li>
-<li>Communication tools</li>
-</ul>
+<p class="eyebrow fade-in">06 — Platform</p>
+<h2 class="section-title fade-in">High-Level Architecture</h2>
+<p class="section-subtitle fade-in">A simplified view — full technical spec follows the legal foundation.</p>
+<div class="arch-stack">
+<div class="arch-layer fade-in">
+<h4>Layer 1 — Interface</h4>
+<div class="arch-layer-body"><p>Web dashboard for traders, buyers, sellers, and intermediaries. Mobile-responsive.</p>
+<div class="tags"><span class="tag">Deal management</span><span class="tag">Live status</span><span class="tag">Documents</span></div></div>
 </div>
-<div class="arch-layer">
-<h4>Layer 2: Business Logic</h4>
-<p>Core platform functionality: matching, verification, escrow management, settlement orchestration.</p>
-<ul>
-<li>AI-powered counterparty scoring</li>
-<li>Automated deal matching</li>
-<li>Smart contract integration</li>
-<li>Bank API coordination</li>
-</ul>
+<div class="arch-layer fade-in">
+<h4>Layer 2 — Business Logic</h4>
+<div class="arch-layer-body"><p>Matching, verification, escrow management, settlement orchestration.</p>
+<div class="tags"><span class="tag">AI scoring</span><span class="tag">Deal matching</span><span class="tag">Smart contracts</span></div></div>
 </div>
-<div class="arch-layer">
-<h4>Layer 3: Integrations</h4>
-<p>Connections to external systems: banks, inspection companies, IoT providers, blockchain networks.</p>
-<ul>
-<li>Bank escrow APIs</li>
-<li>SGS/Bureau Veritas certificate verification</li>
-<li>IoT cargo tracking</li>
-<li>Blockchain (Ethereum L2)</li>
-</ul>
+<div class="arch-layer fade-in">
+<h4>Layer 3 — Integrations</h4>
+<div class="arch-layer-body"><p>Connections to banks, inspection companies, IoT providers, and blockchain networks.</p>
+<div class="tags"><span class="tag">Bank escrow API</span><span class="tag">SGS / Bureau Veritas</span><span class="tag">Ethereum L2</span></div></div>
 </div>
-<div class="arch-layer">
-<h4>Layer 4: Data & Security</h4>
-<p>Secure data storage, encryption, compliance monitoring, audit trails.</p>
-<ul>
-<li>Encrypted document storage</li>
-<li>Immutable audit trails</li>
-<li>AML/KYC compliance</li>
-<li>Regulatory reporting</li>
-</ul>
-</div>
-<div class="arch-status">
-<h4>Current Status</h4>
-<div class="status-item">
-<span class="status-label">Architecture Design</span>
-<span class="status-value planned">In Progress</span>
-</div>
-<div class="status-item">
-<span class="status-label">Legal Structuring</span>
-<span class="status-value planned">In Progress</span>
-</div>
-<div class="status-item">
-<span class="status-label">Bank Partnerships</span>
-<span class="status-value">Planned (Q2)</span>
-</div>
-<div class="status-item">
-<span class="status-label">Platform Development</span>
-<span class="status-value">Planned (Q3)</span>
-</div>
-<div class="status-item">
-<span class="status-label">Integration Testing</span>
-<span class="status-value">Planned (Q4)</span>
+<div class="arch-layer fade-in">
+<h4>Layer 4 — Data & Security</h4>
+<div class="arch-layer-body"><p>Encrypted storage, immutable audit trails, compliance monitoring.</p>
+<div class="tags"><span class="tag">Encryption</span><span class="tag">Audit trail</span><span class="tag">AML/KYC</span></div></div>
 </div>
 </div>
+<div class="arch-status-bar fade-in">
+<div class="arch-status-cell"><div class="lbl">Architecture design</div><div class="val progress">In progress</div></div>
+<div class="arch-status-cell"><div class="lbl">Legal structuring</div><div class="val progress">In progress</div></div>
+<div class="arch-status-cell"><div class="lbl">Bank partnerships</div><div class="val planned">Planned Q2</div></div>
+<div class="arch-status-cell"><div class="lbl">Platform build</div><div class="val planned">Planned Q3</div></div>
+<div class="arch-status-cell"><div class="lbl">Integration testing</div><div class="val planned">Planned Q4</div></div>
 </div>
 </div>
 </section>
+
 <section id="integrations" class="integrations">
 <div class="container">
-<h2 class="section-title">Planned Integrations</h2>
-<p class="section-subtitle">Strategic partnerships under negotiation</p>
-<div class="integration-grid">
-<div class="integration-card fade-in">
-<div class="integration-icon">🔬</div>
-<h3>SGS / Bureau Veritas</h3>
-<p>Quality inspection & certificate verification. API-based validation for automated NFT certificate minting.</p>
-<span class="integration-status research">Research Phase</span>
-</div>
-<div class="integration-card fade-in">
-<div class="integration-icon">🏦</div>
-<h3>RAKBANK / Emirates NBD</h3>
-<p>Regulated escrow services for commodity trade. Smart contract integration for automated fund locking and release.</p>
-<span class="integration-status planned">Planned Q2</span>
-</div>
-<div class="integration-card fade-in">
-<div class="integration-icon">🏛️</div>
-<h3>DMCC (Dubai Multi Commodities Centre)</h3>
-<p>Technology partnership & ecosystem access. Integration with DMCC Tradeflow for commodity registration.</p>
-<span class="integration-status planned">Planned Q1</span>
-</div>
-<div class="integration-card fade-in">
-<div class="integration-icon">📡</div>
-<h3>IoT Tracking Providers</h3>
-<p>Real-time cargo monitoring. GPS, temperature, humidity sensors with blockchain-based data verification.</p>
-<span class="integration-status research">Research Phase</span>
-</div>
-<div class="integration-card fade-in">
-<div class="integration-icon">🛡️</div>
-<h3>Insurance Providers</h3>
-<p>Cargo and counterparty risk coverage. Integration with Lloyd's and regional insurance partners.</p>
-<span class="integration-status planned">Planned Q3</span>
-</div>
-<div class="integration-card fade-in">
-<div class="integration-icon">⚖️</div>
-<h3>Legal & Compliance</h3>
-<p>Top-tier UAE law firm for VARA/DMCC licensing. AML/KYC compliance and regulatory guidance.</p>
-<span class="integration-status planned">In Progress</span>
-</div>
+<p class="eyebrow fade-in">07 — Integrations</p>
+<h2 class="section-title fade-in">Planned Partnerships</h2>
+<p class="section-subtitle fade-in">Strategic integrations under negotiation, not yet signed.</p>
+<div class="integration-list">
+<div class="integration-row fade-in"><svg class="icon"><use href="#i-flask"/></svg><div><h4>SGS / Bureau Veritas</h4><p>Quality inspection & certificate verification, API-based, for automated NFT certificate minting.</p></div><span class="status-pill research">Research phase</span></div>
+<div class="integration-row fade-in"><svg class="icon"><use href="#i-bank"/></svg><div><h4>RAKBANK / Emirates NBD</h4><p>Regulated escrow with smart-contract integration for automated fund locking and release.</p></div><span class="status-pill planned">Planned Q2</span></div>
+<div class="integration-row fade-in"><svg class="icon"><use href="#i-landmark"/></svg><div><h4>DMCC Tradeflow</h4><p>Technology partnership and ecosystem access for commodity registration.</p></div><span class="status-pill planned">Planned Q1</span></div>
+<div class="integration-row fade-in"><svg class="icon"><use href="#i-satellite"/></svg><div><h4>IoT Tracking Providers</h4><p>GPS, temperature, and humidity sensors with blockchain-verified data.</p></div><span class="status-pill research">Research phase</span></div>
+<div class="integration-row fade-in"><svg class="icon"><use href="#i-shield"/></svg><div><h4>Insurance Providers</h4><p>Cargo and counterparty risk coverage via Lloyd's and regional insurers.</p></div><span class="status-pill planned">Planned Q3</span></div>
+<div class="integration-row fade-in"><svg class="icon"><use href="#i-scale"/></svg><div><h4>Legal & Compliance</h4><p>Top-tier UAE law firm for VARA/DMCC licensing, AML/KYC guidance.</p></div><span class="status-pill planned">In progress</span></div>
 </div>
 </div>
 </section>
+
 <section id="legal" class="legal">
 <div class="container">
-<h2 class="section-title">Legal Framework & Compliance</h2>
-<p class="section-subtitle">Enterprise-grade legal infrastructure for institutional commodity trading</p>
-<p class="legal-intro fade-in">
-GETH operates as a <strong>technology platform</strong> — not as a trading house, carrier, or insurer.
-We provide the digital infrastructure that connects verified counterparties, regulated banks,
-licensed inspection companies, and professional intermediaries within a compliant ecosystem.
-</p>
-<div class="legal-grid">
-<div class="legal-card fade-in">
-<div class="legal-icon">⚖️</div>
-<h3>Platform Legal Status</h3>
-<p>GETH is a digital intermediary — we do not buy, sell, transport, or insure commodities. All commercial transactions occur directly between verified counterparties.</p>
-<ul>
-<li>Platform operator under UAE Electronic Transactions Law</li>
-<li>Technology infrastructure provider</li>
-<li>No proprietary trading activities</li>
-<li>No custody of physical assets</li>
-<li>Regulated via VARA + DMCC licensing</li>
-<li>English Common Law governance (DIFC)</li>
-</ul>
+<p class="eyebrow fade-in">08 — Legal Framework</p>
+<h2 class="section-title fade-in">Legal Framework & Compliance</h2>
+<p class="legal-intro fade-in">GETH operates as a <strong>technology platform</strong> — not a trading house, carrier, or insurer. We provide the digital infrastructure connecting verified counterparties, regulated banks, licensed inspectors, and professional intermediaries within a compliant ecosystem.</p>
+<p class="legal-note fade-in">Full legal structuring detail is in the <a href="GETH_ExecutiveSummary.pdf" download>Executive Summary PDF</a>. Below is a condensed overview.</p>
+<div class="accordion fade-in">
+<details class="acc-item" open>
+<summary><span>Platform Legal Status</span><span class="plus">+</span></summary>
+<div class="acc-body"><p>GETH is a digital intermediary — it does not buy, sell, transport, or insure commodities. All commercial transactions occur directly between verified counterparties.</p>
+<ul><li>Platform operator under UAE Electronic Transactions Law</li><li>No proprietary trading activity</li><li>No custody of physical assets</li><li>Regulated via VARA + DMCC licensing</li><li>English Common Law governance (DIFC)</li></ul></div>
+</details>
+<details class="acc-item">
+<summary><span>Logistics Legal Framework</span><span class="plus">+</span></summary>
+<div class="acc-body"><p>GETH integrates with logistics providers through standardized legal agreements allocating responsibility and risk clearly.</p>
+<ul><li>Master Service Agreement with shipping companies</li><li>API Integration Agreement for booking & tracking</li><li>Electronic Bill of Lading (eBL) — legally recognized</li><li>Incoterms® 2020 guidance via AI assistant</li><li>Force majeure & dispute clauses</li></ul></div>
+</details>
+<details class="acc-item">
+<summary><span>Insurance Legal Framework</span><span class="plus">+</span></summary>
+<div class="acc-body"><p>GETH acts as an insurance aggregator and facilitator — policies are issued by licensed insurers via API integration.</p>
+<ul><li>Brokerage Agreement with Lloyd's Coverholders</li><li>Smart Insurance Policy with automated triggers</li><li>Institute Cargo Clauses (A/B/C) coverage</li><li>NFT Insurance Certificate as proof of coverage</li><li>Automated claims processing</li></ul></div>
+</details>
+<details class="acc-item">
+<summary><span>Smart Contracts as Legal Instruments</span><span class="plus">+</span></summary>
+<div class="acc-body"><p>Smart contracts on GETH are designed to be legally binding under UAE and international law, with immutable audit trails.</p>
+<ul><li>UAE Federal Law No. 1 of 2022</li><li>ADGM Smart Transaction Regulations 2021</li><li>DIFC Digital Assets Law 2023</li><li>UNCITRAL Model Law compliance</li><li>Qualified Electronic Signatures</li></ul></div>
+</details>
+<details class="acc-item">
+<summary><span>Compliance & Regulatory</span><span class="plus">+</span></summary>
+<div class="acc-body"><p>"Compliance by Design" — embedded into every workflow rather than added afterward.</p>
+<ul><li>AML/CFT under UAE Federal Decree-Law No. 20 of 2018</li><li>KYB/KYC 4-level verification</li><li>Sanctions screening (OFAC, EU, UN, HMT)</li><li>PEP monitoring</li><li>UAE PDPL + GDPR compliance</li></ul></div>
+</details>
+<details class="acc-item">
+<summary><span>Digital Documentation</span><span class="plus">+</span></summary>
+<div class="acc-body"><p>Every transaction generates legally significant documents stored on-chain with immutable audit trails.</p>
+<ul><li>Commercial Invoice (hash on-chain)</li><li>Electronic Bill of Lading (NFT)</li><li>Certificate of Origin (NFT)</li><li>Insurance & Inspection Certificates (NFT)</li><li>Smart Contract, on-chain & immutable</li></ul></div>
+</details>
 </div>
-<div class="legal-card fade-in">
-<div class="legal-icon">🚢</div>
-<h3>Logistics Legal Framework</h3>
-<p>GETH integrates with logistics providers through standardized legal agreements, ensuring clear allocation of responsibilities and risks.</p>
-<ul>
-<li>Master Service Agreement (MSA) with shipping companies</li>
-<li>API Integration Agreement for booking & tracking</li>
-<li>Electronic Bill of Lading (eBL) — legally recognized</li>
-<li>Incoterms® 2020 guidance via AI assistant</li>
-<li>Customs documentation automation</li>
-<li>Force Majeure & dispute clauses</li>
-</ul>
-</div>
-<div class="legal-card fade-in">
-<div class="legal-icon">🛡️</div>
-<h3>Insurance Legal Framework</h3>
-<p>GETH acts as insurance aggregator & facilitator — policies are issued by licensed insurers through API integration.</p>
-<ul>
-<li>Insurance Brokerage Agreement with Lloyd's Coverholders</li>
-<li>Smart Insurance Policy with automated triggers</li>
-<li>Institute Cargo Clauses (A/B/C) standard coverage</li>
-<li>NFT Insurance Certificate as proof of coverage</li>
-<li>Automated claims processing via smart contracts</li>
-<li>Blockchain evidence for dispute resolution</li>
-</ul>
-</div>
-<div class="legal-card fade-in">
-<div class="legal-icon">📜</div>
-<h3>Smart Contracts as Legal Instruments</h3>
-<p>Smart contracts on GETH are legally binding agreements under UAE and international law, with immutable audit trails.</p>
-<ul>
-<li>Recognized under UAE Federal Law No. 1 of 2022</li>
-<li>ADGM Smart Transaction Regulations 2021</li>
-<li>DIFC Digital Assets Law 2023</li>
-<li>UNCITRAL Model Law compliance</li>
-<li>Blockchain evidence admissible in courts</li>
-<li>Digital signatures with Qualified Electronic Signature</li>
-</ul>
-</div>
-<div class="legal-card fade-in">
-<div class="legal-icon">🔒</div>
-<h3>Compliance & Regulatory</h3>
-<p>Compliance is embedded into every workflow — not bolted on as an afterthought. "Compliance by Design" is our core principle.</p>
-<ul>
-<li>AML/CFT under UAE Federal Decree-Law No. 20 of 2018</li>
-<li>KYB/KYC 4-level verification framework</li>
-<li>Sanctions screening (OFAC, EU, UN, HMT)</li>
-<li>PEP (Politically Exposed Persons) monitoring</li>
-<li>UAE PDPL + GDPR data protection compliance</li>
-<li>7-year record retention for AML requirements</li>
-</ul>
-</div>
-<div class="legal-card fade-in">
-<div class="legal-icon">📋</div>
-<h3>Digital Documentation</h3>
-<p>Every transaction generates legally significant documents stored on blockchain with immutable audit trails.</p>
-<ul>
-<li>Commercial Invoice (hash stored on-chain)</li>
-<li>Electronic Bill of Lading (NFT)</li>
-<li>Certificate of Origin (NFT)</li>
-<li>Insurance Certificate (NFT)</li>
-<li>Inspection Certificate (NFT)</li>
-<li>Smart Contract (on-chain, immutable)</li>
-</ul>
-</div>
-</div>
+
 <div class="legal-dispute fade-in">
-<h3>Multi-Tier Dispute Resolution Framework</h3>
-<p style="text-align: center; color: var(--gray-text); margin-bottom: 1.5rem;">Structured resolution process to protect commercial relationships and minimize legal costs</p>
+<h3>Multi-Tier Dispute Resolution</h3>
+<p>Structured process designed to protect commercial relationships and minimize legal costs.</p>
 <div class="dispute-tiers">
-<div class="dispute-tier">
-<h4>Tier 1</h4>
-<p><strong>Direct Negotiation</strong><br>0-14 days<br>Free for users</p>
+<div class="dispute-tier"><span class="tier-num">Tier 1</span><strong>Direct Negotiation</strong><span class="meta">0–14 days · Free</span></div>
+<div class="dispute-tier"><span class="tier-num">Tier 2</span><strong>Platform Mediation</strong><span class="meta">14–30 days · $500–2,000</span></div>
+<div class="dispute-tier"><span class="tier-num">Tier 3</span><strong>Expert Determination</strong><span class="meta">30–60 days · $5,000–20,000</span></div>
+<div class="dispute-tier"><span class="tier-num">Tier 4</span><strong>DIFC-LCIA Arbitration</strong><span class="meta">60–180 days · Binding</span></div>
 </div>
-<div class="dispute-tier">
-<h4>Tier 2</h4>
-<p><strong>Platform Mediation</strong><br>14-30 days<br>$500-2,000</p>
-</div>
-<div class="dispute-tier">
-<h4>Tier 3</h4>
-<p><strong>Expert Determination</strong><br>30-60 days<br>$5,000-20,000</p>
-</div>
-<div class="dispute-tier">
-<h4>Tier 4</h4>
-<p><strong>DIFC-LCIA Arbitration</strong><br>60-180 days<br>Binding decision</p>
-</div>
-</div>
-<div class="legal-jurisdictions">
-<h4>Governing Law & Jurisdiction</h4>
 <div class="jurisdiction-list">
-<div class="jurisdiction-item"><strong>Governing Law:</strong> English Common Law</div>
-<div class="jurisdiction-item"><strong>Primary Jurisdiction:</strong> DIFC Courts, Dubai</div>
-<div class="jurisdiction-item"><strong>Arbitration:</strong> DIFC-LCIA Centre</div>
-<div class="jurisdiction-item"><strong>Backup Jurisdiction:</strong> ADGM Courts</div>
-<div class="jurisdiction-item"><strong>Language:</strong> English</div>
-<div class="jurisdiction-item"><strong>Currency:</strong> USD</div>
-</div>
+<div class="jurisdiction-item"><strong>Governing Law</strong>English Common Law</div>
+<div class="jurisdiction-item"><strong>Primary Jurisdiction</strong>DIFC Courts, Dubai</div>
+<div class="jurisdiction-item"><strong>Arbitration</strong>DIFC-LCIA Centre</div>
+<div class="jurisdiction-item"><strong>Backup Jurisdiction</strong>ADGM Courts</div>
+<div class="jurisdiction-item"><strong>Language</strong>English</div>
+<div class="jurisdiction-item"><strong>Currency</strong>USD</div>
 </div>
 </div>
 </div>
 </section>
+
 <section id="pricing" class="pricing">
 <div class="container">
-<h2 class="section-title">Target Pricing</h2>
-<p class="section-subtitle">1.10% all-inclusive — significantly lower than traditional brokers (1.5-3.5%)</p>
-<div class="pricing-grid">
-<div class="pricing-card fade-in">
-<div class="pricing-tier">Early Adopter</div>
-<div class="pricing-rate">0.70%</div>
-<div class="pricing-label">First 10 Clients</div>
-<div class="pricing-breakdown">
-<div class="pricing-breakdown-item"><strong>Platform fee</strong><span>0.25%</span></div>
-<div class="pricing-breakdown-item"><strong>Escrow fee</strong><span>0.45%</span></div>
-<div class="pricing-breakdown-item" style="border-top: 1px solid #ddd; padding-top: 0.6rem; margin-top: 0.4rem;"><strong>Total</strong><span>0.70%</span></div>
+<p class="eyebrow fade-in">09 — Pricing</p>
+<h2 class="section-title fade-in">Target Pricing</h2>
+<p class="section-subtitle fade-in">All-inclusive — significantly lower than traditional brokers' 1.5–3.5%.</p>
+<div class="pricing-hero fade-in">
+<div class="pricing-hero-copy">
+<h3>Standard rate, all-inclusive</h3>
+<p>Covers AI matching, counterparty scoring, IoT tracking, NFT quality certificates, smart contract escrow, automated settlement, and KYB/KYC — one fee, no hidden costs.</p>
 </div>
-<ul class="pricing-features">
-<li>Everything included, no hidden fees</li>
-<li>Lifetime 20% discount after intro</li>
-<li>Priority access to new features</li>
-<li>Early token allocation (if applicable)</li>
-<li>Dedicated account manager</li>
-</ul>
+<div><div class="rate">1.10%</div><div class="rate-label">of deal value</div></div>
 </div>
-<div class="pricing-card featured fade-in">
-<div class="pricing-tier">Standard</div>
-<div class="pricing-rate">1.10%</div>
-<div class="pricing-label">All-Inclusive</div>
-<div class="pricing-breakdown">
-<div class="pricing-breakdown-item"><strong>Platform fee</strong><span>0.50%</span></div>
-<div class="pricing-breakdown-item"><strong>Escrow fee</strong><span>0.60%</span></div>
-<div class="pricing-breakdown-item" style="border-top: 1px solid #ddd; padding-top: 0.6rem; margin-top: 0.4rem;"><strong>Total</strong><span>1.10%</span></div>
-</div>
-<ul class="pricing-features">
-<li>AI matching & counterparty scoring</li>
-<li>IoT cargo tracking</li>
-<li>NFT quality certificates (SGS/BV)</li>
-<li>Smart contract escrow</li>
-<li>Automated settlement</li>
-<li>Complete audit trail</li>
-</ul>
-</div>
-<div class="pricing-card fade-in">
-<div class="pricing-tier">After Intro Period</div>
-<div class="pricing-rate">0.90%</div>
-<div class="pricing-label">Early Adopter Lifetime</div>
-<div class="pricing-breakdown">
-<div class="pricing-breakdown-item"><strong>Platform fee</strong><span>0.35%</span></div>
-<div class="pricing-breakdown-item"><strong>Escrow fee</strong><span>0.55%</span></div>
-<div class="pricing-breakdown-item" style="border-top: 1px solid #ddd; padding-top: 0.6rem; margin-top: 0.4rem;"><strong>Total</strong><span>0.90%</span></div>
-</div>
-<ul class="pricing-features">
-<li>Lifetime discount for first 10 clients</li>
-<li>All standard features included</li>
-<li>Advisory board participation</li>
-<li>Co-marketing opportunities</li>
-<li>Priority support</li>
-</ul>
-</div>
-</div>
-<div class="pricing-note">
-<strong>What's included in the fee:</strong> AI matching, counterparty scoring, IoT tracking, NFT quality certificates (SGS/Bureau Veritas), smart contract escrow, automated settlement, KYB/KYC verification, platform maintenance, and compliance. <strong>Minimum fee:</strong> $5,000 per deal. <strong>Maximum fee:</strong> $750,000 per deal. <em>Note: Final pricing subject to regulatory approval and market conditions.</em>
-</div>
+<table class="pricing-table fade-in">
+<tr><th>Tier</th><th>Platform Fee</th><th>Escrow Fee</th><th>Total</th></tr>
+<tr><td>Early Adopter (first 10 clients)</td><td>0.25%</td><td>0.45%</td><td class="rate-cell">0.70%</td></tr>
+<tr><td>Standard</td><td>0.50%</td><td>0.60%</td><td class="rate-cell">1.10%</td></tr>
+<tr><td>Early Adopter, post-intro (lifetime)</td><td>0.35%</td><td>0.55%</td><td class="rate-cell">0.90%</td></tr>
+</table>
+<p class="pricing-note fade-in"><strong>Minimum fee:</strong> $5,000 per deal. <strong>Maximum fee:</strong> $750,000 per deal. Final pricing is subject to regulatory approval and market conditions.</p>
 </div>
 </section>
+
 <section id="use-case" class="use-case">
 <div class="container">
-<h2 class="section-title">Deal Flow Vision</h2>
-<p class="section-subtitle">Illustrative example based on actual fuel oil trades</p>
+<p class="eyebrow fade-in">10 — Deal Flow</p>
+<h2 class="section-title fade-in">Deal Flow Vision</h2>
+<p class="section-subtitle fade-in">An illustrative example based on real fuel oil trades in the founder's network.</p>
 <div class="deal-overview fade-in">
-<h3 style="margin-bottom: 1.5rem; color: var(--teal); font-size: 1.5rem;">Transaction Overview (Target)</h3>
+<h3>Transaction Overview (Target)</h3>
 <div class="deal-meta">
-<div class="deal-meta-item"><div class="deal-meta-label">Commodity</div><div class="deal-meta-value">Fuel Oil (50,000 MT)</div></div>
-<div class="deal-meta-item"><div class="deal-meta-label">Deal Value</div><div class="deal-meta-value">$19,000,000</div></div>
-<div class="deal-meta-item"><div class="deal-meta-label">Route</div><div class="deal-meta-value">Mina-Said (UAE) → Mumbai (India)</div></div>
-<div class="deal-meta-item"><div class="deal-meta-label">Timeline</div><div class="deal-meta-value">45 days</div></div>
+<div><div class="deal-meta-label">Commodity</div><div class="deal-meta-value">Fuel Oil, 50,000 MT</div></div>
+<div><div class="deal-meta-label">Deal Value</div><div class="deal-meta-value">$19,000,000</div></div>
+<div><div class="deal-meta-label">Route</div><div class="deal-meta-value">Mina Saqr (UAE) → Mumbai (India)</div></div>
+<div><div class="deal-meta-label">Timeline</div><div class="deal-meta-value">45 days</div></div>
 </div>
-<h4 style="margin: 2rem 0 1.25rem; color: var(--black); font-size: 1.25rem;">Transaction Participants</h4>
 <div class="participants">
-<div class="participant-card"><div class="participant-role">🏭 Seller</div><div class="participant-desc">UAE-based oil refining company exporting 50,000 MT fuel oil</div></div>
-<div class="participant-card"><div class="participant-role">🏢 Buyer</div><div class="participant-desc">Indian energy company requiring fuel oil for power generation</div></div>
-<div class="participant-card"><div class="participant-role">🤝 Intermediary (Optional)</div><div class="participant-desc">Commodity brokerage firm originating the deal. <strong>Note:</strong> Buyers and sellers can also find each other directly via GETH's AI matching system without an intermediary.</div></div>
+<div class="participant-card"><div class="participant-role">Seller</div><p>UAE-based oil refining company exporting 50,000 MT fuel oil.</p></div>
+<div class="participant-card"><div class="participant-role">Buyer</div><p>Indian energy company requiring fuel oil for power generation.</p></div>
+<div class="participant-card"><div class="participant-role">Intermediary (optional)</div><p>Brokerage firm originating the deal. Buyers and sellers can also connect directly via GETH's AI matching, without an intermediary.</p></div>
 </div>
 </div>
-<h3 style="text-align: center; margin: 3rem 0 2rem; font-size: 1.9rem;">Planned Step-by-Step Process</h3>
-<div class="use-case-timeline">
-<div class="use-case-step fade-in">
-<div class="step-number">1</div>
-<h3>📤 Lot Creation & Verification</h3>
-<p>Seller uploads 50,000 MT fuel oil specification to GETH platform, attaches SGS quality certificate. AI system verifies seller's credentials, financial standing, and trading history.</p>
-<div class="step-benefit">Target: Counterparty risk scored in &lt;10 minutes</div>
-</div>
-<div class="use-case-step fade-in">
-<div class="step-number">2</div>
-<h3>🔍 AI Matching & Discovery</h3>
-<p>GETH's AI engine analyses buyer requirements and automatically matches with available lots. If an intermediary is involved, they receive a notification with a pre-calculated commission structure. Alternatively, the buyer and seller connect directly.</p>
-<div class="step-benefit">Target: Automated deal discovery — no cold calls</div>
-</div>
-<div class="use-case-step fade-in">
-<div class="step-number">3</div>
-<h3>🔒 Escrow & Contract Lock</h3>
-<p>Buyer books the lot and deposits $19M into regulated escrow account. Smart contract locks all terms: price, quality specs, delivery timeline, intermediary commission (if applicable).</p>
-<div class="step-benefit">Target: 1.10% all-in fee ($209,000)</div>
-</div>
-<div class="use-case-step fade-in">
-<div class="step-number">4</div>
-<h3>🚢 Logistics Coordination</h3>
-<p>Seller confirms cargo readiness. Buyer selects preferred shipping route. Intermediary or buyer coordinates with carrier for vessel booking. IoT sensors activated for real-time tracking.</p>
-<div class="step-benefit">Target: Transparent logistics for all parties</div>
-</div>
-<div class="use-case-step fade-in">
-<div class="step-number">5</div>
-<h3>📡 Real-Time Cargo Tracking</h3>
-<p>IoT devices monitor cargo temperature, humidity, and location throughout voyage. Satellite data streamed to GETH platform. Automated notifications at key milestones.</p>
-<div class="step-benefit">Target: Tamper-proof tracking data</div>
-</div>
-<div class="use-case-step fade-in">
-<div class="step-number">6</div>
-<h3>✅ Quality Verification</h3>
-<p>Upon arrival at Mumbai port, an accredited independent inspector from <strong>SGS or Bureau Veritas</strong> conducts physical cargo inspection against the NFT certificate specifications. Inspection results are transmitted via <strong>secure API</strong> directly to the GETH platform. The smart contract automatically cross-verifies API data against original certificate terms. If quality matches specifications and no disputes are flagged, the contract proceeds to settlement.</p>
-<div class="step-benefit">Target: Instant confirmation — no 18-month disputes</div>
-</div>
-<div class="use-case-step fade-in">
-<div class="step-number">7</div>
-<h3>💰 Automated Settlement</h3>
-<p>Smart contract triggers automated settlement and distributes payments via bank webhooks: <strong>$18,753,000</strong> to seller (after 1.10% GETH platform fee of $209,000), and <strong>$38,000</strong> to the intermediary (if involved). The intermediary is typically a commodity brokerage firm that originated the deal, providing deal origination, counterparty vetting, and logistics coordination. If the buyer and seller found each other directly through GETH's AI matching, this commission is saved, maximizing value for both parties. Settlement completes in hours, not weeks.</p>
-<div class="step-benefit">Target: $209,000 GETH revenue (1.10% of deal)</div>
-</div>
-<div class="use-case-step fade-in">
-<div class="step-number">8</div>
-<h3>📊 Reporting & Analytics</h3>
-<p>All participants access deal history via dashboard. Buyer receives comprehensive digital passport with ESG data. Complete audit trail for compliance.</p>
-<div class="step-benefit">Target: Complete audit trail for compliance</div>
-</div>
+<div class="deal-ledger">
+<div class="deal-step fade-in" data-step="1"><h3><svg class="icon"><use href="#i-upload"/></svg>Lot Creation & Verification</h3><p>Seller uploads the fuel oil specification and SGS quality certificate. AI verifies seller credentials, financial standing, and trading history.</p><div class="step-benefit">Target: counterparty risk scored in &lt;10 minutes</div></div>
+<div class="deal-step fade-in" data-step="2"><h3><svg class="icon"><use href="#i-search"/></svg>AI Matching & Discovery</h3><p>GETH's engine matches buyer requirements with available lots. If an intermediary is involved, they receive a pre-calculated commission. Otherwise buyer and seller connect directly.</p><div class="step-benefit">Target: automated deal discovery — no cold calls</div></div>
+<div class="deal-step fade-in" data-step="3"><h3><svg class="icon"><use href="#i-lock"/></svg>Escrow & Contract Lock</h3><p>Buyer deposits $19M into a regulated escrow account. Smart contract locks price, quality specs, delivery timeline, and commission.</p><div class="step-benefit">Target: 1.10% all-in fee ($209,000)</div></div>
+<div class="deal-step fade-in" data-step="4"><h3><svg class="icon"><use href="#i-ship"/></svg>Logistics Coordination</h3><p>Seller confirms cargo readiness; buyer selects shipping route. IoT sensors activated for real-time tracking.</p><div class="step-benefit">Target: transparent logistics for all parties</div></div>
+<div class="deal-step fade-in" data-step="5"><h3><svg class="icon"><use href="#i-satellite"/></svg>Real-Time Cargo Tracking</h3><p>IoT devices monitor temperature, humidity, and location throughout the voyage, streamed to GETH's platform.</p><div class="step-benefit">Target: tamper-proof tracking data</div></div>
+<div class="deal-step fade-in" data-step="6"><h3><svg class="icon"><use href="#i-check"/></svg>Quality Verification</h3><p>On arrival, an SGS or Bureau Veritas inspector checks cargo against the NFT certificate. Results are sent via secure API; the smart contract cross-verifies against original terms.</p><div class="step-benefit">Target: instant confirmation — no 18-month disputes</div></div>
+<div class="deal-step fade-in" data-step="7"><h3><svg class="icon"><use href="#i-dollar"/></svg>Automated Settlement</h3><p>Smart contract distributes payment via bank webhooks: $18,753,000 to the seller (after the 1.10% fee), and $38,000 to the intermediary, if involved.</p><div class="step-benefit">Target: $209,000 GETH revenue, settlement in hours not weeks</div></div>
+<div class="deal-step fade-in" data-step="8"><h3><svg class="icon"><use href="#i-chart"/></svg>Reporting & Analytics</h3><p>All participants access deal history via dashboard, including a digital passport with ESG data and a complete audit trail.</p><div class="step-benefit">Target: complete audit trail for compliance</div></div>
 </div>
 </div>
 </section>
+
 <section id="future-vision" class="future-vision">
-<div class="container">
-<h2 class="section-title">Future Vision (Phase 2+)</h2>
-<p class="section-subtitle">Long-term roadmap — after platform validation</p>
-<div class="future-grid">
-<div class="future-card fade-in">
-<h3>🪙 Dual-Token Economy</h3>
-<p>After achieving product-market fit and regulatory approval, GETH may introduce a dual-token model to align incentives and create network effects.</p>
-<ul>
-<li><strong>$GETH Token:</strong> Exchange & value accrual token</li>
-<li><strong>$vGETH Token:</strong> Utility & governance token</li>
-<li>Buyback & burn from platform fees</li>
-<li>Staking rewards for liquidity providers</li>
-<li>DAO governance rights</li>
-<li>Deflationary mechanics</li>
-</ul>
+<div class="container on-dark">
+<p class="eyebrow fade-in">11 — Future Vision</p>
+<h2 class="section-title fade-in">Phase 2+, After Platform Validation</h2>
+<p class="section-subtitle fade-in">Long-term direction — none of this precedes product-market fit.</p>
+<div class="future-grid fade-in">
+<div class="future-card">
+<h3>Dual-Token Economy</h3>
+<p>Post-PMF and post-approval, GETH may introduce a two-token model to align incentives and create network effects.</p>
+<ul><li>$GETH — exchange & value accrual</li><li>$vGETH — utility & governance</li><li>Buyback & burn from platform fees</li></ul>
 </div>
-<div class="future-card fade-in">
-<h3>💰 Syndicated Deal Investment (SDI)</h3>
-<p>Post-PMF, GETH may introduce SDI — allowing accredited investors to participate in real commodity deals and earn yield from profit share.</p>
-<ul>
-<li>AI offers verified deals to accredited investors</li>
-<li>Target yield: 15-25% USD + token upside</li>
-<li>45-day lock-up per deal</li>
-<li>Fully automated via smart contracts</li>
-<li>Regulated under ADGM FSRA framework</li>
-<li>Insurance wrapper through Lloyd's partners</li>
-</ul>
+<div class="future-card">
+<h3>Syndicated Deal Investment</h3>
+<p>Post-PMF, accredited investors could participate directly in real commodity deals and earn a share of yield.</p>
+<ul><li>Target yield: 15–25% USD + token upside</li><li>45-day lock-up per deal</li><li>Regulated under ADGM FSRA</li></ul>
 </div>
-<div class="future-card fade-in">
-<h3>🌍 Global Expansion</h3>
-<p>After validating the model in UAE, GETH plans to expand to other major commodity trading hubs.</p>
-<ul>
-<li>Middle East (UAE, Saudi Arabia, Qatar)</li>
-<li>Europe (Switzerland, UK, Netherlands)</li>
-<li>Africa (Nigeria, South Africa, Kenya)</li>
-<li>Asia (Singapore, India, China)</li>
-<li>Local regulatory compliance in each jurisdiction</li>
-<li>Regional partnership development</li>
-</ul>
+<div class="future-card">
+<h3>Global Expansion</h3>
+<p>After validating the model in the UAE, GETH plans to expand to other major commodity trading hubs.</p>
+<ul><li>Middle East, Europe, Africa, Asia</li><li>Local regulatory compliance per jurisdiction</li><li>Regional partnership development</li></ul>
 </div>
 </div>
-<div class="future-disclaimer fade-in">
-<strong>⚠️ Important Disclaimer:</strong> The features described in this section are planned for future development and are subject to regulatory approval, market conditions, and platform validation. Token issuance and SDI will only proceed after achieving product-market fit and obtaining necessary licenses. All projections are illustrative and not guaranteed.
-</div>
+<div class="future-disclaimer fade-in"><strong>Important:</strong> Everything in this section is a future direction, subject to regulatory approval, market conditions, and platform validation. Token issuance and SDI proceed only after PMF and required licenses are in place. Projections are illustrative, not guaranteed.</div>
 </div>
 </section>
+
 <section class="uae">
 <div class="container">
-<h2 class="section-title">Why Dubai, UAE?</h2>
-<p class="section-subtitle">Strategic Jurisdiction for Commodity Digitization</p>
+<p class="eyebrow fade-in">12 — Why Dubai</p>
+<h2 class="section-title fade-in">Why Dubai, UAE?</h2>
+<p class="section-subtitle fade-in">A strategic jurisdiction for commodity digitization.</p>
 <div class="uae-list">
-<div class="uae-item fade-in"><span class="uae-check">✅</span><div><h3>VARA (Virtual Assets Regulatory Authority)</h3><p>Clearest regulatory framework for commodity-backed digital assets in MENA region.</p></div></div>
-<div class="uae-item fade-in"><span class="uae-check">✅</span><div><h3>DMCC (Dubai Multi Commodities Centre)</h3><p>50,000+ commodity trading firms as natural early adopters.</p></div></div>
-<div class="uae-item fade-in"><span class="uae-check">✅</span><div><h3>0% Corporate Tax Until 2031</h3><p>Optimal tax environment for early-stage growth and token treasury management.</p></div></div>
-<div class="uae-item fade-in"><span class="uae-check">✅</span><div><h3>Regulatory Contingency Plan</h3><p>If VARA reclassifies tokens: pivot to ADGM framework or structure as utility points initially.</p></div></div>
+<div class="uae-item fade-in"><svg class="icon"><use href="#i-check"/></svg><div><h3>VARA — Virtual Assets Regulatory Authority</h3><p>The clearest regulatory framework for commodity-backed digital assets in the MENA region.</p></div></div>
+<div class="uae-item fade-in"><svg class="icon"><use href="#i-check"/></svg><div><h3>DMCC — Dubai Multi Commodities Centre</h3><p>50,000+ commodity trading firms as natural early adopters.</p></div></div>
+<div class="uae-item fade-in"><svg class="icon"><use href="#i-check"/></svg><div><h3>0% Corporate Tax Until 2031</h3><p>A favorable tax environment for early-stage growth and treasury management.</p></div></div>
+<div class="uae-item fade-in"><svg class="icon"><use href="#i-check"/></svg><div><h3>Regulatory Contingency Plan</h3><p>If VARA reclassifies tokens, GETH can pivot to the ADGM framework or a utility-points model.</p></div></div>
 </div>
 </div>
 </section>
+
 <section id="team" class="team">
 <div class="container">
-<h2 class="section-title">Team</h2>
-<p class="section-subtitle">Industry Expertise + Engineering Excellence</p>
+<p class="eyebrow fade-in">13 — Team</p>
+<h2 class="section-title fade-in">Industry Expertise + Engineering</h2>
+<p class="section-subtitle fade-in">A small team, deliberately — capital-efficient by design at this stage.</p>
 <div class="team-grid">
 <div class="team-card fade-in">
-<div class="team-avatar">👤</div>
-<h3>Pavel Bogomolov-Cheliuskin</h3>
-<p class="team-role">Founder & CEO — Fuel & Gas Trading</p>
-<p class="team-experience">8+ years executing fuel and gas trades across UAE, Finland, Mozambique, Zimbabwe, and other markets at Harka, Pentium AG, G-Gas, and Grandcliff Petroleum. Deep understanding of industry pain points. Direct network of traders, refineries, and logistics providers across MENA, Europe, and Africa.</p>
+<div class="team-avatar">PB</div>
+<div><h3>Pavel Bogomolov-Cheliuskin</h3><p class="team-role">Founder & CEO — Fuel & Gas Trading</p><p class="team-experience">8+ years executing fuel and gas trades across UAE, Finland, Mozambique, Zimbabwe and other markets at Harka, Pentium AG, G-Gas, and Grandcliff Petroleum. Direct network of traders, refineries, and logistics providers across MENA, Europe, and Africa.</p>
+<a class="team-link" href="https://www.linkedin.com/company/130344810/" target="_blank" rel="noopener" onclick="gtag('event','linkedin_click');ym(110179125,'reachGoal','linkedin_click');"><svg class="icon"><use href="#i-linkedin"/></svg>LinkedIn</a></div>
 </div>
 <div class="team-card fade-in">
-<div class="team-avatar">💻</div>
-<h3>Vadim Ustinov</h3>
-<p class="team-role">Technical Co-Founder & CTO — Software Engineer</p>
-<p class="team-experience">Classically trained software engineer with decades of experience building complex systems. Combines rigorous engineering foundations with practical business acumen — understands not just code, but the commercial logic behind every product. Committed to quality, reliability, and scalable architecture.</p>
+<div class="team-avatar">VU</div>
+<div><h3>Vadim Ustinov</h3><p class="team-role">Technical Co-Founder & CTO</p><p class="team-experience">Classically trained software engineer with decades of experience building complex systems. Combines rigorous engineering foundations with practical business acumen — the commercial logic behind every product, not just the code.</p>
+<a class="team-link" href="https://www.linkedin.com/company/130344810/" target="_blank" rel="noopener" onclick="gtag('event','linkedin_click');ym(110179125,'reachGoal','linkedin_click');"><svg class="icon"><use href="#i-linkedin"/></svg>LinkedIn</a></div>
 </div>
 </div>
 </div>
 </section>
+
 <section id="roadmap" class="roadmap">
-<div class="container">
-<h2 class="section-title">Roadmap & Use of Funds</h2>
-<p class="section-subtitle">Legal First → Platform → Test Deals</p>
-<div class="roadmap-grid">
-<div class="roadmap-item fade-in">
-<h3>Q1</h3>
-<ul>
-<li>DMCC trade license application</li>
-<li>VARA conditional approval process</li>
-<li>Token legal structuring</li>
-<li>Corporate governance setup</li>
-</ul>
+<div class="container on-dark">
+<p class="eyebrow fade-in">14 — Roadmap</p>
+<h2 class="section-title fade-in">Roadmap & Use of Funds</h2>
+<p class="section-subtitle fade-in">Legal First → Platform → Test Deals</p>
+<div class="roadmap-track fade-in">
+<div class="roadmap-item"><h3>Q1</h3><ul><li>DMCC license application</li><li>VARA conditional approval</li><li>Token legal structuring</li><li>Corporate governance setup</li></ul></div>
+<div class="roadmap-item"><h3>Q2</h3><ul><li>Legal framework completion</li><li>Core team assembly</li><li>Architecture design</li><li>Bank partnership talks</li></ul></div>
+<div class="roadmap-item"><h3>Q3</h3><ul><li>MVP development begins</li><li>AI scoring prototype</li><li>Escrow integration</li><li>IoT partner integration</li></ul></div>
+<div class="roadmap-item"><h3>Q4</h3><ul><li>Beta platform launch</li><li>First 5–10 test deals</li><li>Seed round preparation</li><li>Tokenomics design</li></ul></div>
 </div>
-<div class="roadmap-item fade-in">
-<h3>Q2</h3>
-<ul>
-<li>Legal framework completion</li>
-<li>Core team assembly</li>
-<li>Architecture design</li>
-<li>Bank partnership negotiations</li>
-</ul>
-</div>
-<div class="roadmap-item fade-in">
-<h3>Q3</h3>
-<ul>
-<li>MVP development begins</li>
-<li>AI scoring engine prototype</li>
-<li>Escrow integration</li>
-<li>IoT partner integration</li>
-</ul>
-</div>
-<div class="roadmap-item fade-in">
-<h3>Q4</h3>
-<ul>
-<li>Beta platform launch</li>
-<li>First 5–10 test deals</li>
-<li>Seed round preparation</li>
-<li>Tokenomics design (if applicable)</li>
-</ul>
-</div>
-<div class="roadmap-item fade-in">
-<h3>Phase 2 (Post-PMF)</h3>
-<ul>
-<li>PMF validation</li>
-<li>50+ active traders</li>
-<li>Token launch (if approved)</li>
-<li>SDI architecture design</li>
-</ul>
-</div>
-<div class="roadmap-item fade-in">
-<h3>Phase 3 (Scale)</h3>
-<ul>
-<li>SDI pilot with accredited investors</li>
-<li>ADGM FSRA licensing</li>
-<li>Insurance wrapper (Lloyd's)</li>
-<li>Governance token launch</li>
-</ul>
-</div>
+<div class="roadmap-phase-row fade-in">
+<div class="roadmap-item"><h3>Phase 2 — Post-PMF</h3><ul><li>PMF validation</li><li>50+ active traders</li><li>Token launch, if approved</li><li>SDI architecture design</li></ul></div>
+<div class="roadmap-item"><h3>Phase 3 — Scale</h3><ul><li>SDI pilot with accredited investors</li><li>ADGM FSRA licensing</li><li>Insurance wrapper (Lloyd's)</li><li>Governance token launch</li></ul></div>
 </div>
 <div class="funds-chart fade-in">
 <h3>Use of $800k Pre-Seed Round</h3>
-<p class="funds-subtitle">Legal-First Approach — Regulatory Foundation Before Development</p>
-<div class="fund-item">
-<div class="fund-info"><strong>Legal Framework (UAE Licensing + Token Structuring)</strong></div>
-<div class="fund-bar-container"><div class="fund-bar" style="width: 40%;"></div></div>
-<span style="color: var(--teal); font-weight: 600;">40%</span>
-</div>
-<div class="fund-item">
-<div class="fund-info"><strong>Team (Founders + Engineers)</strong></div>
-<div class="fund-bar-container"><div class="fund-bar" style="width: 30%;"></div></div>
-<span style="color: var(--teal); font-weight: 600;">30%</span>
-</div>
-<div class="fund-item">
-<div class="fund-info"><strong>MVP Development (post-licensing)</strong></div>
-<div class="fund-bar-container"><div class="fund-bar" style="width: 20%;"></div></div>
-<span style="color: var(--teal); font-weight: 600;">20%</span>
-</div>
-<div class="fund-item residual">
-<div class="fund-info"><strong style="opacity:0.8;">Partnerships + Test Deals</strong></div>
-<div class="fund-bar-container"><div class="fund-bar" style="width: 5%;"></div></div>
-<span style="color: var(--teal); font-weight: 600; opacity:0.8;">5%</span>
-</div>
-<div class="fund-item residual">
-<div class="fund-info"><strong style="opacity:0.8;">IoT Integration Research</strong></div>
-<div class="fund-bar-container"><div class="fund-bar" style="width: 5%;"></div></div>
-<span style="color: var(--teal); font-weight: 600; opacity:0.8;">5%</span>
-</div>
+<p class="funds-subtitle">Legal-first approach — regulatory foundation before development</p>
+<div class="fund-item"><div class="fund-info">Legal Framework (UAE licensing + token structuring)</div><div class="fund-bar-container"><div class="fund-bar" style="width:40%;"></div></div><span class="pct">40%</span></div>
+<div class="fund-item"><div class="fund-info">Team (founders + engineers)</div><div class="fund-bar-container"><div class="fund-bar" style="width:30%;"></div></div><span class="pct">30%</span></div>
+<div class="fund-item"><div class="fund-info">MVP development (post-licensing)</div><div class="fund-bar-container"><div class="fund-bar" style="width:20%;"></div></div><span class="pct">20%</span></div>
+<div class="fund-item"><div class="fund-info">Partnerships + test deals</div><div class="fund-bar-container"><div class="fund-bar" style="width:5%;"></div></div><span class="pct">5%</span></div>
+<div class="fund-item"><div class="fund-info">IoT integration research</div><div class="fund-bar-container"><div class="fund-bar" style="width:5%;"></div></div><span class="pct">5%</span></div>
 </div>
 </div>
 </section>
+
 <section id="ask" class="ask">
 <div class="container">
-<div class="ask-content">
+<div class="ask-content fade-in">
+<p class="eyebrow">15 — Investment</p>
 <h2 class="section-title">Investment Opportunity</h2>
 <div class="ask-amount">$600k – $1.2M Pre-Seed</div>
-<p style="font-size: 1.15rem; margin-bottom: 2rem; color: var(--gray-text);">At idea stage — first priority is UAE legal framework, then platform development, then test deals with founder's network. Honest, capital-efficient, legal-first approach.</p>
-<div class="contact-info">
-<h3 style="color: var(--teal); margin-bottom: 1.25rem;">Get in Touch</h3>
-<p style="margin-bottom: 1.25rem;">Ready to discuss an honest, early-stage opportunity?</p>
-<a href="mailto:gethfounder@gmail.com" class="contact-email" onclick="gtag('event', 'contact_email_click', {'email': 'gethfounder@gmail.com'}); ym(110179125, 'reachGoal', 'email_click');">gethfounder@gmail.com</a>
+<p style="font-size:1.05rem;color:var(--ink-soft);margin-bottom:1rem;">At idea stage — first priority is the UAE legal framework, then platform development, then test deals with the founder's network. Honest, capital-efficient, legal-first.</p>
+<p style="font-size:0.92rem;color:var(--ink-soft);margin-bottom:1.5rem;border-left:2px solid var(--brass);padding-left:1.1rem;">Fundraising outreach extends beyond the UAE to GCC sovereign and family-office investors (Qatar, Saudi Arabia) and Asian commodity-trading hubs (Singapore, Hong Kong) — this is about who we're talking to for capital, not where we're licensed. The legal home stays UAE-only through MVP.</p>
+<div class="contact-box">
+<h3 style="font-family:var(--font-display);margin-bottom:0.5rem;">Get in Touch</h3>
+<p>Ready to discuss an honest, early-stage opportunity?</p>
+<a href="mailto:gethfounder@gmail.com" class="contact-email" onclick="gtag('event','contact_email_click',{'email':'gethfounder@gmail.com'});ym(110179125,'reachGoal','email_click');">gethfounder@gmail.com</a>
 </div>
-<div style="text-align: left; margin: 2.5rem 0; padding: 2rem; background: var(--gray-light); border-radius: 10px;">
-<h3 style="color: var(--teal); margin-bottom: 1.25rem;">What Investors Receive:</h3>
-<ul style="list-style: none; line-height: 2;">
-<li>✓ Equity stake via SAFE or convertible note</li>
-<li>✓ Early access to token allocation (if applicable)</li>
-<li>✓ Direct advisory role in strategy</li>
-<li>✓ Quarterly updates on progress</li>
-<li>✓ Pro-rata rights in seed round</li>
+<div class="receive-box">
+<h3>What Investors Receive</h3>
+<ul>
+<li>Equity stake via SAFE or convertible note</li>
+<li>Early access to token allocation, if applicable</li>
+<li>Direct advisory role in strategy</li>
+<li>Quarterly updates on progress</li>
+<li>Pro-rata rights in seed round</li>
 </ul>
 </div>
 </div>
 </div>
 </section>
+
 <footer>
-<div class="footer-logo"><img src="logo.png" alt="GETH" class="footer-logo-img" onerror="this.style.display='none'"></div>
-<p style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">GETH</p>
-<p style="opacity: 0.9; margin-bottom: 0.5rem;">Global Energy Trade Hub</p>
-<p style="opacity: 0.7; margin: 1rem 0;">Idea Stage • Pre-seed • Dubai, UAE (DMCC + VARA pathway)</p>
+<div class="footer-inner">
+<img src="logo.png" alt="GETH" class="footer-logo-img" onerror="this.style.display='none'">
+<p style="font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:0.3rem;">GETH</p>
+<p style="opacity:0.8;margin-bottom:0.4rem;">Global Energy Trade Hub</p>
+<p style="opacity:0.6;font-size:0.9rem;">Idea Stage · Pre-seed · Dubai, UAE (DMCC + VARA pathway)</p>
 <div class="footer-links">
-<a href="mailto:gethfounder@gmail.com">gethfounder@gmail.com</a>
-<a href="https://www.linkedin.com/company/130344810/" target="_blank" rel="noopener" onclick="gtag('event', 'linkedin_click'); ym(110179125, 'reachGoal', 'linkedin_click');">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;">
-<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-</svg>
-LinkedIn
-</a>
-<a href="https://x.com/GETHfounder" target="_blank" rel="noopener" onclick="gtag('event', 'twitter_click'); ym(110179125, 'reachGoal', 'twitter_click');">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;">
-<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-</svg>
-Twitter/X
-</a>
+<a href="mailto:gethfounder@gmail.com"><svg class="icon" style="width:16px;height:16px;"><use href="#i-mail"/></svg>gethfounder@gmail.com</a>
+<a href="https://www.linkedin.com/company/130344810/" target="_blank" rel="noopener" onclick="gtag('event','linkedin_click');ym(110179125,'reachGoal','linkedin_click');"><svg class="icon" style="width:16px;height:16px;"><use href="#i-linkedin"/></svg>LinkedIn</a>
+<a href="https://x.com/GETHfounder" target="_blank" rel="noopener" onclick="gtag('event','twitter_click');ym(110179125,'reachGoal','twitter_click');"><svg class="icon" style="width:16px;height:16px;"><use href="#i-twitter"/></svg>Twitter/X</a>
 </div>
 <div class="footer-legal">
 <p>© 2026 GETH. All rights reserved.</p>
-<p style="margin-top: 0.5rem;"><a href="#">Privacy Policy</a> • <a href="#">Terms of Use</a> • <a href="#">Legal Notice</a></p>
-<p style="margin-top: 0.75rem; font-size: 0.8rem;">GETH® is a trademark of Global Energy Trade Hub. Not affiliated with Ethereum Foundation, Go-Ethereum (Geth), or any cryptocurrency protocol.</p>
+<p style="margin-top:0.5rem;"><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a> · <a href="#">Legal Notice</a></p>
+<p style="margin-top:0.75rem;font-size:0.78rem;">GETH® is a trademark of Global Energy Trade Hub. Not affiliated with Ethereum Foundation, Go-Ethereum (Geth), or any cryptocurrency protocol.</p>
+</div>
 </div>
 </footer>
+
 <script>
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-e.preventDefault();
-const target = document.querySelector(this.getAttribute('href'));
-if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-});
+  anchor.addEventListener('click', function (e) {
+    const targetId = this.getAttribute('href');
+    if (targetId.length > 1) {
+      const target = document.querySelector(targetId);
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    }
+  });
 });
 const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) { entry.target.classList.add('visible'); }
-});
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
