@@ -325,6 +325,17 @@ section{padding:5rem 5%;}
 .receive-box li{padding:0.5rem 0;padding-left:1.4rem;position:relative;font-size:0.92rem;border-top:1px solid var(--line);}
 .receive-box li:first-child{border-top:none;}
 .receive-box li::before{content:'✓';position:absolute;left:0;color:var(--pine);}
+.docs-box{margin:1.75rem 0;padding:1.75rem;background:var(--card);border-radius:3px;border:1px solid var(--line);}
+.docs-box h3{font-family:var(--font-display);margin-bottom:0.4rem;font-size:1.1rem;}
+.docs-intro{color:var(--ink-soft);font-size:0.9rem;margin-bottom:1.25rem;}
+.doc-row{display:flex;align-items:center;gap:1rem;padding:0.9rem 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink);transition:color 0.2s;}
+.doc-row:first-of-type{border-top:none;}
+.doc-row:hover{color:var(--brass-deep);}
+.doc-row .icon{color:var(--brass-deep);width:20px;height:20px;flex-shrink:0;}
+.doc-info{display:flex;flex-direction:column;flex:1;}
+.doc-info strong{font-size:0.95rem;font-weight:600;}
+.doc-info span{font-size:0.82rem;color:var(--ink-soft);}
+.doc-cta{font-family:var(--font-mono);font-size:0.78rem;color:var(--brass-deep);white-space:nowrap;}
 
 /* ---------- footer ---------- */
 footer{background:var(--ink);color:rgba(255,255,255,0.85);padding:3.5rem 5% 2.5rem;text-align:left;}
@@ -421,7 +432,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.85);padding:3.5rem 5% 2.5r
 <p class="hero-description">GETH is an idea-stage project building digital infrastructure for the $4.6 trillion OTC commodity market. We're starting with the legal foundation, then building an automated platform to cut settlement from months to hours.</p>
 <p class="hero-highlight">Legal-first approach. Seeking pre-seed partners to build the foundation. Target fee 1.10% — well below traditional brokers.</p>
 <div class="hero-buttons">
-<a href="GETH_ExecutiveSummary.pdf" download class="btn btn-primary" onclick="gtag('event','document_download',{'file_name':'executive_summary'});ym(110179125,'reachGoal','doc_download');">Download Executive Summary</a>
+<a href="GETH_Executive_Summary.pdf" download class="btn btn-primary" onclick="gtag('event','document_download',{'file_name':'executive_summary'});ym(110179125,'reachGoal','doc_download');">Download Executive Summary</a>
 <a href="mailto:gethfounder@gmail.com" class="btn btn-secondary" style="border-color:rgba(255,255,255,0.4);color:#fff;" onclick="gtag('event','contact_email_click',{'email':'gethfounder@gmail.com'});ym(110179125,'reachGoal','email_click');">Contact Founders</a>
 </div>
 </div>
@@ -652,7 +663,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.85);padding:3.5rem 5% 2.5r
 <p class="eyebrow fade-in">08 — Legal Framework</p>
 <h2 class="section-title fade-in">Legal Framework & Compliance</h2>
 <p class="legal-intro fade-in">GETH operates as a <strong>technology platform</strong> — not a trading house, carrier, or insurer. We provide the digital infrastructure connecting verified counterparties, regulated banks, licensed inspectors, and professional intermediaries within a compliant ecosystem.</p>
-<p class="legal-note fade-in">Full legal structuring detail is in the <a href="GETH_ExecutiveSummary.pdf" download>Executive Summary PDF</a>. Below is a condensed overview.</p>
+<p class="legal-note fade-in">Full legal structuring detail is in the <a href="GETH_Executive_Summary.pdf" download>Executive Summary PDF</a>. Below is a condensed overview.</p>
 <div class="accordion fade-in">
 <details class="acc-item" open>
 <summary><span>Platform Legal Status</span><span class="plus">+</span></summary>
@@ -860,6 +871,25 @@ footer{background:var(--ink);color:rgba(255,255,255,0.85);padding:3.5rem 5% 2.5r
 <h3 style="font-family:var(--font-display);margin-bottom:0.5rem;">Get in Touch</h3>
 <p>Ready to discuss an honest, early-stage opportunity?</p>
 <a href="mailto:gethfounder@gmail.com" class="contact-email" onclick="gtag('event','contact_email_click',{'email':'gethfounder@gmail.com'});ym(110179125,'reachGoal','email_click');">gethfounder@gmail.com</a>
+</div>
+<div class="docs-box">
+<h3>Investor Document Package</h3>
+<p class="docs-intro">Three documents, three levels of detail — start wherever fits.</p>
+<a class="doc-row" href="GETH_Executive_Summary.pdf" download onclick="gtag('event','document_download',{'file_name':'executive_summary'});ym(110179125,'reachGoal','doc_download');">
+<svg class="icon"><use href="#i-doc"/></svg>
+<span class="doc-info"><strong>Executive Summary</strong><span>One-page overview — market, model, ask</span></span>
+<span class="doc-cta">PDF ↓</span>
+</a>
+<a class="doc-row" href="GETH_Pitch_Deck.pdf" download onclick="gtag('event','document_download',{'file_name':'pitch_deck'});ym(110179125,'reachGoal','doc_download');">
+<svg class="icon"><use href="#i-doc"/></svg>
+<span class="doc-info"><strong>Pitch Deck</strong><span>Full investor presentation</span></span>
+<span class="doc-cta">PDF ↓</span>
+</a>
+<a class="doc-row" href="GETH_Financial_Model.pdf" download onclick="gtag('event','document_download',{'file_name':'financial_model'});ym(110179125,'reachGoal','doc_download');">
+<svg class="icon"><use href="#i-doc"/></svg>
+<span class="doc-info"><strong>Financial Model</strong><span>Assumptions, projections, use of funds</span></span>
+<span class="doc-cta">PDF ↓</span>
+</a>
 </div>
 <div class="receive-box">
 <h3>What Investors Receive</h3>
