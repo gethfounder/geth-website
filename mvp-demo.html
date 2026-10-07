@@ -162,9 +162,9 @@ body{font-family:var(--font-body);line-height:1.65;color:var(--ink);background:v
 </div>
 <div class="compare-col geth">
 <div class="compare-label">GETH — Simulated Flow</div>
-<div class="compare-row"><span>Counterparty vetting</span><strong>&lt;10 min — AI-scored against 847 companies</strong></div>
+<div class="compare-row"><span>Counterparty vetting</span><strong>Target &lt;10 min — AI scoring (simulated database)</strong></div>
 <div class="compare-row"><span>Certificate trust</span><strong>NFT-bound certificate, on-chain hash</strong></div>
-<div class="compare-row"><span>Settlement</span><strong>Minutes — smart contract, bank webhook</strong></div>
+<div class="compare-row"><span>Settlement</span><strong>Target same-day — bank escrow release on confirmed inspection</strong></div>
 <div class="compare-row"><span>Disputes</span><strong>Tiered resolution — first step is free, 0–14 days</strong></div>
 </div>
 </div>
@@ -719,7 +719,7 @@ resultDiv.innerHTML = `
 <div style="color: #7FD9B9;">HTTP 200 OK</div>
 Match Found: ${state.role === 'seller' ? '3 Qualified Buyers' : '3 Qualified Sellers'}
 Search Time: 2.3 seconds
-Total Analyzed: 847 companies
+Total Analyzed: 847 companies (simulated database)
 Filtered by: KYC Status, Trust Score, Trading History, Incoterms Preference
 Matching Criteria & Weights:
 ├─ Trust score & default history: 35%
@@ -827,7 +827,7 @@ Route: ${state.dealData.origin} → ${state.dealData.destination}
 Quality standard: EN590:2013 + ISO 2002:2019
 Inspection: SGS at load and discharge ports
 Governing law: English Common Law (DIFC)
-Dispute resolution: DIFC-LCIA Arbitration</textarea>
+Dispute resolution: DIAC Arbitration (Dubai)</textarea>
 </div>
 <div class="btn-group">
 <button class="btn btn-secondary" onclick="renderStep(7)">← Back</button>
@@ -959,7 +959,7 @@ seller = _seller;
 buyer = _buyer;
 commodityValue = _value;
 incoterms = _incoterms;
-platformFee = (_value * 11) / 1000;
+platformFee = (_value * 11) / 1000; <span style="color: #888;">// 1.10%, min $5k, max $750k (clamped)</span>
 currentState = State.SIGNED;
 }
 <span style="color: #ff6b6b;">function</span> lockFunds() <span style="color: #ff6b6b;">external payable</span> {
@@ -1018,17 +1018,17 @@ btn.style.display = 'none';
 // STEP 11: Select Logistics Provider
 function step11_SelectLogistics() {
 const logisticsProviders = [
-{ name: 'MSC (Mediterranean Shipping Company)', rating: 4.8, fleet: '700+ vessels', transit: '18-22 days', price: '$185,000' },
-{ name: 'Maersk Line', rating: 4.9, fleet: '700+ vessels', transit: '16-20 days', price: '$195,000' },
-{ name: 'CMA CGM', rating: 4.7, fleet: '500+ vessels', transit: '20-24 days', price: '$175,000' }
+{ name: 'Shipbroker quote A — LR1 product tanker (simulated)', rating: 4.8, fleet: 'LR1, 74k DWT, 2015-built', transit: '20-24 days via Suez', price: '$1,850,000 lumpsum' },
+{ name: 'Shipbroker quote B — LR1 product tanker (simulated)', rating: 4.7, fleet: 'LR1, 73k DWT, 2012-built', transit: '21-25 days via Suez', price: '$1,780,000 lumpsum' },
+{ name: 'Shipbroker quote C — LR2 product tanker (simulated)', rating: 4.9, fleet: 'LR2, 110k DWT, part cargo', transit: '20-24 days via Suez', price: '$1,950,000 lumpsum' }
 ];
 return `
 <div class="step">
 <div class="step-header">
 <div class="step-number">11</div>
-<h3><svg class="step-icon"><use href="#i-ship"/></svg>Select Logistics Provider</h3>
+<h3><svg class="step-icon"><use href="#i-ship"/></svg>Select Tanker Charter</h3>
 </div>
-<p class="step-description">Choose a logistics provider for cargo transportation. The selected provider will handle shipping according to Incoterms: ${state.dealData.incoterms}.</p>
+<p class="step-description">Choose a tanker fixture offered via shipbroker (voyage charter). Freight is paid by the party responsible under Incoterms ${state.dealData.incoterms} — directly to the owner, outside GETH escrow.</p>
 <div style="background: var(--gray-light); padding: 1.5rem; border-radius: 3px; margin-bottom: 1.5rem;">
 <strong>Shipment Details:</strong><br>
 Route: ${state.dealData.origin} → ${state.dealData.destination}<br>
@@ -1044,16 +1044,16 @@ ${logisticsProviders.map((lp, idx) => `
 <span class="trust-badge trust-high">⭐ ${lp.rating}</span>
 </div>
 <div class="logistics-details">
-<div><strong>Fleet Size:</strong> ${lp.fleet}</div>
+<div><strong>Vessel:</strong> ${lp.fleet}</div>
 <div><strong>Transit Time:</strong> ${lp.transit}</div>
-<div><strong>Price:</strong> ${lp.price}</div>
+<div><strong>Freight:</strong> ${lp.price}</div>
 </div>
 </div>
 `).join('')}
 </div>
 <div class="btn-group">
 <button class="btn btn-secondary" onclick="renderStep(10)">← Back</button>
-<button class="btn btn-primary" onclick="proceedToEscrow()" id="logistics-btn" disabled>Select Provider & Proceed to Escrow</button>
+<button class="btn btn-primary" onclick="proceedToEscrow()" id="logistics-btn" disabled>Fix Vessel & Proceed to Escrow</button>
 </div>
 </div>`;
 }
@@ -1210,8 +1210,10 @@ btn.style.display = 'none';
 }, 2000);
 }
 // STEP 14: Settlement
+// GETH fee: 1.10% all-in, min $5,000, max $750,000 per deal
+function gethFee(v) { return Math.min(Math.max(v * 0.011, 5000), 750000); }
 function step14_Settlement() {
-const platformFee = state.dealData.totalValue * 0.011;
+const platformFee = gethFee(state.dealData.totalValue);
 const elapsed = Math.round((Date.now() - state.startTime) / 1000);
 return `
 <div class="step">
@@ -1238,7 +1240,7 @@ document.getElementById('settle-result').innerHTML = `
 <div class="dispute-tier-mini"><span><strong>Tier 1</strong> — Direct negotiation</span><span>0–14 days · free</span></div>
 <div class="dispute-tier-mini"><span><strong>Tier 2</strong> — Platform mediation</span><span>14–30 days · $500–2,000</span></div>
 <div class="dispute-tier-mini"><span><strong>Tier 3</strong> — Expert determination</span><span>30–60 days · $5,000–20,000</span></div>
-<div class="dispute-tier-mini"><span><strong>Tier 4</strong> — DIFC-LCIA arbitration</span><span>60–180 days · binding</span></div>
+<div class="dispute-tier-mini"><span><strong>Tier 4</strong> — DIAC arbitration (Dubai)</span><span>60–180 days · binding</span></div>
 <p style="margin-top:1rem; font-size:0.85rem; color:var(--ink-soft);">Compare this to a typical OTC dispute today, which runs 18+ months through courts with no structured off-ramp. This branch is the reason escrow — not direct payment — is central to the platform design.</p>
 <div class="btn-group">
 <button class="btn btn-secondary" onclick="renderStep(14)">← Back to Settlement</button>
@@ -1248,7 +1250,7 @@ document.getElementById('settle-result').innerHTML = `
 function executeSettlement() {
 const btn = document.getElementById('settle-btn');
 const resultDiv = document.getElementById('settle-result');
-const platformFee = state.dealData.totalValue * 0.011;
+const platformFee = gethFee(state.dealData.totalValue);
 const elapsed = Math.round((Date.now() - state.startTime) / 1000);
 btn.disabled = true;
 btn.innerHTML = '<span class="spinner"></span> Executing settlement...';
@@ -1263,16 +1265,15 @@ Block: ${Math.floor(Math.random() * 10000000 + 24000000)}
 Gas Used: 312,847
 Status: SUCCESS ✓
 Payment Distribution:
-├─ Seller (${state.role === 'seller' ? state.kycData.company : 'Counterparty'}): $${(state.dealData.totalValue - platformFee).toLocaleString(undefined, {maximumFractionDigits: 0})} (98.90%)
-─ Carrier (MSC): $185,000 (Logistics)
-├─ Insurer (Lloyd's): $${(state.dealData.totalValue * 0.0025).toLocaleString(undefined, {maximumFractionDigits: 0})} (0.25%)
-├─ GETH Platform: $${platformFee.toLocaleString(undefined, {maximumFractionDigits: 0})} (1.10%)
-└─ Total: $${state.dealData.totalValue.toLocaleString()}
+├─ Seller (${state.role === 'seller' ? state.kycData.company : 'Counterparty'}): $${(state.dealData.totalValue - platformFee).toLocaleString(undefined, {maximumFractionDigits: 0})} (${(100 - platformFee / state.dealData.totalValue * 100).toFixed(2)}%)
+├─ GETH Platform fee: $${platformFee.toLocaleString(undefined, {maximumFractionDigits: 0})} (${(platformFee / state.dealData.totalValue * 100).toFixed(2)}%, min $5k / max $750k)
+└─ Total released from escrow: $${state.dealData.totalValue.toLocaleString()}
+Outside escrow (paid per Incoterms ${state.dealData.incoterms}):
+├─ Freight: paid to vessel owner under the charter party
+└─ Cargo insurance: paid to insurer by the responsible party
 Bank Webhooks:
 ├─ RAKBANK: FUNDS_RELEASED ✓
 ├─ Seller Account: CREDITED ✓
-├─ Carrier Account: CREDITED ✓
-├─ Insurer Account: CREDITED ✓
 └─ GETH Treasury: CREDITED ✓
 NFT Status:
 ├─ Quality Certificate NFT: BURNED ✓
@@ -1291,7 +1292,7 @@ Smart Contract State: COMPLETED
 </div>
 <div class="summary-item">
 <div class="summary-label">Settlement Time</div>
-<div class="summary-value">60 seconds</div>
+<div class="summary-value">Same day (target)</div>
 </div>
 <div class="summary-item">
 <div class="summary-label">Total Process Time</div>
@@ -1301,8 +1302,8 @@ Smart Contract State: COMPLETED
 <div style="background: linear-gradient(135deg, var(--black), var(--gray-dark)); color: var(--white); padding: 2rem; border-radius: 3px; margin-top: 2rem;">
 <h3 style="color: var(--teal); margin-bottom: 1rem; font-family: var(--font-display);">Deal Successfully Completed</h3>
 <div class="big-metric">
-<div class="compare-arrow"><span class="from">18+ months</span><span>→</span><span class="to">${elapsed}s</span></div>
-<div class="caption">Typical time for an OTC commodity dispute-free settlement cycle vs. this simulated GETH flow</div>
+<div class="compare-arrow"><span class="from">3–6 weeks</span><span>→</span><span class="to">same day</span></div>
+<div class="caption">Typical OTC settlement cycle vs. GETH target (escrow release on confirmed inspection)</div>
 </div>
 <p style="line-height: 1.7;">
 This is a simulated walkthrough of the target workflow — no live AI, blockchain, or third-party APIs are called in this demo. It illustrates the logic GETH plans to build: AI-assisted counterparty matching, smart-contract escrow, and automated settlement, once the legal foundation (see main site) is in place.
